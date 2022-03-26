@@ -1,0 +1,10 @@
+C:\Development\CS3550\FontEndAnimalShelter\FrontEndAnimalShelter\FrontEndAnimalShelter\bin\Debug\FrontEndAnimalShelter.exe.config
+C:\Development\CS3550\FontEndAnimalShelter\FrontEndAnimalShelter\FrontEndAnimalShelter\bin\Debug\FrontEndAnimalShelter.exe
+C:\Development\CS3550\FontEndAnimalShelter\FrontEndAnimalShelter\FrontEndAnimalShelter\bin\Debug\FrontEndAnimalShelter.pdb
+C:\Development\CS3550\FontEndAnimalShelter\FrontEndAnimalShelter\FrontEndAnimalShelter\obj\Debug\FrontEndAnimalShelter.csproj.AssemblyReference.cache
+C:\Development\CS3550\FontEndAnimalShelter\FrontEndAnimalShelter\FrontEndAnimalShelter\obj\Debug\FrontEndAnimalShelter.Properties.Resources.resources
+C:\Development\CS3550\FontEndAnimalShelter\FrontEndAnimalShelter\FrontEndAnimalShelter\obj\Debug\FrontEndAnimalShelter.csproj.GenerateResource.cache
+C:\Development\CS3550\FontEndAnimalShelter\FrontEndAnimalShelter\FrontEndAnimalShelter\obj\Debug\FrontEndAnimalShelter.csproj.CoreCompileInputs.cache
+C:\Development\CS3550\FontEndAnimalShelter\FrontEndAnimalShelter\FrontEndAnimalShelter\obj\Debug\FrontEndAnimalShelter.exe
+C:\Development\CS3550\FontEndAnimalShelter\FrontEndAnimalShelter\FrontEndAnimalShelter\obj\Debug\FrontEndAnimalShelter.pdb
+C:\Development\CS3550\FontEndAnimalShelter\FrontEndAnimalShelter\FrontEndAnimalShelter\obj\Debug\FrontEndAnimalShelter.Form1.resources
