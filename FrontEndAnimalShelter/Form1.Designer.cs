@@ -38,12 +38,15 @@ namespace FrontEndAnimalShelter
             // 
             // btnEquals
             // 
-            this.btnEquals.Location = new System.Drawing.Point(520, 93);
+            this.btnEquals.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnEquals.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnEquals.Location = new System.Drawing.Point(924, 144);
+            this.btnEquals.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnEquals.Name = "btnEquals";
-            this.btnEquals.Size = new System.Drawing.Size(88, 39);
+            this.btnEquals.Size = new System.Drawing.Size(156, 60);
             this.btnEquals.TabIndex = 0;
             this.btnEquals.Text = "=";
-            this.btnEquals.UseVisualStyleBackColor = true;
+            this.btnEquals.UseVisualStyleBackColor = false;
             this.btnEquals.Click += new System.EventHandler(this.btnEquals_Click);
             // 
             // cmbBox1
@@ -59,9 +62,10 @@ namespace FrontEndAnimalShelter
             "7",
             "8",
             "9"});
-            this.cmbBox1.Location = new System.Drawing.Point(112, 104);
+            this.cmbBox1.Location = new System.Drawing.Point(199, 161);
+            this.cmbBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.cmbBox1.Name = "cmbBox1";
-            this.cmbBox1.Size = new System.Drawing.Size(121, 28);
+            this.cmbBox1.Size = new System.Drawing.Size(212, 39);
             this.cmbBox1.TabIndex = 1;
             // 
             // cmbBox2
@@ -77,39 +81,43 @@ namespace FrontEndAnimalShelter
             "7",
             "8",
             "9"});
-            this.cmbBox2.Location = new System.Drawing.Point(338, 104);
+            this.cmbBox2.Location = new System.Drawing.Point(601, 161);
+            this.cmbBox2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.cmbBox2.Name = "cmbBox2";
-            this.cmbBox2.Size = new System.Drawing.Size(121, 28);
+            this.cmbBox2.Size = new System.Drawing.Size(212, 39);
             this.cmbBox2.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(275, 107);
+            this.label1.Location = new System.Drawing.Point(489, 166);
+            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 20);
+            this.label1.Size = new System.Drawing.Size(31, 32);
             this.label1.TabIndex = 3;
             this.label1.Text = "+";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(296, 177);
+            this.label2.Location = new System.Drawing.Point(526, 274);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 20);
+            this.label2.Size = new System.Drawing.Size(162, 32);
             this.label2.TabIndex = 4;
             this.label2.Text = "Hello World";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1422, 697);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbBox2);
             this.Controls.Add(this.cmbBox1);
             this.Controls.Add(this.btnEquals);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
