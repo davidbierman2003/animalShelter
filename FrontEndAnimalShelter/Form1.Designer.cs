@@ -33,6 +33,7 @@ namespace FrontEndAnimalShelter
             this.cmbBox1 = new System.Windows.Forms.ComboBox();
             this.cmbBox2 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnEquals
@@ -90,11 +91,21 @@ namespace FrontEndAnimalShelter
             this.label1.TabIndex = 3;
             this.label1.Text = "+";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(296, 177);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 20);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Hello World";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbBox2);
             this.Controls.Add(this.cmbBox1);
@@ -112,6 +123,7 @@ namespace FrontEndAnimalShelter
         private System.Windows.Forms.ComboBox cmbBox1;
         private System.Windows.Forms.ComboBox cmbBox2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
