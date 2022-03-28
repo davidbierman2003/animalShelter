@@ -1,4 +1,6 @@
-USE animal_shelter;
+
+CREATE database animal_medical;
+USE animal_medical;
 
 CREATE TABLE Animal (
     animal_id INT NOT NULL,
