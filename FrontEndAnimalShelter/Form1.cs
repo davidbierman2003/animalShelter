@@ -23,5 +23,12 @@ namespace FrontEndAnimalShelter
 
             MessageBox.Show(cmbBox1.Text + " + " + cmbBox2.Text + " = "  + answer);
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'animal_medicalDataSet.animal' table. You can move, or remove it, as needed.
+            this.animalTableAdapter.Fill(this.animal_medicalDataSet.animal);
+
+        }
     }
 }
