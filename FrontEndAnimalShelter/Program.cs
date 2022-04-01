@@ -16,7 +16,7 @@ namespace FrontEndAnimalShelter
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MDI());
+            Application.Run(new Form1());
         }
     }
 }

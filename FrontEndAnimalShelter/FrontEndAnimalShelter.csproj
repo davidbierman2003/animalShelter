@@ -48,11 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="animal_medicalDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>animal_medicalDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,17 +77,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="animal_medicalDataSet.xsc">
-      <DependentUpon>animal_medicalDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="animal_medicalDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>animal_medicalDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="animal_medicalDataSet.xss">
-      <DependentUpon>animal_medicalDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -108,7 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
-      <Project>{4747ac88-0035-48bb-ac19-65334a7c9bc9}</Project>
+      <Project>{87c808c0-7bf0-461a-8bc5-48097297a279}</Project>
       <Name>DataAccessLayer</Name>
     </ProjectReference>
   </ItemGroup>

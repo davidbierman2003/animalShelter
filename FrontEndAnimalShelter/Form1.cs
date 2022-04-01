@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataAccessLayer;
 
 namespace FrontEndAnimalShelter
 {
@@ -15,6 +16,8 @@ namespace FrontEndAnimalShelter
         public Form1()
         {
             InitializeComponent();
+            AnimalMedical.animalDataTable dtAnimalTable = Utility.GetAnimals();
+            AnimalTable.DataSource = dtAnimalTable;
         }
 
         private void btnEquals_Click(object sender, EventArgs e)
@@ -24,11 +27,5 @@ namespace FrontEndAnimalShelter
             MessageBox.Show(cmbBox1.Text + " + " + cmbBox2.Text + " = "  + answer);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'animal_medicalDataSet.animal' table. You can move, or remove it, as needed.
-            this.animalTableAdapter.Fill(this.animal_medicalDataSet.animal);
-
-        }
     }
 }

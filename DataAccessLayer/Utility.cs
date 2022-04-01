@@ -14,7 +14,7 @@ namespace DataAccessLayer
         /// <summary>
         /// GetAnimal: returns all data from the Animal table
         /// </summary>
-        public static AnimalMedical.animalDataTable GetAnimal() 
+        public static AnimalMedical.animalDataTable GetAnimals()
         {
             AnimalMedical.animalDataTable dtAnimalTable = new AnimalMedical.animalDataTable();  //creating in memory table dtAnimalTable
             AnimalMedicalTableAdapters.animalTableAdapter animalAdater = new AnimalMedicalTableAdapters.animalTableAdapter(); //component used to fill the dtAnimalTable with the database Animal table data
@@ -24,3 +24,4 @@ namespace DataAccessLayer
         }
     }
 }
+
