@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DataAccessLayer;
+using System;
 using System.Windows.Forms;
-using DataAccessLayer;
 
 namespace FrontEndAnimalShelter
 {
@@ -20,12 +13,35 @@ namespace FrontEndAnimalShelter
             AnimalTable.DataSource = dtAnimalTable;
         }
 
-        private void btnEquals_Click(object sender, EventArgs e)
+        private void btnSubmit_Click(object sender, EventArgs e)
         {
-            int answer = Convert.ToInt32(cmbBox1.Text) + Convert.ToInt32(cmbBox2.Text);
+           
 
-            MessageBox.Show(cmbBox1.Text + " + " + cmbBox2.Text + " = "  + answer);
+            DateTime test = new DateTime(2022, 10, 07);
+            Decimal weight = string.IsNullOrEmpty(txtBxWeight.Text) ? 0 : decimal.Parse(txtBxWeight.Text);
+            int animalId = string.IsNullOrEmpty(txtBxAnimalID.Text) ? 0 : int.Parse(txtBxAnimalID.Text);
+            int gender = cmbBoxGender.SelectedIndex;
+            int speciesID = string.IsNullOrEmpty(txtBxSpeciesID.Text) ? 0 : int.Parse(txtBxSpeciesID.Text);
+
+            Utility.SaveAnimal(animalId,txtBxName.Text, gender, dateTimePickerDateOfBirth.Value, txtBxMicrochipID.Text,
+                 dateTimePickerDueOutDate.Value, dateTimePickerIntakeDate.Value, txtBxNotes.Text, weight,txtBxKennel.Text, speciesID);
+
+
+            RefreshGridData();
+
+
         }
 
+        private void RefreshGridData() 
+        {
+            // get the current data from the database
+            // and assign it to the grid
+            AnimalMedical.animalDataTable dtAnimalTable = Utility.GetAnimals();
+            AnimalTable.DataSource = dtAnimalTable;
+
+
+        }
+
+        
     }
 }
