@@ -64,10 +64,9 @@ namespace FrontEndAnimalShelter
             // 
             this.btnSubmit.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnSubmit.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnSubmit.Location = new System.Drawing.Point(732, 319);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSubmit.Location = new System.Drawing.Point(1098, 491);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(102, 51);
+            this.btnSubmit.Size = new System.Drawing.Size(153, 78);
             this.btnSubmit.TabIndex = 0;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = false;
@@ -76,61 +75,65 @@ namespace FrontEndAnimalShelter
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(183, 70);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(274, 108);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.Size = new System.Drawing.Size(0, 20);
             this.label1.TabIndex = 3;
             // 
             // AnimalTable
             // 
             this.AnimalTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AnimalTable.Location = new System.Drawing.Point(36, 404);
-            this.AnimalTable.Margin = new System.Windows.Forms.Padding(1);
+            this.AnimalTable.Location = new System.Drawing.Point(54, 622);
+            this.AnimalTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AnimalTable.Name = "AnimalTable";
             this.AnimalTable.RowHeadersWidth = 102;
             this.AnimalTable.RowTemplate.Height = 40;
-            this.AnimalTable.Size = new System.Drawing.Size(798, 201);
+            this.AnimalTable.Size = new System.Drawing.Size(1197, 309);
             this.AnimalTable.TabIndex = 5;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(50, 70);
+            this.label2.Location = new System.Drawing.Point(75, 108);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(51, 20);
             this.label2.TabIndex = 6;
             this.label2.Text = "Name";
             // 
             // txtBxName
             // 
-            this.txtBxName.Location = new System.Drawing.Point(108, 67);
+            this.txtBxName.Location = new System.Drawing.Point(162, 103);
+            this.txtBxName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBxName.Name = "txtBxName";
-            this.txtBxName.Size = new System.Drawing.Size(100, 20);
+            this.txtBxName.Size = new System.Drawing.Size(148, 26);
             this.txtBxName.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(33, 33);
+            this.label3.Location = new System.Drawing.Point(50, 51);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.Size = new System.Drawing.Size(78, 20);
             this.label3.TabIndex = 8;
             this.label3.Text = "Animal ID";
             // 
             // txtBxAnimalID
             // 
-            this.txtBxAnimalID.Location = new System.Drawing.Point(108, 30);
+            this.txtBxAnimalID.Location = new System.Drawing.Point(162, 46);
+            this.txtBxAnimalID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBxAnimalID.Name = "txtBxAnimalID";
-            this.txtBxAnimalID.Size = new System.Drawing.Size(100, 20);
+            this.txtBxAnimalID.Size = new System.Drawing.Size(148, 26);
             this.txtBxAnimalID.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(43, 111);
+            this.label4.Location = new System.Drawing.Point(64, 171);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 13);
+            this.label4.Size = new System.Drawing.Size(63, 20);
             this.label4.TabIndex = 9;
             this.label4.Text = "Gender";
             // 
@@ -141,145 +144,162 @@ namespace FrontEndAnimalShelter
             "Unknown",
             "Male",
             "Female"});
-            this.cmbBoxGender.Location = new System.Drawing.Point(108, 103);
+            this.cmbBoxGender.Location = new System.Drawing.Point(162, 158);
+            this.cmbBoxGender.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbBoxGender.Name = "cmbBoxGender";
-            this.cmbBoxGender.Size = new System.Drawing.Size(100, 21);
+            this.cmbBoxGender.Size = new System.Drawing.Size(148, 28);
             this.cmbBoxGender.TabIndex = 3;
             // 
             // dateTimePickerDateOfBirth
             // 
-            this.dateTimePickerDateOfBirth.Location = new System.Drawing.Point(108, 146);
+            this.dateTimePickerDateOfBirth.Location = new System.Drawing.Point(162, 225);
+            this.dateTimePickerDateOfBirth.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePickerDateOfBirth.Name = "dateTimePickerDateOfBirth";
-            this.dateTimePickerDateOfBirth.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerDateOfBirth.Size = new System.Drawing.Size(298, 26);
             this.dateTimePickerDateOfBirth.TabIndex = 4;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(19, 153);
+            this.label5.Location = new System.Drawing.Point(28, 235);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 13);
+            this.label5.Size = new System.Drawing.Size(99, 20);
             this.label5.TabIndex = 13;
             this.label5.Text = "Date of Birth";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 190);
+            this.label6.Location = new System.Drawing.Point(33, 292);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 13);
+            this.label6.Size = new System.Drawing.Size(97, 20);
             this.label6.TabIndex = 14;
             this.label6.Text = "Microchip ID";
             // 
             // txtBxMicrochipID
             // 
-            this.txtBxMicrochipID.Location = new System.Drawing.Point(108, 187);
+            this.txtBxMicrochipID.Location = new System.Drawing.Point(162, 288);
+            this.txtBxMicrochipID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBxMicrochipID.Name = "txtBxMicrochipID";
-            this.txtBxMicrochipID.Size = new System.Drawing.Size(100, 20);
+            this.txtBxMicrochipID.Size = new System.Drawing.Size(148, 26);
             this.txtBxMicrochipID.TabIndex = 5;
             // 
             // dateTimePickerDueOutDate
             // 
-            this.dateTimePickerDueOutDate.Location = new System.Drawing.Point(108, 227);
+            this.dateTimePickerDueOutDate.Location = new System.Drawing.Point(162, 349);
+            this.dateTimePickerDueOutDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePickerDueOutDate.Name = "dateTimePickerDueOutDate";
-            this.dateTimePickerDueOutDate.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerDueOutDate.Size = new System.Drawing.Size(298, 26);
             this.dateTimePickerDueOutDate.TabIndex = 6;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 233);
+            this.label7.Location = new System.Drawing.Point(18, 358);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 13);
+            this.label7.Size = new System.Drawing.Size(108, 20);
             this.label7.TabIndex = 15;
             this.label7.Text = "Due Out Date";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(23, 278);
+            this.label8.Location = new System.Drawing.Point(34, 428);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(62, 13);
+            this.label8.Size = new System.Drawing.Size(91, 20);
             this.label8.TabIndex = 16;
             this.label8.Text = "Arrival Date";
             // 
             // dateTimePickerIntakeDate
             // 
-            this.dateTimePickerIntakeDate.Location = new System.Drawing.Point(108, 272);
+            this.dateTimePickerIntakeDate.Location = new System.Drawing.Point(162, 418);
+            this.dateTimePickerIntakeDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePickerIntakeDate.Name = "dateTimePickerIntakeDate";
-            this.dateTimePickerIntakeDate.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerIntakeDate.Size = new System.Drawing.Size(298, 26);
             this.dateTimePickerIntakeDate.TabIndex = 7;
             // 
             // txtBxNotes
             // 
-            this.txtBxNotes.Location = new System.Drawing.Point(108, 310);
+            this.txtBxNotes.Location = new System.Drawing.Point(162, 477);
+            this.txtBxNotes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBxNotes.Multiline = true;
             this.txtBxNotes.Name = "txtBxNotes";
-            this.txtBxNotes.Size = new System.Drawing.Size(200, 53);
+            this.txtBxNotes.Size = new System.Drawing.Size(298, 79);
             this.txtBxNotes.TabIndex = 8;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(50, 313);
+            this.label9.Location = new System.Drawing.Point(75, 482);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 13);
+            this.label9.Size = new System.Drawing.Size(51, 20);
             this.label9.TabIndex = 18;
             this.label9.Text = "Notes";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(383, 30);
+            this.label10.Location = new System.Drawing.Point(539, 40);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 13);
+            this.label10.Size = new System.Drawing.Size(93, 20);
             this.label10.TabIndex = 19;
-            this.label10.Text = "Weight";
+            this.label10.Text = "Weight (lbs)";
             // 
             // txtBxWeight
             // 
-            this.txtBxWeight.Location = new System.Drawing.Point(442, 26);
+            this.txtBxWeight.Location = new System.Drawing.Point(663, 40);
+            this.txtBxWeight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBxWeight.Name = "txtBxWeight";
-            this.txtBxWeight.Size = new System.Drawing.Size(100, 20);
+            this.txtBxWeight.Size = new System.Drawing.Size(148, 26);
             this.txtBxWeight.TabIndex = 9;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(383, 74);
+            this.label11.Location = new System.Drawing.Point(574, 114);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(40, 13);
+            this.label11.Size = new System.Drawing.Size(58, 20);
             this.label11.TabIndex = 20;
             this.label11.Text = "Kennel";
             // 
             // txtBxKennel
             // 
-            this.txtBxKennel.Location = new System.Drawing.Point(442, 74);
+            this.txtBxKennel.Location = new System.Drawing.Point(663, 114);
+            this.txtBxKennel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBxKennel.Name = "txtBxKennel";
-            this.txtBxKennel.Size = new System.Drawing.Size(100, 20);
+            this.txtBxKennel.Size = new System.Drawing.Size(148, 26);
             this.txtBxKennel.TabIndex = 10;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(384, 132);
+            this.label12.Location = new System.Drawing.Point(566, 203);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(45, 13);
+            this.label12.Size = new System.Drawing.Size(66, 20);
             this.label12.TabIndex = 21;
             this.label12.Text = "Species";
             // 
             // txtBxSpeciesID
             // 
-            this.txtBxSpeciesID.Location = new System.Drawing.Point(442, 132);
+            this.txtBxSpeciesID.Location = new System.Drawing.Point(663, 203);
+            this.txtBxSpeciesID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBxSpeciesID.Name = "txtBxSpeciesID";
-            this.txtBxSpeciesID.Size = new System.Drawing.Size(100, 20);
+            this.txtBxSpeciesID.Size = new System.Drawing.Size(148, 26);
             this.txtBxSpeciesID.TabIndex = 22;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(878, 626);
+            this.ClientSize = new System.Drawing.Size(1317, 963);
             this.Controls.Add(this.txtBxSpeciesID);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtBxKennel);
@@ -305,9 +325,8 @@ namespace FrontEndAnimalShelter
             this.Controls.Add(this.AnimalTable);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSubmit);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "S";
             ((System.ComponentModel.ISupportInitialize)(this.animalBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AnimalTable)).EndInit();
             this.ResumeLayout(false);

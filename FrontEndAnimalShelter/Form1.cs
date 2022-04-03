@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer;
 using System;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace FrontEndAnimalShelter
 {
@@ -16,10 +17,24 @@ namespace FrontEndAnimalShelter
         private void btnSubmit_Click(object sender, EventArgs e)
         {
            
-
-            DateTime test = new DateTime(2022, 10, 07);
             Decimal weight = string.IsNullOrEmpty(txtBxWeight.Text) ? 0 : decimal.Parse(txtBxWeight.Text);
             int animalId = string.IsNullOrEmpty(txtBxAnimalID.Text) ? 0 : int.Parse(txtBxAnimalID.Text);
+
+            
+
+
+           //the animalId must be unique.
+           AnimalMedical.animalDataTable dtAnimalTable = Utility.GetAnimals();
+
+           var findAnimalId = dtAnimalTable.Where(x => x.animal_id == animalId).ToList();
+            //if the user selects an animal id that has already been taken the program will end. 
+            if(findAnimalId.Count > 0)
+            {
+                MessageBox.Show("The anamial id " + animalId + " has already been taken.\nChoose a different animal id!");
+                return;
+            }
+
+
             int gender = cmbBoxGender.SelectedIndex;
             int speciesID = string.IsNullOrEmpty(txtBxSpeciesID.Text) ? 0 : int.Parse(txtBxSpeciesID.Text);
 
