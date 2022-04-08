@@ -5,13 +5,13 @@ using System.Linq;
 
 namespace FrontEndAnimalShelter
 {
-    public partial class Form1 : Form
+    public partial class AddAnimal : Form
     {
-        public Form1()
+        public AddAnimal()
         {
             InitializeComponent();
             AnimalMedical.animalDataTable dtAnimalTable = Utility.GetAnimals();
-            AnimalTable.DataSource = dtAnimalTable;
+            //AnimalTable.DataSource = dtAnimalTable;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -42,21 +42,19 @@ namespace FrontEndAnimalShelter
                  dateTimePickerDueOutDate.Value, dateTimePickerIntakeDate.Value, txtBxNotes.Text, weight,txtBxKennel.Text, speciesID);
 
 
-            RefreshGridData();
+            //RefreshGridData();
 
 
         }
 
-        private void RefreshGridData() 
-        {
-            // get the current data from the database
-            // and assign it to the grid
-            AnimalMedical.animalDataTable dtAnimalTable = Utility.GetAnimals();
-            AnimalTable.DataSource = dtAnimalTable;
+        //private void RefreshGridData() 
+        //{
+        //    // get the current data from the database
+        //    // and assign it to the grid
+        //    AnimalMedical.animalDataTable dtAnimalTable = Utility.GetAnimals();
+        //    AnimalTable.DataSource = dtAnimalTable;
 
 
-        }
-
-        
+        //}
     }
 }

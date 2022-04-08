@@ -28,9 +28,12 @@ namespace FrontEndAnimalShelter
            
         }
 
+        /// <summary>
+        /// When "Create Animal" tab is entered the AddAnimal form is generated in the tabpage
+        /// </summary>
         private void TabCreateAnimal_Enter(object sender, EventArgs e)
         {
-            Form childForm = new Form1();
+            Form childForm = new AddAnimal();
             childForm.BringToFront();
             childForm.Dock = DockStyle.Fill;
             childForm.TopLevel = false;
@@ -38,10 +41,17 @@ namespace FrontEndAnimalShelter
             childForm.Visible = true;
         }
 
+        /// <summary>
+        /// When "View Animal" tab is entered the ViewAnimal form is generated in the tabpage
+        /// </summary>
         private void TabViewAnimal_Enter(object sender, EventArgs e)
         {
-            
-           
+            Form childForm = new ViewAnimal();
+            childForm.BringToFront();
+            childForm.Dock = DockStyle.Fill;
+            childForm.TopLevel = false;
+            tabViewAnimal.Controls.Add(childForm);
+            childForm.Visible = true;
         }
 
     }

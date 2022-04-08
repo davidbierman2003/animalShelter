@@ -1,7 +1,7 @@
 ﻿
 namespace FrontEndAnimalShelter
 {
-    partial class Form1
+    partial class AddAnimal
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,6 @@ namespace FrontEndAnimalShelter
             this.components = new System.ComponentModel.Container();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.AnimalTable = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.txtBxName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,7 +55,6 @@ namespace FrontEndAnimalShelter
             this.label12 = new System.Windows.Forms.Label();
             this.txtBxSpeciesID = new System.Windows.Forms.TextBox();
             this.animalBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.AnimalTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.animalBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,7 +63,7 @@ namespace FrontEndAnimalShelter
             this.btnSubmit.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnSubmit.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnSubmit.Location = new System.Drawing.Point(1952, 761);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(5);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(272, 121);
             this.btnSubmit.TabIndex = 0;
@@ -81,17 +79,6 @@ namespace FrontEndAnimalShelter
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 32);
             this.label1.TabIndex = 3;
-            // 
-            // AnimalTable
-            // 
-            this.AnimalTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AnimalTable.Location = new System.Drawing.Point(96, 964);
-            this.AnimalTable.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.AnimalTable.Name = "AnimalTable";
-            this.AnimalTable.RowHeadersWidth = 102;
-            this.AnimalTable.RowTemplate.Height = 40;
-            this.AnimalTable.Size = new System.Drawing.Size(2128, 479);
-            this.AnimalTable.TabIndex = 5;
             // 
             // label2
             // 
@@ -297,7 +284,7 @@ namespace FrontEndAnimalShelter
             this.txtBxSpeciesID.Size = new System.Drawing.Size(260, 38);
             this.txtBxSpeciesID.TabIndex = 22;
             // 
-            // Form1
+            // AddAnimal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -325,14 +312,12 @@ namespace FrontEndAnimalShelter
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtBxName);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.AnimalTable);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSubmit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.Name = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(5);
+            this.Name = "AddAnimal";
             this.Text = "S";
-            ((System.ComponentModel.ISupportInitialize)(this.AnimalTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.animalBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -344,7 +329,6 @@ namespace FrontEndAnimalShelter
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource animalBindingSource;
-        private System.Windows.Forms.DataGridView AnimalTable;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtBxName;
         private System.Windows.Forms.Label label3;
