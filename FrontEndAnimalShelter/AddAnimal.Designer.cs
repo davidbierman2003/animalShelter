@@ -53,8 +53,8 @@ namespace FrontEndAnimalShelter
             this.label11 = new System.Windows.Forms.Label();
             this.txtBxKennel = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtBxSpeciesID = new System.Windows.Forms.TextBox();
             this.animalBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cmbBoxSpecies = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.animalBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,10 +62,9 @@ namespace FrontEndAnimalShelter
             // 
             this.btnSubmit.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnSubmit.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnSubmit.Location = new System.Drawing.Point(1952, 761);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(5);
+            this.btnSubmit.Location = new System.Drawing.Point(1098, 491);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(272, 121);
+            this.btnSubmit.Size = new System.Drawing.Size(153, 78);
             this.btnSubmit.TabIndex = 0;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = false;
@@ -74,55 +73,54 @@ namespace FrontEndAnimalShelter
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(487, 167);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label1.Location = new System.Drawing.Point(274, 108);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 32);
+            this.label1.Size = new System.Drawing.Size(0, 20);
             this.label1.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(133, 167);
-            this.label2.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label2.Location = new System.Drawing.Point(75, 108);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 32);
+            this.label2.Size = new System.Drawing.Size(51, 20);
             this.label2.TabIndex = 6;
             this.label2.Text = "Name";
             // 
             // txtBxName
             // 
-            this.txtBxName.Location = new System.Drawing.Point(288, 160);
-            this.txtBxName.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.txtBxName.Location = new System.Drawing.Point(162, 103);
+            this.txtBxName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBxName.Name = "txtBxName";
-            this.txtBxName.Size = new System.Drawing.Size(260, 38);
+            this.txtBxName.Size = new System.Drawing.Size(148, 26);
             this.txtBxName.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(89, 79);
-            this.label3.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label3.Location = new System.Drawing.Point(50, 51);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 32);
+            this.label3.Size = new System.Drawing.Size(78, 20);
             this.label3.TabIndex = 8;
             this.label3.Text = "Animal ID";
             // 
             // txtBxAnimalID
             // 
-            this.txtBxAnimalID.Location = new System.Drawing.Point(288, 71);
-            this.txtBxAnimalID.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.txtBxAnimalID.Location = new System.Drawing.Point(162, 46);
+            this.txtBxAnimalID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBxAnimalID.Name = "txtBxAnimalID";
-            this.txtBxAnimalID.Size = new System.Drawing.Size(260, 38);
+            this.txtBxAnimalID.Size = new System.Drawing.Size(148, 26);
             this.txtBxAnimalID.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(114, 265);
-            this.label4.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label4.Location = new System.Drawing.Point(64, 171);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(110, 32);
+            this.label4.Size = new System.Drawing.Size(63, 20);
             this.label4.TabIndex = 9;
             this.label4.Text = "Gender";
             // 
@@ -133,164 +131,165 @@ namespace FrontEndAnimalShelter
             "Unknown",
             "Male",
             "Female"});
-            this.cmbBoxGender.Location = new System.Drawing.Point(288, 245);
-            this.cmbBoxGender.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.cmbBoxGender.Location = new System.Drawing.Point(162, 158);
+            this.cmbBoxGender.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbBoxGender.Name = "cmbBoxGender";
-            this.cmbBoxGender.Size = new System.Drawing.Size(260, 39);
+            this.cmbBoxGender.Size = new System.Drawing.Size(148, 28);
             this.cmbBoxGender.TabIndex = 3;
             // 
             // dateTimePickerDateOfBirth
             // 
-            this.dateTimePickerDateOfBirth.Location = new System.Drawing.Point(288, 349);
-            this.dateTimePickerDateOfBirth.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.dateTimePickerDateOfBirth.Location = new System.Drawing.Point(162, 225);
+            this.dateTimePickerDateOfBirth.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePickerDateOfBirth.Name = "dateTimePickerDateOfBirth";
-            this.dateTimePickerDateOfBirth.Size = new System.Drawing.Size(527, 38);
+            this.dateTimePickerDateOfBirth.Size = new System.Drawing.Size(298, 26);
             this.dateTimePickerDateOfBirth.TabIndex = 4;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(50, 364);
-            this.label5.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label5.Location = new System.Drawing.Point(28, 235);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(172, 32);
+            this.label5.Size = new System.Drawing.Size(99, 20);
             this.label5.TabIndex = 13;
             this.label5.Text = "Date of Birth";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(59, 453);
-            this.label6.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label6.Location = new System.Drawing.Point(33, 292);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(171, 32);
+            this.label6.Size = new System.Drawing.Size(97, 20);
             this.label6.TabIndex = 14;
             this.label6.Text = "Microchip ID";
             // 
             // txtBxMicrochipID
             // 
-            this.txtBxMicrochipID.Location = new System.Drawing.Point(288, 446);
-            this.txtBxMicrochipID.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.txtBxMicrochipID.Location = new System.Drawing.Point(162, 288);
+            this.txtBxMicrochipID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBxMicrochipID.Name = "txtBxMicrochipID";
-            this.txtBxMicrochipID.Size = new System.Drawing.Size(260, 38);
+            this.txtBxMicrochipID.Size = new System.Drawing.Size(148, 26);
             this.txtBxMicrochipID.TabIndex = 5;
             // 
             // dateTimePickerDueOutDate
             // 
-            this.dateTimePickerDueOutDate.Location = new System.Drawing.Point(288, 541);
-            this.dateTimePickerDueOutDate.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.dateTimePickerDueOutDate.Location = new System.Drawing.Point(162, 349);
+            this.dateTimePickerDueOutDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePickerDueOutDate.Name = "dateTimePickerDueOutDate";
-            this.dateTimePickerDueOutDate.Size = new System.Drawing.Size(527, 38);
+            this.dateTimePickerDueOutDate.Size = new System.Drawing.Size(298, 26);
             this.dateTimePickerDueOutDate.TabIndex = 6;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(32, 555);
-            this.label7.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label7.Location = new System.Drawing.Point(18, 358);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(187, 32);
+            this.label7.Size = new System.Drawing.Size(108, 20);
             this.label7.TabIndex = 15;
             this.label7.Text = "Due Out Date";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(60, 663);
-            this.label8.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label8.Location = new System.Drawing.Point(34, 428);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(163, 32);
+            this.label8.Size = new System.Drawing.Size(91, 20);
             this.label8.TabIndex = 16;
             this.label8.Text = "Arrival Date";
             // 
             // dateTimePickerIntakeDate
             // 
-            this.dateTimePickerIntakeDate.Location = new System.Drawing.Point(288, 648);
-            this.dateTimePickerIntakeDate.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.dateTimePickerIntakeDate.Location = new System.Drawing.Point(162, 418);
+            this.dateTimePickerIntakeDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePickerIntakeDate.Name = "dateTimePickerIntakeDate";
-            this.dateTimePickerIntakeDate.Size = new System.Drawing.Size(527, 38);
+            this.dateTimePickerIntakeDate.Size = new System.Drawing.Size(298, 26);
             this.dateTimePickerIntakeDate.TabIndex = 7;
             // 
             // txtBxNotes
             // 
-            this.txtBxNotes.Location = new System.Drawing.Point(288, 739);
-            this.txtBxNotes.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.txtBxNotes.Location = new System.Drawing.Point(162, 477);
+            this.txtBxNotes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBxNotes.Multiline = true;
             this.txtBxNotes.Name = "txtBxNotes";
-            this.txtBxNotes.Size = new System.Drawing.Size(527, 120);
+            this.txtBxNotes.Size = new System.Drawing.Size(298, 79);
             this.txtBxNotes.TabIndex = 8;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(133, 747);
-            this.label9.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label9.Location = new System.Drawing.Point(75, 482);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(89, 32);
+            this.label9.Size = new System.Drawing.Size(51, 20);
             this.label9.TabIndex = 18;
             this.label9.Text = "Notes";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(958, 62);
-            this.label10.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label10.Location = new System.Drawing.Point(539, 40);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(166, 32);
+            this.label10.Size = new System.Drawing.Size(93, 20);
             this.label10.TabIndex = 19;
             this.label10.Text = "Weight (lbs)";
             // 
             // txtBxWeight
             // 
-            this.txtBxWeight.Location = new System.Drawing.Point(1179, 62);
-            this.txtBxWeight.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.txtBxWeight.Location = new System.Drawing.Point(663, 40);
+            this.txtBxWeight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBxWeight.Name = "txtBxWeight";
-            this.txtBxWeight.Size = new System.Drawing.Size(260, 38);
+            this.txtBxWeight.Size = new System.Drawing.Size(148, 26);
             this.txtBxWeight.TabIndex = 9;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(1020, 177);
-            this.label11.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label11.Location = new System.Drawing.Point(574, 114);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(105, 32);
+            this.label11.Size = new System.Drawing.Size(58, 20);
             this.label11.TabIndex = 20;
             this.label11.Text = "Kennel";
             // 
             // txtBxKennel
             // 
-            this.txtBxKennel.Location = new System.Drawing.Point(1179, 177);
-            this.txtBxKennel.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.txtBxKennel.Location = new System.Drawing.Point(663, 114);
+            this.txtBxKennel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBxKennel.Name = "txtBxKennel";
-            this.txtBxKennel.Size = new System.Drawing.Size(260, 38);
+            this.txtBxKennel.Size = new System.Drawing.Size(148, 26);
             this.txtBxKennel.TabIndex = 10;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(1006, 315);
-            this.label12.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label12.Location = new System.Drawing.Point(566, 203);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(117, 32);
+            this.label12.Size = new System.Drawing.Size(66, 20);
             this.label12.TabIndex = 21;
             this.label12.Text = "Species";
             // 
-            // txtBxSpeciesID
+            // cmbBoxSpecies
             // 
-            this.txtBxSpeciesID.Location = new System.Drawing.Point(1179, 315);
-            this.txtBxSpeciesID.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
-            this.txtBxSpeciesID.Name = "txtBxSpeciesID";
-            this.txtBxSpeciesID.Size = new System.Drawing.Size(260, 38);
-            this.txtBxSpeciesID.TabIndex = 22;
+            this.cmbBoxSpecies.FormattingEnabled = true;
+            this.cmbBoxSpecies.Location = new System.Drawing.Point(663, 203);
+            this.cmbBoxSpecies.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmbBoxSpecies.Name = "cmbBoxSpecies";
+            this.cmbBoxSpecies.Size = new System.Drawing.Size(148, 28);
+            this.cmbBoxSpecies.TabIndex = 23;
             // 
             // AddAnimal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2341, 1493);
+            this.ClientSize = new System.Drawing.Size(1095, 714);
             this.ControlBox = false;
-            this.Controls.Add(this.txtBxSpeciesID);
+            this.Controls.Add(this.cmbBoxSpecies);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtBxKennel);
             this.Controls.Add(this.label11);
@@ -315,7 +314,6 @@ namespace FrontEndAnimalShelter
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSubmit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "AddAnimal";
             this.Text = "S";
             ((System.ComponentModel.ISupportInitialize)(this.animalBindingSource)).EndInit();
@@ -350,7 +348,7 @@ namespace FrontEndAnimalShelter
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtBxKennel;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtBxSpeciesID;
+        private System.Windows.Forms.ComboBox cmbBoxSpecies;
     }
 }
 

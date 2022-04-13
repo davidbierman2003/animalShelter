@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnimalMedical.cs">
+      <DependentUpon>AnimalMedical.xsd</DependentUpon>
+    </Compile>
     <Compile Include="AnimalMedical.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

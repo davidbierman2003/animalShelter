@@ -23,6 +23,15 @@ namespace DataAccessLayer
             return dtAnimalTable; //return entire Animal table
         }
 
+        public static AnimalMedical.speciesDataTable GetSpecies()
+        {
+            AnimalMedical.speciesDataTable dtSpeciesTable = new AnimalMedical.speciesDataTable();
+            AnimalMedicalTableAdapters.speciesTableAdapter speciesAdapter = new AnimalMedicalTableAdapters.speciesTableAdapter();
+            speciesAdapter.Fill(dtSpeciesTable);
+
+            return dtSpeciesTable;
+        }
+
 
         public static void SaveAnimal(int AnimalID,string Name, int Sex, DateTime BirthDate, string MicroshipId, 
             DateTime DueOutDate, DateTime IntakeDate, string Notes, Decimal Weight, string Kennel, int SpeciesId)

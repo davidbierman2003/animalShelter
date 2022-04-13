@@ -11,7 +11,21 @@ namespace FrontEndAnimalShelter
         {
             InitializeComponent();
             AnimalMedical.animalDataTable dtAnimalTable = Utility.GetAnimals();
-            //AnimalTable.DataSource = dtAnimalTable;
+
+            #region data bind region
+            
+            AnimalMedical.speciesDataTable dtSpecies = Utility.GetSpecies();
+            cmbBoxSpecies.DataSource = dtSpecies;
+            cmbBoxSpecies.ValueMember = dtSpecies.species_idColumn.ColumnName;
+            cmbBoxSpecies.DisplayMember = dtSpecies.species_typeColumn.ColumnName;
+            // Display member
+            // value member
+            // cmbBoxSpecies.DataSource
+
+
+            #endregion
+
+
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -36,8 +50,9 @@ namespace FrontEndAnimalShelter
 
 
             int gender = cmbBoxGender.SelectedIndex;
-            int speciesID = string.IsNullOrEmpty(txtBxSpeciesID.Text) ? 0 : int.Parse(txtBxSpeciesID.Text);
+            int speciesID = int.Parse(cmbBoxSpecies.SelectedValue.ToString());
 
+            
             Utility.SaveAnimal(animalId,txtBxName.Text, gender, dateTimePickerDateOfBirth.Value, txtBxMicrochipID.Text,
                  dateTimePickerDueOutDate.Value, dateTimePickerIntakeDate.Value, txtBxNotes.Text, weight,txtBxKennel.Text, speciesID);
 
