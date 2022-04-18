@@ -86,8 +86,9 @@ namespace FrontEndAnimalShelter
         {
             Form childForm = new ViewAnimal();
             childForm.TopLevel = false;
+            childForm.Parent = tabViewAnimal;
             childForm.Dock = DockStyle.Fill;
-            childForm.Font = new Font("Ariel", 20);
+            childForm.Font = new Font("Ariel", 10);
             tabViewAnimal.Controls.Add(childForm);
             childForm.Visible = true;
         }

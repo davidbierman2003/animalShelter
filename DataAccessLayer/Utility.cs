@@ -32,6 +32,22 @@ namespace DataAccessLayer
             return dtSpeciesTable;
         }
 
+        public static AnimalMedical.breedDataTable GetBreed()
+        {
+            AnimalMedical.breedDataTable dtBreedTable = new AnimalMedical.breedDataTable();
+            AnimalMedicalTableAdapters.breedTableAdapter breedAdapter = new AnimalMedicalTableAdapters.breedTableAdapter();
+            breedAdapter.Fill(dtBreedTable);
+
+            return dtBreedTable;
+        }
+        public static AnimalMedical.colorDataTable GetColors()
+        {
+            AnimalMedical.colorDataTable dtColorTable = new AnimalMedical.colorDataTable();
+            AnimalMedicalTableAdapters.colorTableAdapter colorAdapter = new AnimalMedicalTableAdapters.colorTableAdapter();
+            colorAdapter.Fill(dtColorTable);
+
+            return dtColorTable;
+        }
 
         public static void SaveAnimal(int AnimalID,string Name, int Sex, DateTime BirthDate, string MicroshipId, 
             DateTime DueOutDate, DateTime IntakeDate, string Notes, Decimal Weight, string Kennel, int SpeciesId)
