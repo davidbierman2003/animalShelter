@@ -31,6 +31,20 @@
             this.dgAnimalTable = new System.Windows.Forms.DataGridView();
             this.cmbSpecies = new System.Windows.Forms.ComboBox();
             this.animalSearchBox = new System.Windows.Forms.GroupBox();
+            this.cmbDueOut = new System.Windows.Forms.ComboBox();
+            this.cmbIntake = new System.Windows.Forms.ComboBox();
+            this.cmbBirthdate = new System.Windows.Forms.ComboBox();
+            this.cmbWeight = new System.Windows.Forms.ComboBox();
+            this.dtpBirthdate = new System.Windows.Forms.DateTimePicker();
+            this.lblBirthdate = new System.Windows.Forms.Label();
+            this.txtWeight = new System.Windows.Forms.TextBox();
+            this.lblWeight = new System.Windows.Forms.Label();
+            this.dtpDueOutDate = new System.Windows.Forms.DateTimePicker();
+            this.lblDueOut = new System.Windows.Forms.Label();
+            this.dtpIntakeDate = new System.Windows.Forms.DateTimePicker();
+            this.lblIntake = new System.Windows.Forms.Label();
+            this.txtKennel = new System.Windows.Forms.TextBox();
+            this.lblKennel = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtMicrochipId = new System.Windows.Forms.TextBox();
             this.lblMicrochipId = new System.Windows.Forms.Label();
@@ -41,27 +55,13 @@
             this.lblSex = new System.Windows.Forms.Label();
             this.cmbSex = new System.Windows.Forms.ComboBox();
             this.lblSpecies = new System.Windows.Forms.Label();
-            this.txtKennel = new System.Windows.Forms.TextBox();
-            this.lblKennel = new System.Windows.Forms.Label();
-            this.lblIntake = new System.Windows.Forms.Label();
-            this.dtpIntakeDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpDueOutDate = new System.Windows.Forms.DateTimePicker();
-            this.lblDueOut = new System.Windows.Forms.Label();
-            this.txtWeight = new System.Windows.Forms.TextBox();
-            this.lblWeight = new System.Windows.Forms.Label();
-            this.dtpBirthdate = new System.Windows.Forms.DateTimePicker();
-            this.lblBirthdate = new System.Windows.Forms.Label();
-            this.cmbWeight = new System.Windows.Forms.ComboBox();
-            this.cmbBirthdate = new System.Windows.Forms.ComboBox();
-            this.cmbIntake = new System.Windows.Forms.ComboBox();
-            this.cmbDueOut = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgAnimalTable)).BeginInit();
             this.animalSearchBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgAnimalTable
             // 
-            this.dgAnimalTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgAnimalTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgAnimalTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgAnimalTable.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgAnimalTable.Location = new System.Drawing.Point(0, 546);
@@ -113,6 +113,137 @@
             this.animalSearchBox.TabIndex = 2;
             this.animalSearchBox.TabStop = false;
             this.animalSearchBox.Text = "Search Animals";
+            // 
+            // cmbDueOut
+            // 
+            this.cmbDueOut.FormattingEnabled = true;
+            this.cmbDueOut.Items.AddRange(new object[] {
+            ">",
+            "<",
+            "="});
+            this.cmbDueOut.Location = new System.Drawing.Point(964, 353);
+            this.cmbDueOut.Name = "cmbDueOut";
+            this.cmbDueOut.Size = new System.Drawing.Size(76, 39);
+            this.cmbDueOut.TabIndex = 25;
+            // 
+            // cmbIntake
+            // 
+            this.cmbIntake.FormattingEnabled = true;
+            this.cmbIntake.Items.AddRange(new object[] {
+            ">",
+            "<",
+            "="});
+            this.cmbIntake.Location = new System.Drawing.Point(964, 295);
+            this.cmbIntake.Name = "cmbIntake";
+            this.cmbIntake.Size = new System.Drawing.Size(76, 39);
+            this.cmbIntake.TabIndex = 24;
+            // 
+            // cmbBirthdate
+            // 
+            this.cmbBirthdate.FormattingEnabled = true;
+            this.cmbBirthdate.Items.AddRange(new object[] {
+            ">",
+            "<",
+            "="});
+            this.cmbBirthdate.Location = new System.Drawing.Point(964, 231);
+            this.cmbBirthdate.Name = "cmbBirthdate";
+            this.cmbBirthdate.Size = new System.Drawing.Size(76, 39);
+            this.cmbBirthdate.TabIndex = 23;
+            // 
+            // cmbWeight
+            // 
+            this.cmbWeight.FormattingEnabled = true;
+            this.cmbWeight.Items.AddRange(new object[] {
+            ">",
+            "<",
+            "="});
+            this.cmbWeight.Location = new System.Drawing.Point(964, 109);
+            this.cmbWeight.Name = "cmbWeight";
+            this.cmbWeight.Size = new System.Drawing.Size(76, 39);
+            this.cmbWeight.TabIndex = 22;
+            // 
+            // dtpBirthdate
+            // 
+            this.dtpBirthdate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpBirthdate.Location = new System.Drawing.Point(1046, 231);
+            this.dtpBirthdate.Name = "dtpBirthdate";
+            this.dtpBirthdate.Size = new System.Drawing.Size(230, 38);
+            this.dtpBirthdate.TabIndex = 21;
+            // 
+            // lblBirthdate
+            // 
+            this.lblBirthdate.AutoSize = true;
+            this.lblBirthdate.Location = new System.Drawing.Point(757, 231);
+            this.lblBirthdate.Name = "lblBirthdate";
+            this.lblBirthdate.Size = new System.Drawing.Size(130, 32);
+            this.lblBirthdate.TabIndex = 20;
+            this.lblBirthdate.Text = "Birthdate";
+            // 
+            // txtWeight
+            // 
+            this.txtWeight.Location = new System.Drawing.Point(1046, 109);
+            this.txtWeight.Name = "txtWeight";
+            this.txtWeight.Size = new System.Drawing.Size(230, 38);
+            this.txtWeight.TabIndex = 19;
+            // 
+            // lblWeight
+            // 
+            this.lblWeight.AutoSize = true;
+            this.lblWeight.Location = new System.Drawing.Point(757, 108);
+            this.lblWeight.Name = "lblWeight";
+            this.lblWeight.Size = new System.Drawing.Size(104, 32);
+            this.lblWeight.TabIndex = 18;
+            this.lblWeight.Text = "Weight";
+            // 
+            // dtpDueOutDate
+            // 
+            this.dtpDueOutDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDueOutDate.Location = new System.Drawing.Point(1046, 353);
+            this.dtpDueOutDate.Name = "dtpDueOutDate";
+            this.dtpDueOutDate.Size = new System.Drawing.Size(230, 38);
+            this.dtpDueOutDate.TabIndex = 17;
+            // 
+            // lblDueOut
+            // 
+            this.lblDueOut.AutoSize = true;
+            this.lblDueOut.Location = new System.Drawing.Point(757, 353);
+            this.lblDueOut.Name = "lblDueOut";
+            this.lblDueOut.Size = new System.Drawing.Size(187, 32);
+            this.lblDueOut.TabIndex = 16;
+            this.lblDueOut.Text = "Due Out Date";
+            // 
+            // dtpIntakeDate
+            // 
+            this.dtpIntakeDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpIntakeDate.Location = new System.Drawing.Point(1046, 295);
+            this.dtpIntakeDate.Name = "dtpIntakeDate";
+            this.dtpIntakeDate.Size = new System.Drawing.Size(230, 38);
+            this.dtpIntakeDate.TabIndex = 15;
+            // 
+            // lblIntake
+            // 
+            this.lblIntake.AutoSize = true;
+            this.lblIntake.Location = new System.Drawing.Point(757, 292);
+            this.lblIntake.Name = "lblIntake";
+            this.lblIntake.Size = new System.Drawing.Size(159, 32);
+            this.lblIntake.TabIndex = 14;
+            this.lblIntake.Text = "Intake Date";
+            // 
+            // txtKennel
+            // 
+            this.txtKennel.Location = new System.Drawing.Point(964, 165);
+            this.txtKennel.Name = "txtKennel";
+            this.txtKennel.Size = new System.Drawing.Size(230, 38);
+            this.txtKennel.TabIndex = 13;
+            // 
+            // lblKennel
+            // 
+            this.lblKennel.AutoSize = true;
+            this.lblKennel.Location = new System.Drawing.Point(757, 168);
+            this.lblKennel.Name = "lblKennel";
+            this.lblKennel.Size = new System.Drawing.Size(105, 32);
+            this.lblKennel.TabIndex = 12;
+            this.lblKennel.Text = "Kennel";
             // 
             // btnSearch
             // 
@@ -188,10 +319,6 @@
             // cmbSex
             // 
             this.cmbSex.FormattingEnabled = true;
-            this.cmbSex.Items.AddRange(new object[] {
-            "Unknown",
-            "Male",
-            "Female"});
             this.cmbSex.Location = new System.Drawing.Point(232, 108);
             this.cmbSex.Name = "cmbSex";
             this.cmbSex.Size = new System.Drawing.Size(232, 39);
@@ -205,137 +332,6 @@
             this.lblSpecies.Size = new System.Drawing.Size(117, 32);
             this.lblSpecies.TabIndex = 0;
             this.lblSpecies.Text = "Species";
-            // 
-            // txtKennel
-            // 
-            this.txtKennel.Location = new System.Drawing.Point(964, 165);
-            this.txtKennel.Name = "txtKennel";
-            this.txtKennel.Size = new System.Drawing.Size(230, 38);
-            this.txtKennel.TabIndex = 13;
-            // 
-            // lblKennel
-            // 
-            this.lblKennel.AutoSize = true;
-            this.lblKennel.Location = new System.Drawing.Point(757, 168);
-            this.lblKennel.Name = "lblKennel";
-            this.lblKennel.Size = new System.Drawing.Size(105, 32);
-            this.lblKennel.TabIndex = 12;
-            this.lblKennel.Text = "Kennel";
-            // 
-            // lblIntake
-            // 
-            this.lblIntake.AutoSize = true;
-            this.lblIntake.Location = new System.Drawing.Point(757, 292);
-            this.lblIntake.Name = "lblIntake";
-            this.lblIntake.Size = new System.Drawing.Size(159, 32);
-            this.lblIntake.TabIndex = 14;
-            this.lblIntake.Text = "Intake Date";
-            // 
-            // dtpIntakeDate
-            // 
-            this.dtpIntakeDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpIntakeDate.Location = new System.Drawing.Point(1046, 295);
-            this.dtpIntakeDate.Name = "dtpIntakeDate";
-            this.dtpIntakeDate.Size = new System.Drawing.Size(230, 38);
-            this.dtpIntakeDate.TabIndex = 15;
-            // 
-            // dtpDueOutDate
-            // 
-            this.dtpDueOutDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDueOutDate.Location = new System.Drawing.Point(1046, 353);
-            this.dtpDueOutDate.Name = "dtpDueOutDate";
-            this.dtpDueOutDate.Size = new System.Drawing.Size(230, 38);
-            this.dtpDueOutDate.TabIndex = 17;
-            // 
-            // lblDueOut
-            // 
-            this.lblDueOut.AutoSize = true;
-            this.lblDueOut.Location = new System.Drawing.Point(757, 353);
-            this.lblDueOut.Name = "lblDueOut";
-            this.lblDueOut.Size = new System.Drawing.Size(187, 32);
-            this.lblDueOut.TabIndex = 16;
-            this.lblDueOut.Text = "Due Out Date";
-            // 
-            // txtWeight
-            // 
-            this.txtWeight.Location = new System.Drawing.Point(1046, 109);
-            this.txtWeight.Name = "txtWeight";
-            this.txtWeight.Size = new System.Drawing.Size(230, 38);
-            this.txtWeight.TabIndex = 19;
-            // 
-            // lblWeight
-            // 
-            this.lblWeight.AutoSize = true;
-            this.lblWeight.Location = new System.Drawing.Point(757, 108);
-            this.lblWeight.Name = "lblWeight";
-            this.lblWeight.Size = new System.Drawing.Size(104, 32);
-            this.lblWeight.TabIndex = 18;
-            this.lblWeight.Text = "Weight";
-            // 
-            // dtpBirthdate
-            // 
-            this.dtpBirthdate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpBirthdate.Location = new System.Drawing.Point(1046, 231);
-            this.dtpBirthdate.Name = "dtpBirthdate";
-            this.dtpBirthdate.Size = new System.Drawing.Size(230, 38);
-            this.dtpBirthdate.TabIndex = 21;
-            // 
-            // lblBirthdate
-            // 
-            this.lblBirthdate.AutoSize = true;
-            this.lblBirthdate.Location = new System.Drawing.Point(757, 231);
-            this.lblBirthdate.Name = "lblBirthdate";
-            this.lblBirthdate.Size = new System.Drawing.Size(130, 32);
-            this.lblBirthdate.TabIndex = 20;
-            this.lblBirthdate.Text = "Birthdate";
-            // 
-            // cmbWeight
-            // 
-            this.cmbWeight.FormattingEnabled = true;
-            this.cmbWeight.Items.AddRange(new object[] {
-            ">",
-            "<",
-            "="});
-            this.cmbWeight.Location = new System.Drawing.Point(964, 109);
-            this.cmbWeight.Name = "cmbWeight";
-            this.cmbWeight.Size = new System.Drawing.Size(76, 39);
-            this.cmbWeight.TabIndex = 22;
-            // 
-            // cmbBirthdate
-            // 
-            this.cmbBirthdate.FormattingEnabled = true;
-            this.cmbBirthdate.Items.AddRange(new object[] {
-            ">",
-            "<",
-            "="});
-            this.cmbBirthdate.Location = new System.Drawing.Point(964, 231);
-            this.cmbBirthdate.Name = "cmbBirthdate";
-            this.cmbBirthdate.Size = new System.Drawing.Size(76, 39);
-            this.cmbBirthdate.TabIndex = 23;
-            // 
-            // cmbIntake
-            // 
-            this.cmbIntake.FormattingEnabled = true;
-            this.cmbIntake.Items.AddRange(new object[] {
-            ">",
-            "<",
-            "="});
-            this.cmbIntake.Location = new System.Drawing.Point(964, 295);
-            this.cmbIntake.Name = "cmbIntake";
-            this.cmbIntake.Size = new System.Drawing.Size(76, 39);
-            this.cmbIntake.TabIndex = 24;
-            // 
-            // cmbDueOut
-            // 
-            this.cmbDueOut.FormattingEnabled = true;
-            this.cmbDueOut.Items.AddRange(new object[] {
-            ">",
-            "<",
-            "="});
-            this.cmbDueOut.Location = new System.Drawing.Point(964, 353);
-            this.cmbDueOut.Name = "cmbDueOut";
-            this.cmbDueOut.Size = new System.Drawing.Size(76, 39);
-            this.cmbDueOut.TabIndex = 25;
             // 
             // ViewAnimal
             // 

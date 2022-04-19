@@ -41,7 +41,6 @@ C:\Users\Francis\source\repos\CS3550\animalShelter\DataAccessLayer\bin\Debug\K4o
 C:\Users\Francis\source\repos\CS3550\animalShelter\DataAccessLayer\bin\Debug\MySql.Data.xml
 C:\Users\Francis\source\repos\CS3550\animalShelter\DataAccessLayer\bin\Debug\MySql.Data.EntityFramework.xml
 C:\Users\Francis\source\repos\CS3550\animalShelter\DataAccessLayer\bin\Debug\MySql.Web.xml
-C:\Users\Francis\source\repos\CS3550\animalShelter\DataAccessLayer\obj\Debug\DataAccessLayer.csprojAssemblyReference.cache
 C:\Users\Francis\source\repos\CS3550\animalShelter\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
 C:\Users\Francis\source\repos\CS3550\animalShelter\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
 C:\Users\Francis\source\repos\CS3550\animalShelter\DataAccessLayer\obj\Debug\DataAccessLayer.dll
@@ -88,3 +87,4 @@ C:\Development\CS3550\FontEndAnimalShelter\Updated3\animalShelter\DataAccessLaye
 C:\Development\CS3550\FontEndAnimalShelter\Updated3\animalShelter\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
 C:\Development\CS3550\FontEndAnimalShelter\Updated3\animalShelter\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Development\CS3550\FontEndAnimalShelter\Updated3\animalShelter\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\Francis\source\repos\CS3550\animalShelter\DataAccessLayer\obj\Debug\DataAccessLayer.csprojAssemblyReference.cache

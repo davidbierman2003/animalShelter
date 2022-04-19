@@ -45,8 +45,30 @@ namespace DataAccessLayer
             AnimalMedical.colorDataTable dtColorTable = new AnimalMedical.colorDataTable();
             AnimalMedicalTableAdapters.colorTableAdapter colorAdapter = new AnimalMedicalTableAdapters.colorTableAdapter();
             colorAdapter.Fill(dtColorTable);
+            //try { colorAdapter.Fill(dtColorTable); }
+            //catch (Exception ex){
+            //    foreach (AnimalMedical.colorRow dr in dtColorTable)
+            //    {
+            //        if (dr.HasErrors)
+            //        {
+            //            System.Diagnostics.Debug.Write("Row ");
+            //            foreach (System.Data.DataColumn dc in dtColorTable.PrimaryKey)
+            //                System.Diagnostics.Debug.Write(dc.ColumnName + ": '" + dr.ItemArray[dc.Ordinal] + "', ");
+            //            System.Diagnostics.Debug.WriteLine(" has error: " + dr.RowError);
+            //        }
+            //    }
+            //}
 
             return dtColorTable;
+        }
+
+        public static AnimalMedical.sexDataTable GetSexID()
+        {
+            AnimalMedical.sexDataTable dtSexTable = new AnimalMedical.sexDataTable();
+            AnimalMedicalTableAdapters.sexTableAdapter sexAdapter = new AnimalMedicalTableAdapters.sexTableAdapter();
+            sexAdapter.Fill(dtSexTable);
+
+            return dtSexTable;
         }
 
         public static void SaveAnimal(int AnimalID,string Name, int Sex, DateTime BirthDate, string MicroshipId, 
@@ -60,17 +82,17 @@ namespace DataAccessLayer
 
             AnimalMedical.animalRow newAnimalRow = dtAnimalTable.NewanimalRow();
 
-            newAnimalRow.animal_id = AnimalID;
+            newAnimalRow.animal_id = (uint)AnimalID;
             newAnimalRow.name = Name;
-            newAnimalRow.sex = Sex;
+            newAnimalRow.sex = (uint)Sex;
             newAnimalRow.birthdate = BirthDate;
-            newAnimalRow.microship_id = MicroshipId;
+            newAnimalRow.microchip_id = MicroshipId;
             newAnimalRow.due_out_date = DueOutDate;
             newAnimalRow.intake_date = IntakeDate;
-            newAnimalRow.notes = Notes;
+            //newAnimalRow.notes = Notes;
             newAnimalRow.weight = Weight;
             newAnimalRow.kennel = Kennel;
-            newAnimalRow.species_id = SpeciesId;
+            //newAnimalRow.species_id = SpeciesId;
 
             dtAnimalTable.AddanimalRow(newAnimalRow);
 

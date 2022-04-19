@@ -17,7 +17,7 @@ namespace FrontEndAnimalShelter
             AnimalMedical.speciesDataTable dtSpecies = Utility.GetSpecies();
             cmbBoxSpecies.DataSource = dtSpecies;
             cmbBoxSpecies.ValueMember = dtSpecies.species_idColumn.ColumnName;
-            cmbBoxSpecies.DisplayMember = dtSpecies.species_typeColumn.ColumnName;
+            cmbBoxSpecies.DisplayMember = dtSpecies.species_nameColumn.ColumnName;
             // Display member
             // value member
             // cmbBoxSpecies.DataSource
