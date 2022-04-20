@@ -11,9 +11,9 @@ using DataAccessLayer;
 
 namespace FrontEndAnimalShelter
 {
-    public partial class ViewAnimal : Form
+    public partial class ViewAnimalForm : Form
     {
-        public ViewAnimal()
+        public ViewAnimalForm()
         {
             InitializeComponent();
 
@@ -42,7 +42,7 @@ namespace FrontEndAnimalShelter
             AnimalMedical.colorDataTable dtColors = Utility.GetColors();
             lbxColor.DataSource = dtColors;
             lbxColor.ValueMember = dtColors.color_idColumn.ColumnName;
-            lbxColor.DisplayMember = dtColors.color_nameColumn.ColumnName;
+            lbxColor.DisplayMember = dtColors.colorColumn.ColumnName;
             lbxColor.SelectedItem = null;
 
             AnimalMedical.sexDataTable dtSex = Utility.GetSexID();
@@ -54,10 +54,45 @@ namespace FrontEndAnimalShelter
 
             #region Events
             cmbSpecies.SelectionChangeCommitted += CmbSpecies_SelectionChangeCommitted;
+            dgAnimalTable.BindingContextChanged += DgAnimalTable_BindingContextChanged;
             #endregion
             DatabaseTableFormatting();
         }
 
+        private void DgAnimalTable_BindingContextChanged(object sender, EventArgs e)
+        {
+            if (dgAnimalTable.DataSource != null)
+            {
+                DataTable boundTable = dgAnimalTable.DataSource as DataTable;
+                if (boundTable == null)
+                {
+                    DataView dv = dgAnimalTable.DataSource as DataView;
+                    if (dv != null)
+                    {
+                        boundTable = dv.Table;
+                    }
+                }
+                if (boundTable != null)
+                {
+                    foreach (DataGridViewColumn c in dgAnimalTable.Columns)
+                    {
+                        if (c.IsDataBound)
+                        {
+                            DataColumn dc = boundTable.Columns[c.DataPropertyName];
+                            if (!dc.AllowDBNull && dc.DataType == typeof(string))
+                            {
+                                c.DefaultCellStyle.DataSourceNullValue = string.Empty;
+                                dc.DefaultValue = string.Empty;  // this value is pulled for new rows
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Formatting the column headers and filling the list and combo boxes with data from the grid
+        /// </summary>
         private void DatabaseTableFormatting()
         {
             //Formating headers
@@ -71,10 +106,9 @@ namespace FrontEndAnimalShelter
             //dgAnimalTable.Columns["notes"].HeaderText = "Notes";
             dgAnimalTable.Columns["weight"].HeaderText = "Weight";
             dgAnimalTable.Columns["kennel"].HeaderText = "Kennal";
-            dgAnimalTable.Columns["species_id"].HeaderText = "Species ID";
-
+            //dgAnimalTable.Columns["species_id"].HeaderText = "Species ID";
+            dgAnimalTable.Columns["altered"].HeaderText = "Altered";
             dgAnimalTable.Columns["animal_id"].Visible = false;
-            dgAnimalTable.Columns["altered"].Visible = false;
 
             //TODO: make sure the sex column says male/female/unknown instaed of the sex_id
         }
@@ -94,38 +128,24 @@ namespace FrontEndAnimalShelter
                 lbxBreed.DisplayMember = dtBreed.breed_nameColumn.ColumnName;
         }
 
-        /// <summary>
-        /// Formatting the column headers and filling the list and combo boxes with data from the grid
-        /// </summary>
-        public void FormatTable()
-        {
-
-        }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             AnimalMedical.animalDataTable dtAnimalTable = Utility.GetAnimals();
             List<AnimalMedical.animalRow> selectedAnimals = dtAnimalTable.ToList();
-
-            //Species LINQ
-            if (cmbSpecies.SelectedItem != null) 
-                selectedAnimals = selectedAnimals.Where(x => x.species_id.Equals(cmbSpecies.SelectedValue)).ToList();
+            
+            //Animal ID LINQ
+            if (txtAnimlId.TextLength>0)
+                selectedAnimals = selectedAnimals.Where(x => x.db_bridge_id.Equals(txtAnimlId.Text)).ToList();
+            ////TODO: Species LINQ
+            //if (cmbSpecies.SelectedItem != null) 
+            //    selectedAnimals = selectedAnimals.Where(x => x.species_id.Equals(cmbSpecies.SelectedValue)).ToList();
 
             //TODO: Sex/Breed/Color searches
-            //if (cmbSex.SelectedItem != null)
-            //    selectedAnimals = selectedAnimals.Where(x => x.sex.Equals(cmbSex.SelectedValue)).ToList();
 
-            //if (lbxBreed.SelectedItem != null)
-            //{
-
-            //    selectedAnimals = selectedAnimals.Where(x => x.sex.Equals(cmbSex.SelectedValue)).ToList();
-            //}
-
-
-            //Microchip ID TODO: Microchip info needs to be fixed in the database (spelling error??)
+            //Microchip LINQ
             if (txtMicrochipId.TextLength > 0)
-                selectedAnimals = selectedAnimals.Where(x => x.microchip_id == txtMicrochipId.Text).ToList();
-
+                selectedAnimals = selectedAnimals.Where(x => x.microchip_id.Equals(txtMicrochipId.Text)).ToList();
+            
             //Weight LINQ
             if (txtWeight.TextLength >0)
             {
@@ -165,8 +185,7 @@ namespace FrontEndAnimalShelter
                 selectedAnimals = selectedAnimals.Where(x => x.due_out_date.Ticks == dtpDueOutDate.Value.Ticks).ToList();
 
 
-
-            //dgAnimalTable.DataSource = selectedAnimals;  TODO: this needs to be tested once microship_id is removed from database
+            //dgAnimalTable.DataSource = selectedAnimals;  //TODO: this needs to be tested once microship_id is removed from database
         }
     }
 }

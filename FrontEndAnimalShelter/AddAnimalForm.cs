@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace FrontEndAnimalShelter
 {
-    public partial class AddAnimal : Form
+    public partial class AddAnimalForm : Form
     {
-        public AddAnimal()
+        public AddAnimalForm()
         {
             InitializeComponent();
             AnimalMedical.animalDataTable dtAnimalTable = Utility.GetAnimals();

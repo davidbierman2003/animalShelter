@@ -26,15 +26,17 @@ namespace DataAccessLayer {
         
         private animalDataTable tableanimal;
         
-        private colorDataTable tablecolor;
-        
-        private animalcolorDataTable tableanimalcolor;
+        private animalbreedDataTable tableanimalbreed;
         
         private breedDataTable tablebreed;
         
-        private animalbreedDataTable tableanimalbreed;
+        private animalcolorDataTable tableanimalcolor;
+        
+        private colorDataTable tablecolor;
         
         private medicationDataTable tablemedication;
+        
+        private vaccineDataTable tablevaccine;
         
         private sexDataTable tablesex;
         
@@ -42,17 +44,15 @@ namespace DataAccessLayer {
         
         private unitDataTable tableunit;
         
-        private vaccineDataTable tablevaccine;
-        
         private speciesDataTable tablespecies;
-        
-        private global::System.Data.DataRelation relationanimalcolor_ibfk_1;
-        
-        private global::System.Data.DataRelation relationanimalcolor_ibfk_2;
         
         private global::System.Data.DataRelation relationanimalbreed_ibfk_1;
         
         private global::System.Data.DataRelation relationanimalbreed_ibfk_2;
+        
+        private global::System.Data.DataRelation relationanimalcolor_ibfk_2;
+        
+        private global::System.Data.DataRelation relationanimalcolor_ibfk_1;
         
         private global::System.Data.DataRelation relationanimal_ibfk_1;
         
@@ -91,20 +91,23 @@ namespace DataAccessLayer {
                 if ((ds.Tables["animal"] != null)) {
                     base.Tables.Add(new animalDataTable(ds.Tables["animal"]));
                 }
-                if ((ds.Tables["color"] != null)) {
-                    base.Tables.Add(new colorDataTable(ds.Tables["color"]));
-                }
-                if ((ds.Tables["animalcolor"] != null)) {
-                    base.Tables.Add(new animalcolorDataTable(ds.Tables["animalcolor"]));
+                if ((ds.Tables["animalbreed"] != null)) {
+                    base.Tables.Add(new animalbreedDataTable(ds.Tables["animalbreed"]));
                 }
                 if ((ds.Tables["breed"] != null)) {
                     base.Tables.Add(new breedDataTable(ds.Tables["breed"]));
                 }
-                if ((ds.Tables["animalbreed"] != null)) {
-                    base.Tables.Add(new animalbreedDataTable(ds.Tables["animalbreed"]));
+                if ((ds.Tables["animalcolor"] != null)) {
+                    base.Tables.Add(new animalcolorDataTable(ds.Tables["animalcolor"]));
+                }
+                if ((ds.Tables["color"] != null)) {
+                    base.Tables.Add(new colorDataTable(ds.Tables["color"]));
                 }
                 if ((ds.Tables["medication"] != null)) {
                     base.Tables.Add(new medicationDataTable(ds.Tables["medication"]));
+                }
+                if ((ds.Tables["vaccine"] != null)) {
+                    base.Tables.Add(new vaccineDataTable(ds.Tables["vaccine"]));
                 }
                 if ((ds.Tables["sex"] != null)) {
                     base.Tables.Add(new sexDataTable(ds.Tables["sex"]));
@@ -114,9 +117,6 @@ namespace DataAccessLayer {
                 }
                 if ((ds.Tables["unit"] != null)) {
                     base.Tables.Add(new unitDataTable(ds.Tables["unit"]));
-                }
-                if ((ds.Tables["vaccine"] != null)) {
-                    base.Tables.Add(new vaccineDataTable(ds.Tables["vaccine"]));
                 }
                 if ((ds.Tables["species"] != null)) {
                     base.Tables.Add(new speciesDataTable(ds.Tables["species"]));
@@ -153,19 +153,9 @@ namespace DataAccessLayer {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public colorDataTable color {
+        public animalbreedDataTable animalbreed {
             get {
-                return this.tablecolor;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public animalcolorDataTable animalcolor {
-            get {
-                return this.tableanimalcolor;
+                return this.tableanimalbreed;
             }
         }
         
@@ -183,9 +173,19 @@ namespace DataAccessLayer {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public animalbreedDataTable animalbreed {
+        public animalcolorDataTable animalcolor {
             get {
-                return this.tableanimalbreed;
+                return this.tableanimalcolor;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public colorDataTable color {
+            get {
+                return this.tablecolor;
             }
         }
         
@@ -196,6 +196,16 @@ namespace DataAccessLayer {
         public medicationDataTable medication {
             get {
                 return this.tablemedication;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public vaccineDataTable vaccine {
+            get {
+                return this.tablevaccine;
             }
         }
         
@@ -226,16 +236,6 @@ namespace DataAccessLayer {
         public unitDataTable unit {
             get {
                 return this.tableunit;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public vaccineDataTable vaccine {
-            get {
-                return this.tablevaccine;
             }
         }
         
@@ -319,20 +319,23 @@ namespace DataAccessLayer {
                 if ((ds.Tables["animal"] != null)) {
                     base.Tables.Add(new animalDataTable(ds.Tables["animal"]));
                 }
-                if ((ds.Tables["color"] != null)) {
-                    base.Tables.Add(new colorDataTable(ds.Tables["color"]));
-                }
-                if ((ds.Tables["animalcolor"] != null)) {
-                    base.Tables.Add(new animalcolorDataTable(ds.Tables["animalcolor"]));
+                if ((ds.Tables["animalbreed"] != null)) {
+                    base.Tables.Add(new animalbreedDataTable(ds.Tables["animalbreed"]));
                 }
                 if ((ds.Tables["breed"] != null)) {
                     base.Tables.Add(new breedDataTable(ds.Tables["breed"]));
                 }
-                if ((ds.Tables["animalbreed"] != null)) {
-                    base.Tables.Add(new animalbreedDataTable(ds.Tables["animalbreed"]));
+                if ((ds.Tables["animalcolor"] != null)) {
+                    base.Tables.Add(new animalcolorDataTable(ds.Tables["animalcolor"]));
+                }
+                if ((ds.Tables["color"] != null)) {
+                    base.Tables.Add(new colorDataTable(ds.Tables["color"]));
                 }
                 if ((ds.Tables["medication"] != null)) {
                     base.Tables.Add(new medicationDataTable(ds.Tables["medication"]));
+                }
+                if ((ds.Tables["vaccine"] != null)) {
+                    base.Tables.Add(new vaccineDataTable(ds.Tables["vaccine"]));
                 }
                 if ((ds.Tables["sex"] != null)) {
                     base.Tables.Add(new sexDataTable(ds.Tables["sex"]));
@@ -342,9 +345,6 @@ namespace DataAccessLayer {
                 }
                 if ((ds.Tables["unit"] != null)) {
                     base.Tables.Add(new unitDataTable(ds.Tables["unit"]));
-                }
-                if ((ds.Tables["vaccine"] != null)) {
-                    base.Tables.Add(new vaccineDataTable(ds.Tables["vaccine"]));
                 }
                 if ((ds.Tables["species"] != null)) {
                     base.Tables.Add(new speciesDataTable(ds.Tables["species"]));
@@ -388,16 +388,10 @@ namespace DataAccessLayer {
                     this.tableanimal.InitVars();
                 }
             }
-            this.tablecolor = ((colorDataTable)(base.Tables["color"]));
+            this.tableanimalbreed = ((animalbreedDataTable)(base.Tables["animalbreed"]));
             if ((initTable == true)) {
-                if ((this.tablecolor != null)) {
-                    this.tablecolor.InitVars();
-                }
-            }
-            this.tableanimalcolor = ((animalcolorDataTable)(base.Tables["animalcolor"]));
-            if ((initTable == true)) {
-                if ((this.tableanimalcolor != null)) {
-                    this.tableanimalcolor.InitVars();
+                if ((this.tableanimalbreed != null)) {
+                    this.tableanimalbreed.InitVars();
                 }
             }
             this.tablebreed = ((breedDataTable)(base.Tables["breed"]));
@@ -406,16 +400,28 @@ namespace DataAccessLayer {
                     this.tablebreed.InitVars();
                 }
             }
-            this.tableanimalbreed = ((animalbreedDataTable)(base.Tables["animalbreed"]));
+            this.tableanimalcolor = ((animalcolorDataTable)(base.Tables["animalcolor"]));
             if ((initTable == true)) {
-                if ((this.tableanimalbreed != null)) {
-                    this.tableanimalbreed.InitVars();
+                if ((this.tableanimalcolor != null)) {
+                    this.tableanimalcolor.InitVars();
+                }
+            }
+            this.tablecolor = ((colorDataTable)(base.Tables["color"]));
+            if ((initTable == true)) {
+                if ((this.tablecolor != null)) {
+                    this.tablecolor.InitVars();
                 }
             }
             this.tablemedication = ((medicationDataTable)(base.Tables["medication"]));
             if ((initTable == true)) {
                 if ((this.tablemedication != null)) {
                     this.tablemedication.InitVars();
+                }
+            }
+            this.tablevaccine = ((vaccineDataTable)(base.Tables["vaccine"]));
+            if ((initTable == true)) {
+                if ((this.tablevaccine != null)) {
+                    this.tablevaccine.InitVars();
                 }
             }
             this.tablesex = ((sexDataTable)(base.Tables["sex"]));
@@ -436,22 +442,16 @@ namespace DataAccessLayer {
                     this.tableunit.InitVars();
                 }
             }
-            this.tablevaccine = ((vaccineDataTable)(base.Tables["vaccine"]));
-            if ((initTable == true)) {
-                if ((this.tablevaccine != null)) {
-                    this.tablevaccine.InitVars();
-                }
-            }
             this.tablespecies = ((speciesDataTable)(base.Tables["species"]));
             if ((initTable == true)) {
                 if ((this.tablespecies != null)) {
                     this.tablespecies.InitVars();
                 }
             }
-            this.relationanimalcolor_ibfk_1 = this.Relations["animalcolor_ibfk_1"];
-            this.relationanimalcolor_ibfk_2 = this.Relations["animalcolor_ibfk_2"];
             this.relationanimalbreed_ibfk_1 = this.Relations["animalbreed_ibfk_1"];
             this.relationanimalbreed_ibfk_2 = this.Relations["animalbreed_ibfk_2"];
+            this.relationanimalcolor_ibfk_2 = this.Relations["animalcolor_ibfk_2"];
+            this.relationanimalcolor_ibfk_1 = this.Relations["animalcolor_ibfk_1"];
             this.relationanimal_ibfk_1 = this.Relations["animal_ibfk_1"];
             this.relationnote_ibfk_1 = this.Relations["note_ibfk_1"];
             this.relationmedication_ibfk_1 = this.Relations["medication_ibfk_1"];
@@ -467,34 +467,26 @@ namespace DataAccessLayer {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableanimal = new animalDataTable();
             base.Tables.Add(this.tableanimal);
-            this.tablecolor = new colorDataTable();
-            base.Tables.Add(this.tablecolor);
-            this.tableanimalcolor = new animalcolorDataTable();
-            base.Tables.Add(this.tableanimalcolor);
-            this.tablebreed = new breedDataTable();
-            base.Tables.Add(this.tablebreed);
             this.tableanimalbreed = new animalbreedDataTable();
             base.Tables.Add(this.tableanimalbreed);
+            this.tablebreed = new breedDataTable();
+            base.Tables.Add(this.tablebreed);
+            this.tableanimalcolor = new animalcolorDataTable();
+            base.Tables.Add(this.tableanimalcolor);
+            this.tablecolor = new colorDataTable();
+            base.Tables.Add(this.tablecolor);
             this.tablemedication = new medicationDataTable();
             base.Tables.Add(this.tablemedication);
+            this.tablevaccine = new vaccineDataTable();
+            base.Tables.Add(this.tablevaccine);
             this.tablesex = new sexDataTable();
             base.Tables.Add(this.tablesex);
             this.tablenote = new noteDataTable();
             base.Tables.Add(this.tablenote);
             this.tableunit = new unitDataTable();
             base.Tables.Add(this.tableunit);
-            this.tablevaccine = new vaccineDataTable();
-            base.Tables.Add(this.tablevaccine);
             this.tablespecies = new speciesDataTable();
             base.Tables.Add(this.tablespecies);
-            this.relationanimalcolor_ibfk_1 = new global::System.Data.DataRelation("animalcolor_ibfk_1", new global::System.Data.DataColumn[] {
-                        this.tablecolor.color_idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableanimalcolor.color_idColumn}, false);
-            this.Relations.Add(this.relationanimalcolor_ibfk_1);
-            this.relationanimalcolor_ibfk_2 = new global::System.Data.DataRelation("animalcolor_ibfk_2", new global::System.Data.DataColumn[] {
-                        this.tableanimal.animal_idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableanimalcolor.animal_idColumn}, false);
-            this.Relations.Add(this.relationanimalcolor_ibfk_2);
             this.relationanimalbreed_ibfk_1 = new global::System.Data.DataRelation("animalbreed_ibfk_1", new global::System.Data.DataColumn[] {
                         this.tableanimal.animal_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableanimalbreed.animal_idColumn}, false);
@@ -503,6 +495,14 @@ namespace DataAccessLayer {
                         this.tablebreed.breed_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableanimalbreed.breed_idColumn}, false);
             this.Relations.Add(this.relationanimalbreed_ibfk_2);
+            this.relationanimalcolor_ibfk_2 = new global::System.Data.DataRelation("animalcolor_ibfk_2", new global::System.Data.DataColumn[] {
+                        this.tableanimal.animal_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableanimalcolor.animal_idColumn}, false);
+            this.Relations.Add(this.relationanimalcolor_ibfk_2);
+            this.relationanimalcolor_ibfk_1 = new global::System.Data.DataRelation("animalcolor_ibfk_1", new global::System.Data.DataColumn[] {
+                        this.tablecolor.color_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableanimalcolor.color_idColumn}, false);
+            this.Relations.Add(this.relationanimalcolor_ibfk_1);
             this.relationanimal_ibfk_1 = new global::System.Data.DataRelation("animal_ibfk_1", new global::System.Data.DataColumn[] {
                         this.tablesex.sex_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableanimal.sexColumn}, false);
@@ -525,13 +525,7 @@ namespace DataAccessLayer {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializecolor() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeanimalcolor() {
+        private bool ShouldSerializeanimalbreed() {
             return false;
         }
         
@@ -543,13 +537,25 @@ namespace DataAccessLayer {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeanimalbreed() {
+        private bool ShouldSerializeanimalcolor() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializecolor() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializemedication() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializevaccine() {
             return false;
         }
         
@@ -568,12 +574,6 @@ namespace DataAccessLayer {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeunit() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializevaccine() {
             return false;
         }
         
@@ -642,19 +642,22 @@ namespace DataAccessLayer {
         public delegate void animalRowChangeEventHandler(object sender, animalRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void colorRowChangeEventHandler(object sender, colorRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void animalcolorRowChangeEventHandler(object sender, animalcolorRowChangeEvent e);
+        public delegate void animalbreedRowChangeEventHandler(object sender, animalbreedRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void breedRowChangeEventHandler(object sender, breedRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void animalbreedRowChangeEventHandler(object sender, animalbreedRowChangeEvent e);
+        public delegate void animalcolorRowChangeEventHandler(object sender, animalcolorRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void colorRowChangeEventHandler(object sender, colorRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void medicationRowChangeEventHandler(object sender, medicationRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void vaccineRowChangeEventHandler(object sender, vaccineRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void sexRowChangeEventHandler(object sender, sexRowChangeEvent e);
@@ -664,9 +667,6 @@ namespace DataAccessLayer {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void unitRowChangeEventHandler(object sender, unitRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void vaccineRowChangeEventHandler(object sender, vaccineRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void speciesRowChangeEventHandler(object sender, speciesRowChangeEvent e);
@@ -685,8 +685,6 @@ namespace DataAccessLayer {
             private global::System.Data.DataColumn columnname;
             
             private global::System.Data.DataColumn columnsex;
-            
-            private global::System.Data.DataColumn columnspecies_id;
             
             private global::System.Data.DataColumn columnbirthdate;
             
@@ -764,14 +762,6 @@ namespace DataAccessLayer {
             public global::System.Data.DataColumn sexColumn {
                 get {
                     return this.columnsex;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn species_idColumn {
-                get {
-                    return this.columnspecies_id;
                 }
             }
             
@@ -868,14 +858,13 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public animalRow AddanimalRow(uint animal_id, string db_bridge_id, string name, sexRow parentsexRowByanimal_ibfk_1, ushort species_id, System.DateTime birthdate, string microchip_id, System.DateTime due_out_date, System.DateTime intake_date, decimal weight, string kennel, bool altered) {
+            public animalRow AddanimalRow(ushort animal_id, string db_bridge_id, string name, sexRow parentsexRowByanimal_ibfk_1, System.DateTime birthdate, string microchip_id, System.DateTime due_out_date, System.DateTime intake_date, decimal weight, string kennel, bool altered) {
                 animalRow rowanimalRow = ((animalRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         animal_id,
                         db_bridge_id,
                         name,
                         null,
-                        species_id,
                         birthdate,
                         microchip_id,
                         due_out_date,
@@ -893,7 +882,7 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public animalRow FindByanimal_id(uint animal_id) {
+            public animalRow FindByanimal_id(ushort animal_id) {
                 return ((animalRow)(this.Rows.Find(new object[] {
                             animal_id})));
             }
@@ -919,7 +908,6 @@ namespace DataAccessLayer {
                 this.columndb_bridge_id = base.Columns["db_bridge_id"];
                 this.columnname = base.Columns["name"];
                 this.columnsex = base.Columns["sex"];
-                this.columnspecies_id = base.Columns["species_id"];
                 this.columnbirthdate = base.Columns["birthdate"];
                 this.columnmicrochip_id = base.Columns["microchip_id"];
                 this.columndue_out_date = base.Columns["due_out_date"];
@@ -932,16 +920,14 @@ namespace DataAccessLayer {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnanimal_id = new global::System.Data.DataColumn("animal_id", typeof(uint), null, global::System.Data.MappingType.Element);
+                this.columnanimal_id = new global::System.Data.DataColumn("animal_id", typeof(ushort), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnanimal_id);
                 this.columndb_bridge_id = new global::System.Data.DataColumn("db_bridge_id", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndb_bridge_id);
                 this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnname);
-                this.columnsex = new global::System.Data.DataColumn("sex", typeof(uint), null, global::System.Data.MappingType.Element);
+                this.columnsex = new global::System.Data.DataColumn("sex", typeof(byte), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsex);
-                this.columnspecies_id = new global::System.Data.DataColumn("species_id", typeof(ushort), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnspecies_id);
                 this.columnbirthdate = new global::System.Data.DataColumn("birthdate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnbirthdate);
                 this.columnmicrochip_id = new global::System.Data.DataColumn("microchip_id", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1095,290 +1081,16 @@ namespace DataAccessLayer {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class colorDataTable : global::System.Data.TypedTableBase<colorRow> {
-            
-            private global::System.Data.DataColumn columncolor_id;
-            
-            private global::System.Data.DataColumn columncolor_name;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public colorDataTable() {
-                this.TableName = "color";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal colorDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected colorDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn color_idColumn {
-                get {
-                    return this.columncolor_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn color_nameColumn {
-                get {
-                    return this.columncolor_name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public colorRow this[int index] {
-                get {
-                    return ((colorRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event colorRowChangeEventHandler colorRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event colorRowChangeEventHandler colorRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event colorRowChangeEventHandler colorRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event colorRowChangeEventHandler colorRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddcolorRow(colorRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public colorRow AddcolorRow(ushort color_id, string color_name) {
-                colorRow rowcolorRow = ((colorRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        color_id,
-                        color_name};
-                rowcolorRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowcolorRow);
-                return rowcolorRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public colorRow FindBycolor_id(ushort color_id) {
-                return ((colorRow)(this.Rows.Find(new object[] {
-                            color_id})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                colorDataTable cln = ((colorDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new colorDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal void InitVars() {
-                this.columncolor_id = base.Columns["color_id"];
-                this.columncolor_name = base.Columns["color_name"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            private void InitClass() {
-                this.columncolor_id = new global::System.Data.DataColumn("color_id", typeof(ushort), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncolor_id);
-                this.columncolor_name = new global::System.Data.DataColumn("color_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncolor_name);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columncolor_id}, true));
-                this.columncolor_id.AllowDBNull = false;
-                this.columncolor_id.Unique = true;
-                this.columncolor_name.AllowDBNull = false;
-                this.columncolor_name.MaxLength = 50;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public colorRow NewcolorRow() {
-                return ((colorRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new colorRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(colorRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.colorRowChanged != null)) {
-                    this.colorRowChanged(this, new colorRowChangeEvent(((colorRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.colorRowChanging != null)) {
-                    this.colorRowChanging(this, new colorRowChangeEvent(((colorRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.colorRowDeleted != null)) {
-                    this.colorRowDeleted(this, new colorRowChangeEvent(((colorRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.colorRowDeleting != null)) {
-                    this.colorRowDeleting(this, new colorRowChangeEvent(((colorRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemovecolorRow(colorRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                AnimalMedical ds = new AnimalMedical();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "colorDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class animalcolorDataTable : global::System.Data.TypedTableBase<animalcolorRow> {
-            
-            private global::System.Data.DataColumn columncolor_id;
+        public partial class animalbreedDataTable : global::System.Data.TypedTableBase<animalbreedRow> {
             
             private global::System.Data.DataColumn columnanimal_id;
             
+            private global::System.Data.DataColumn columnbreed_id;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public animalcolorDataTable() {
-                this.TableName = "animalcolor";
+            public animalbreedDataTable() {
+                this.TableName = "animalbreed";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1386,7 +1098,7 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal animalcolorDataTable(global::System.Data.DataTable table) {
+            internal animalbreedDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1403,17 +1115,9 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected animalcolorDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected animalbreedDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn color_idColumn {
-                get {
-                    return this.columncolor_id;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1426,6 +1130,14 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn breed_idColumn {
+                get {
+                    return this.columnbreed_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1435,60 +1147,60 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public animalcolorRow this[int index] {
+            public animalbreedRow this[int index] {
                 get {
-                    return ((animalcolorRow)(this.Rows[index]));
+                    return ((animalbreedRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event animalcolorRowChangeEventHandler animalcolorRowChanging;
+            public event animalbreedRowChangeEventHandler animalbreedRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event animalcolorRowChangeEventHandler animalcolorRowChanged;
+            public event animalbreedRowChangeEventHandler animalbreedRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event animalcolorRowChangeEventHandler animalcolorRowDeleting;
+            public event animalbreedRowChangeEventHandler animalbreedRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event animalcolorRowChangeEventHandler animalcolorRowDeleted;
+            public event animalbreedRowChangeEventHandler animalbreedRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddanimalcolorRow(animalcolorRow row) {
+            public void AddanimalbreedRow(animalbreedRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public animalcolorRow AddanimalcolorRow(colorRow parentcolorRowByanimalcolor_ibfk_1, animalRow parentanimalRowByanimalcolor_ibfk_2) {
-                animalcolorRow rowanimalcolorRow = ((animalcolorRow)(this.NewRow()));
+            public animalbreedRow AddanimalbreedRow(animalRow parentanimalRowByanimalbreed_ibfk_1, breedRow parentbreedRowByanimalbreed_ibfk_2) {
+                animalbreedRow rowanimalbreedRow = ((animalbreedRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null};
-                if ((parentcolorRowByanimalcolor_ibfk_1 != null)) {
-                    columnValuesArray[0] = parentcolorRowByanimalcolor_ibfk_1[0];
+                if ((parentanimalRowByanimalbreed_ibfk_1 != null)) {
+                    columnValuesArray[0] = parentanimalRowByanimalbreed_ibfk_1[0];
                 }
-                if ((parentanimalRowByanimalcolor_ibfk_2 != null)) {
-                    columnValuesArray[1] = parentanimalRowByanimalcolor_ibfk_2[0];
+                if ((parentbreedRowByanimalbreed_ibfk_2 != null)) {
+                    columnValuesArray[1] = parentbreedRowByanimalbreed_ibfk_2[0];
                 }
-                rowanimalcolorRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowanimalcolorRow);
-                return rowanimalcolorRow;
+                rowanimalbreedRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowanimalbreedRow);
+                return rowanimalbreedRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public animalcolorRow FindBycolor_idanimal_id(ushort color_id, uint animal_id) {
-                return ((animalcolorRow)(this.Rows.Find(new object[] {
-                            color_id,
-                            animal_id})));
+            public animalbreedRow FindByanimal_idbreed_id(ushort animal_id, ushort breed_id) {
+                return ((animalbreedRow)(this.Rows.Find(new object[] {
+                            animal_id,
+                            breed_id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                animalcolorDataTable cln = ((animalcolorDataTable)(base.Clone()));
+                animalbreedDataTable cln = ((animalbreedDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1496,54 +1208,54 @@ namespace DataAccessLayer {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new animalcolorDataTable();
+                return new animalbreedDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columncolor_id = base.Columns["color_id"];
                 this.columnanimal_id = base.Columns["animal_id"];
+                this.columnbreed_id = base.Columns["breed_id"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columncolor_id = new global::System.Data.DataColumn("color_id", typeof(ushort), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncolor_id);
-                this.columnanimal_id = new global::System.Data.DataColumn("animal_id", typeof(uint), null, global::System.Data.MappingType.Element);
+                this.columnanimal_id = new global::System.Data.DataColumn("animal_id", typeof(ushort), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnanimal_id);
+                this.columnbreed_id = new global::System.Data.DataColumn("breed_id", typeof(ushort), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbreed_id);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columncolor_id,
-                                this.columnanimal_id}, true));
-                this.columncolor_id.AllowDBNull = false;
+                                this.columnanimal_id,
+                                this.columnbreed_id}, true));
                 this.columnanimal_id.AllowDBNull = false;
+                this.columnbreed_id.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public animalcolorRow NewanimalcolorRow() {
-                return ((animalcolorRow)(this.NewRow()));
+            public animalbreedRow NewanimalbreedRow() {
+                return ((animalbreedRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new animalcolorRow(builder);
+                return new animalbreedRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(animalcolorRow);
+                return typeof(animalbreedRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.animalcolorRowChanged != null)) {
-                    this.animalcolorRowChanged(this, new animalcolorRowChangeEvent(((animalcolorRow)(e.Row)), e.Action));
+                if ((this.animalbreedRowChanged != null)) {
+                    this.animalbreedRowChanged(this, new animalbreedRowChangeEvent(((animalbreedRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1551,8 +1263,8 @@ namespace DataAccessLayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.animalcolorRowChanging != null)) {
-                    this.animalcolorRowChanging(this, new animalcolorRowChangeEvent(((animalcolorRow)(e.Row)), e.Action));
+                if ((this.animalbreedRowChanging != null)) {
+                    this.animalbreedRowChanging(this, new animalbreedRowChangeEvent(((animalbreedRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1560,8 +1272,8 @@ namespace DataAccessLayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.animalcolorRowDeleted != null)) {
-                    this.animalcolorRowDeleted(this, new animalcolorRowChangeEvent(((animalcolorRow)(e.Row)), e.Action));
+                if ((this.animalbreedRowDeleted != null)) {
+                    this.animalbreedRowDeleted(this, new animalbreedRowChangeEvent(((animalbreedRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1569,14 +1281,14 @@ namespace DataAccessLayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.animalcolorRowDeleting != null)) {
-                    this.animalcolorRowDeleting(this, new animalcolorRowChangeEvent(((animalcolorRow)(e.Row)), e.Action));
+                if ((this.animalbreedRowDeleting != null)) {
+                    this.animalbreedRowDeleting(this, new animalbreedRowChangeEvent(((animalbreedRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveanimalcolorRow(animalcolorRow row) {
+            public void RemoveanimalbreedRow(animalbreedRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1603,7 +1315,7 @@ namespace DataAccessLayer {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "animalcolorDataTable";
+                attribute2.FixedValue = "animalbreedDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1937,16 +1649,16 @@ namespace DataAccessLayer {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class animalbreedDataTable : global::System.Data.TypedTableBase<animalbreedRow> {
+        public partial class animalcolorDataTable : global::System.Data.TypedTableBase<animalcolorRow> {
+            
+            private global::System.Data.DataColumn columncolor_id;
             
             private global::System.Data.DataColumn columnanimal_id;
             
-            private global::System.Data.DataColumn columnbreed_id;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public animalbreedDataTable() {
-                this.TableName = "animalbreed";
+            public animalcolorDataTable() {
+                this.TableName = "animalcolor";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1954,7 +1666,7 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal animalbreedDataTable(global::System.Data.DataTable table) {
+            internal animalcolorDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1971,9 +1683,17 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected animalbreedDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected animalcolorDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn color_idColumn {
+                get {
+                    return this.columncolor_id;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1981,14 +1701,6 @@ namespace DataAccessLayer {
             public global::System.Data.DataColumn animal_idColumn {
                 get {
                     return this.columnanimal_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn breed_idColumn {
-                get {
-                    return this.columnbreed_id;
                 }
             }
             
@@ -2003,60 +1715,60 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public animalbreedRow this[int index] {
+            public animalcolorRow this[int index] {
                 get {
-                    return ((animalbreedRow)(this.Rows[index]));
+                    return ((animalcolorRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event animalbreedRowChangeEventHandler animalbreedRowChanging;
+            public event animalcolorRowChangeEventHandler animalcolorRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event animalbreedRowChangeEventHandler animalbreedRowChanged;
+            public event animalcolorRowChangeEventHandler animalcolorRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event animalbreedRowChangeEventHandler animalbreedRowDeleting;
+            public event animalcolorRowChangeEventHandler animalcolorRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event animalbreedRowChangeEventHandler animalbreedRowDeleted;
+            public event animalcolorRowChangeEventHandler animalcolorRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddanimalbreedRow(animalbreedRow row) {
+            public void AddanimalcolorRow(animalcolorRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public animalbreedRow AddanimalbreedRow(animalRow parentanimalRowByanimalbreed_ibfk_1, breedRow parentbreedRowByanimalbreed_ibfk_2) {
-                animalbreedRow rowanimalbreedRow = ((animalbreedRow)(this.NewRow()));
+            public animalcolorRow AddanimalcolorRow(colorRow parentcolorRowByanimalcolor_ibfk_1, animalRow parentanimalRowByanimalcolor_ibfk_2) {
+                animalcolorRow rowanimalcolorRow = ((animalcolorRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null};
-                if ((parentanimalRowByanimalbreed_ibfk_1 != null)) {
-                    columnValuesArray[0] = parentanimalRowByanimalbreed_ibfk_1[0];
+                if ((parentcolorRowByanimalcolor_ibfk_1 != null)) {
+                    columnValuesArray[0] = parentcolorRowByanimalcolor_ibfk_1[0];
                 }
-                if ((parentbreedRowByanimalbreed_ibfk_2 != null)) {
-                    columnValuesArray[1] = parentbreedRowByanimalbreed_ibfk_2[0];
+                if ((parentanimalRowByanimalcolor_ibfk_2 != null)) {
+                    columnValuesArray[1] = parentanimalRowByanimalcolor_ibfk_2[0];
                 }
-                rowanimalbreedRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowanimalbreedRow);
-                return rowanimalbreedRow;
+                rowanimalcolorRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowanimalcolorRow);
+                return rowanimalcolorRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public animalbreedRow FindByanimal_idbreed_id(uint animal_id, ushort breed_id) {
-                return ((animalbreedRow)(this.Rows.Find(new object[] {
-                            animal_id,
-                            breed_id})));
+            public animalcolorRow FindBycolor_idanimal_id(ushort color_id, ushort animal_id) {
+                return ((animalcolorRow)(this.Rows.Find(new object[] {
+                            color_id,
+                            animal_id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                animalbreedDataTable cln = ((animalbreedDataTable)(base.Clone()));
+                animalcolorDataTable cln = ((animalcolorDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -2064,54 +1776,54 @@ namespace DataAccessLayer {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new animalbreedDataTable();
+                return new animalcolorDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
+                this.columncolor_id = base.Columns["color_id"];
                 this.columnanimal_id = base.Columns["animal_id"];
-                this.columnbreed_id = base.Columns["breed_id"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnanimal_id = new global::System.Data.DataColumn("animal_id", typeof(uint), null, global::System.Data.MappingType.Element);
+                this.columncolor_id = new global::System.Data.DataColumn("color_id", typeof(ushort), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncolor_id);
+                this.columnanimal_id = new global::System.Data.DataColumn("animal_id", typeof(ushort), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnanimal_id);
-                this.columnbreed_id = new global::System.Data.DataColumn("breed_id", typeof(ushort), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnbreed_id);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnanimal_id,
-                                this.columnbreed_id}, true));
+                                this.columncolor_id,
+                                this.columnanimal_id}, true));
+                this.columncolor_id.AllowDBNull = false;
                 this.columnanimal_id.AllowDBNull = false;
-                this.columnbreed_id.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public animalbreedRow NewanimalbreedRow() {
-                return ((animalbreedRow)(this.NewRow()));
+            public animalcolorRow NewanimalcolorRow() {
+                return ((animalcolorRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new animalbreedRow(builder);
+                return new animalcolorRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(animalbreedRow);
+                return typeof(animalcolorRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.animalbreedRowChanged != null)) {
-                    this.animalbreedRowChanged(this, new animalbreedRowChangeEvent(((animalbreedRow)(e.Row)), e.Action));
+                if ((this.animalcolorRowChanged != null)) {
+                    this.animalcolorRowChanged(this, new animalcolorRowChangeEvent(((animalcolorRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2119,8 +1831,8 @@ namespace DataAccessLayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.animalbreedRowChanging != null)) {
-                    this.animalbreedRowChanging(this, new animalbreedRowChangeEvent(((animalbreedRow)(e.Row)), e.Action));
+                if ((this.animalcolorRowChanging != null)) {
+                    this.animalcolorRowChanging(this, new animalcolorRowChangeEvent(((animalcolorRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2128,8 +1840,8 @@ namespace DataAccessLayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.animalbreedRowDeleted != null)) {
-                    this.animalbreedRowDeleted(this, new animalbreedRowChangeEvent(((animalbreedRow)(e.Row)), e.Action));
+                if ((this.animalcolorRowDeleted != null)) {
+                    this.animalcolorRowDeleted(this, new animalcolorRowChangeEvent(((animalcolorRow)(e.Row)), e.Action));
                 }
             }
             
@@ -2137,14 +1849,14 @@ namespace DataAccessLayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.animalbreedRowDeleting != null)) {
-                    this.animalbreedRowDeleting(this, new animalbreedRowChangeEvent(((animalbreedRow)(e.Row)), e.Action));
+                if ((this.animalcolorRowDeleting != null)) {
+                    this.animalcolorRowDeleting(this, new animalcolorRowChangeEvent(((animalcolorRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveanimalbreedRow(animalbreedRow row) {
+            public void RemoveanimalcolorRow(animalcolorRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -2171,7 +1883,281 @@ namespace DataAccessLayer {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "animalbreedDataTable";
+                attribute2.FixedValue = "animalcolorDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class colorDataTable : global::System.Data.TypedTableBase<colorRow> {
+            
+            private global::System.Data.DataColumn columncolor_id;
+            
+            private global::System.Data.DataColumn columncolor;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public colorDataTable() {
+                this.TableName = "color";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal colorDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected colorDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn color_idColumn {
+                get {
+                    return this.columncolor_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn colorColumn {
+                get {
+                    return this.columncolor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public colorRow this[int index] {
+                get {
+                    return ((colorRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event colorRowChangeEventHandler colorRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event colorRowChangeEventHandler colorRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event colorRowChangeEventHandler colorRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event colorRowChangeEventHandler colorRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddcolorRow(colorRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public colorRow AddcolorRow(ushort color_id, string color) {
+                colorRow rowcolorRow = ((colorRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        color_id,
+                        color};
+                rowcolorRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowcolorRow);
+                return rowcolorRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public colorRow FindBycolor_id(ushort color_id) {
+                return ((colorRow)(this.Rows.Find(new object[] {
+                            color_id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                colorDataTable cln = ((colorDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new colorDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columncolor_id = base.Columns["color_id"];
+                this.columncolor = base.Columns["color"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columncolor_id = new global::System.Data.DataColumn("color_id", typeof(ushort), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncolor_id);
+                this.columncolor = new global::System.Data.DataColumn("color", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncolor);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columncolor_id}, true));
+                this.columncolor_id.AllowDBNull = false;
+                this.columncolor_id.Unique = true;
+                this.columncolor.AllowDBNull = false;
+                this.columncolor.MaxLength = 50;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public colorRow NewcolorRow() {
+                return ((colorRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new colorRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(colorRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.colorRowChanged != null)) {
+                    this.colorRowChanged(this, new colorRowChangeEvent(((colorRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.colorRowChanging != null)) {
+                    this.colorRowChanging(this, new colorRowChangeEvent(((colorRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.colorRowDeleted != null)) {
+                    this.colorRowDeleted(this, new colorRowChangeEvent(((colorRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.colorRowDeleting != null)) {
+                    this.colorRowDeleting(this, new colorRowChangeEvent(((colorRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemovecolorRow(colorRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                AnimalMedical ds = new AnimalMedical();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "colorDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2537,6 +2523,279 @@ namespace DataAccessLayer {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class vaccineDataTable : global::System.Data.TypedTableBase<vaccineRow> {
+            
+            private global::System.Data.DataColumn columnvaccine_id;
+            
+            private global::System.Data.DataColumn columnvaccine_name;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public vaccineDataTable() {
+                this.TableName = "vaccine";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal vaccineDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected vaccineDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn vaccine_idColumn {
+                get {
+                    return this.columnvaccine_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn vaccine_nameColumn {
+                get {
+                    return this.columnvaccine_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public vaccineRow this[int index] {
+                get {
+                    return ((vaccineRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event vaccineRowChangeEventHandler vaccineRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event vaccineRowChangeEventHandler vaccineRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event vaccineRowChangeEventHandler vaccineRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event vaccineRowChangeEventHandler vaccineRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddvaccineRow(vaccineRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public vaccineRow AddvaccineRow(sbyte vaccine_id, string vaccine_name) {
+                vaccineRow rowvaccineRow = ((vaccineRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        vaccine_id,
+                        vaccine_name};
+                rowvaccineRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowvaccineRow);
+                return rowvaccineRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public vaccineRow FindByvaccine_id(sbyte vaccine_id) {
+                return ((vaccineRow)(this.Rows.Find(new object[] {
+                            vaccine_id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                vaccineDataTable cln = ((vaccineDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new vaccineDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnvaccine_id = base.Columns["vaccine_id"];
+                this.columnvaccine_name = base.Columns["vaccine_name"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnvaccine_id = new global::System.Data.DataColumn("vaccine_id", typeof(sbyte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvaccine_id);
+                this.columnvaccine_name = new global::System.Data.DataColumn("vaccine_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvaccine_name);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnvaccine_id}, true));
+                this.columnvaccine_id.AllowDBNull = false;
+                this.columnvaccine_id.Unique = true;
+                this.columnvaccine_name.MaxLength = 20;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public vaccineRow NewvaccineRow() {
+                return ((vaccineRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new vaccineRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(vaccineRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.vaccineRowChanged != null)) {
+                    this.vaccineRowChanged(this, new vaccineRowChangeEvent(((vaccineRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.vaccineRowChanging != null)) {
+                    this.vaccineRowChanging(this, new vaccineRowChangeEvent(((vaccineRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.vaccineRowDeleted != null)) {
+                    this.vaccineRowDeleted(this, new vaccineRowChangeEvent(((vaccineRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.vaccineRowDeleting != null)) {
+                    this.vaccineRowDeleting(this, new vaccineRowChangeEvent(((vaccineRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemovevaccineRow(vaccineRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                AnimalMedical ds = new AnimalMedical();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "vaccineDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class sexDataTable : global::System.Data.TypedTableBase<sexRow> {
             
             private global::System.Data.DataColumn columnsex_id;
@@ -2629,7 +2888,7 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sexRow AddsexRow(uint sex_id, string sex_name) {
+            public sexRow AddsexRow(byte sex_id, string sex_name) {
                 sexRow rowsexRow = ((sexRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         sex_id,
@@ -2641,7 +2900,7 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sexRow FindBysex_id(uint sex_id) {
+            public sexRow FindBysex_id(byte sex_id) {
                 return ((sexRow)(this.Rows.Find(new object[] {
                             sex_id})));
             }
@@ -2670,7 +2929,7 @@ namespace DataAccessLayer {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnsex_id = new global::System.Data.DataColumn("sex_id", typeof(uint), null, global::System.Data.MappingType.Element);
+                this.columnsex_id = new global::System.Data.DataColumn("sex_id", typeof(byte), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsex_id);
                 this.columnsex_name = new global::System.Data.DataColumn("sex_name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsex_name);
@@ -2972,7 +3231,7 @@ namespace DataAccessLayer {
             private void InitClass() {
                 this.columnnote_id = new global::System.Data.DataColumn("note_id", typeof(ushort), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnote_id);
-                this.columnanimal_id = new global::System.Data.DataColumn("animal_id", typeof(uint), null, global::System.Data.MappingType.Element);
+                this.columnanimal_id = new global::System.Data.DataColumn("animal_id", typeof(ushort), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnanimal_id);
                 this.columnnote_date = new global::System.Data.DataColumn("note_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnote_date);
@@ -3387,279 +3646,6 @@ namespace DataAccessLayer {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class vaccineDataTable : global::System.Data.TypedTableBase<vaccineRow> {
-            
-            private global::System.Data.DataColumn columnvaccine_id;
-            
-            private global::System.Data.DataColumn columnvaccine_name;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public vaccineDataTable() {
-                this.TableName = "vaccine";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal vaccineDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected vaccineDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn vaccine_idColumn {
-                get {
-                    return this.columnvaccine_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn vaccine_nameColumn {
-                get {
-                    return this.columnvaccine_name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public vaccineRow this[int index] {
-                get {
-                    return ((vaccineRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event vaccineRowChangeEventHandler vaccineRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event vaccineRowChangeEventHandler vaccineRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event vaccineRowChangeEventHandler vaccineRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event vaccineRowChangeEventHandler vaccineRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddvaccineRow(vaccineRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public vaccineRow AddvaccineRow(sbyte vaccine_id, string vaccine_name) {
-                vaccineRow rowvaccineRow = ((vaccineRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        vaccine_id,
-                        vaccine_name};
-                rowvaccineRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowvaccineRow);
-                return rowvaccineRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public vaccineRow FindByvaccine_id(sbyte vaccine_id) {
-                return ((vaccineRow)(this.Rows.Find(new object[] {
-                            vaccine_id})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                vaccineDataTable cln = ((vaccineDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new vaccineDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal void InitVars() {
-                this.columnvaccine_id = base.Columns["vaccine_id"];
-                this.columnvaccine_name = base.Columns["vaccine_name"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            private void InitClass() {
-                this.columnvaccine_id = new global::System.Data.DataColumn("vaccine_id", typeof(sbyte), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnvaccine_id);
-                this.columnvaccine_name = new global::System.Data.DataColumn("vaccine_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnvaccine_name);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnvaccine_id}, true));
-                this.columnvaccine_id.AllowDBNull = false;
-                this.columnvaccine_id.Unique = true;
-                this.columnvaccine_name.MaxLength = 20;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public vaccineRow NewvaccineRow() {
-                return ((vaccineRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new vaccineRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(vaccineRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.vaccineRowChanged != null)) {
-                    this.vaccineRowChanged(this, new vaccineRowChangeEvent(((vaccineRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.vaccineRowChanging != null)) {
-                    this.vaccineRowChanging(this, new vaccineRowChangeEvent(((vaccineRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.vaccineRowDeleted != null)) {
-                    this.vaccineRowDeleted(this, new vaccineRowChangeEvent(((vaccineRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.vaccineRowDeleting != null)) {
-                    this.vaccineRowDeleting(this, new vaccineRowChangeEvent(((vaccineRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemovevaccineRow(vaccineRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                AnimalMedical ds = new AnimalMedical();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "vaccineDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class speciesDataTable : global::System.Data.TypedTableBase<speciesRow> {
             
             private global::System.Data.DataColumn columnspecies_id;
@@ -3944,9 +3930,9 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public uint animal_id {
+            public ushort animal_id {
                 get {
-                    return ((uint)(this[this.tableanimal.animal_idColumn]));
+                    return ((ushort)(this[this.tableanimal.animal_idColumn]));
                 }
                 set {
                     this[this.tableanimal.animal_idColumn] = value;
@@ -3987,10 +3973,10 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public uint sex {
+            public byte sex {
                 get {
                     try {
-                        return ((uint)(this[this.tableanimal.sexColumn]));
+                        return ((byte)(this[this.tableanimal.sexColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'sex\' in table \'animal\' is DBNull.", e);
@@ -3998,22 +3984,6 @@ namespace DataAccessLayer {
                 }
                 set {
                     this[this.tableanimal.sexColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ushort species_id {
-                get {
-                    try {
-                        return ((ushort)(this[this.tableanimal.species_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'species_id\' in table \'animal\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableanimal.species_idColumn] = value;
                 }
             }
             
@@ -4178,18 +4148,6 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isspecies_idNull() {
-                return this.IsNull(this.tableanimal.species_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setspecies_idNull() {
-                this[this.tableanimal.species_idColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsbirthdateNull() {
                 return this.IsNull(this.tableanimal.birthdateColumn);
             }
@@ -4274,23 +4232,23 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public animalcolorRow[] GetanimalcolorRows() {
-                if ((this.Table.ChildRelations["animalcolor_ibfk_2"] == null)) {
-                    return new animalcolorRow[0];
-                }
-                else {
-                    return ((animalcolorRow[])(base.GetChildRows(this.Table.ChildRelations["animalcolor_ibfk_2"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public animalbreedRow[] GetanimalbreedRows() {
                 if ((this.Table.ChildRelations["animalbreed_ibfk_1"] == null)) {
                     return new animalbreedRow[0];
                 }
                 else {
                     return ((animalbreedRow[])(base.GetChildRows(this.Table.ChildRelations["animalbreed_ibfk_1"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public animalcolorRow[] GetanimalcolorRows() {
+                if ((this.Table.ChildRelations["animalcolor_ibfk_2"] == null)) {
+                    return new animalcolorRow[0];
+                }
+                else {
+                    return ((animalcolorRow[])(base.GetChildRows(this.Table.ChildRelations["animalcolor_ibfk_2"])));
                 }
             }
             
@@ -4309,95 +4267,36 @@ namespace DataAccessLayer {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class colorRow : global::System.Data.DataRow {
+        public partial class animalbreedRow : global::System.Data.DataRow {
             
-            private colorDataTable tablecolor;
+            private animalbreedDataTable tableanimalbreed;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal colorRow(global::System.Data.DataRowBuilder rb) : 
+            internal animalbreedRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablecolor = ((colorDataTable)(this.Table));
+                this.tableanimalbreed = ((animalbreedDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ushort color_id {
+            public ushort animal_id {
                 get {
-                    return ((ushort)(this[this.tablecolor.color_idColumn]));
+                    return ((ushort)(this[this.tableanimalbreed.animal_idColumn]));
                 }
                 set {
-                    this[this.tablecolor.color_idColumn] = value;
+                    this[this.tableanimalbreed.animal_idColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string color_name {
+            public ushort breed_id {
                 get {
-                    return ((string)(this[this.tablecolor.color_nameColumn]));
+                    return ((ushort)(this[this.tableanimalbreed.breed_idColumn]));
                 }
                 set {
-                    this[this.tablecolor.color_nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public animalcolorRow[] GetanimalcolorRows() {
-                if ((this.Table.ChildRelations["animalcolor_ibfk_1"] == null)) {
-                    return new animalcolorRow[0];
-                }
-                else {
-                    return ((animalcolorRow[])(base.GetChildRows(this.Table.ChildRelations["animalcolor_ibfk_1"])));
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class animalcolorRow : global::System.Data.DataRow {
-            
-            private animalcolorDataTable tableanimalcolor;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal animalcolorRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableanimalcolor = ((animalcolorDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ushort color_id {
-                get {
-                    return ((ushort)(this[this.tableanimalcolor.color_idColumn]));
-                }
-                set {
-                    this[this.tableanimalcolor.color_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public uint animal_id {
-                get {
-                    return ((uint)(this[this.tableanimalcolor.animal_idColumn]));
-                }
-                set {
-                    this[this.tableanimalcolor.animal_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public colorRow colorRow {
-                get {
-                    return ((colorRow)(this.GetParentRow(this.Table.ParentRelations["animalcolor_ibfk_1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["animalcolor_ibfk_1"]);
+                    this[this.tableanimalbreed.breed_idColumn] = value;
                 }
             }
             
@@ -4405,10 +4304,21 @@ namespace DataAccessLayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public animalRow animalRow {
                 get {
-                    return ((animalRow)(this.GetParentRow(this.Table.ParentRelations["animalcolor_ibfk_2"])));
+                    return ((animalRow)(this.GetParentRow(this.Table.ParentRelations["animalbreed_ibfk_1"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["animalcolor_ibfk_2"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["animalbreed_ibfk_1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public breedRow breedRow {
+                get {
+                    return ((breedRow)(this.GetParentRow(this.Table.ParentRelations["animalbreed_ibfk_2"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["animalbreed_ibfk_2"]);
                 }
             }
         }
@@ -4492,36 +4402,36 @@ namespace DataAccessLayer {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class animalbreedRow : global::System.Data.DataRow {
+        public partial class animalcolorRow : global::System.Data.DataRow {
             
-            private animalbreedDataTable tableanimalbreed;
+            private animalcolorDataTable tableanimalcolor;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal animalbreedRow(global::System.Data.DataRowBuilder rb) : 
+            internal animalcolorRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableanimalbreed = ((animalbreedDataTable)(this.Table));
+                this.tableanimalcolor = ((animalcolorDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public uint animal_id {
+            public ushort color_id {
                 get {
-                    return ((uint)(this[this.tableanimalbreed.animal_idColumn]));
+                    return ((ushort)(this[this.tableanimalcolor.color_idColumn]));
                 }
                 set {
-                    this[this.tableanimalbreed.animal_idColumn] = value;
+                    this[this.tableanimalcolor.color_idColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ushort breed_id {
+            public ushort animal_id {
                 get {
-                    return ((ushort)(this[this.tableanimalbreed.breed_idColumn]));
+                    return ((ushort)(this[this.tableanimalcolor.animal_idColumn]));
                 }
                 set {
-                    this[this.tableanimalbreed.breed_idColumn] = value;
+                    this[this.tableanimalcolor.animal_idColumn] = value;
                 }
             }
             
@@ -4529,21 +4439,69 @@ namespace DataAccessLayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public animalRow animalRow {
                 get {
-                    return ((animalRow)(this.GetParentRow(this.Table.ParentRelations["animalbreed_ibfk_1"])));
+                    return ((animalRow)(this.GetParentRow(this.Table.ParentRelations["animalcolor_ibfk_2"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["animalbreed_ibfk_1"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["animalcolor_ibfk_2"]);
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public breedRow breedRow {
+            public colorRow colorRow {
                 get {
-                    return ((breedRow)(this.GetParentRow(this.Table.ParentRelations["animalbreed_ibfk_2"])));
+                    return ((colorRow)(this.GetParentRow(this.Table.ParentRelations["animalcolor_ibfk_1"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["animalbreed_ibfk_2"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["animalcolor_ibfk_1"]);
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class colorRow : global::System.Data.DataRow {
+            
+            private colorDataTable tablecolor;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal colorRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablecolor = ((colorDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ushort color_id {
+                get {
+                    return ((ushort)(this[this.tablecolor.color_idColumn]));
+                }
+                set {
+                    this[this.tablecolor.color_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string color {
+                get {
+                    return ((string)(this[this.tablecolor.colorColumn]));
+                }
+                set {
+                    this[this.tablecolor.colorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public animalcolorRow[] GetanimalcolorRows() {
+                if ((this.Table.ChildRelations["animalcolor_ibfk_1"] == null)) {
+                    return new animalcolorRow[0];
+                }
+                else {
+                    return ((animalcolorRow[])(base.GetChildRows(this.Table.ChildRelations["animalcolor_ibfk_1"])));
                 }
             }
         }
@@ -4700,6 +4658,60 @@ namespace DataAccessLayer {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
+        public partial class vaccineRow : global::System.Data.DataRow {
+            
+            private vaccineDataTable tablevaccine;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal vaccineRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablevaccine = ((vaccineDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public sbyte vaccine_id {
+                get {
+                    return ((sbyte)(this[this.tablevaccine.vaccine_idColumn]));
+                }
+                set {
+                    this[this.tablevaccine.vaccine_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string vaccine_name {
+                get {
+                    try {
+                        return ((string)(this[this.tablevaccine.vaccine_nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'vaccine_name\' in table \'vaccine\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevaccine.vaccine_nameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Isvaccine_nameNull() {
+                return this.IsNull(this.tablevaccine.vaccine_nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Setvaccine_nameNull() {
+                this[this.tablevaccine.vaccine_nameColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
         public partial class sexRow : global::System.Data.DataRow {
             
             private sexDataTable tablesex;
@@ -4713,9 +4725,9 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public uint sex_id {
+            public byte sex_id {
                 get {
-                    return ((uint)(this[this.tablesex.sex_idColumn]));
+                    return ((byte)(this[this.tablesex.sex_idColumn]));
                 }
                 set {
                     this[this.tablesex.sex_idColumn] = value;
@@ -4789,10 +4801,10 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public uint animal_id {
+            public ushort animal_id {
                 get {
                     try {
-                        return ((uint)(this[this.tablenote.animal_idColumn]));
+                        return ((ushort)(this[this.tablenote.animal_idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'animal_id\' in table \'note\' is DBNull.", e);
@@ -4951,60 +4963,6 @@ namespace DataAccessLayer {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class vaccineRow : global::System.Data.DataRow {
-            
-            private vaccineDataTable tablevaccine;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal vaccineRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tablevaccine = ((vaccineDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sbyte vaccine_id {
-                get {
-                    return ((sbyte)(this[this.tablevaccine.vaccine_idColumn]));
-                }
-                set {
-                    this[this.tablevaccine.vaccine_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string vaccine_name {
-                get {
-                    try {
-                        return ((string)(this[this.tablevaccine.vaccine_nameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'vaccine_name\' in table \'vaccine\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevaccine.vaccine_nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isvaccine_nameNull() {
-                return this.IsNull(this.tablevaccine.vaccine_nameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setvaccine_nameNull() {
-                this[this.tablevaccine.vaccine_nameColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
         public partial class speciesRow : global::System.Data.DataRow {
             
             private speciesDataTable tablespecies;
@@ -5094,56 +5052,22 @@ namespace DataAccessLayer {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class colorRowChangeEvent : global::System.EventArgs {
+        public class animalbreedRowChangeEvent : global::System.EventArgs {
             
-            private colorRow eventRow;
+            private animalbreedRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public colorRowChangeEvent(colorRow row, global::System.Data.DataRowAction action) {
+            public animalbreedRowChangeEvent(animalbreedRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public colorRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class animalcolorRowChangeEvent : global::System.EventArgs {
-            
-            private animalcolorRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public animalcolorRowChangeEvent(animalcolorRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public animalcolorRow Row {
+            public animalbreedRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -5196,22 +5120,56 @@ namespace DataAccessLayer {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class animalbreedRowChangeEvent : global::System.EventArgs {
+        public class animalcolorRowChangeEvent : global::System.EventArgs {
             
-            private animalbreedRow eventRow;
+            private animalcolorRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public animalbreedRowChangeEvent(animalbreedRow row, global::System.Data.DataRowAction action) {
+            public animalcolorRowChangeEvent(animalcolorRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public animalbreedRow Row {
+            public animalcolorRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class colorRowChangeEvent : global::System.EventArgs {
+            
+            private colorRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public colorRowChangeEvent(colorRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public colorRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -5246,6 +5204,40 @@ namespace DataAccessLayer {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public medicationRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class vaccineRowChangeEvent : global::System.EventArgs {
+            
+            private vaccineRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public vaccineRowChangeEvent(vaccineRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public vaccineRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -5348,40 +5340,6 @@ namespace DataAccessLayer {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public unitRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class vaccineRowChangeEvent : global::System.EventArgs {
-            
-            private vaccineRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public vaccineRowChangeEvent(vaccineRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public vaccineRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -5559,7 +5517,6 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             tableMapping.ColumnMappings.Add("db_bridge_id", "db_bridge_id");
             tableMapping.ColumnMappings.Add("name", "name");
             tableMapping.ColumnMappings.Add("sex", "sex");
-            tableMapping.ColumnMappings.Add("species_id", "species_id");
             tableMapping.ColumnMappings.Add("birthdate", "birthdate");
             tableMapping.ColumnMappings.Add("microchip_id", "microchip_id");
             tableMapping.ColumnMappings.Add("due_out_date", "due_out_date");
@@ -5570,12 +5527,12 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `animal` WHERE ((`animal_id` = @p1) AND ((@p2 = 1 AND `db_bridge_id` IS NULL) OR (`db_bridge_id` = @p3)) AND ((@p4 = 1 AND `name` IS NULL) OR (`name` = @p5)) AND ((@p6 = 1 AND `sex` IS NULL) OR (`sex` = @p7)) AND ((@p8 = 1 AND `species_id` IS NULL) OR (`species_id` = @p9)) AND ((@p10 = 1 AND `birthdate` IS NULL) OR (`birthdate` = @p11)) AND ((@p12 = 1 AND `microchip_id` IS NULL) OR (`microchip_id` = @p13)) AND ((@p14 = 1 AND `due_out_date` IS NULL) OR (`due_out_date` = @p15)) AND ((@p16 = 1 AND `intake_date` IS NULL) OR (`intake_date` = @p17)) AND ((@p18 = 1 AND `weight` IS NULL) OR (`weight` = @p19)) AND ((@p20 = 1 AND `kennel` IS NULL) OR (`kennel` = @p21)) AND ((@p22 = 1 AND `altered` IS NULL) OR (`altered` = @p23)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `animal` WHERE ((`animal_id` = @p1) AND ((@p2 = 1 AND `db_bridge_id` IS NULL) OR (`db_bridge_id` = @p3)) AND ((@p4 = 1 AND `name` IS NULL) OR (`name` = @p5)) AND ((@p6 = 1 AND `sex` IS NULL) OR (`sex` = @p7)) AND ((@p8 = 1 AND `birthdate` IS NULL) OR (`birthdate` = @p9)) AND ((@p10 = 1 AND `microchip_id` IS NULL) OR (`microchip_id` = @p11)) AND ((@p12 = 1 AND `due_out_date` IS NULL) OR (`due_out_date` = @p13)) AND ((@p14 = 1 AND `intake_date` IS NULL) OR (`intake_date` = @p15)) AND ((@p16 = 1 AND `weight` IS NULL) OR (`weight` = @p17)) AND ((@p18 = 1 AND `kennel` IS NULL) OR (`kennel` = @p19)) AND ((@p20 = 1 AND `altered` IS NULL) OR (`altered` = @p21)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.UInt16;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
             param.IsNullable = true;
             param.SourceColumn = "animal_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
@@ -5624,8 +5581,8 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p7";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.Byte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UByte;
             param.IsNullable = true;
             param.SourceColumn = "sex";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
@@ -5635,29 +5592,12 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "species_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p9";
-            param.DbType = global::System.Data.DbType.UInt16;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
-            param.IsNullable = true;
-            param.SourceColumn = "species_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p10";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
             param.SourceColumn = "birthdate";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p11";
+            param.ParameterName = "@p9";
             param.DbType = global::System.Data.DbType.Date;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
             param.IsNullable = true;
@@ -5665,7 +5605,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p12";
+            param.ParameterName = "@p10";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -5674,10 +5614,27 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p13";
+            param.ParameterName = "@p11";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "microchip_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p12";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "due_out_date";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p13";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "due_out_date";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -5685,7 +5642,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "due_out_date";
+            param.SourceColumn = "intake_date";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
@@ -5694,7 +5651,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.DbType = global::System.Data.DbType.Date;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
             param.IsNullable = true;
-            param.SourceColumn = "due_out_date";
+            param.SourceColumn = "intake_date";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -5702,29 +5659,12 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "intake_date";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p17";
-            param.DbType = global::System.Data.DbType.Date;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
-            param.IsNullable = true;
-            param.SourceColumn = "intake_date";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p18";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
             param.SourceColumn = "weight";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p19";
+            param.ParameterName = "@p17";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
@@ -5732,7 +5672,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p20";
+            param.ParameterName = "@p18";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -5741,14 +5681,14 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p21";
+            param.ParameterName = "@p19";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "kennel";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p22";
+            param.ParameterName = "@p20";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -5757,7 +5697,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p23";
+            param.ParameterName = "@p21";
             param.DbType = global::System.Data.DbType.SByte;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
             param.IsNullable = true;
@@ -5766,9 +5706,9 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `animal` (`db_bridge_id`, `name`, `sex`, `species_id`, `birthdate`, `" +
-                "microchip_id`, `due_out_date`, `intake_date`, `weight`, `kennel`, `altered`) VAL" +
-                "UES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `animal` (`db_bridge_id`, `name`, `sex`, `birthdate`, `microchip_id`," +
+                " `due_out_date`, `intake_date`, `weight`, `kennel`, `altered`) VALUES (@p1, @p2," +
+                " @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -5787,22 +5727,14 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p3";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.Byte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UByte;
             param.IsNullable = true;
             param.SourceColumn = "sex";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p4";
-            param.DbType = global::System.Data.DbType.UInt16;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
-            param.IsNullable = true;
-            param.SourceColumn = "species_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p5";
             param.DbType = global::System.Data.DbType.Date;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
             param.IsNullable = true;
@@ -5810,14 +5742,14 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p6";
+            param.ParameterName = "@p5";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "microchip_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p7";
+            param.ParameterName = "@p6";
             param.DbType = global::System.Data.DbType.Date;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
             param.IsNullable = true;
@@ -5825,7 +5757,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p8";
+            param.ParameterName = "@p7";
             param.DbType = global::System.Data.DbType.Date;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
             param.IsNullable = true;
@@ -5833,7 +5765,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p9";
+            param.ParameterName = "@p8";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
@@ -5841,14 +5773,14 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p10";
+            param.ParameterName = "@p9";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "kennel";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p11";
+            param.ParameterName = "@p10";
             param.DbType = global::System.Data.DbType.SByte;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
             param.IsNullable = true;
@@ -5857,7 +5789,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `animal` SET `db_bridge_id` = @p1, `name` = @p2, `sex` = @p3, `species_id` = @p4, `birthdate` = @p5, `microchip_id` = @p6, `due_out_date` = @p7, `intake_date` = @p8, `weight` = @p9, `kennel` = @p10, `altered` = @p11 WHERE ((`animal_id` = @p12) AND ((@p13 = 1 AND `db_bridge_id` IS NULL) OR (`db_bridge_id` = @p14)) AND ((@p15 = 1 AND `name` IS NULL) OR (`name` = @p16)) AND ((@p17 = 1 AND `sex` IS NULL) OR (`sex` = @p18)) AND ((@p19 = 1 AND `species_id` IS NULL) OR (`species_id` = @p20)) AND ((@p21 = 1 AND `birthdate` IS NULL) OR (`birthdate` = @p22)) AND ((@p23 = 1 AND `microchip_id` IS NULL) OR (`microchip_id` = @p24)) AND ((@p25 = 1 AND `due_out_date` IS NULL) OR (`due_out_date` = @p26)) AND ((@p27 = 1 AND `intake_date` IS NULL) OR (`intake_date` = @p28)) AND ((@p29 = 1 AND `weight` IS NULL) OR (`weight` = @p30)) AND ((@p31 = 1 AND `kennel` IS NULL) OR (`kennel` = @p32)) AND ((@p33 = 1 AND `altered` IS NULL) OR (`altered` = @p34)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `animal` SET `db_bridge_id` = @p1, `name` = @p2, `sex` = @p3, `birthdate` = @p4, `microchip_id` = @p5, `due_out_date` = @p6, `intake_date` = @p7, `weight` = @p8, `kennel` = @p9, `altered` = @p10 WHERE ((`animal_id` = @p11) AND ((@p12 = 1 AND `db_bridge_id` IS NULL) OR (`db_bridge_id` = @p13)) AND ((@p14 = 1 AND `name` IS NULL) OR (`name` = @p15)) AND ((@p16 = 1 AND `sex` IS NULL) OR (`sex` = @p17)) AND ((@p18 = 1 AND `birthdate` IS NULL) OR (`birthdate` = @p19)) AND ((@p20 = 1 AND `microchip_id` IS NULL) OR (`microchip_id` = @p21)) AND ((@p22 = 1 AND `due_out_date` IS NULL) OR (`due_out_date` = @p23)) AND ((@p24 = 1 AND `intake_date` IS NULL) OR (`intake_date` = @p25)) AND ((@p26 = 1 AND `weight` IS NULL) OR (`weight` = @p27)) AND ((@p28 = 1 AND `kennel` IS NULL) OR (`kennel` = @p29)) AND ((@p30 = 1 AND `altered` IS NULL) OR (`altered` = @p31)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -5876,22 +5808,14 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p3";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.Byte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UByte;
             param.IsNullable = true;
             param.SourceColumn = "sex";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p4";
-            param.DbType = global::System.Data.DbType.UInt16;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
-            param.IsNullable = true;
-            param.SourceColumn = "species_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p5";
             param.DbType = global::System.Data.DbType.Date;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
             param.IsNullable = true;
@@ -5899,10 +5823,18 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p6";
+            param.ParameterName = "@p5";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "microchip_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p6";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "due_out_date";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -5910,19 +5842,11 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.DbType = global::System.Data.DbType.Date;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
             param.IsNullable = true;
-            param.SourceColumn = "due_out_date";
-            param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p8";
-            param.DbType = global::System.Data.DbType.Date;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
-            param.IsNullable = true;
             param.SourceColumn = "intake_date";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p9";
+            param.ParameterName = "@p8";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
@@ -5930,14 +5854,14 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p10";
+            param.ParameterName = "@p9";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "kennel";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p11";
+            param.ParameterName = "@p10";
             param.DbType = global::System.Data.DbType.SByte;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
             param.IsNullable = true;
@@ -5945,15 +5869,15 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p12";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.ParameterName = "@p11";
+            param.DbType = global::System.Data.DbType.UInt16;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
             param.IsNullable = true;
             param.SourceColumn = "animal_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p13";
+            param.ParameterName = "@p12";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -5962,7 +5886,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p14";
+            param.ParameterName = "@p13";
             param.DbType = global::System.Data.DbType.StringFixedLength;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
             param.IsNullable = true;
@@ -5970,57 +5894,40 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p15";
+            param.ParameterName = "@p14";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "name";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p15";
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "name";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p16";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "name";
+            param.SourceColumn = "sex";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p17";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.DbType = global::System.Data.DbType.Byte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UByte;
             param.IsNullable = true;
             param.SourceColumn = "sex";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p18";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
-            param.IsNullable = true;
-            param.SourceColumn = "sex";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p19";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "species_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p20";
-            param.DbType = global::System.Data.DbType.UInt16;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
-            param.IsNullable = true;
-            param.SourceColumn = "species_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p21";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -6029,7 +5936,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p22";
+            param.ParameterName = "@p19";
             param.DbType = global::System.Data.DbType.Date;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
             param.IsNullable = true;
@@ -6037,7 +5944,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p23";
+            param.ParameterName = "@p20";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -6046,48 +5953,48 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p24";
+            param.ParameterName = "@p21";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "microchip_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p25";
+            param.ParameterName = "@p22";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "due_out_date";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p23";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "due_out_date";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p24";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "intake_date";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p25";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "intake_date";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p26";
-            param.DbType = global::System.Data.DbType.Date;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
-            param.IsNullable = true;
-            param.SourceColumn = "due_out_date";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p27";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "intake_date";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p28";
-            param.DbType = global::System.Data.DbType.Date;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
-            param.IsNullable = true;
-            param.SourceColumn = "intake_date";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p29";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -6096,7 +6003,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p30";
+            param.ParameterName = "@p27";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
@@ -6104,7 +6011,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p31";
+            param.ParameterName = "@p28";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -6113,14 +6020,14 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p32";
+            param.ParameterName = "@p29";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "kennel";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p33";
+            param.ParameterName = "@p30";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -6129,7 +6036,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p34";
+            param.ParameterName = "@p31";
             param.DbType = global::System.Data.DbType.SByte;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
             param.IsNullable = true;
@@ -6212,8 +6119,8 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(uint p1, string p3, string p5, global::System.Nullable<uint> p7, global::System.Nullable<ushort> p9, global::System.Nullable<global::System.DateTime> p11, string p13, global::System.Nullable<global::System.DateTime> p15, global::System.Nullable<global::System.DateTime> p17, global::System.Nullable<decimal> p19, string p21, global::System.Nullable<byte> p23) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((uint)(p1));
+        public virtual int Delete(ushort p1, string p3, string p5, global::System.Nullable<byte> p7, global::System.Nullable<global::System.DateTime> p9, string p11, global::System.Nullable<global::System.DateTime> p13, global::System.Nullable<global::System.DateTime> p15, global::System.Nullable<decimal> p17, string p19, global::System.Nullable<byte> p21) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((ushort)(p1));
             if ((p3 == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -6232,7 +6139,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             }
             if ((p7.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((uint)(p7.Value));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((byte)(p7.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
@@ -6240,27 +6147,27 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             }
             if ((p9.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((ushort)(p9.Value));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(p9.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((p11.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((System.DateTime)(p11.Value));
-            }
-            else {
+            if ((p11 == null)) {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((p13 == null)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(p11));
+            }
+            if ((p13.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((System.DateTime)(p13.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(p13));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             if ((p15.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
@@ -6272,35 +6179,27 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             }
             if ((p17.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((System.DateTime)(p17.Value));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((decimal)(p17.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            if ((p19.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((decimal)(p19.Value));
-            }
-            else {
+            if ((p19 == null)) {
                 this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            if ((p21 == null)) {
+            else {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(p19));
+            }
+            if ((p21.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((byte)(p21.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(p21));
-            }
-            if ((p23.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((byte)(p23.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6322,7 +6221,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string p1, string p2, global::System.Nullable<uint> p3, global::System.Nullable<ushort> p4, global::System.Nullable<global::System.DateTime> p5, string p6, global::System.Nullable<global::System.DateTime> p7, global::System.Nullable<global::System.DateTime> p8, global::System.Nullable<decimal> p9, string p10, global::System.Nullable<byte> p11) {
+        public virtual int Insert(string p1, string p2, global::System.Nullable<byte> p3, global::System.Nullable<global::System.DateTime> p4, string p5, global::System.Nullable<global::System.DateTime> p6, global::System.Nullable<global::System.DateTime> p7, global::System.Nullable<decimal> p8, string p9, global::System.Nullable<byte> p10) {
             if ((p1 == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -6336,28 +6235,28 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(p2));
             }
             if ((p3.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((uint)(p3.Value));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((byte)(p3.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((p4.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((ushort)(p4.Value));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(p4.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((p5.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(p5.Value));
-            }
-            else {
+            if ((p5 == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((p6 == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(p5));
+            }
+            if ((p6.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(p6.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(p6));
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             if ((p7.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(p7.Value));
@@ -6366,28 +6265,22 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             if ((p8.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((System.DateTime)(p8.Value));
+                this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(p8.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((p9.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((decimal)(p9.Value));
-            }
-            else {
+            if ((p9 == null)) {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((p10 == null)) {
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(p9));
+            }
+            if ((p10.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((byte)(p10.Value));
+            }
+            else {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(p10));
-            }
-            if ((p11.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((byte)(p11.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6412,27 +6305,25 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         public virtual int Update(
                     string p1, 
                     string p2, 
-                    global::System.Nullable<uint> p3, 
-                    global::System.Nullable<ushort> p4, 
-                    global::System.Nullable<global::System.DateTime> p5, 
-                    string p6, 
+                    global::System.Nullable<byte> p3, 
+                    global::System.Nullable<global::System.DateTime> p4, 
+                    string p5, 
+                    global::System.Nullable<global::System.DateTime> p6, 
                     global::System.Nullable<global::System.DateTime> p7, 
-                    global::System.Nullable<global::System.DateTime> p8, 
-                    global::System.Nullable<decimal> p9, 
-                    string p10, 
-                    global::System.Nullable<byte> p11, 
-                    uint p12, 
-                    string p14, 
-                    string p16, 
-                    global::System.Nullable<uint> p18, 
-                    global::System.Nullable<ushort> p20, 
-                    global::System.Nullable<global::System.DateTime> p22, 
-                    string p24, 
-                    global::System.Nullable<global::System.DateTime> p26, 
-                    global::System.Nullable<global::System.DateTime> p28, 
-                    global::System.Nullable<decimal> p30, 
-                    string p32, 
-                    global::System.Nullable<byte> p34) {
+                    global::System.Nullable<decimal> p8, 
+                    string p9, 
+                    global::System.Nullable<byte> p10, 
+                    ushort p11, 
+                    string p13, 
+                    string p15, 
+                    global::System.Nullable<byte> p17, 
+                    global::System.Nullable<global::System.DateTime> p19, 
+                    string p21, 
+                    global::System.Nullable<global::System.DateTime> p23, 
+                    global::System.Nullable<global::System.DateTime> p25, 
+                    global::System.Nullable<decimal> p27, 
+                    string p29, 
+                    global::System.Nullable<byte> p31) {
             if ((p1 == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -6446,28 +6337,28 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(p2));
             }
             if ((p3.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((uint)(p3.Value));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((byte)(p3.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((p4.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((ushort)(p4.Value));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(p4.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((p5.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(p5.Value));
-            }
-            else {
+            if ((p5 == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((p6 == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(p5));
+            }
+            if ((p6.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(p6.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(p6));
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             if ((p7.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(p7.Value));
@@ -6476,117 +6367,103 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             if ((p8.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(p8.Value));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(p8.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((p9.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((decimal)(p9.Value));
-            }
-            else {
+            if ((p9 == null)) {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((p10 == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(p9));
+            }
+            if ((p10.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((byte)(p10.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(p10));
-            }
-            if ((p11.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((byte)(p11.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((uint)(p12));
-            if ((p14 == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((ushort)(p11));
+            if ((p13 == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(p14));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(p13));
             }
-            if ((p16 == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(p16));
-            }
-            if ((p18.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((uint)(p18.Value));
+            if ((p15 == null)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(p15));
             }
-            if ((p20.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((ushort)(p20.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
-            }
-            if ((p22.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((System.DateTime)(p22.Value));
+            if ((p17.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((byte)(p17.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            if ((p24 == null)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(p24));
-            }
-            if ((p26.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((System.DateTime)(p26.Value));
+            if ((p19.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(p19.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            if ((p28.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((System.DateTime)(p28.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
-            }
-            if ((p30.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((decimal)(p30.Value));
+            if ((p21 == null)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(p21));
             }
-            if ((p32 == null)) {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(p32));
-            }
-            if ((p34.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((byte)(p34.Value));
+            if ((p23.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((System.DateTime)(p23.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((p25.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((System.DateTime)(p25.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            if ((p27.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((decimal)(p27.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            if ((p29 == null)) {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(p29));
+            }
+            if ((p31.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((byte)(p31.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6614,7 +6491,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class colorTableAdapter : global::System.ComponentModel.Component {
+    public partial class animalbreedTableAdapter : global::System.ComponentModel.Component {
         
         private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
         
@@ -6628,7 +6505,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public colorTableAdapter() {
+        public animalbreedTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -6725,438 +6602,69 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "color";
-            tableMapping.ColumnMappings.Add("color_id", "color_id");
-            tableMapping.ColumnMappings.Add("color_name", "color_name");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `color` WHERE ((`color_id` = @p1) AND (`color_name` = @p2))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p1";
-            param.DbType = global::System.Data.DbType.UInt16;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
-            param.IsNullable = true;
-            param.SourceColumn = "color_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p2";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "color_name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `color` (`color_id`, `color_name`) VALUES (@p1, @p2)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p1";
-            param.DbType = global::System.Data.DbType.UInt16;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
-            param.IsNullable = true;
-            param.SourceColumn = "color_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p2";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "color_name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._adapter.InsertCommand.Parameters.Add(param);
-            this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE `color` SET `color_id` = @p1, `color_name` = @p2 WHERE ((`color_id` = @p3)" +
-                " AND (`color_name` = @p4))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p1";
-            param.DbType = global::System.Data.DbType.UInt16;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
-            param.IsNullable = true;
-            param.SourceColumn = "color_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p2";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "color_name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p3";
-            param.DbType = global::System.Data.DbType.UInt16;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
-            param.IsNullable = true;
-            param.SourceColumn = "color_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p4";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "color_name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::DataAccessLayer.Properties.Settings.Default.animal_medicalConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
-            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT color.*\r\nFROM  color";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(AnimalMedical.colorDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual AnimalMedical.colorDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            AnimalMedical.colorDataTable dataTable = new AnimalMedical.colorDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(AnimalMedical.colorDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(AnimalMedical dataSet) {
-            return this.Adapter.Update(dataSet, "color");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(ushort p1, string p2) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((ushort)(p1));
-            if ((p2 == null)) {
-                throw new global::System.ArgumentNullException("p2");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(p2));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(ushort p1, string p2) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((ushort)(p1));
-            if ((p2 == null)) {
-                throw new global::System.ArgumentNullException("p2");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(p2));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(ushort p1, string p2, ushort p3, string p4) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((ushort)(p1));
-            if ((p2 == null)) {
-                throw new global::System.ArgumentNullException("p2");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(p2));
-            }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((ushort)(p3));
-            if ((p4 == null)) {
-                throw new global::System.ArgumentNullException("p4");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(p4));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p2, ushort p3, string p4) {
-            return this.Update(p3, p2, p3, p4);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class animalcolorTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
-        
-        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
-        
-        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
-        
-        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public animalcolorTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "animalcolor";
-            tableMapping.ColumnMappings.Add("color_id", "color_id");
+            tableMapping.DataSetTable = "animalbreed";
             tableMapping.ColumnMappings.Add("animal_id", "animal_id");
+            tableMapping.ColumnMappings.Add("breed_id", "breed_id");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `animalcolor` WHERE ((`color_id` = @p1) AND (`animal_id` = @p2))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `animalbreed` WHERE ((`animal_id` = @p1) AND (`breed_id` = @p2))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
             param.DbType = global::System.Data.DbType.UInt16;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
             param.IsNullable = true;
-            param.SourceColumn = "color_id";
+            param.SourceColumn = "animal_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p2";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.UInt16;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
             param.IsNullable = true;
-            param.SourceColumn = "animal_id";
+            param.SourceColumn = "breed_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `animalcolor` (`color_id`, `animal_id`) VALUES (@p1, @p2)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `animalbreed` (`animal_id`, `breed_id`) VALUES (@p1, @p2)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
             param.DbType = global::System.Data.DbType.UInt16;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
             param.IsNullable = true;
-            param.SourceColumn = "color_id";
+            param.SourceColumn = "animal_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p2";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.UInt16;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
             param.IsNullable = true;
-            param.SourceColumn = "animal_id";
+            param.SourceColumn = "breed_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE `animalcolor` SET `color_id` = @p1, `animal_id` = @p2 WHERE ((`color_id` =" +
-                " @p3) AND (`animal_id` = @p4))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE `animalbreed` SET `animal_id` = @p1, `breed_id` = @p2 WHERE ((`animal_id` " +
+                "= @p3) AND (`breed_id` = @p4))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
             param.DbType = global::System.Data.DbType.UInt16;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
             param.IsNullable = true;
-            param.SourceColumn = "color_id";
+            param.SourceColumn = "animal_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p2";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.UInt16;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
             param.IsNullable = true;
-            param.SourceColumn = "animal_id";
+            param.SourceColumn = "breed_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -7164,15 +6672,15 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.DbType = global::System.Data.DbType.UInt16;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
             param.IsNullable = true;
-            param.SourceColumn = "color_id";
+            param.SourceColumn = "animal_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p4";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.UInt16;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
             param.IsNullable = true;
-            param.SourceColumn = "animal_id";
+            param.SourceColumn = "breed_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
@@ -7190,7 +6698,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT animalcolor.*\r\nFROM  animalcolor";
+            this._commandCollection[0].CommandText = "SELECT animalbreed.*\r\nFROM  animalbreed";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7198,7 +6706,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(AnimalMedical.animalcolorDataTable dataTable) {
+        public virtual int Fill(AnimalMedical.animalbreedDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -7211,9 +6719,9 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual AnimalMedical.animalcolorDataTable GetData() {
+        public virtual AnimalMedical.animalbreedDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            AnimalMedical.animalcolorDataTable dataTable = new AnimalMedical.animalcolorDataTable();
+            AnimalMedical.animalbreedDataTable dataTable = new AnimalMedical.animalbreedDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -7221,7 +6729,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(AnimalMedical.animalcolorDataTable dataTable) {
+        public virtual int Update(AnimalMedical.animalbreedDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -7229,7 +6737,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(AnimalMedical dataSet) {
-            return this.Adapter.Update(dataSet, "animalcolor");
+            return this.Adapter.Update(dataSet, "animalbreed");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7251,9 +6759,9 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(ushort p1, uint p2) {
+        public virtual int Delete(ushort p1, ushort p2) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((ushort)(p1));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((uint)(p2));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((ushort)(p2));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7274,9 +6782,9 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(ushort p1, uint p2) {
+        public virtual int Insert(ushort p1, ushort p2) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((ushort)(p1));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((uint)(p2));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((ushort)(p2));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7297,11 +6805,11 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(ushort p1, uint p2, ushort p3, uint p4) {
+        public virtual int Update(ushort p1, ushort p2, ushort p3, ushort p4) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((ushort)(p1));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((uint)(p2));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((ushort)(p2));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((ushort)(p3));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((uint)(p4));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((ushort)(p4));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7322,7 +6830,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(ushort p3, uint p4) {
+        public virtual int Update(ushort p3, ushort p4) {
             return this.Update(p3, p4, p3, p4);
         }
     }
@@ -7760,7 +7268,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class animalbreedTableAdapter : global::System.ComponentModel.Component {
+    public partial class animalcolorTableAdapter : global::System.ComponentModel.Component {
         
         private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
         
@@ -7774,7 +7282,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public animalbreedTableAdapter() {
+        public animalcolorTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -7871,20 +7379,20 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "animalbreed";
+            tableMapping.DataSetTable = "animalcolor";
+            tableMapping.ColumnMappings.Add("color_id", "color_id");
             tableMapping.ColumnMappings.Add("animal_id", "animal_id");
-            tableMapping.ColumnMappings.Add("breed_id", "breed_id");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `animalbreed` WHERE ((`animal_id` = @p1) AND (`breed_id` = @p2))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `animalcolor` WHERE ((`color_id` = @p1) AND (`animal_id` = @p2))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.UInt16;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
             param.IsNullable = true;
-            param.SourceColumn = "animal_id";
+            param.SourceColumn = "color_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -7892,19 +7400,19 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.DbType = global::System.Data.DbType.UInt16;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
             param.IsNullable = true;
-            param.SourceColumn = "breed_id";
+            param.SourceColumn = "animal_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `animalbreed` (`animal_id`, `breed_id`) VALUES (@p1, @p2)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `animalcolor` (`color_id`, `animal_id`) VALUES (@p1, @p2)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.UInt16;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
             param.IsNullable = true;
-            param.SourceColumn = "animal_id";
+            param.SourceColumn = "color_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -7912,20 +7420,20 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.DbType = global::System.Data.DbType.UInt16;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
             param.IsNullable = true;
-            param.SourceColumn = "breed_id";
+            param.SourceColumn = "animal_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE `animalbreed` SET `animal_id` = @p1, `breed_id` = @p2 WHERE ((`animal_id` " +
-                "= @p3) AND (`breed_id` = @p4))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE `animalcolor` SET `color_id` = @p1, `animal_id` = @p2 WHERE ((`color_id` =" +
+                " @p3) AND (`animal_id` = @p4))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.UInt16;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
             param.IsNullable = true;
-            param.SourceColumn = "animal_id";
+            param.SourceColumn = "color_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -7933,15 +7441,15 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.DbType = global::System.Data.DbType.UInt16;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
             param.IsNullable = true;
-            param.SourceColumn = "breed_id";
+            param.SourceColumn = "animal_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p3";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.UInt16;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
             param.IsNullable = true;
-            param.SourceColumn = "animal_id";
+            param.SourceColumn = "color_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -7949,7 +7457,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             param.DbType = global::System.Data.DbType.UInt16;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
             param.IsNullable = true;
-            param.SourceColumn = "breed_id";
+            param.SourceColumn = "animal_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
@@ -7967,7 +7475,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT animalbreed.*\r\nFROM  animalbreed";
+            this._commandCollection[0].CommandText = "SELECT animalcolor.*\r\nFROM  animalcolor";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7975,7 +7483,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(AnimalMedical.animalbreedDataTable dataTable) {
+        public virtual int Fill(AnimalMedical.animalcolorDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -7988,9 +7496,9 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual AnimalMedical.animalbreedDataTable GetData() {
+        public virtual AnimalMedical.animalcolorDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            AnimalMedical.animalbreedDataTable dataTable = new AnimalMedical.animalbreedDataTable();
+            AnimalMedical.animalcolorDataTable dataTable = new AnimalMedical.animalcolorDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -7998,7 +7506,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(AnimalMedical.animalbreedDataTable dataTable) {
+        public virtual int Update(AnimalMedical.animalcolorDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -8006,7 +7514,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(AnimalMedical dataSet) {
-            return this.Adapter.Update(dataSet, "animalbreed");
+            return this.Adapter.Update(dataSet, "animalcolor");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8028,8 +7536,8 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(uint p1, ushort p2) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((uint)(p1));
+        public virtual int Delete(ushort p1, ushort p2) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((ushort)(p1));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((ushort)(p2));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -8051,8 +7559,8 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(uint p1, ushort p2) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((uint)(p1));
+        public virtual int Insert(ushort p1, ushort p2) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((ushort)(p1));
             this.Adapter.InsertCommand.Parameters[1].Value = ((ushort)(p2));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -8074,10 +7582,10 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(uint p1, ushort p2, uint p3, ushort p4) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((uint)(p1));
+        public virtual int Update(ushort p1, ushort p2, ushort p3, ushort p4) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((ushort)(p1));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((ushort)(p2));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((uint)(p3));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((ushort)(p3));
             this.Adapter.UpdateCommand.Parameters[3].Value = ((ushort)(p4));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -8099,8 +7607,377 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(uint p3, ushort p4) {
+        public virtual int Update(ushort p3, ushort p4) {
             return this.Update(p3, p4, p3, p4);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class colorTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
+        
+        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
+        
+        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
+        
+        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public colorTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "color";
+            tableMapping.ColumnMappings.Add("color_id", "color_id");
+            tableMapping.ColumnMappings.Add("color", "color");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `color` WHERE ((`color_id` = @p1) AND (`color` = @p2))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p1";
+            param.DbType = global::System.Data.DbType.UInt16;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
+            param.IsNullable = true;
+            param.SourceColumn = "color_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p2";
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "color";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `color` (`color_id`, `color`) VALUES (@p1, @p2)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p1";
+            param.DbType = global::System.Data.DbType.UInt16;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
+            param.IsNullable = true;
+            param.SourceColumn = "color_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p2";
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "color";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.InsertCommand.Parameters.Add(param);
+            this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE `color` SET `color_id` = @p1, `color` = @p2 WHERE ((`color_id` = @p3) AND " +
+                "(`color` = @p4))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p1";
+            param.DbType = global::System.Data.DbType.UInt16;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
+            param.IsNullable = true;
+            param.SourceColumn = "color_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p2";
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "color";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p3";
+            param.DbType = global::System.Data.DbType.UInt16;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
+            param.IsNullable = true;
+            param.SourceColumn = "color_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p4";
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "color";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
+            this._connection.ConnectionString = global::DataAccessLayer.Properties.Settings.Default.animal_medicalConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT color.*\r\nFROM  color";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(AnimalMedical.colorDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual AnimalMedical.colorDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            AnimalMedical.colorDataTable dataTable = new AnimalMedical.colorDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(AnimalMedical.colorDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(AnimalMedical dataSet) {
+            return this.Adapter.Update(dataSet, "color");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(ushort p1, string p2) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((ushort)(p1));
+            if ((p2 == null)) {
+                throw new global::System.ArgumentNullException("p2");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(p2));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(ushort p1, string p2) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((ushort)(p1));
+            if ((p2 == null)) {
+                throw new global::System.ArgumentNullException("p2");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(p2));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(ushort p1, string p2, ushort p3, string p4) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((ushort)(p1));
+            if ((p2 == null)) {
+                throw new global::System.ArgumentNullException("p2");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(p2));
+            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((ushort)(p3));
+            if ((p4 == null)) {
+                throw new global::System.ArgumentNullException("p4");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(p4));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string p2, ushort p3, string p4) {
+            return this.Update(p3, p2, p3, p4);
         }
     }
     
@@ -8733,6 +8610,372 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class vaccineTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
+        
+        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
+        
+        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
+        
+        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public vaccineTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "vaccine";
+            tableMapping.ColumnMappings.Add("vaccine_id", "vaccine_id");
+            tableMapping.ColumnMappings.Add("vaccine_name", "vaccine_name");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `vaccine` WHERE ((`vaccine_id` = @p1) AND ((@p2 = 1 AND `vaccine_name" +
+                "` IS NULL) OR (`vaccine_name` = @p3)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p1";
+            param.DbType = global::System.Data.DbType.SByte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
+            param.IsNullable = true;
+            param.SourceColumn = "vaccine_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p2";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "vaccine_name";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p3";
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "vaccine_name";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `vaccine` (`vaccine_name`) VALUES (@p1)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p1";
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "vaccine_name";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.InsertCommand.Parameters.Add(param);
+            this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE `vaccine` SET `vaccine_name` = @p1 WHERE ((`vaccine_id` = @p2) AND ((@p3 =" +
+                " 1 AND `vaccine_name` IS NULL) OR (`vaccine_name` = @p4)))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p1";
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "vaccine_name";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p2";
+            param.DbType = global::System.Data.DbType.SByte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
+            param.IsNullable = true;
+            param.SourceColumn = "vaccine_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p3";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "vaccine_name";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p4";
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "vaccine_name";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
+            this._connection.ConnectionString = global::DataAccessLayer.Properties.Settings.Default.animal_medicalConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT vaccine.*\r\nFROM  vaccine";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(AnimalMedical.vaccineDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual AnimalMedical.vaccineDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            AnimalMedical.vaccineDataTable dataTable = new AnimalMedical.vaccineDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(AnimalMedical.vaccineDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(AnimalMedical dataSet) {
+            return this.Adapter.Update(dataSet, "vaccine");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(byte p1, string p3) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((byte)(p1));
+            if ((p3 == null)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(p3));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string p1) {
+            if ((p1 == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(p1));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string p1, byte p2, string p4) {
+            if ((p1 == null)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(p1));
+            }
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((byte)(p2));
+            if ((p4 == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(p4));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class sexTableAdapter : global::System.ComponentModel.Component {
         
         private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
@@ -8855,8 +9098,8 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.Byte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UByte;
             param.IsNullable = true;
             param.SourceColumn = "sex_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
@@ -8883,8 +9126,8 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.Byte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UByte;
             param.IsNullable = true;
             param.SourceColumn = "sex_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
@@ -8903,8 +9146,8 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.Byte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UByte;
             param.IsNullable = true;
             param.SourceColumn = "sex_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
@@ -8918,8 +9161,8 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p3";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.Byte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UByte;
             param.IsNullable = true;
             param.SourceColumn = "sex_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
@@ -9016,8 +9259,8 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(uint p1, string p3) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((uint)(p1));
+        public virtual int Delete(byte p1, string p3) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((byte)(p1));
             if ((p3 == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -9046,8 +9289,8 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(uint p1, string p2) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((uint)(p1));
+        public virtual int Insert(byte p1, string p2) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((byte)(p1));
             if ((p2 == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -9074,15 +9317,15 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(uint p1, string p2, uint p3, string p5) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((uint)(p1));
+        public virtual int Update(byte p1, string p2, byte p3, string p5) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((byte)(p1));
             if ((p2 == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(p2));
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((uint)(p3));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((byte)(p3));
             if ((p5 == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
@@ -9111,7 +9354,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p2, uint p3, string p5) {
+        public virtual int Update(string p2, byte p3, string p5) {
             return this.Update(p3, p2, p3, p5);
         }
     }
@@ -9267,8 +9510,8 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p3";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.UInt16;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
             param.IsNullable = true;
             param.SourceColumn = "animal_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
@@ -9321,8 +9564,8 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p2";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.UInt16;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
             param.IsNullable = true;
             param.SourceColumn = "animal_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
@@ -9356,8 +9599,8 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p2";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.UInt16;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
             param.IsNullable = true;
             param.SourceColumn = "animal_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
@@ -9396,8 +9639,8 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p7";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.UInt16;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt16;
             param.IsNullable = true;
             param.SourceColumn = "animal_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
@@ -9511,11 +9754,11 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(ushort p1, global::System.Nullable<uint> p3, global::System.Nullable<global::System.DateTime> p5, string p7) {
+        public virtual int Delete(ushort p1, global::System.Nullable<ushort> p3, global::System.Nullable<global::System.DateTime> p5, string p7) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((ushort)(p1));
             if ((p3.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((uint)(p3.Value));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((ushort)(p3.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -9557,10 +9800,10 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(ushort p1, global::System.Nullable<uint> p2, global::System.Nullable<global::System.DateTime> p3, string p4) {
+        public virtual int Insert(ushort p1, global::System.Nullable<ushort> p2, global::System.Nullable<global::System.DateTime> p3, string p4) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((ushort)(p1));
             if ((p2.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((uint)(p2.Value));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((ushort)(p2.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -9597,10 +9840,10 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(ushort p1, global::System.Nullable<uint> p2, global::System.Nullable<global::System.DateTime> p3, string p4, ushort p5, global::System.Nullable<uint> p7, global::System.Nullable<global::System.DateTime> p9, string p11) {
+        public virtual int Update(ushort p1, global::System.Nullable<ushort> p2, global::System.Nullable<global::System.DateTime> p3, string p4, ushort p5, global::System.Nullable<ushort> p7, global::System.Nullable<global::System.DateTime> p9, string p11) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((ushort)(p1));
             if ((p2.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((uint)(p2.Value));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((ushort)(p2.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -9620,7 +9863,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             this.Adapter.UpdateCommand.Parameters[4].Value = ((ushort)(p5));
             if ((p7.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((uint)(p7.Value));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((ushort)(p7.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
@@ -9662,7 +9905,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<uint> p2, global::System.Nullable<global::System.DateTime> p3, string p4, ushort p5, global::System.Nullable<uint> p7, global::System.Nullable<global::System.DateTime> p9, string p11) {
+        public virtual int Update(global::System.Nullable<ushort> p2, global::System.Nullable<global::System.DateTime> p3, string p4, ushort p5, global::System.Nullable<ushort> p7, global::System.Nullable<global::System.DateTime> p9, string p11) {
             return this.Update(p5, p2, p3, p4, p5, p7, p9, p11);
         }
     }
@@ -10008,372 +10251,6 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(p1));
             }
             this.Adapter.UpdateCommand.Parameters[1].Value = ((ushort)(p2));
-            if ((p4 == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(p4));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class vaccineTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
-        
-        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
-        
-        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
-        
-        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public vaccineTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "vaccine";
-            tableMapping.ColumnMappings.Add("vaccine_id", "vaccine_id");
-            tableMapping.ColumnMappings.Add("vaccine_name", "vaccine_name");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `vaccine` WHERE ((`vaccine_id` = @p1) AND ((@p2 = 1 AND `vaccine_name" +
-                "` IS NULL) OR (`vaccine_name` = @p3)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p1";
-            param.DbType = global::System.Data.DbType.SByte;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
-            param.IsNullable = true;
-            param.SourceColumn = "vaccine_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p2";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "vaccine_name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p3";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "vaccine_name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `vaccine` (`vaccine_name`) VALUES (@p1)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p1";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "vaccine_name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._adapter.InsertCommand.Parameters.Add(param);
-            this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE `vaccine` SET `vaccine_name` = @p1 WHERE ((`vaccine_id` = @p2) AND ((@p3 =" +
-                " 1 AND `vaccine_name` IS NULL) OR (`vaccine_name` = @p4)))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p1";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "vaccine_name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p2";
-            param.DbType = global::System.Data.DbType.SByte;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
-            param.IsNullable = true;
-            param.SourceColumn = "vaccine_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p3";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "vaccine_name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p4";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "vaccine_name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::DataAccessLayer.Properties.Settings.Default.animal_medicalConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
-            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT vaccine.*\r\nFROM  vaccine";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(AnimalMedical.vaccineDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual AnimalMedical.vaccineDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            AnimalMedical.vaccineDataTable dataTable = new AnimalMedical.vaccineDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(AnimalMedical.vaccineDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(AnimalMedical dataSet) {
-            return this.Adapter.Update(dataSet, "vaccine");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(byte p1, string p3) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((byte)(p1));
-            if ((p3 == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(p3));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string p1) {
-            if ((p1 == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(p1));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p1, byte p2, string p4) {
-            if ((p1 == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(p1));
-            }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((byte)(p2));
             if ((p4 == null)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
@@ -10805,23 +10682,23 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         
         private animalTableAdapter _animalTableAdapter;
         
-        private colorTableAdapter _colorTableAdapter;
-        
-        private animalcolorTableAdapter _animalcolorTableAdapter;
+        private animalbreedTableAdapter _animalbreedTableAdapter;
         
         private breedTableAdapter _breedTableAdapter;
         
-        private animalbreedTableAdapter _animalbreedTableAdapter;
+        private animalcolorTableAdapter _animalcolorTableAdapter;
+        
+        private colorTableAdapter _colorTableAdapter;
         
         private medicationTableAdapter _medicationTableAdapter;
+        
+        private vaccineTableAdapter _vaccineTableAdapter;
         
         private sexTableAdapter _sexTableAdapter;
         
         private noteTableAdapter _noteTableAdapter;
         
         private unitTableAdapter _unitTableAdapter;
-        
-        private vaccineTableAdapter _vaccineTableAdapter;
         
         private speciesTableAdapter _speciesTableAdapter;
         
@@ -10859,26 +10736,12 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public colorTableAdapter colorTableAdapter {
+        public animalbreedTableAdapter animalbreedTableAdapter {
             get {
-                return this._colorTableAdapter;
+                return this._animalbreedTableAdapter;
             }
             set {
-                this._colorTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public animalcolorTableAdapter animalcolorTableAdapter {
-            get {
-                return this._animalcolorTableAdapter;
-            }
-            set {
-                this._animalcolorTableAdapter = value;
+                this._animalbreedTableAdapter = value;
             }
         }
         
@@ -10901,12 +10764,26 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public animalbreedTableAdapter animalbreedTableAdapter {
+        public animalcolorTableAdapter animalcolorTableAdapter {
             get {
-                return this._animalbreedTableAdapter;
+                return this._animalcolorTableAdapter;
             }
             set {
-                this._animalbreedTableAdapter = value;
+                this._animalcolorTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public colorTableAdapter colorTableAdapter {
+            get {
+                return this._colorTableAdapter;
+            }
+            set {
+                this._colorTableAdapter = value;
             }
         }
         
@@ -10921,6 +10798,20 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             }
             set {
                 this._medicationTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public vaccineTableAdapter vaccineTableAdapter {
+            get {
+                return this._vaccineTableAdapter;
+            }
+            set {
+                this._vaccineTableAdapter = value;
             }
         }
         
@@ -10971,20 +10862,6 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public vaccineTableAdapter vaccineTableAdapter {
-            get {
-                return this._vaccineTableAdapter;
-            }
-            set {
-                this._vaccineTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
         public speciesTableAdapter speciesTableAdapter {
             get {
                 return this._speciesTableAdapter;
@@ -11017,25 +10894,29 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                             && (this._animalTableAdapter.Connection != null))) {
                     return this._animalTableAdapter.Connection;
                 }
-                if (((this._colorTableAdapter != null) 
-                            && (this._colorTableAdapter.Connection != null))) {
-                    return this._colorTableAdapter.Connection;
-                }
-                if (((this._animalcolorTableAdapter != null) 
-                            && (this._animalcolorTableAdapter.Connection != null))) {
-                    return this._animalcolorTableAdapter.Connection;
+                if (((this._animalbreedTableAdapter != null) 
+                            && (this._animalbreedTableAdapter.Connection != null))) {
+                    return this._animalbreedTableAdapter.Connection;
                 }
                 if (((this._breedTableAdapter != null) 
                             && (this._breedTableAdapter.Connection != null))) {
                     return this._breedTableAdapter.Connection;
                 }
-                if (((this._animalbreedTableAdapter != null) 
-                            && (this._animalbreedTableAdapter.Connection != null))) {
-                    return this._animalbreedTableAdapter.Connection;
+                if (((this._animalcolorTableAdapter != null) 
+                            && (this._animalcolorTableAdapter.Connection != null))) {
+                    return this._animalcolorTableAdapter.Connection;
+                }
+                if (((this._colorTableAdapter != null) 
+                            && (this._colorTableAdapter.Connection != null))) {
+                    return this._colorTableAdapter.Connection;
                 }
                 if (((this._medicationTableAdapter != null) 
                             && (this._medicationTableAdapter.Connection != null))) {
                     return this._medicationTableAdapter.Connection;
+                }
+                if (((this._vaccineTableAdapter != null) 
+                            && (this._vaccineTableAdapter.Connection != null))) {
+                    return this._vaccineTableAdapter.Connection;
                 }
                 if (((this._sexTableAdapter != null) 
                             && (this._sexTableAdapter.Connection != null))) {
@@ -11048,10 +10929,6 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                 if (((this._unitTableAdapter != null) 
                             && (this._unitTableAdapter.Connection != null))) {
                     return this._unitTableAdapter.Connection;
-                }
-                if (((this._vaccineTableAdapter != null) 
-                            && (this._vaccineTableAdapter.Connection != null))) {
-                    return this._vaccineTableAdapter.Connection;
                 }
                 if (((this._speciesTableAdapter != null) 
                             && (this._speciesTableAdapter.Connection != null))) {
@@ -11073,19 +10950,22 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                 if ((this._animalTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._colorTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._animalcolorTableAdapter != null)) {
+                if ((this._animalbreedTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._breedTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._animalbreedTableAdapter != null)) {
+                if ((this._animalcolorTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._colorTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._medicationTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._vaccineTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._sexTableAdapter != null)) {
@@ -11095,9 +10975,6 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                     count = (count + 1);
                 }
                 if ((this._unitTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._vaccineTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._speciesTableAdapter != null)) {
@@ -11132,21 +11009,21 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._colorTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.color.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._colorTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._breedTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.breed.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._breedTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._colorTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.color.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._colorTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -11159,21 +11036,21 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._animalcolorTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.animalcolor.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._animalcolorTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._animalbreedTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.animalbreed.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._animalbreedTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._animalcolorTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.animalcolor.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._animalcolorTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -11186,21 +11063,21 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._noteTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.note.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._noteTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._vaccineTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.vaccine.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._vaccineTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._noteTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.note.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._noteTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -11239,19 +11116,19 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._colorTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.color.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._colorTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._breedTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.breed.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._breedTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._colorTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.color.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._colorTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -11263,19 +11140,19 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._animalcolorTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.animalcolor.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._animalcolorTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._animalbreedTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.animalbreed.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._animalbreedTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._animalcolorTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.animalcolor.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._animalcolorTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -11287,19 +11164,19 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._noteTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.note.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._noteTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._vaccineTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.vaccine.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._vaccineTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._noteTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.note.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._noteTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -11329,19 +11206,19 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._vaccineTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.vaccine.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._vaccineTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._noteTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.note.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._noteTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._vaccineTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.vaccine.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._vaccineTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -11353,19 +11230,19 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._animalbreedTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.animalbreed.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._animalbreedTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._animalcolorTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.animalcolor.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._animalcolorTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._animalbreedTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.animalbreed.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._animalbreedTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -11377,19 +11254,19 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._breedTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.breed.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._breedTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._colorTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.color.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._colorTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._breedTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.breed.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._breedTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -11453,13 +11330,8 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._colorTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._colorTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
-            if (((this._animalcolorTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._animalcolorTableAdapter.Connection) == false))) {
+            if (((this._animalbreedTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._animalbreedTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -11468,13 +11340,23 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._animalbreedTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._animalbreedTableAdapter.Connection) == false))) {
+            if (((this._animalcolorTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._animalcolorTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
+            if (((this._colorTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._colorTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
             if (((this._medicationTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._medicationTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
+            if (((this._vaccineTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._vaccineTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -11490,11 +11372,6 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             }
             if (((this._unitTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._unitTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
-            if (((this._vaccineTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._vaccineTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -11544,22 +11421,13 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                         adaptersWithAcceptChangesDuringUpdate.Add(this._animalTableAdapter.Adapter);
                     }
                 }
-                if ((this._colorTableAdapter != null)) {
-                    revertConnections.Add(this._colorTableAdapter, this._colorTableAdapter.Connection);
-                    this._colorTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
-                    this._colorTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
-                    if (this._colorTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._colorTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._colorTableAdapter.Adapter);
-                    }
-                }
-                if ((this._animalcolorTableAdapter != null)) {
-                    revertConnections.Add(this._animalcolorTableAdapter, this._animalcolorTableAdapter.Connection);
-                    this._animalcolorTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
-                    this._animalcolorTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
-                    if (this._animalcolorTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._animalcolorTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._animalcolorTableAdapter.Adapter);
+                if ((this._animalbreedTableAdapter != null)) {
+                    revertConnections.Add(this._animalbreedTableAdapter, this._animalbreedTableAdapter.Connection);
+                    this._animalbreedTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
+                    this._animalbreedTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
+                    if (this._animalbreedTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._animalbreedTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._animalbreedTableAdapter.Adapter);
                     }
                 }
                 if ((this._breedTableAdapter != null)) {
@@ -11571,13 +11439,22 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                         adaptersWithAcceptChangesDuringUpdate.Add(this._breedTableAdapter.Adapter);
                     }
                 }
-                if ((this._animalbreedTableAdapter != null)) {
-                    revertConnections.Add(this._animalbreedTableAdapter, this._animalbreedTableAdapter.Connection);
-                    this._animalbreedTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
-                    this._animalbreedTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
-                    if (this._animalbreedTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._animalbreedTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._animalbreedTableAdapter.Adapter);
+                if ((this._animalcolorTableAdapter != null)) {
+                    revertConnections.Add(this._animalcolorTableAdapter, this._animalcolorTableAdapter.Connection);
+                    this._animalcolorTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
+                    this._animalcolorTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
+                    if (this._animalcolorTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._animalcolorTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._animalcolorTableAdapter.Adapter);
+                    }
+                }
+                if ((this._colorTableAdapter != null)) {
+                    revertConnections.Add(this._colorTableAdapter, this._colorTableAdapter.Connection);
+                    this._colorTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
+                    this._colorTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
+                    if (this._colorTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._colorTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._colorTableAdapter.Adapter);
                     }
                 }
                 if ((this._medicationTableAdapter != null)) {
@@ -11587,6 +11464,15 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                     if (this._medicationTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._medicationTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._medicationTableAdapter.Adapter);
+                    }
+                }
+                if ((this._vaccineTableAdapter != null)) {
+                    revertConnections.Add(this._vaccineTableAdapter, this._vaccineTableAdapter.Connection);
+                    this._vaccineTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
+                    this._vaccineTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
+                    if (this._vaccineTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._vaccineTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._vaccineTableAdapter.Adapter);
                     }
                 }
                 if ((this._sexTableAdapter != null)) {
@@ -11614,15 +11500,6 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                     if (this._unitTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._unitTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._unitTableAdapter.Adapter);
-                    }
-                }
-                if ((this._vaccineTableAdapter != null)) {
-                    revertConnections.Add(this._vaccineTableAdapter, this._vaccineTableAdapter.Connection);
-                    this._vaccineTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
-                    this._vaccineTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
-                    if (this._vaccineTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._vaccineTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._vaccineTableAdapter.Adapter);
                     }
                 }
                 if ((this._speciesTableAdapter != null)) {
@@ -11696,25 +11573,29 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                     this._animalTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._animalTableAdapter]));
                     this._animalTableAdapter.Transaction = null;
                 }
-                if ((this._colorTableAdapter != null)) {
-                    this._colorTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._colorTableAdapter]));
-                    this._colorTableAdapter.Transaction = null;
-                }
-                if ((this._animalcolorTableAdapter != null)) {
-                    this._animalcolorTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._animalcolorTableAdapter]));
-                    this._animalcolorTableAdapter.Transaction = null;
+                if ((this._animalbreedTableAdapter != null)) {
+                    this._animalbreedTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._animalbreedTableAdapter]));
+                    this._animalbreedTableAdapter.Transaction = null;
                 }
                 if ((this._breedTableAdapter != null)) {
                     this._breedTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._breedTableAdapter]));
                     this._breedTableAdapter.Transaction = null;
                 }
-                if ((this._animalbreedTableAdapter != null)) {
-                    this._animalbreedTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._animalbreedTableAdapter]));
-                    this._animalbreedTableAdapter.Transaction = null;
+                if ((this._animalcolorTableAdapter != null)) {
+                    this._animalcolorTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._animalcolorTableAdapter]));
+                    this._animalcolorTableAdapter.Transaction = null;
+                }
+                if ((this._colorTableAdapter != null)) {
+                    this._colorTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._colorTableAdapter]));
+                    this._colorTableAdapter.Transaction = null;
                 }
                 if ((this._medicationTableAdapter != null)) {
                     this._medicationTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._medicationTableAdapter]));
                     this._medicationTableAdapter.Transaction = null;
+                }
+                if ((this._vaccineTableAdapter != null)) {
+                    this._vaccineTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._vaccineTableAdapter]));
+                    this._vaccineTableAdapter.Transaction = null;
                 }
                 if ((this._sexTableAdapter != null)) {
                     this._sexTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._sexTableAdapter]));
@@ -11727,10 +11608,6 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                 if ((this._unitTableAdapter != null)) {
                     this._unitTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._unitTableAdapter]));
                     this._unitTableAdapter.Transaction = null;
-                }
-                if ((this._vaccineTableAdapter != null)) {
-                    this._vaccineTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._vaccineTableAdapter]));
-                    this._vaccineTableAdapter.Transaction = null;
                 }
                 if ((this._speciesTableAdapter != null)) {
                     this._speciesTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._speciesTableAdapter]));

@@ -19,7 +19,7 @@ namespace DataAccessLayer
             AnimalMedical.animalDataTable dtAnimalTable = new AnimalMedical.animalDataTable();  //creating in memory table dtAnimalTable
             AnimalMedicalTableAdapters.animalTableAdapter animalAdater = new AnimalMedicalTableAdapters.animalTableAdapter(); //component used to fill the dtAnimalTable with the database Animal table data
             animalAdater.Fill(dtAnimalTable); //fill dtAnimalTable with the data stored in the databases Animal table 
-
+           
             return dtAnimalTable; //return entire Animal table
         }
 
@@ -82,9 +82,9 @@ namespace DataAccessLayer
 
             AnimalMedical.animalRow newAnimalRow = dtAnimalTable.NewanimalRow();
 
-            newAnimalRow.animal_id = (uint)AnimalID;
+            newAnimalRow.animal_id = (ushort)AnimalID;
             newAnimalRow.name = Name;
-            newAnimalRow.sex = (uint)Sex;
+            newAnimalRow.sex = (byte)Sex;
             newAnimalRow.birthdate = BirthDate;
             newAnimalRow.microchip_id = MicroshipId;
             newAnimalRow.due_out_date = DueOutDate;

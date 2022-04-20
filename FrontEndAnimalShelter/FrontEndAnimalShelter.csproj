@@ -49,11 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddAnimal.cs">
+    <Compile Include="AddAnimalForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddAnimal.Designer.cs">
-      <DependentUpon>AddAnimal.cs</DependentUpon>
+    <Compile Include="AddAnimalForm.Designer.cs">
+      <DependentUpon>AddAnimalForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MDI.cs">
       <SubType>Form</SubType>
@@ -63,14 +63,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewAnimal.cs">
+    <Compile Include="TreatmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ViewAnimal.Designer.cs">
-      <DependentUpon>ViewAnimal.cs</DependentUpon>
+    <Compile Include="TreatmentForm.Designer.cs">
+      <DependentUpon>TreatmentForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddAnimal.resx">
-      <DependentUpon>AddAnimal.cs</DependentUpon>
+    <Compile Include="ViewAnimalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewAnimalForm.Designer.cs">
+      <DependentUpon>ViewAnimalForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddAnimalForm.resx">
+      <DependentUpon>AddAnimalForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDI.resx">
       <DependentUpon>MDI.cs</DependentUpon>
@@ -84,8 +90,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ViewAnimal.resx">
-      <DependentUpon>ViewAnimal.cs</DependentUpon>
+    <EmbeddedResource Include="TreatmentForm.resx">
+      <DependentUpon>TreatmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewAnimalForm.resx">
+      <DependentUpon>ViewAnimalForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

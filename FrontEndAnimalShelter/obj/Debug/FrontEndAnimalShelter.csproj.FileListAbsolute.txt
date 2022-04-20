@@ -95,8 +95,6 @@ C:\Development\CS3550\FontEndAnimalShelter\animalShelter\FrontEndAnimalShelter\o
 C:\Development\CS3550\FontEndAnimalShelter\animalShelter\FrontEndAnimalShelter\obj\Debug\FrontEndAnimalShelter.csproj.CopyComplete
 C:\Development\CS3550\FontEndAnimalShelter\animalShelter\FrontEndAnimalShelter\obj\Debug\FrontEndAnimalShelter.exe
 C:\Development\CS3550\FontEndAnimalShelter\animalShelter\FrontEndAnimalShelter\obj\Debug\FrontEndAnimalShelter.pdb
-C:\Users\Francis\source\repos\CS3550\animalShelter\FrontEndAnimalShelter\obj\Debug\FrontEndAnimalShelter.AddAnimal.resources
-C:\Users\Francis\source\repos\CS3550\animalShelter\FrontEndAnimalShelter\obj\Debug\FrontEndAnimalShelter.ViewAnimal.resources
 C:\Development\CS3550\FontEndAnimalShelter\Updated3\animalShelter\FrontEndAnimalShelter\bin\Debug\FrontEndAnimalShelter.exe.config
 C:\Development\CS3550\FontEndAnimalShelter\Updated3\animalShelter\FrontEndAnimalShelter\bin\Debug\FrontEndAnimalShelter.exe
 C:\Development\CS3550\FontEndAnimalShelter\Updated3\animalShelter\FrontEndAnimalShelter\bin\Debug\FrontEndAnimalShelter.pdb
@@ -126,3 +124,6 @@ C:\Development\CS3550\FontEndAnimalShelter\Updated3\animalShelter\FrontEndAnimal
 C:\Development\CS3550\FontEndAnimalShelter\Updated3\animalShelter\FrontEndAnimalShelter\obj\Debug\FrontEndAnimalShelter.csproj.CopyComplete
 C:\Development\CS3550\FontEndAnimalShelter\Updated3\animalShelter\FrontEndAnimalShelter\obj\Debug\FrontEndAnimalShelter.exe
 C:\Development\CS3550\FontEndAnimalShelter\Updated3\animalShelter\FrontEndAnimalShelter\obj\Debug\FrontEndAnimalShelter.pdb
+C:\Users\Francis\source\repos\CS3550\animalShelter\FrontEndAnimalShelter\obj\Debug\FrontEndAnimalShelter.AddAnimalForm.resources
+C:\Users\Francis\source\repos\CS3550\animalShelter\FrontEndAnimalShelter\obj\Debug\FrontEndAnimalShelter.TreatmentForm.resources
+C:\Users\Francis\source\repos\CS3550\animalShelter\FrontEndAnimalShelter\obj\Debug\FrontEndAnimalShelter.ViewAnimalForm.resources

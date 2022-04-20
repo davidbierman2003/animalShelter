@@ -1,6 +1,5 @@
-
-create database if not exists animal_medical;
-use animal_medical;
+create database if not exists shelter;
+use shelter;
 drop table if exists animalbreed;
 drop table if exists animalcolor;
 drop table if exists animal;
@@ -20,16 +19,15 @@ create table Species (
 );
 
 create table Sex (
-	sex_id int unsigned primary key, 
+	sex_id tinyint unsigned primary key, 
     sex_name varchar(8)
 );
 
 create table Animal (
-	animal_id int unsigned primary key auto_increment,
+	animal_id smallint unsigned primary key auto_increment,
     db_bridge_id char(7) unique,
     name varchar(50),
-    sex int unsigned,
-    species_id smallint unsigned,
+    sex tinyint unsigned,
     birthdate date,
     microchip_id varchar(16),
     due_out_date date,
@@ -49,7 +47,7 @@ create table Breed (
 );
 
 create table AnimalBreed (
-	animal_id int unsigned,
+	animal_id smallint unsigned,
     breed_id smallint unsigned,
     primary key (animal_id, breed_id),
     foreign key (animal_id) references animal (animal_id),
@@ -58,12 +56,12 @@ create table AnimalBreed (
 
 create table Color (
 	color_id smallint unsigned primary key,
-    color_name varchar(50) unique not null
+    color varchar(50) unique not null
 );
 
 create table AnimalColor (
 	color_id smallint unsigned,
-    animal_id int unsigned, 
+    animal_id smallint unsigned, 
     primary key (animal_id, color_id),
     foreign key (color_id) references color(color_id),
     foreign key (animal_id) references animal(animal_id)
@@ -76,7 +74,7 @@ vaccine_name varchar(20)
 
 create table Note (
     note_id SMALLINT UNSIGNED PRIMARY KEY,
-    animal_id INT UNSIGNED,
+    animal_id SMALLINT UNSIGNED,
     note_date DATE,
     note_details VARCHAR(255),
     FOREIGN KEY (animal_id) REFERENCES Animal (animal_id)
@@ -100,7 +98,7 @@ create table Medication (
 -- INSERT STATEMENTS
 
 SET SQL_SAFE_UPDATES=0;
-use animal_medical;
+use shelter;
 delete from animalbreed;
 delete from animalcolor;
 delete from animal;
@@ -375,7 +373,7 @@ values
   (48, "Mix", 1)
 ;
 
-insert into color (color_id, color_name)
+insert into color (color_id, color)
 values
   (1, "Yellow"),
   (2, "White"),

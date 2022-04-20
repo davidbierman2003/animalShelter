@@ -20,9 +20,12 @@ namespace FrontEndAnimalShelter
             tabToDo.Enter += TabHome_Enter;
             tabViewAnimal.Enter += TabViewAnimal_Enter;
             tabCreateAnimal.Enter += TabCreateAnimal_Enter;
+            tabTreatment.Enter += TabTreatment_Enter;
             mainTabMenu.DrawItem += ProgramTabMenu_DrawItem;
             #endregion
         }
+
+
         /// <summary>
         /// ProgramTabMenu characteristics are set/drawn here
         /// </summary>
@@ -60,17 +63,14 @@ namespace FrontEndAnimalShelter
 
         }
 
-        private void TabHome_Enter(object sender, EventArgs e)
-        {
-           
-        }
+        
 
         /// <summary>
         /// When "Create Animal" tab is entered the AddAnimal form is generated in the tabpage
         /// </summary>
         private void TabCreateAnimal_Enter(object sender, EventArgs e)
         {
-            Form childForm = new AddAnimal();
+            Form childForm = new AddAnimalForm();
             childForm.TopLevel = false;
             childForm.Parent = tabCreateAnimal;
             childForm.Dock = DockStyle.Fill;
@@ -84,12 +84,26 @@ namespace FrontEndAnimalShelter
         /// </summary>
         private void TabViewAnimal_Enter(object sender, EventArgs e)
         {
-            Form childForm = new ViewAnimal();
+            Form childForm = new ViewAnimalForm();
             childForm.TopLevel = false;
             childForm.Parent = tabViewAnimal;
             childForm.Dock = DockStyle.Fill;
             childForm.Font = new Font("Ariel", 10);
             tabViewAnimal.Controls.Add(childForm);
+            childForm.Visible = true;
+        }
+        private void TabHome_Enter(object sender, EventArgs e)
+        {
+
+        }
+        private void TabTreatment_Enter(object sender, EventArgs e)
+        {
+            Form childForm = new TreatmentForm();
+            childForm.TopLevel = false;
+            childForm.Parent = tabTreatment;
+            childForm.Dock = DockStyle.Fill;
+            childForm.Font = new Font("Ariel", 10);
+            tabTreatment.Controls.Add(childForm);
             childForm.Visible = true;
         }
 

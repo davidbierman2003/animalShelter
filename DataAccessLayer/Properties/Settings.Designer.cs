@@ -26,7 +26,7 @@ namespace DataAccessLayer.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=127.0.0.1;user id=root;password=Spring2022;database=animal_medical")]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=127.0.0.1;user id=root;password=7Silly$tars;database=animal_medical")]
         public string animal_medicalConnectionString {
             get {
                 return ((string)(this["animal_medicalConnectionString"]));
