@@ -54,41 +54,13 @@ namespace FrontEndAnimalShelter
 
             #region Events
             cmbSpecies.SelectionChangeCommitted += CmbSpecies_SelectionChangeCommitted;
-            dgAnimalTable.BindingContextChanged += DgAnimalTable_BindingContextChanged;
+            cmbSex.SelectionChangeCommitted += CmbSex_SelectionChangeCommitted;
             #endregion
+
             DatabaseTableFormatting();
         }
 
-        private void DgAnimalTable_BindingContextChanged(object sender, EventArgs e)
-        {
-            if (dgAnimalTable.DataSource != null)
-            {
-                DataTable boundTable = dgAnimalTable.DataSource as DataTable;
-                if (boundTable == null)
-                {
-                    DataView dv = dgAnimalTable.DataSource as DataView;
-                    if (dv != null)
-                    {
-                        boundTable = dv.Table;
-                    }
-                }
-                if (boundTable != null)
-                {
-                    foreach (DataGridViewColumn c in dgAnimalTable.Columns)
-                    {
-                        if (c.IsDataBound)
-                        {
-                            DataColumn dc = boundTable.Columns[c.DataPropertyName];
-                            if (!dc.AllowDBNull && dc.DataType == typeof(string))
-                            {
-                                c.DefaultCellStyle.DataSourceNullValue = string.Empty;
-                                dc.DefaultValue = string.Empty;  // this value is pulled for new rows
-                            }
-                        }
-                    }
-                }
-            }
-        }
+       
 
         /// <summary>
         /// Formatting the column headers and filling the list and combo boxes with data from the grid
@@ -111,8 +83,39 @@ namespace FrontEndAnimalShelter
             dgAnimalTable.Columns["animal_id"].Visible = false;
 
             //TODO: make sure the sex column says male/female/unknown instaed of the sex_id
-        }
 
+            //Add Treatment Button
+            DataGridViewButtonColumn treatmentColumn = new DataGridViewButtonColumn();
+            treatmentColumn.HeaderText = "Treatment";
+            treatmentColumn.Text = "Treatment";
+            treatmentColumn.UseColumnTextForButtonValue = true;
+            treatmentColumn.Name = "treatmentButton";
+            dgAnimalTable.Columns.Add(treatmentColumn);
+
+            //Edit Button
+            DataGridViewButtonColumn editColumn = new DataGridViewButtonColumn();
+            editColumn.HeaderText = "Edit";
+            editColumn.Text = "Edit";
+            editColumn.UseColumnTextForButtonValue = true;
+            editColumn.Name = "editButton";
+            dgAnimalTable.Columns.Add(editColumn);
+
+            //Delete Button
+            DataGridViewButtonColumn deleteColumn = new DataGridViewButtonColumn();
+            deleteColumn.HeaderText = "Delete from DB";
+            deleteColumn.Text = "Delete";
+            deleteColumn.UseColumnTextForButtonValue = true;
+            deleteColumn.Name = "deleteButton";
+            dgAnimalTable.Columns.Add(deleteColumn);
+
+        }
+        private void CmbSex_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            AnimalMedical.breedDataTable dtBreed = Utility.GetBreed();
+        }
+        /// <summary>
+        /// Generates the breeds in the combobox that are related to the selected species
+        /// </summary>
         private void CmbSpecies_SelectionChangeCommitted(object sender, EventArgs e)
         {
             AnimalMedical.breedDataTable dtBreed = Utility.GetBreed();
@@ -185,7 +188,14 @@ namespace FrontEndAnimalShelter
                 selectedAnimals = selectedAnimals.Where(x => x.due_out_date.Ticks == dtpDueOutDate.Value.Ticks).ToList();
 
 
-            //dgAnimalTable.DataSource = selectedAnimals;  //TODO: this needs to be tested once microship_id is removed from database
+            dgAnimalTable.DataSource = selectedAnimals;  //TODO: this needs to be tested once microship_id is removed from database
+
+            //Format and add the buttons
+            dgAnimalTable.Columns["sexRow"].Visible = false;
+            dgAnimalTable.Columns["RowError"].Visible = false;
+            dgAnimalTable.Columns["RowState"].Visible = false;
+            dgAnimalTable.Columns["Table"].Visible = false;
+            dgAnimalTable.Columns["HasErrors"].Visible = false;
         }
     }
 }

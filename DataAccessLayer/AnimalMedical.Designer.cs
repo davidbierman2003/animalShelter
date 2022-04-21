@@ -700,6 +700,12 @@ namespace DataAccessLayer {
             
             private global::System.Data.DataColumn columnaltered;
             
+            private static System.DateTime columnbirthdate_defaultValue = global::System.DateTime.Parse("2022-01-01T00:00:00");
+            
+            private static System.DateTime columndue_out_date_defaultValue = global::System.DateTime.Parse("2022-01-01T00:00:00");
+            
+            private static System.DateTime columnintake_date_defaultValue = global::System.DateTime.Parse("2022-01-01T00:00:00");
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public animalDataTable() {
@@ -946,10 +952,20 @@ namespace DataAccessLayer {
                                 this.columnanimal_id}, true));
                 this.columnanimal_id.AllowDBNull = false;
                 this.columnanimal_id.Unique = true;
+                this.columndb_bridge_id.AllowDBNull = false;
                 this.columndb_bridge_id.MaxLength = 7;
+                this.columnname.DefaultValue = ((string)("\"\""));
                 this.columnname.MaxLength = 50;
+                this.columnsex.DefaultValue = ((byte)(0));
+                this.columnbirthdate.DefaultValue = ((System.DateTime)(animalDataTable.columnbirthdate_defaultValue));
+                this.columnmicrochip_id.DefaultValue = ((string)("\"\""));
                 this.columnmicrochip_id.MaxLength = 16;
+                this.columndue_out_date.DefaultValue = ((System.DateTime)(animalDataTable.columndue_out_date_defaultValue));
+                this.columnintake_date.DefaultValue = ((System.DateTime)(animalDataTable.columnintake_date_defaultValue));
+                this.columnweight.DefaultValue = ((decimal)(0.00m));
+                this.columnkennel.DefaultValue = ((string)("\"\""));
                 this.columnkennel.MaxLength = 20;
+                this.columnaltered.DefaultValue = ((bool)(false));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3943,12 +3959,7 @@ namespace DataAccessLayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string db_bridge_id {
                 get {
-                    try {
-                        return ((string)(this[this.tableanimal.db_bridge_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'db_bridge_id\' in table \'animal\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableanimal.db_bridge_idColumn]));
                 }
                 set {
                     this[this.tableanimal.db_bridge_idColumn] = value;
@@ -3959,11 +3970,11 @@ namespace DataAccessLayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string name {
                 get {
-                    try {
-                        return ((string)(this[this.tableanimal.nameColumn]));
+                    if (this.IsnameNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'name\' in table \'animal\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableanimal.nameColumn]));
                     }
                 }
                 set {
@@ -3976,6 +3987,10 @@ namespace DataAccessLayer {
             public byte sex {
                 get {
                     try {
+                        if (this[this.tableanimal.sexColumn].ToString().Equals(""))
+                        {
+                            this[this.tableanimal.sexColumn] = this.tableanimal.sexColumn.DefaultValue;
+                        }
                         return ((byte)(this[this.tableanimal.sexColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
@@ -3992,6 +4007,10 @@ namespace DataAccessLayer {
             public System.DateTime birthdate {
                 get {
                     try {
+                        if (this[this.tableanimal.birthdateColumn].ToString().Equals(""))
+                        {
+                            this[this.tableanimal.birthdateColumn] = this.tableanimal.birthdateColumn.DefaultValue;
+                        }
                         return ((global::System.DateTime)(this[this.tableanimal.birthdateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
@@ -4008,6 +4027,10 @@ namespace DataAccessLayer {
             public string microchip_id {
                 get {
                     try {
+                        if (this[this.tableanimal.microchip_idColumn].ToString().Equals(""))
+                        {
+                            this[this.tableanimal.microchip_idColumn] = this.tableanimal.microchip_idColumn.DefaultValue;
+                        }
                         return ((string)(this[this.tableanimal.microchip_idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
@@ -4040,6 +4063,10 @@ namespace DataAccessLayer {
             public System.DateTime intake_date {
                 get {
                     try {
+                        if (this[this.tableanimal.intake_dateColumn].ToString().Equals(""))
+                        {
+                            this[this.tableanimal.intake_dateColumn] = this.tableanimal.intake_dateColumn.DefaultValue;
+                        }
                         return ((global::System.DateTime)(this[this.tableanimal.intake_dateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
@@ -4056,6 +4083,10 @@ namespace DataAccessLayer {
             public decimal weight {
                 get {
                     try {
+                        if (this[this.tableanimal.weightColumn].ToString().Equals(""))
+                        {
+                            this[this.tableanimal.weightColumn] = this.tableanimal.weightColumn.DefaultValue;
+                        }
                         return ((decimal)(this[this.tableanimal.weightColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
@@ -4071,11 +4102,11 @@ namespace DataAccessLayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string kennel {
                 get {
-                    try {
-                        return ((string)(this[this.tableanimal.kennelColumn]));
+                    if (this.IskennelNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'kennel\' in table \'animal\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableanimal.kennelColumn]));
                     }
                 }
                 set {
@@ -4087,6 +4118,10 @@ namespace DataAccessLayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool altered {
                 get {
+                    if (this[this.tableanimal.alteredColumn].ToString().Equals(""))
+                    {
+                        this[this.tableanimal.alteredColumn] = this.tableanimal.alteredColumn.DefaultValue;
+                    }
                     try {
                         return ((bool)(this[this.tableanimal.alteredColumn]));
                     }
@@ -4108,18 +4143,6 @@ namespace DataAccessLayer {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["animal_ibfk_1"]);
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Isdb_bridge_idNull() {
-                return this.IsNull(this.tableanimal.db_bridge_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Setdb_bridge_idNull() {
-                this[this.tableanimal.db_bridge_idColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6122,8 +6145,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         public virtual int Delete(ushort p1, string p3, string p5, global::System.Nullable<byte> p7, global::System.Nullable<global::System.DateTime> p9, string p11, global::System.Nullable<global::System.DateTime> p13, global::System.Nullable<global::System.DateTime> p15, global::System.Nullable<decimal> p17, string p19, global::System.Nullable<byte> p21) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((ushort)(p1));
             if ((p3 == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("p3");
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -6223,7 +6245,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
         public virtual int Insert(string p1, string p2, global::System.Nullable<byte> p3, global::System.Nullable<global::System.DateTime> p4, string p5, global::System.Nullable<global::System.DateTime> p6, global::System.Nullable<global::System.DateTime> p7, global::System.Nullable<decimal> p8, string p9, global::System.Nullable<byte> p10) {
             if ((p1 == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("p1");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(p1));
@@ -6325,7 +6347,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
                     string p29, 
                     global::System.Nullable<byte> p31) {
             if ((p1 == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("p1");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(p1));
@@ -6386,8 +6408,7 @@ namespace DataAccessLayer.AnimalMedicalTableAdapters {
             }
             this.Adapter.UpdateCommand.Parameters[10].Value = ((ushort)(p11));
             if ((p13 == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("p13");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
