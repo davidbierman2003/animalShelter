@@ -32,7 +32,7 @@ namespace FrontEndAnimalShelter
         {
            
             Decimal weight = string.IsNullOrEmpty(txtBxWeight.Text) ? 0 : decimal.Parse(txtBxWeight.Text);
-            int animalId = string.IsNullOrEmpty(txtBxAnimalID.Text) ? 0 : int.Parse(txtBxAnimalID.Text);
+            //string animalId = string.IsNullOrEmpty(txtBxAnimalID.Text) ? 0 : txtBxAnimalID.Text;//int.Parse(txtBxAnimalID.Text);
 
             
 
@@ -40,11 +40,11 @@ namespace FrontEndAnimalShelter
            //the animalId must be unique.
            AnimalMedical.animalDataTable dtAnimalTable = Utility.GetAnimals();
 
-           var findAnimalId = dtAnimalTable.Where(x => x.animal_id == animalId).ToList();
+           var findAnimalId = dtAnimalTable.Where(x => x.db_bridge_id == txtBxAnimalID.Text).ToList();
             //if the user selects an animal id that has already been taken the program will end. 
             if(findAnimalId.Count > 0)
             {
-                MessageBox.Show("The anamial id " + animalId + " has already been taken.\nChoose a different animal id!");
+                MessageBox.Show("The anamial id " + txtBxAnimalID.Text + " has already been taken.\nChoose a different animal id!");
                 return;
             }
 
@@ -53,23 +53,36 @@ namespace FrontEndAnimalShelter
             int speciesID = int.Parse(cmbBoxSpecies.SelectedValue.ToString());
 
             
-            Utility.SaveAnimal(animalId,txtBxName.Text, gender, dateTimePickerDateOfBirth.Value, txtBxMicrochipID.Text,
-                 dateTimePickerDueOutDate.Value, dateTimePickerIntakeDate.Value, txtBxNotes.Text, weight,txtBxKennel.Text, speciesID);
+            Utility.SaveAnimal(txtBxAnimalID.Text,txtBxName.Text, gender, dateTimePickerDateOfBirth.Value, txtBxMicrochipID.Text,
+                 dateTimePickerDueOutDate.Value, dateTimePickerIntakeDate.Value, txtBxNotes.Text, weight,txtBxKennel.Text, speciesID,ckbAltered.Checked);
 
+            MessageBox.Show($"Animial {txtBxAnimalID.Text} has been saved.");
 
-            //RefreshGridData();
+            Reset();
+        }
+        private void Reset()
+        {
+            txtBxAnimalID.Text = "";
+            txtBxKennel.Text = "";
+            txtBxMicrochipID.Text = "";
+            txtBxName.Text = "";
+            txtBxNotes.Text = "";
+            txtBxWeight.Text = "";
 
+            ckbAltered.Checked = false;
 
+            dateTimePickerDateOfBirth.Value = DateTime.Today;
+            dateTimePickerDueOutDate.Value = DateTime.Today;
+            dateTimePickerIntakeDate.Value = DateTime.Today;
+
+            cmbBoxGender.SelectedItem = default;
+            cmbBoxSpecies.SelectedItem = default;
         }
 
-        //private void RefreshGridData() 
-        //{
-        //    // get the current data from the database
-        //    // and assign it to the grid
-        //    AnimalMedical.animalDataTable dtAnimalTable = Utility.GetAnimals();
-        //    AnimalTable.DataSource = dtAnimalTable;
-
-
-        //}
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            Reset();
+        }
+        
     }
 }

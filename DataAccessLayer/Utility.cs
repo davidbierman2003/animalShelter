@@ -45,20 +45,7 @@ namespace DataAccessLayer
             AnimalMedical.colorDataTable dtColorTable = new AnimalMedical.colorDataTable();
             AnimalMedicalTableAdapters.colorTableAdapter colorAdapter = new AnimalMedicalTableAdapters.colorTableAdapter();
             colorAdapter.Fill(dtColorTable);
-            //try { colorAdapter.Fill(dtColorTable); }
-            //catch (Exception ex){
-            //    foreach (AnimalMedical.colorRow dr in dtColorTable)
-            //    {
-            //        if (dr.HasErrors)
-            //        {
-            //            System.Diagnostics.Debug.Write("Row ");
-            //            foreach (System.Data.DataColumn dc in dtColorTable.PrimaryKey)
-            //                System.Diagnostics.Debug.Write(dc.ColumnName + ": '" + dr.ItemArray[dc.Ordinal] + "', ");
-            //            System.Diagnostics.Debug.WriteLine(" has error: " + dr.RowError);
-            //        }
-            //    }
-            //}
-
+            
             return dtColorTable;
         }
 
@@ -71,8 +58,8 @@ namespace DataAccessLayer
             return dtSexTable;
         }
 
-        public static void SaveAnimal(int AnimalID,string Name, int Sex, DateTime BirthDate, string MicroshipId, 
-            DateTime DueOutDate, DateTime IntakeDate, string Notes, Decimal Weight, string Kennel, int SpeciesId)
+        public static void SaveAnimal(string animalId,string name, int sex, DateTime birthdate, string microchipId, 
+            DateTime dueOutDate, DateTime intakeDate, string notes, Decimal weight, string kennel, int speciesId, bool altered)
         {
             //AnimalTable and the New Row technique to have new row inserted to the database.
 
@@ -82,22 +69,25 @@ namespace DataAccessLayer
 
             AnimalMedical.animalRow newAnimalRow = dtAnimalTable.NewanimalRow();
 
-            newAnimalRow.animal_id = (ushort)AnimalID;
-            newAnimalRow.name = Name;
-            newAnimalRow.sex = (byte)Sex;
-            newAnimalRow.birthdate = BirthDate;
-            newAnimalRow.microchip_id = MicroshipId;
-            newAnimalRow.due_out_date = DueOutDate;
-            newAnimalRow.intake_date = IntakeDate;
+            newAnimalRow.db_bridge_id = animalId;
+            newAnimalRow.name = name;
+            newAnimalRow.sex = (byte)sex;
+            newAnimalRow.birthdate = birthdate;
+            newAnimalRow.microchip_id = microchipId;
+            newAnimalRow.due_out_date = dueOutDate;
+            newAnimalRow.intake_date = intakeDate;
             //newAnimalRow.notes = Notes;
-            newAnimalRow.weight = Weight;
-            newAnimalRow.kennel = Kennel;
+            newAnimalRow.weight = weight;
+            newAnimalRow.kennel = kennel;
             //newAnimalRow.species_id = SpeciesId;
+            newAnimalRow.altered = altered;
+
+            //Setting the database ID number -- it is auto-increment but it needs to be set here, MySQL dosen't do it
+            newAnimalRow.animal_id = default;
 
             dtAnimalTable.AddanimalRow(newAnimalRow);
 
             animalAdapter.Update(dtAnimalTable);
-            
         }
     }
 }
