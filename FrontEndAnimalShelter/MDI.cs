@@ -17,13 +17,15 @@ namespace FrontEndAnimalShelter
         {
             InitializeComponent();
             #region Event Initialization
-            tabToDo.Enter += TabHome_Enter;
+            tabToDo.Enter += TabToDo_Enter;
             tabViewAnimal.Enter += TabViewAnimal_Enter;
             tabCreateAnimal.Enter += TabCreateAnimal_Enter;
             tabTreatment.Enter += TabTreatment_Enter;
             mainTabMenu.DrawItem += ProgramTabMenu_DrawItem;
             #endregion
         }
+
+        
 
 
         /// <summary>
@@ -62,11 +64,21 @@ namespace FrontEndAnimalShelter
             TextBrush.Dispose();
 
         }
-
-        
-
         /// <summary>
-        /// When "Create Animal" tab is entered the AddAnimal form is generated in the tabpage
+        /// When "To Do" tab is entered the ToDoForm is generated in the tabpage
+        /// </summary>
+        private void TabToDo_Enter(object sender, EventArgs e)
+        {
+            Form childForm = new ToDoForm();
+            childForm.TopLevel = false;
+            childForm.Parent = tabToDo;
+            childForm.Dock = DockStyle.Fill;
+            childForm.Font = new Font("Ariel", 10);
+            tabToDo.Controls.Add(childForm);
+            childForm.Visible = true;
+        }
+        /// <summary>
+        /// When "Create Animal" tab is entered the AddAnimalForm is generated in the tabpage
         /// </summary>
         private void TabCreateAnimal_Enter(object sender, EventArgs e)
         {
@@ -80,7 +92,7 @@ namespace FrontEndAnimalShelter
         }
 
         /// <summary>
-        /// When "View Animal" tab is entered the ViewAnimal form is generated in the tabpage
+        /// When "View Animal" tab is entered the ViewAnimalForm is generated in the tabpage
         /// </summary>
         private void TabViewAnimal_Enter(object sender, EventArgs e)
         {
@@ -92,10 +104,9 @@ namespace FrontEndAnimalShelter
             tabViewAnimal.Controls.Add(childForm);
             childForm.Visible = true;
         }
-        private void TabHome_Enter(object sender, EventArgs e)
-        {
-
-        }
+        /// <summary>
+        /// When "Treatment" tab is entered the TreatmentForm is generated in the tabpage
+        /// </summary>
         private void TabTreatment_Enter(object sender, EventArgs e)
         {
             Form childForm = new TreatmentForm();
