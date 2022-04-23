@@ -14,6 +14,23 @@ namespace DataAccessLayer
         /// <summary>
         /// GetAnimal: returns all data from the Animal table
         /// </summary>
+        /// 
+
+        public static AnimalMedical.vaccineDataTable GetVaccine()
+        {
+            AnimalMedical.vaccineDataTable dtVaccines = new AnimalMedical.vaccineDataTable();
+            AnimalMedicalTableAdapters.vaccineTableAdapter vaccineAdapter = new AnimalMedicalTableAdapters.vaccineTableAdapter();
+            vaccineAdapter.Fill(dtVaccines);
+            return dtVaccines;
+        }
+        public static AnimalMedical.medicationwithunitDataTable GetMedication()
+        {
+            AnimalMedical.medicationwithunitDataTable dtMedication = new AnimalMedical.medicationwithunitDataTable();
+            AnimalMedicalTableAdapters.medicationwithunitTableAdapter medicalAdapter = new AnimalMedicalTableAdapters.medicationwithunitTableAdapter();
+            medicalAdapter.Fill(dtMedication);
+            return dtMedication;
+        }
+
         public static AnimalMedical.animalDataTable GetAnimals()
         {
             AnimalMedical.animalDataTable dtAnimalTable = new AnimalMedical.animalDataTable();  //creating in memory table dtAnimalTable
