@@ -982,3 +982,46 @@ WEAR GLOVES"),
 (37, "Tobramycin", 8, "", "Cats and dogs 1 drop"),
 (38, "Neo Poly Dex", 8, "", "Cats and dogs:1 drop")
 ;
+
+create table MedicationWithUnit (
+    medication_id SMALLINT UNSIGNED PRIMARY KEY,
+    medication_name VARCHAR(45),
+    concentration VARCHAR(15),
+    dose VARCHAR(110),
+    unit_name VARCHAR(10)
+);
+
+INSERT INTO MedicationWithUnit (medication_id, medication_name, concentration, dose, unit_name)
+SELECT medication_id, medication_name, concentration, dose, unit_name
+FROM medication m 
+LEFT JOIN unit u 
+ON u.unit_id = m.unit_id;
+
+create table perscription(
+	perscription_id int unsigned primary key,
+    animal_id int unsigned,
+    medication_id int unsigned,
+    frequency_id int unsigned,
+    animal_specific_dose varchar(10),
+    animimal_specific_method_id int,
+    start_date date,
+    end_date date,
+    assigned_staff varchar(100),
+    notes varchar(1000)
+);
+
+create table frequency(
+	frequency_id int unsigned primary key,
+	num_times int unsigned,
+    num_days int unsigned,
+    desc_value varchar(10)
+);
+
+create table vaccine_administration_log(
+	vaccine_log_id int unsigned primary key,
+    animal_id int,
+    vaccine_id int,
+    employee_id int,
+    date_given date,
+    next_date_due date
+);
