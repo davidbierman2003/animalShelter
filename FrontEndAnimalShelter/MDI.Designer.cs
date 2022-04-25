@@ -47,9 +47,10 @@
             this.mainTabMenu.Font = new System.Drawing.Font("Rockwell Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mainTabMenu.ItemSize = new System.Drawing.Size(300, 50);
             this.mainTabMenu.Location = new System.Drawing.Point(0, 0);
+            this.mainTabMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.mainTabMenu.Name = "mainTabMenu";
             this.mainTabMenu.SelectedIndex = 0;
-            this.mainTabMenu.Size = new System.Drawing.Size(2398, 1787);
+            this.mainTabMenu.Size = new System.Drawing.Size(1082, 677);
             this.mainTabMenu.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.mainTabMenu.TabIndex = 1;
             // 
@@ -57,9 +58,10 @@
             // 
             this.tabToDo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.tabToDo.Location = new System.Drawing.Point(4, 54);
+            this.tabToDo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabToDo.Name = "tabToDo";
-            this.tabToDo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabToDo.Size = new System.Drawing.Size(2390, 1729);
+            this.tabToDo.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabToDo.Size = new System.Drawing.Size(1074, 619);
             this.tabToDo.TabIndex = 0;
             this.tabToDo.Text = "To Do";
             this.tabToDo.UseVisualStyleBackColor = true;
@@ -67,18 +69,21 @@
             // tabViewAnimal
             // 
             this.tabViewAnimal.Location = new System.Drawing.Point(4, 54);
+            this.tabViewAnimal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabViewAnimal.Name = "tabViewAnimal";
-            this.tabViewAnimal.Padding = new System.Windows.Forms.Padding(3);
-            this.tabViewAnimal.Size = new System.Drawing.Size(2390, 1729);
+            this.tabViewAnimal.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabViewAnimal.Size = new System.Drawing.Size(1074, 619);
             this.tabViewAnimal.TabIndex = 1;
             this.tabViewAnimal.Text = "View Animal";
             this.tabViewAnimal.UseVisualStyleBackColor = true;
+            this.tabViewAnimal.Click += new System.EventHandler(this.tabViewAnimal_Click);
             // 
             // tabCreateAnimal
             // 
             this.tabCreateAnimal.Location = new System.Drawing.Point(4, 54);
+            this.tabCreateAnimal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabCreateAnimal.Name = "tabCreateAnimal";
-            this.tabCreateAnimal.Size = new System.Drawing.Size(2390, 1729);
+            this.tabCreateAnimal.Size = new System.Drawing.Size(1341, 1095);
             this.tabCreateAnimal.TabIndex = 2;
             this.tabCreateAnimal.Text = "Add Animal";
             this.tabCreateAnimal.UseVisualStyleBackColor = true;
@@ -87,18 +92,20 @@
             // 
             this.tabTreatment.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabTreatment.Location = new System.Drawing.Point(4, 54);
+            this.tabTreatment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabTreatment.Name = "tabTreatment";
-            this.tabTreatment.Size = new System.Drawing.Size(2390, 1729);
+            this.tabTreatment.Size = new System.Drawing.Size(1341, 1095);
             this.tabTreatment.TabIndex = 3;
             this.tabTreatment.Text = "Treatment";
             this.tabTreatment.UseVisualStyleBackColor = true;
             // 
             // MDI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2398, 1787);
+            this.ClientSize = new System.Drawing.Size(1082, 677);
             this.Controls.Add(this.mainTabMenu);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MDI";
             this.Text = "Weber County Animal Shelter-Mecical Database";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

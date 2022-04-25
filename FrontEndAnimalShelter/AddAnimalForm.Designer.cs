@@ -55,16 +55,19 @@ namespace FrontEndAnimalShelter
             this.cmbBoxSpecies = new System.Windows.Forms.ComboBox();
             this.ckbAltered = new System.Windows.Forms.CheckBox();
             this.btnReset = new System.Windows.Forms.Button();
+            this.personalInfoLabel = new System.Windows.Forms.Label();
+            this.descriptionLabel = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.additionalInfoLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSubmit
             // 
-            this.btnSubmit.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnSubmit.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnSubmit.Location = new System.Drawing.Point(1074, 697);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnSubmit.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnSubmit.ForeColor = System.Drawing.Color.White;
+            this.btnSubmit.Location = new System.Drawing.Point(42, 407);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(272, 121);
+            this.btnSubmit.Size = new System.Drawing.Size(193, 49);
             this.btnSubmit.TabIndex = 0;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = false;
@@ -73,55 +76,57 @@ namespace FrontEndAnimalShelter
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(487, 167);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label1.Location = new System.Drawing.Point(252, 154);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 32);
+            this.label1.Size = new System.Drawing.Size(0, 20);
             this.label1.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(133, 167);
-            this.label2.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label2.Location = new System.Drawing.Point(81, 139);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 32);
+            this.label2.Size = new System.Drawing.Size(51, 20);
             this.label2.TabIndex = 6;
             this.label2.Text = "Name";
             // 
             // txtBxName
             // 
-            this.txtBxName.Location = new System.Drawing.Point(288, 160);
-            this.txtBxName.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.txtBxName.Location = new System.Drawing.Point(140, 139);
+            this.txtBxName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBxName.Name = "txtBxName";
-            this.txtBxName.Size = new System.Drawing.Size(260, 38);
+            this.txtBxName.Size = new System.Drawing.Size(148, 26);
             this.txtBxName.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(89, 79);
-            this.label3.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label3.Location = new System.Drawing.Point(54, 88);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 32);
+            this.label3.Size = new System.Drawing.Size(78, 20);
             this.label3.TabIndex = 8;
             this.label3.Text = "Animal ID";
             // 
             // txtBxAnimalID
             // 
-            this.txtBxAnimalID.Location = new System.Drawing.Point(288, 71);
-            this.txtBxAnimalID.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.txtBxAnimalID.Location = new System.Drawing.Point(140, 88);
+            this.txtBxAnimalID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBxAnimalID.Name = "txtBxAnimalID";
-            this.txtBxAnimalID.Size = new System.Drawing.Size(260, 38);
+            this.txtBxAnimalID.Size = new System.Drawing.Size(148, 26);
             this.txtBxAnimalID.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(114, 265);
-            this.label4.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label4.Location = new System.Drawing.Point(410, 145);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(110, 32);
+            this.label4.Size = new System.Drawing.Size(63, 20);
             this.label4.TabIndex = 9;
             this.label4.Text = "Gender";
             // 
@@ -132,190 +137,243 @@ namespace FrontEndAnimalShelter
             "Unknown",
             "Male",
             "Female"});
-            this.cmbBoxGender.Location = new System.Drawing.Point(288, 245);
-            this.cmbBoxGender.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.cmbBoxGender.Location = new System.Drawing.Point(481, 145);
+            this.cmbBoxGender.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbBoxGender.Name = "cmbBoxGender";
-            this.cmbBoxGender.Size = new System.Drawing.Size(260, 39);
+            this.cmbBoxGender.Size = new System.Drawing.Size(148, 28);
             this.cmbBoxGender.TabIndex = 3;
             // 
             // dateTimePickerDateOfBirth
             // 
             this.dateTimePickerDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerDateOfBirth.Location = new System.Drawing.Point(288, 349);
-            this.dateTimePickerDateOfBirth.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.dateTimePickerDateOfBirth.Location = new System.Drawing.Point(140, 196);
+            this.dateTimePickerDateOfBirth.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePickerDateOfBirth.Name = "dateTimePickerDateOfBirth";
             this.dateTimePickerDateOfBirth.ShowUpDown = true;
-            this.dateTimePickerDateOfBirth.Size = new System.Drawing.Size(260, 38);
+            this.dateTimePickerDateOfBirth.Size = new System.Drawing.Size(148, 26);
             this.dateTimePickerDateOfBirth.TabIndex = 4;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(50, 364);
-            this.label5.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label5.Location = new System.Drawing.Point(33, 196);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(172, 32);
+            this.label5.Size = new System.Drawing.Size(99, 20);
             this.label5.TabIndex = 13;
             this.label5.Text = "Date of Birth";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(59, 453);
-            this.label6.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label6.Location = new System.Drawing.Point(38, 312);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(171, 32);
+            this.label6.Size = new System.Drawing.Size(97, 20);
             this.label6.TabIndex = 14;
             this.label6.Text = "Microchip ID";
             // 
             // txtBxMicrochipID
             // 
-            this.txtBxMicrochipID.Location = new System.Drawing.Point(288, 446);
-            this.txtBxMicrochipID.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.txtBxMicrochipID.Location = new System.Drawing.Point(140, 312);
+            this.txtBxMicrochipID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBxMicrochipID.Name = "txtBxMicrochipID";
-            this.txtBxMicrochipID.Size = new System.Drawing.Size(260, 38);
+            this.txtBxMicrochipID.Size = new System.Drawing.Size(148, 26);
             this.txtBxMicrochipID.TabIndex = 5;
             // 
             // dateTimePickerDueOutDate
             // 
             this.dateTimePickerDueOutDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerDueOutDate.Location = new System.Drawing.Point(288, 541);
-            this.dateTimePickerDueOutDate.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.dateTimePickerDueOutDate.Location = new System.Drawing.Point(838, 96);
+            this.dateTimePickerDueOutDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePickerDueOutDate.Name = "dateTimePickerDueOutDate";
             this.dateTimePickerDueOutDate.ShowUpDown = true;
-            this.dateTimePickerDueOutDate.Size = new System.Drawing.Size(260, 38);
+            this.dateTimePickerDueOutDate.Size = new System.Drawing.Size(148, 26);
             this.dateTimePickerDueOutDate.TabIndex = 6;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(32, 555);
-            this.label7.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label7.Location = new System.Drawing.Point(722, 96);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(187, 32);
+            this.label7.Size = new System.Drawing.Size(108, 20);
             this.label7.TabIndex = 15;
             this.label7.Text = "Due Out Date";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(60, 663);
-            this.label8.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label8.Location = new System.Drawing.Point(739, 147);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(163, 32);
+            this.label8.Size = new System.Drawing.Size(91, 20);
             this.label8.TabIndex = 16;
             this.label8.Text = "Arrival Date";
             // 
             // dateTimePickerIntakeDate
             // 
             this.dateTimePickerIntakeDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerIntakeDate.Location = new System.Drawing.Point(288, 648);
-            this.dateTimePickerIntakeDate.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.dateTimePickerIntakeDate.Location = new System.Drawing.Point(838, 147);
+            this.dateTimePickerIntakeDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePickerIntakeDate.Name = "dateTimePickerIntakeDate";
             this.dateTimePickerIntakeDate.ShowUpDown = true;
-            this.dateTimePickerIntakeDate.Size = new System.Drawing.Size(260, 38);
+            this.dateTimePickerIntakeDate.Size = new System.Drawing.Size(148, 26);
             this.dateTimePickerIntakeDate.TabIndex = 7;
             // 
             // txtBxNotes
             // 
-            this.txtBxNotes.Location = new System.Drawing.Point(288, 739);
-            this.txtBxNotes.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.txtBxNotes.Location = new System.Drawing.Point(838, 198);
+            this.txtBxNotes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBxNotes.Multiline = true;
             this.txtBxNotes.Name = "txtBxNotes";
-            this.txtBxNotes.Size = new System.Drawing.Size(527, 120);
+            this.txtBxNotes.Size = new System.Drawing.Size(300, 146);
             this.txtBxNotes.TabIndex = 8;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(133, 747);
-            this.label9.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label9.Location = new System.Drawing.Point(751, 203);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(89, 32);
+            this.label9.Size = new System.Drawing.Size(51, 20);
             this.label9.TabIndex = 18;
             this.label9.Text = "Notes";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(958, 62);
-            this.label10.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label10.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label10.Location = new System.Drawing.Point(380, 318);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(166, 32);
+            this.label10.Size = new System.Drawing.Size(93, 20);
             this.label10.TabIndex = 19;
             this.label10.Text = "Weight (lbs)";
             // 
             // txtBxWeight
             // 
-            this.txtBxWeight.Location = new System.Drawing.Point(1179, 62);
-            this.txtBxWeight.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.txtBxWeight.Location = new System.Drawing.Point(481, 318);
+            this.txtBxWeight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBxWeight.Name = "txtBxWeight";
-            this.txtBxWeight.Size = new System.Drawing.Size(260, 38);
+            this.txtBxWeight.Size = new System.Drawing.Size(148, 26);
             this.txtBxWeight.TabIndex = 9;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(1020, 177);
-            this.label11.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label11.Location = new System.Drawing.Point(74, 251);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(105, 32);
+            this.label11.Size = new System.Drawing.Size(58, 20);
             this.label11.TabIndex = 20;
             this.label11.Text = "Kennel";
             // 
             // txtBxKennel
             // 
-            this.txtBxKennel.Location = new System.Drawing.Point(1179, 177);
-            this.txtBxKennel.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.txtBxKennel.Location = new System.Drawing.Point(140, 251);
+            this.txtBxKennel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBxKennel.Name = "txtBxKennel";
-            this.txtBxKennel.Size = new System.Drawing.Size(260, 38);
+            this.txtBxKennel.Size = new System.Drawing.Size(148, 26);
             this.txtBxKennel.TabIndex = 10;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(1006, 315);
-            this.label12.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label12.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label12.Location = new System.Drawing.Point(407, 94);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(117, 32);
+            this.label12.Size = new System.Drawing.Size(66, 20);
             this.label12.TabIndex = 21;
             this.label12.Text = "Species";
             // 
             // cmbBoxSpecies
             // 
             this.cmbBoxSpecies.FormattingEnabled = true;
-            this.cmbBoxSpecies.Location = new System.Drawing.Point(1179, 315);
-            this.cmbBoxSpecies.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.cmbBoxSpecies.Location = new System.Drawing.Point(481, 94);
+            this.cmbBoxSpecies.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbBoxSpecies.Name = "cmbBoxSpecies";
-            this.cmbBoxSpecies.Size = new System.Drawing.Size(260, 39);
+            this.cmbBoxSpecies.Size = new System.Drawing.Size(148, 28);
             this.cmbBoxSpecies.TabIndex = 23;
             // 
             // ckbAltered
             // 
             this.ckbAltered.AutoSize = true;
-            this.ckbAltered.Location = new System.Drawing.Point(1153, 433);
+            this.ckbAltered.Location = new System.Drawing.Point(543, 198);
+            this.ckbAltered.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ckbAltered.Name = "ckbAltered";
-            this.ckbAltered.Size = new System.Drawing.Size(144, 36);
+            this.ckbAltered.Size = new System.Drawing.Size(86, 24);
             this.ckbAltered.TabIndex = 26;
             this.ckbAltered.Text = "Altered";
             this.ckbAltered.UseVisualStyleBackColor = true;
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(1516, 70);
+            this.btnReset.Location = new System.Drawing.Point(257, 413);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(173, 57);
+            this.btnReset.Size = new System.Drawing.Size(97, 37);
             this.btnReset.TabIndex = 27;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // personalInfoLabel
+            // 
+            this.personalInfoLabel.AutoSize = true;
+            this.personalInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.personalInfoLabel.Location = new System.Drawing.Point(33, 39);
+            this.personalInfoLabel.Name = "personalInfoLabel";
+            this.personalInfoLabel.Size = new System.Drawing.Size(210, 25);
+            this.personalInfoLabel.TabIndex = 28;
+            this.personalInfoLabel.Text = "Personal Information";
+            // 
+            // descriptionLabel
+            // 
+            this.descriptionLabel.AutoSize = true;
+            this.descriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descriptionLabel.Location = new System.Drawing.Point(407, 45);
+            this.descriptionLabel.Name = "descriptionLabel";
+            this.descriptionLabel.Size = new System.Drawing.Size(120, 25);
+            this.descriptionLabel.TabIndex = 29;
+            this.descriptionLabel.Text = "Description";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(428, 247);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(201, 20);
+            this.label13.TabIndex = 30;
+            this.label13.Text = "(Breed and Color go here?)";
+            // 
+            // additionalInfoLabel
+            // 
+            this.additionalInfoLabel.AutoSize = true;
+            this.additionalInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.additionalInfoLabel.Location = new System.Drawing.Point(722, 47);
+            this.additionalInfoLabel.Name = "additionalInfoLabel";
+            this.additionalInfoLabel.Size = new System.Drawing.Size(221, 25);
+            this.additionalInfoLabel.TabIndex = 31;
+            this.additionalInfoLabel.Text = "Additional Information";
+            // 
             // AddAnimalForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1803, 1036);
+            this.ClientSize = new System.Drawing.Size(1140, 668);
             this.ControlBox = false;
+            this.Controls.Add(this.additionalInfoLabel);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.descriptionLabel);
+            this.Controls.Add(this.personalInfoLabel);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.ckbAltered);
             this.Controls.Add(this.cmbBoxSpecies);
@@ -343,7 +401,6 @@ namespace FrontEndAnimalShelter
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSubmit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "AddAnimalForm";
             this.Text = "S";
             this.ResumeLayout(false);
@@ -379,6 +436,10 @@ namespace FrontEndAnimalShelter
         private System.Windows.Forms.DateTimePicker dateTimePickerDateOfBirth;
         private System.Windows.Forms.CheckBox ckbAltered;
         private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Label personalInfoLabel;
+        private System.Windows.Forms.Label descriptionLabel;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label additionalInfoLabel;
     }
 }
 

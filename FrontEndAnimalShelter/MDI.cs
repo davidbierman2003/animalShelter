@@ -35,7 +35,7 @@ namespace FrontEndAnimalShelter
         {
             TabPage CurrentTab = mainTabMenu.TabPages[e.Index];
             Rectangle ItemRect = mainTabMenu.GetTabRect(e.Index);
-            SolidBrush FillBrush = new SolidBrush(Color.Red);
+            SolidBrush FillBrush = new SolidBrush(Color.DarkSlateBlue);
             SolidBrush TextBrush = new SolidBrush(Color.White);
             StringFormat sf = new StringFormat();
             sf.Alignment = StringAlignment.Center;
@@ -46,7 +46,7 @@ namespace FrontEndAnimalShelter
             if (System.Convert.ToBoolean(e.State & DrawItemState.Selected))
             {
                 FillBrush.Color = Color.White;
-                TextBrush.Color = Color.Red;
+                TextBrush.Color = Color.DarkSlateBlue;
                 ItemRect.Inflate(2, 2);
             }
 
@@ -118,5 +118,9 @@ namespace FrontEndAnimalShelter
             childForm.Visible = true;
         }
 
+        private void tabViewAnimal_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
