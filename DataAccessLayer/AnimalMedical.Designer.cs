@@ -71,7 +71,13 @@ namespace DataAccessLayer {
         private global::System.Data.DataRelation relationmedication_ibfk_1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-        
+       
+        private static System.DateTime columnbirthdate_defaultValue = global::System.DateTime.Parse("2022-01-01T00:00:00");
+
+        private static System.DateTime columndue_out_date_defaultValue = global::System.DateTime.Parse("2022-01-01T00:00:00");
+
+        private static System.DateTime columnintake_date_defaultValue = global::System.DateTime.Parse("2022-01-01T00:00:00");
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public AnimalMedical() {
@@ -5784,6 +5790,10 @@ namespace DataAccessLayer {
             public byte sex {
                 get {
                     try {
+                        if (this[this.tableanimal.sexColumn].ToString().Equals(""))
+                        {
+                            this[this.tableanimal.sexColumn] = this.tableanimal.sexColumn.DefaultValue;
+                        }
                         return ((byte)(this[this.tableanimal.sexColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
@@ -5800,6 +5810,10 @@ namespace DataAccessLayer {
             public System.DateTime birthdate {
                 get {
                     try {
+                        if (this[this.tableanimal.birthdateColumn].ToString().Equals(""))
+                        {
+                            this[this.tableanimal.birthdateColumn] = this.tableanimal.birthdateColumn.DefaultValue;
+                        }
                         return ((global::System.DateTime)(this[this.tableanimal.birthdateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
@@ -5816,6 +5830,10 @@ namespace DataAccessLayer {
             public string microchip_id {
                 get {
                     try {
+                        if (this[this.tableanimal.microchip_idColumn].ToString().Equals(""))
+                        {
+                            this[this.tableanimal.microchip_idColumn] = this.tableanimal.microchip_idColumn.DefaultValue;
+                        }
                         return ((string)(this[this.tableanimal.microchip_idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
@@ -5848,6 +5866,10 @@ namespace DataAccessLayer {
             public System.DateTime intake_date {
                 get {
                     try {
+                        if (this[this.tableanimal.intake_dateColumn].ToString().Equals(""))
+                        {
+                            this[this.tableanimal.intake_dateColumn] = this.tableanimal.intake_dateColumn.DefaultValue;
+                        }
                         return ((global::System.DateTime)(this[this.tableanimal.intake_dateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
@@ -5864,6 +5886,10 @@ namespace DataAccessLayer {
             public decimal weight {
                 get {
                     try {
+                        if (this[this.tableanimal.weightColumn].ToString().Equals(""))
+                        {
+                            this[this.tableanimal.weightColumn] = this.tableanimal.weightColumn.DefaultValue;
+                        }
                         return ((decimal)(this[this.tableanimal.weightColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
@@ -5896,6 +5922,10 @@ namespace DataAccessLayer {
             public bool altered {
                 get {
                     try {
+                        if (this[this.tableanimal.alteredColumn].ToString().Equals(""))
+                        {
+                            this[this.tableanimal.alteredColumn] = this.tableanimal.alteredColumn.DefaultValue;
+                        }
                         return ((bool)(this[this.tableanimal.alteredColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
