@@ -1,5 +1,6 @@
-create database if not exists shelter;
-use shelter;
+drop database animal_medical;
+create database if not exists animal_medical;
+use animal_medical;
 drop table if exists animalbreed;
 drop table if exists animalcolor;
 drop table if exists animal;
@@ -98,7 +99,7 @@ create table Medication (
 -- INSERT STATEMENTS
 
 SET SQL_SAFE_UPDATES=0;
-use shelter;
+use animal_medical;
 delete from animalbreed;
 delete from animalcolor;
 delete from animal;

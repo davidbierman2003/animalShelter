@@ -14,7 +14,45 @@ namespace DataAccessLayer
         /// <summary>
         /// GetAnimal: returns all data from the Animal table
         /// </summary>
-        /// 
+        ///
+        public static void SaveVaccineAdmin(int animalId, int vaccine_id, int employee_id, DateTime dateGiven, DateTime nextDueDate)
+        {
+            
+           
+            AnimalMedical.vaccine_administration_logDataTable dtVaccineAdminTable = new AnimalMedical.vaccine_administration_logDataTable();
+            AnimalMedicalTableAdapters.vaccine_administration_logTableAdapter vaccineAdminAdapter = new AnimalMedicalTableAdapters.vaccine_administration_logTableAdapter();
+            vaccineAdminAdapter.Fill(dtVaccineAdminTable);
+            
+
+            AnimalMedical.vaccine_administration_logRow vaccineAdminRow = dtVaccineAdminTable.Newvaccine_administration_logRow();
+
+            
+            
+            vaccineAdminRow.animal_id = animalId;
+            vaccineAdminRow.vaccine_id = vaccine_id;
+            vaccineAdminRow.employee_id = employee_id;
+            vaccineAdminRow.date_given = dateGiven;
+            vaccineAdminRow.next_date_due = nextDueDate;
+
+            vaccineAdminRow.vaccine_log_id = default;
+
+            dtVaccineAdminTable.Addvaccine_administration_logRow(vaccineAdminRow);
+
+            vaccineAdminAdapter.Update(dtVaccineAdminTable);
+
+           
+        }
+
+
+
+
+        public static AnimalMedical.vaccine_administration_logDataTable GetVaccineAdministration()
+        {
+            AnimalMedical.vaccine_administration_logDataTable dtVaccineAdminTable = new AnimalMedical.vaccine_administration_logDataTable();
+            AnimalMedicalTableAdapters.vaccine_administration_logTableAdapter vaccineAdminAdapter = new AnimalMedicalTableAdapters.vaccine_administration_logTableAdapter();
+            vaccineAdminAdapter.Fill(dtVaccineAdminTable);
+            return dtVaccineAdminTable;
+        }
 
         public static AnimalMedical.vaccineDataTable GetVaccine()
         {
