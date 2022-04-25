@@ -55,18 +55,28 @@ namespace FrontEndAnimalShelter
             #region Events
             cmbSpecies.SelectionChangeCommitted += CmbSpecies_SelectionChangeCommitted;
             cmbSex.SelectionChangeCommitted += CmbSex_SelectionChangeCommitted;
+            dgAnimalTable.RowStateChanged += DgAnimalTable_RowStateChanged;
             #endregion
 
             DatabaseTableFormatting();
         }
 
-       
+        private void DgAnimalTable_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            DataGridView dg = (DataGridView)sender;
+            System.Diagnostics.Debug.WriteLine(dg.SelectedRows.Count);
+        }
+
+
 
         /// <summary>
         /// Formatting the column headers and filling the list and combo boxes with data from the grid
         /// </summary>
         private void DatabaseTableFormatting()
         {
+            dgAnimalTable.AllowUserToAddRows = false;
+            dgAnimalTable.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect;
+
             //Formating headers
             dgAnimalTable.Columns["db_bridge_id"].HeaderText = "ID";
             dgAnimalTable.Columns["name"].HeaderText = "Name";
@@ -196,6 +206,50 @@ namespace FrontEndAnimalShelter
             dgAnimalTable.Columns["RowState"].Visible = false;
             dgAnimalTable.Columns["Table"].Visible = false;
             dgAnimalTable.Columns["HasErrors"].Visible = false;
+        }
+
+        private void dgAnimalTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int  animalId= -1;
+            DataGridView dg = (DataGridView)sender;
+
+            //DataGridViewRow rowToBeOperatedUpon = dg.Rows[e.RowIndex];
+            //currentDeptID = int.Parse(rowToBeOperatedUpon.Cells["DeptID"].Value.ToString());
+
+            ////********************* Display Department Information in the data entry area *************************
+            //if (e.ColumnIndex == -1)  //-1 index is the dummy row that selects the entire row
+            //{
+            //    DisplayAndEditDeptInfoDataEntry(rowToBeOperatedUpon);
+            //    return;
+            //}
+            DataGridViewSelectedRowCollection selectedrows = dg.SelectedRows;
+
+            //********************* Edit and Delete Buttons ********************************************************
+            if (dg.SelectedCells.Count == 1)  //only one cell has been selected (do not want to edit/delete mutliple rows at same time)
+            {
+
+                if (dg.SelectedCells[0] is DataGridViewButtonCell)
+                {
+                    DataGridViewButtonCell selectedCell = (DataGridViewButtonCell)dg.SelectedCells[0];
+                    if (selectedCell.Value.Equals("Delete"))
+                    {
+                        DialogResult deleteCheck = MessageBox.Show("You have selected to delete department " + animalId + ". Countinue with delete?", "Delete Department", MessageBoxButtons.YesNo);
+                        if (deleteCheck == DialogResult.Yes)
+                        {
+                            //Utility.DeleteDepartment(selectedCell.RowIndex);
+                            //RefreshGridData();
+                        }
+                    }
+                    else if (selectedCell.Value.Equals("Save Edit"))
+                    {
+                        //Utility.EditDepartment(currentDeptID, rowToBeOperatedUpon.Cells["DeptName"].Value.ToString(), rowToBeOperatedUpon.Cells["Location"].Value.ToString(),
+                            //rowToBeOperatedUpon.Cells["Address"].Value.ToString(), rowToBeOperatedUpon.Cells["ContactPersonName"].Value.ToString(), rowToBeOperatedUpon.Cells["ContactPersonPhoneNumber"].Value.ToString());
+
+                        //RefreshGridData();
+                        //MessageBox.Show("Edits to deparment " + currentDeptID + " have been saved to the database");
+                    }
+                }
+            }
         }
     }
 }
