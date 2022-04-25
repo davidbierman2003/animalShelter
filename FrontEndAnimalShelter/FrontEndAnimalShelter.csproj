@@ -83,6 +83,12 @@
     <Compile Include="ViewAnimalForm.Designer.cs">
       <DependentUpon>ViewAnimalForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewEmployeesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewEmployeesForm.Designer.cs">
+      <DependentUpon>ViewEmployeesForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddAnimalForm.resx">
       <DependentUpon>AddAnimalForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewAnimalForm.resx">
       <DependentUpon>ViewAnimalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewEmployeesForm.resx">
+      <DependentUpon>ViewEmployeesForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

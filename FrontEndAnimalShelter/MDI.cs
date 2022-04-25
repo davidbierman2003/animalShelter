@@ -13,6 +13,7 @@ namespace FrontEndAnimalShelter
 {
     public partial class MDI : Form
     {
+        ViewEmployees viewEmpForm;
         public MDI()
         {
             InitializeComponent();
@@ -24,10 +25,6 @@ namespace FrontEndAnimalShelter
             mainTabMenu.DrawItem += ProgramTabMenu_DrawItem;
             #endregion
         }
-
-        
-
-
         /// <summary>
         /// ProgramTabMenu characteristics are set/drawn here
         /// </summary>
@@ -117,10 +114,10 @@ namespace FrontEndAnimalShelter
             tabTreatment.Controls.Add(childForm);
             childForm.Visible = true;
         }
-
-        private void tabViewAnimal_Click(object sender, EventArgs e)
+        private void viewEmployees_Click(object sender, EventArgs e)
         {
-
+            viewEmpForm = new ViewEmployees();
+            viewEmpForm.Show();
         }
     }
 }

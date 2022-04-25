@@ -1025,3 +1025,9 @@ create table vaccine_administration_log(
     date_given date,
     next_date_due date
 );
+
+create table employee(
+	employee_id int unsigned primary key,
+    first_name varchar(25),
+    last_name varchar(25)
+);

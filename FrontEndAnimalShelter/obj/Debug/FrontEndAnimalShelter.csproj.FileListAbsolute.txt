@@ -193,3 +193,4 @@ C:\Users\amand\Desktop\Spring 2022\CS3550\Front-End-Group\animalShelter\FrontEnd
 C:\Users\amand\Desktop\Spring 2022\CS3550\Front-End-Group\animalShelter\FrontEndAnimalShelter\obj\Debug\FrontEndAnimalShelter.csproj.CopyComplete
 C:\Users\amand\Desktop\Spring 2022\CS3550\Front-End-Group\animalShelter\FrontEndAnimalShelter\obj\Debug\FrontEndAnimalShelter.exe
 C:\Users\amand\Desktop\Spring 2022\CS3550\Front-End-Group\animalShelter\FrontEndAnimalShelter\obj\Debug\FrontEndAnimalShelter.pdb
+C:\Users\Francis\source\repos\CS3550\animalShelter\FrontEndAnimalShelter\obj\Debug\FrontEndAnimalShelter.ViewEmployees.resources

@@ -106,6 +106,53 @@ namespace DataAccessLayer
 
             animalAdapter.Update(dtAnimalTable);
         }
+        public static AnimalMedical.employeeDataTable GetEmployees()
+        {
+            AnimalMedical.employeeDataTable dtEmployeeTable = new AnimalMedical.employeeDataTable(); // creating in memory table dtAnimalTable
+            AnimalMedicalTableAdapters.employeeTableAdapter employeeAdapter = new AnimalMedicalTableAdapters.employeeTableAdapter();
+            employeeAdapter.Fill(dtEmployeeTable);
+
+            return dtEmployeeTable;
+        }
+        public static void DeleteEmployee(int rowindex)
+        {
+            AnimalMedical.employeeDataTable dtEmployeesTable = new AnimalMedical.employeeDataTable();
+            AnimalMedicalTableAdapters.employeeTableAdapter empAdapter = new AnimalMedicalTableAdapters.employeeTableAdapter();
+            empAdapter.Fill(dtEmployeesTable);
+
+            dtEmployeesTable.Rows[rowindex].Delete();
+
+            empAdapter.Update(dtEmployeesTable);
+        }
+        public static void EditEmployee(int empId, string firstname, string lastname)
+        {
+            AnimalMedical.employeeDataTable dtEmpTable = new AnimalMedical.employeeDataTable();
+            AnimalMedicalTableAdapters.employeeTableAdapter empAdapter = new AnimalMedicalTableAdapters.employeeTableAdapter();
+            empAdapter.Fill(dtEmpTable);
+
+            var rowToEdit = dtEmpTable.Where(x => x.employee_id == empId).ToList();
+
+            rowToEdit[0].employee_id = (uint)empId;
+            rowToEdit[0].first_name = firstname;
+            rowToEdit[0].last_name = lastname;
+
+            empAdapter.Update(dtEmpTable);
+        }
+        public static void AddEmployee(int empId, string firstname, string lastname)
+        {
+            AnimalMedical.employeeDataTable dtEmpTable = new AnimalMedical.employeeDataTable();
+            AnimalMedicalTableAdapters.employeeTableAdapter empAdapter = new AnimalMedicalTableAdapters.employeeTableAdapter();
+            empAdapter.Fill(dtEmpTable);
+
+            AnimalMedical.employeeRow newEmpRow = dtEmpTable.NewemployeeRow();
+            newEmpRow.employee_id = (uint)empId;
+            newEmpRow.first_name = firstname;
+            newEmpRow.last_name = lastname;
+
+            dtEmpTable.AddemployeeRow(newEmpRow);
+
+            empAdapter.Update(dtEmpTable);
+        }
     }
 }
 
