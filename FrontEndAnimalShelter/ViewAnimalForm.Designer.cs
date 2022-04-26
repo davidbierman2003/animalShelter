@@ -61,8 +61,8 @@
             this.cmbSex = new System.Windows.Forms.ComboBox();
             this.lblSpecies = new System.Windows.Forms.Label();
             this.gpAddTreatment = new System.Windows.Forms.GroupBox();
-            this.btnPerscription = new System.Windows.Forms.Button();
             this.btnVaccine = new System.Windows.Forms.Button();
+            this.btnPerscription = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgAnimalTable)).BeginInit();
             this.animalFilterBox.SuspendLayout();
             this.gpAddTreatment.SuspendLayout();
@@ -80,7 +80,7 @@
             this.dgAnimalTable.Name = "dgAnimalTable";
             this.dgAnimalTable.RowHeadersWidth = 102;
             this.dgAnimalTable.RowTemplate.Height = 40;
-            this.dgAnimalTable.Size = new System.Drawing.Size(1535, 414);
+            this.dgAnimalTable.Size = new System.Drawing.Size(1464, 414);
             this.dgAnimalTable.TabIndex = 0;
             this.dgAnimalTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgAnimalTable_CellContentClick);
             // 
@@ -445,42 +445,42 @@
             // 
             this.gpAddTreatment.Controls.Add(this.btnVaccine);
             this.gpAddTreatment.Controls.Add(this.btnPerscription);
-            this.gpAddTreatment.Location = new System.Drawing.Point(1785, 0);
+            this.gpAddTreatment.Location = new System.Drawing.Point(1785, 456);
             this.gpAddTreatment.Name = "gpAddTreatment";
-            this.gpAddTreatment.Size = new System.Drawing.Size(338, 596);
+            this.gpAddTreatment.Size = new System.Drawing.Size(557, 140);
             this.gpAddTreatment.TabIndex = 3;
             this.gpAddTreatment.TabStop = false;
             this.gpAddTreatment.Text = "Add Treatment";
-            this.gpAddTreatment.Visible = false;
-            // 
-            // btnPerscription
-            // 
-            this.btnPerscription.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.btnPerscription.ForeColor = System.Drawing.Color.White;
-            this.btnPerscription.Location = new System.Drawing.Point(55, 124);
-            this.btnPerscription.Name = "btnPerscription";
-            this.btnPerscription.Size = new System.Drawing.Size(230, 67);
-            this.btnPerscription.TabIndex = 0;
-            this.btnPerscription.Text = "Perscription";
-            this.btnPerscription.UseVisualStyleBackColor = false;
             // 
             // btnVaccine
             // 
             this.btnVaccine.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.btnVaccine.ForeColor = System.Drawing.Color.White;
-            this.btnVaccine.Location = new System.Drawing.Point(55, 244);
+            this.btnVaccine.Location = new System.Drawing.Point(291, 59);
             this.btnVaccine.Name = "btnVaccine";
             this.btnVaccine.Size = new System.Drawing.Size(230, 67);
             this.btnVaccine.TabIndex = 1;
             this.btnVaccine.Text = "Vaccine";
             this.btnVaccine.UseVisualStyleBackColor = false;
             // 
+            // btnPerscription
+            // 
+            this.btnPerscription.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnPerscription.ForeColor = System.Drawing.Color.White;
+            this.btnPerscription.Location = new System.Drawing.Point(36, 59);
+            this.btnPerscription.Name = "btnPerscription";
+            this.btnPerscription.Size = new System.Drawing.Size(230, 67);
+            this.btnPerscription.TabIndex = 0;
+            this.btnPerscription.Text = "Perscription";
+            this.btnPerscription.UseVisualStyleBackColor = false;
+            this.btnPerscription.Click += new System.EventHandler(this.btnPerscription_Click);
+            // 
             // ViewAnimalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(2144, 1107);
+            this.ClientSize = new System.Drawing.Size(2365, 1107);
             this.ControlBox = false;
             this.Controls.Add(this.gpAddTreatment);
             this.Controls.Add(this.animalFilterBox);

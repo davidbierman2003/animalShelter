@@ -15,37 +15,15 @@ namespace DataAccessLayer
         /// GetAnimal: returns all data from the Animal table
         /// </summary>
         ///
-        public static void SaveVaccineAdmin(int animalId, int vaccine_id, int employee_id, DateTime dateGiven, DateTime nextDueDate)
+        #region Get Data from Database
+        public static AnimalMedical.employeeDataTable GetEmployees()
         {
-            
-           
-            AnimalMedical.vaccine_administration_logDataTable dtVaccineAdminTable = new AnimalMedical.vaccine_administration_logDataTable();
-            AnimalMedicalTableAdapters.vaccine_administration_logTableAdapter vaccineAdminAdapter = new AnimalMedicalTableAdapters.vaccine_administration_logTableAdapter();
-            vaccineAdminAdapter.Fill(dtVaccineAdminTable);
-            
+            AnimalMedical.employeeDataTable dtEmployeeTable = new AnimalMedical.employeeDataTable(); // creating in memory table dtAnimalTable
+            AnimalMedicalTableAdapters.employeeTableAdapter employeeAdapter = new AnimalMedicalTableAdapters.employeeTableAdapter();
+            employeeAdapter.Fill(dtEmployeeTable);
 
-            AnimalMedical.vaccine_administration_logRow vaccineAdminRow = dtVaccineAdminTable.Newvaccine_administration_logRow();
-
-            
-            
-            vaccineAdminRow.animal_id = animalId;
-            vaccineAdminRow.vaccine_id = vaccine_id;
-            vaccineAdminRow.employee_id = employee_id;
-            vaccineAdminRow.date_given = dateGiven;
-            vaccineAdminRow.next_date_due = nextDueDate;
-
-            vaccineAdminRow.vaccine_log_id = default;
-
-            dtVaccineAdminTable.Addvaccine_administration_logRow(vaccineAdminRow);
-
-            vaccineAdminAdapter.Update(dtVaccineAdminTable);
-
-           
+            return dtEmployeeTable;
         }
-
-
-
-
         public static AnimalMedical.vaccine_administration_logDataTable GetVaccineAdministration()
         {
             AnimalMedical.vaccine_administration_logDataTable dtVaccineAdminTable = new AnimalMedical.vaccine_administration_logDataTable();
@@ -112,7 +90,30 @@ namespace DataAccessLayer
 
             return dtSexTable;
         }
+        #endregion
+        #region Save to Database
+        public static void SaveVaccineAdmin(int animalId, int vaccine_id, int employee_id, DateTime dateGiven, DateTime nextDueDate)
+        {
+            AnimalMedical.vaccine_administration_logDataTable dtVaccineAdminTable = new AnimalMedical.vaccine_administration_logDataTable();
+            AnimalMedicalTableAdapters.vaccine_administration_logTableAdapter vaccineAdminAdapter = new AnimalMedicalTableAdapters.vaccine_administration_logTableAdapter();
+            vaccineAdminAdapter.Fill(dtVaccineAdminTable);
 
+            AnimalMedical.vaccine_administration_logRow vaccineAdminRow = dtVaccineAdminTable.Newvaccine_administration_logRow();
+
+            vaccineAdminRow.animal_id = animalId;
+            vaccineAdminRow.vaccine_id = vaccine_id;
+            vaccineAdminRow.employee_id = employee_id;
+            vaccineAdminRow.date_given = dateGiven;
+            vaccineAdminRow.next_date_due = nextDueDate;
+
+            vaccineAdminRow.vaccine_log_id = default;
+
+            dtVaccineAdminTable.Addvaccine_administration_logRow(vaccineAdminRow);
+
+            vaccineAdminAdapter.Update(dtVaccineAdminTable);
+
+
+        }
         public static void SaveAnimal(string animalId,string name, int sex, DateTime birthdate, string microchipId, 
             DateTime dueOutDate, DateTime intakeDate, string notes, Decimal weight, string kennel, int speciesId, bool altered)
         {
@@ -144,39 +145,7 @@ namespace DataAccessLayer
 
             animalAdapter.Update(dtAnimalTable);
         }
-        public static AnimalMedical.employeeDataTable GetEmployees()
-        {
-            AnimalMedical.employeeDataTable dtEmployeeTable = new AnimalMedical.employeeDataTable(); // creating in memory table dtAnimalTable
-            AnimalMedicalTableAdapters.employeeTableAdapter employeeAdapter = new AnimalMedicalTableAdapters.employeeTableAdapter();
-            employeeAdapter.Fill(dtEmployeeTable);
-
-            return dtEmployeeTable;
-        }
-        public static void DeleteEmployee(int rowindex)
-        {
-            AnimalMedical.employeeDataTable dtEmployeesTable = new AnimalMedical.employeeDataTable();
-            AnimalMedicalTableAdapters.employeeTableAdapter empAdapter = new AnimalMedicalTableAdapters.employeeTableAdapter();
-            empAdapter.Fill(dtEmployeesTable);
-
-            dtEmployeesTable.Rows[rowindex].Delete();
-
-            empAdapter.Update(dtEmployeesTable);
-        }
-        public static void EditEmployee(int empId, string firstname, string lastname)
-        {
-            AnimalMedical.employeeDataTable dtEmpTable = new AnimalMedical.employeeDataTable();
-            AnimalMedicalTableAdapters.employeeTableAdapter empAdapter = new AnimalMedicalTableAdapters.employeeTableAdapter();
-            empAdapter.Fill(dtEmpTable);
-
-            var rowToEdit = dtEmpTable.Where(x => x.employee_id == empId).ToList();
-
-            rowToEdit[0].employee_id = (uint)empId;
-            rowToEdit[0].first_name = firstname;
-            rowToEdit[0].last_name = lastname;
-
-            empAdapter.Update(dtEmpTable);
-        }
-        public static void AddEmployee(int empId, string firstname, string lastname)
+        public static void SaveEmployee(int empId, string firstname, string lastname)
         {
             AnimalMedical.employeeDataTable dtEmpTable = new AnimalMedical.employeeDataTable();
             AnimalMedicalTableAdapters.employeeTableAdapter empAdapter = new AnimalMedicalTableAdapters.employeeTableAdapter();
@@ -191,6 +160,57 @@ namespace DataAccessLayer
 
             empAdapter.Update(dtEmpTable);
         }
+        public static void SavePerscription(int animalId, int medicationId, string animaldose, int method, DateTime startdate, DateTime enddate, string staff, string notes)
+        {
+            AnimalMedical.perscriptionDataTable dtPerscriptionTable = new AnimalMedical.perscriptionDataTable();
+            AnimalMedicalTableAdapters.perscriptionTableAdapter perscriptionTableAdapter = new AnimalMedicalTableAdapters.perscriptionTableAdapter();
+            perscriptionTableAdapter.Fill(dtPerscriptionTable);
+            
+            AnimalMedical.perscriptionRow newPerscription = dtPerscriptionTable.NewperscriptionRow();
+            newPerscription.animal_id = (uint)animalId; //Note: this is the DATABASE animal ID, not the shelter A# id
+            newPerscription.medication_id = (uint)medicationId;
+            newPerscription.animal_specific_dose = animaldose;
+            newPerscription.animimal_specific_method_id = method;
+            newPerscription.start_date = startdate;
+            newPerscription.end_date = enddate;
+            newPerscription.assigned_staff = staff;
+            newPerscription.notes = notes;
+            //TODO: Frequency
+
+            newPerscription.perscription_id = default; //Database auto generates this number
+
+            dtPerscriptionTable.AddperscriptionRow(newPerscription);
+            perscriptionTableAdapter.Update(dtPerscriptionTable);
+        }
+        #endregion
+        #region Delete from Database
+        public static void DeleteEmployee(int rowindex)
+        {
+            AnimalMedical.employeeDataTable dtEmployeesTable = new AnimalMedical.employeeDataTable();
+            AnimalMedicalTableAdapters.employeeTableAdapter empAdapter = new AnimalMedicalTableAdapters.employeeTableAdapter();
+            empAdapter.Fill(dtEmployeesTable);
+
+            dtEmployeesTable.Rows[rowindex].Delete();
+
+            empAdapter.Update(dtEmployeesTable);
+        }
+        #endregion
+        #region Edit the Database
+        public static void EditEmployee(int empId, string firstname, string lastname)
+        {
+            AnimalMedical.employeeDataTable dtEmpTable = new AnimalMedical.employeeDataTable();
+            AnimalMedicalTableAdapters.employeeTableAdapter empAdapter = new AnimalMedicalTableAdapters.employeeTableAdapter();
+            empAdapter.Fill(dtEmpTable);
+
+            var rowToEdit = dtEmpTable.Where(x => x.employee_id == empId).ToList();
+
+            rowToEdit[0].employee_id = (uint)empId;
+            rowToEdit[0].first_name = firstname;
+            rowToEdit[0].last_name = lastname;
+
+            empAdapter.Update(dtEmpTable);
+        }
+        #endregion
     }
 }
 

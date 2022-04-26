@@ -999,7 +999,7 @@ LEFT JOIN unit u
 ON u.unit_id = m.unit_id;
 
 create table perscription(
-	perscription_id int unsigned primary key,
+	perscription_id int unsigned primary key auto_increment,
     animal_id int unsigned,
     medication_id int unsigned,
     frequency_id int unsigned,

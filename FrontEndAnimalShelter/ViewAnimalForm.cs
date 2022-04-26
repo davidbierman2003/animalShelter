@@ -13,6 +13,7 @@ namespace FrontEndAnimalShelter
 {
     public partial class ViewAnimalForm : Form
     {
+        DataGridViewSelectedRowCollection selectedRows;
         public ViewAnimalForm()
         {
             InitializeComponent();
@@ -56,15 +57,10 @@ namespace FrontEndAnimalShelter
             #region Events
             cmbSpecies.SelectionChangeCommitted += CmbSpecies_SelectionChangeCommitted;
             cmbSex.SelectionChangeCommitted += CmbSex_SelectionChangeCommitted;
-            dgAnimalTable.RowStateChanged += DgAnimalTable_RowStateChanged;
+            dgAnimalTable.GotFocus += DgAnimalTable_GotFocus;
             #endregion
         }
 
-        private void DgAnimalTable_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
-        {
-            DataGridView dg = (DataGridView)sender;
-            System.Diagnostics.Debug.WriteLine(dg.SelectedRows.Count);
-        }
 
 
 
@@ -96,7 +92,7 @@ namespace FrontEndAnimalShelter
             //Add Treatment Button
             DataGridViewButtonColumn treatmentColumn = new DataGridViewButtonColumn();
             treatmentColumn.HeaderText = "Treatment";
-            treatmentColumn.Text = "Treatment";
+            treatmentColumn.Text = "View Treatments";
             treatmentColumn.UseColumnTextForButtonValue = true;
             treatmentColumn.Name = "treatmentButton";
             dgAnimalTable.Columns.Add(treatmentColumn);
@@ -118,6 +114,18 @@ namespace FrontEndAnimalShelter
             dgAnimalTable.Columns.Add(deleteColumn);
 
         }
+        #region Events
+        private void DgAnimalTable_GotFocus(object sender, EventArgs e)
+        {
+            dgAnimalTable.RowStateChanged += DgAnimalTable_RowStateChanged;
+        }
+
+        private void DgAnimalTable_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            DataGridView dg = (DataGridView)sender;
+            selectedRows = dg.SelectedRows;  //collect the selected rows
+        }
+
         private void CmbSex_SelectionChangeCommitted(object sender, EventArgs e)
         {
             AnimalMedical.breedDataTable dtBreed = Utility.GetBreed();
@@ -248,6 +256,23 @@ namespace FrontEndAnimalShelter
                         //MessageBox.Show("Edits to deparment " + currentDeptID + " have been saved to the database");
                     }
                 }
+            }
+        }
+        #endregion
+        /// <summary>
+        /// Allows user to assign a perscription to an animal and add it to the database
+        /// </summary>
+        private void btnPerscription_Click(object sender, EventArgs e)
+        {
+            if (selectedRows != null)
+            {
+                Form perscriptionForm = new AddPerscriptionForm(selectedRows);  //animal has been selected from the grid
+                perscriptionForm.Visible = true;
+            }
+            else
+            {
+                Form perscriptionForm = new AddPerscriptionForm();  //user will input the animal ID
+                perscriptionForm.Visible = true;
             }
         }
     }

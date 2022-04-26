@@ -61,7 +61,7 @@ namespace FrontEndAnimalShelter
                         }
                         else  //changes made are for a new employee, a new employee is added to the database
                         {
-                            Utility.AddEmployee(int.Parse(rowToBeOperatedUpon.Cells["employee_id"].Value.ToString()), rowToBeOperatedUpon.Cells["first_name"].Value.ToString(), rowToBeOperatedUpon.Cells["last_name"].Value.ToString());
+                            Utility.SaveEmployee(int.Parse(rowToBeOperatedUpon.Cells["employee_id"].Value.ToString()), rowToBeOperatedUpon.Cells["first_name"].Value.ToString(), rowToBeOperatedUpon.Cells["last_name"].Value.ToString());
                             MessageBox.Show($"Employee {currentEmpId} has been added to the database.");
                         }
 
