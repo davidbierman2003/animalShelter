@@ -51,14 +51,13 @@ namespace FrontEndAnimalShelter
             cmbSex.DisplayMember = dtSex.sex_nameColumn.ColumnName;
             cmbSex.SelectedItem = null;
             #endregion
+            DatabaseTableFormatting();
 
             #region Events
             cmbSpecies.SelectionChangeCommitted += CmbSpecies_SelectionChangeCommitted;
             cmbSex.SelectionChangeCommitted += CmbSex_SelectionChangeCommitted;
             dgAnimalTable.RowStateChanged += DgAnimalTable_RowStateChanged;
             #endregion
-
-            DatabaseTableFormatting();
         }
 
         private void DgAnimalTable_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
