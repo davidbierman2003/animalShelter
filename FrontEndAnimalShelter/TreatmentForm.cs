@@ -18,28 +18,28 @@ namespace FrontEndAnimalShelter
             InitializeComponent();
 
             //************ Medications ***********************
+            //TODO: this needs to be use the new database tables, this table no longer exists
+            //AnimalMedical.medicationwithunitDataTable dtMedication = Utility.GetMedication();
+            //dgMedications.DataSource = dtMedication;
 
-            AnimalMedical.medicationwithunitDataTable dtMedication = Utility.GetMedication();
-            dgMedications.DataSource = dtMedication;
+            ////Hide the medication_id
+            //dgMedications.Columns["medication_id"].Visible = false;
 
-            //Hide the medication_id
-            dgMedications.Columns["medication_id"].Visible = false;
-
-            //Rename the headers
-            dgMedications.Columns["medication_name"].HeaderText = "Medication Name";
-            dgMedications.Columns["concentration"].HeaderText = "Concentration";
-            dgMedications.Columns["dose"].HeaderText = "Dose";
-            dgMedications.Columns["unit_name"].HeaderText = "Unit Name";
+            ////Rename the headers
+            //dgMedications.Columns["medication_name"].HeaderText = "Medication Name";
+            //dgMedications.Columns["concentration"].HeaderText = "Concentration";
+            //dgMedications.Columns["dose"].HeaderText = "Dose";
+            //dgMedications.Columns["unit_name"].HeaderText = "Unit Name";
 
 
-            //remove the first column with no information in it.
-            dgMedications.RowHeadersVisible = false;
+            ////remove the first column with no information in it.
+            //dgMedications.RowHeadersVisible = false;
             
-            //Change the widths of the columns
-            dgMedications.Columns["medication_name"].Width = 200;
-            dgMedications.Columns["concentration"].Width = 150;
-            dgMedications.Columns["dose"].Width = 350;
-            dgMedications.Columns["unit_name"].Width = 150;
+            ////Change the widths of the columns
+            //dgMedications.Columns["medication_name"].Width = 200;
+            //dgMedications.Columns["concentration"].Width = 150;
+            //dgMedications.Columns["dose"].Width = 350;
+            //dgMedications.Columns["unit_name"].Width = 150;
 
 
             // **************** Vaccines ***************************

@@ -32,12 +32,14 @@ namespace FrontEndAnimalShelter
         }
         private void FormatTable()
         {
-            dgMedicationTable.Columns["medication_id"].Visible = false;
-            //Rename the headers
-            dgMedicationTable.Columns["medication_name"].HeaderText = "Medication Name";
-            dgMedicationTable.Columns["concentration"].HeaderText = "Concentration";
-            dgMedicationTable.Columns["dose"].HeaderText = "Dose";
-            dgMedicationTable.Columns["unit_name"].HeaderText = "Unit Name";
+
+            //TODO Fix these colomn names to the new ones
+            //dgMedicationTable.Columns["medication_id"].Visible = false;
+            ////Rename the headers
+            //dgMedicationTable.Columns["medication_name"].HeaderText = "Medication Name";
+            //dgMedicationTable.Columns["concentration"].HeaderText = "Concentration";
+            //dgMedicationTable.Columns["dose"].HeaderText = "Dose";
+            //dgMedicationTable.Columns["unit_name"].HeaderText = "Unit Name";
 
             //remove the first column with no information in it.
             dgMedicationTable.RowHeadersVisible = false;
@@ -58,7 +60,7 @@ namespace FrontEndAnimalShelter
                 if (validId.Count > 0) //animal does exist in the database
                 {
                     validIds += id + " ";
-                    Utility.SavePerscription(validId[0].animal_id,int.Parse(medicationRow.Cells["medication_id"].Value.ToString()),txtDose.Text,0,dateStart.Value,dateEnd.Value,txtStaff.Text,txtNotes.Text);
+                    Utility.SavePrescription(validId[0].animal_id,int.Parse(medicationRow.Cells["medication_id"].Value.ToString()),txtDose.Text,0,dateStart.Value,dateEnd.Value,txtStaff.Text,txtNotes.Text);
                 }
                 else  //animal id is not valid (not in database)
                 {
@@ -83,8 +85,9 @@ namespace FrontEndAnimalShelter
 
         private void MoreInitializing()
         {
-            AnimalMedical.medicationwithunitDataTable dtMedicationTable = Utility.GetMedication();
-            dgMedicationTable.DataSource = dtMedicationTable;
+            //TODO: THIS TABLE NO LONGER EXISTS, NEEDS TO USE EXISTING TABLE
+            //AnimalMedical.medicationwithunitDataTable dtMedicationTable = Utility.GetMedication();
+            //dgMedicationTable.DataSource = dtMedicationTable;
             FormatTable();
 
             dgMedicationTable.CellClick += DgMedicationTable_CellClick;

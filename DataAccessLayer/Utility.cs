@@ -38,14 +38,14 @@ namespace DataAccessLayer
             AnimalMedicalTableAdapters.vaccineTableAdapter vaccineAdapter = new AnimalMedicalTableAdapters.vaccineTableAdapter();
             vaccineAdapter.Fill(dtVaccines);
             return dtVaccines;
-        }
-        public static AnimalMedical.medicationwithunitDataTable GetMedication()
-        {
-            AnimalMedical.medicationwithunitDataTable dtMedication = new AnimalMedical.medicationwithunitDataTable();
-            AnimalMedicalTableAdapters.medicationwithunitTableAdapter medicalAdapter = new AnimalMedicalTableAdapters.medicationwithunitTableAdapter();
-            medicalAdapter.Fill(dtMedication);
-            return dtMedication;
-        }
+        }//TODO Fix this with the new tables
+        //public static AnimalMedical.medicationwithunitDataTable GetMedication()
+        //{
+        //    AnimalMedical.medicationwithunitDataTable dtMedication = new AnimalMedical.medicationwithunitDataTable();
+        //    AnimalMedicalTableAdapters.medicationwithunitTableAdapter medicalAdapter = new AnimalMedicalTableAdapters.medicationwithunitTableAdapter();
+        //    medicalAdapter.Fill(dtMedication);
+        //    return dtMedication;
+        //}
 
         public static AnimalMedical.animalDataTable GetAnimals()
         {
@@ -81,15 +81,15 @@ namespace DataAccessLayer
             
             return dtColorTable;
         }
+        //NOTE: CURRENT DATABASE DOES NOT HAVE A TABLE FOR GENDER
+        //public static AnimalMedical.sexDataTable GetSexID()
+        //{
+        //    AnimalMedical.sexDataTable dtSexTable = new AnimalMedical.sexDataTable();
+        //    AnimalMedicalTableAdapters.sexTableAdapter sexAdapter = new AnimalMedicalTableAdapters.sexTableAdapter();
+        //    sexAdapter.Fill(dtSexTable);
 
-        public static AnimalMedical.sexDataTable GetSexID()
-        {
-            AnimalMedical.sexDataTable dtSexTable = new AnimalMedical.sexDataTable();
-            AnimalMedicalTableAdapters.sexTableAdapter sexAdapter = new AnimalMedicalTableAdapters.sexTableAdapter();
-            sexAdapter.Fill(dtSexTable);
-
-            return dtSexTable;
-        }
+        //    return dtSexTable;
+        //}
         #endregion
         #region Save to Database
         public static void SaveVaccineAdmin(int animalId, int vaccine_id, int employee_id, DateTime dateGiven, DateTime nextDueDate)
@@ -106,7 +106,7 @@ namespace DataAccessLayer
             vaccineAdminRow.date_given = dateGiven;
             vaccineAdminRow.next_date_due = nextDueDate;
 
-            vaccineAdminRow.vaccine_log_id = default;
+            vaccineAdminRow.vaccine_log_ID = default;
 
             dtVaccineAdminTable.Addvaccine_administration_logRow(vaccineAdminRow);
 
@@ -114,7 +114,7 @@ namespace DataAccessLayer
 
 
         }
-        public static void SaveAnimal(string animalId,string name, int sex, DateTime birthdate, string microchipId, 
+        public static void SaveAnimal(string animalId,string name, string sex, DateTime birthdate, string microchipId, 
             DateTime dueOutDate, DateTime intakeDate, string notes, Decimal weight, string kennel, int speciesId, bool altered)
         {
             //AnimalTable and the New Row technique to have new row inserted to the database.
@@ -126,15 +126,15 @@ namespace DataAccessLayer
             AnimalMedical.animalRow newAnimalRow = dtAnimalTable.NewanimalRow();
 
             newAnimalRow.db_bridge_id = animalId;
-            newAnimalRow.name = name;
-            newAnimalRow.sex = (byte)sex;
-            newAnimalRow.birthdate = birthdate;
-            newAnimalRow.microchip_id = microchipId;
+            newAnimalRow.animal_name = name;
+            newAnimalRow.sex = sex;
+            newAnimalRow.birth_date = birthdate;
+            newAnimalRow.micro_chip = microchipId;
             newAnimalRow.due_out_date = dueOutDate;
             newAnimalRow.intake_date = intakeDate;
             //newAnimalRow.notes = Notes;
-            newAnimalRow.weight = weight;
-            newAnimalRow.kennel = kennel;
+            newAnimalRow.weight = (double)weight;
+            //newAnimalRow.kennel_id = kennel; //TODO this needs to be changed so the kennel id is put here not the name
             //newAnimalRow.species_id = SpeciesId;
             newAnimalRow.altered = altered;
 
@@ -152,35 +152,35 @@ namespace DataAccessLayer
             empAdapter.Fill(dtEmpTable);
 
             AnimalMedical.employeeRow newEmpRow = dtEmpTable.NewemployeeRow();
-            newEmpRow.employee_id = (uint)empId;
-            newEmpRow.first_name = firstname;
-            newEmpRow.last_name = lastname;
+            newEmpRow.employee_id = empId;
+            newEmpRow.firstname = firstname;
+            newEmpRow.lastname = lastname;
 
             dtEmpTable.AddemployeeRow(newEmpRow);
 
             empAdapter.Update(dtEmpTable);
         }
-        public static void SavePerscription(int animalId, int medicationId, string animaldose, int method, DateTime startdate, DateTime enddate, string staff, string notes)
+        public static void SavePrescription(int animalId, int medicationId, string animaldose, int method, DateTime startdate, DateTime enddate, string staff, string notes)
         {
-            AnimalMedical.perscriptionDataTable dtPerscriptionTable = new AnimalMedical.perscriptionDataTable();
-            AnimalMedicalTableAdapters.perscriptionTableAdapter perscriptionTableAdapter = new AnimalMedicalTableAdapters.perscriptionTableAdapter();
-            perscriptionTableAdapter.Fill(dtPerscriptionTable);
+            AnimalMedical.prescriptionDataTable dtPrescriptionTable = new AnimalMedical.prescriptionDataTable();
+            AnimalMedicalTableAdapters.prescriptionTableAdapter prescriptionTableAdapter = new AnimalMedicalTableAdapters.prescriptionTableAdapter();
+            prescriptionTableAdapter.Fill(dtPrescriptionTable);
             
-            AnimalMedical.perscriptionRow newPerscription = dtPerscriptionTable.NewperscriptionRow();
-            newPerscription.animal_id = (uint)animalId; //Note: this is the DATABASE animal ID, not the shelter A# id
-            newPerscription.medication_id = (uint)medicationId;
-            newPerscription.animal_specific_dose = animaldose;
-            newPerscription.animimal_specific_method_id = method;
-            newPerscription.start_date = startdate;
-            newPerscription.end_date = enddate;
-            newPerscription.assigned_staff = staff;
-            newPerscription.notes = notes;
+            AnimalMedical.prescriptionRow newPrescription = dtPrescriptionTable.NewprescriptionRow();
+            newPrescription.animal_id = animalId; //Note: this is the DATABASE animal ID, not the shelter A# id
+            newPrescription.medication_id = medicationId;
+            newPrescription.animal_specific_dose = animaldose;
+            newPrescription.animal_specific_method_id = method;  //TODO: the id needs to be put here instead of the name
+            newPrescription.start_date = startdate;
+            newPrescription.end_date = enddate;
+            newPrescription.assigned_staff = staff;
+            newPrescription.notes = notes;
             //TODO: Frequency
 
-            newPerscription.perscription_id = default; //Database auto generates this number
+            newPrescription.prescription_id = default; //Database auto generates this number
 
-            dtPerscriptionTable.AddperscriptionRow(newPerscription);
-            perscriptionTableAdapter.Update(dtPerscriptionTable);
+            dtPrescriptionTable.AddprescriptionRow(newPrescription);
+            prescriptionTableAdapter.Update(dtPrescriptionTable);
         }
         #endregion
         #region Delete from Database
@@ -204,9 +204,9 @@ namespace DataAccessLayer
 
             var rowToEdit = dtEmpTable.Where(x => x.employee_id == empId).ToList();
 
-            rowToEdit[0].employee_id = (uint)empId;
-            rowToEdit[0].first_name = firstname;
-            rowToEdit[0].last_name = lastname;
+            rowToEdit[0].employee_id = empId;
+            rowToEdit[0].firstname = firstname;
+            rowToEdit[0].lastname = lastname;
 
             empAdapter.Update(dtEmpTable);
         }

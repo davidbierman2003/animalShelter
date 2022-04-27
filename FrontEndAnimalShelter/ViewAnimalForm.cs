@@ -43,14 +43,15 @@ namespace FrontEndAnimalShelter
             AnimalMedical.colorDataTable dtColors = Utility.GetColors();
             lbxColor.DataSource = dtColors;
             lbxColor.ValueMember = dtColors.color_idColumn.ColumnName;
-            lbxColor.DisplayMember = dtColors.colorColumn.ColumnName;
+            lbxColor.DisplayMember = dtColors.color_nameColumn.ColumnName;
             lbxColor.SelectedItem = null;
 
-            AnimalMedical.sexDataTable dtSex = Utility.GetSexID();
-            cmbSex.DataSource = dtSex;
-            cmbSex.ValueMember = dtSex.sex_idColumn.ColumnName;
-            cmbSex.DisplayMember = dtSex.sex_nameColumn.ColumnName;
-            cmbSex.SelectedItem = null;
+            //THIS TABLE IS NOT IN THIS DATABASE
+            //AnimalMedical.sexDataTable dtSex = Utility.GetSexID();
+            //cmbSex.DataSource = dtSex;
+            //cmbSex.ValueMember = dtSex.sex_idColumn.ColumnName;
+            //cmbSex.DisplayMember = dtSex.sex_nameColumn.ColumnName;
+            //cmbSex.SelectedItem = null;
             #endregion
             DatabaseTableFormatting();
 
@@ -74,20 +75,19 @@ namespace FrontEndAnimalShelter
 
             //Formating headers
             dgAnimalTable.Columns["db_bridge_id"].HeaderText = "ID";
-            dgAnimalTable.Columns["name"].HeaderText = "Name";
+            dgAnimalTable.Columns["animal_name"].HeaderText = "Name";
             dgAnimalTable.Columns["sex"].HeaderText = "Sex";
-            dgAnimalTable.Columns["birthdate"].HeaderText = "Birth Date";
-            dgAnimalTable.Columns["microchip_id"].HeaderText = "Microchip ID"; 
+            dgAnimalTable.Columns["birth_date"].HeaderText = "Birth Date";
+            dgAnimalTable.Columns["micro_chip"].HeaderText = "Microchip ID"; 
             dgAnimalTable.Columns["due_out_date"].HeaderText = "Due Out";
             dgAnimalTable.Columns["intake_date"].HeaderText = "Intake";
-            //dgAnimalTable.Columns["notes"].HeaderText = "Notes";
             dgAnimalTable.Columns["weight"].HeaderText = "Weight";
-            dgAnimalTable.Columns["kennel"].HeaderText = "Kennal";
-            //dgAnimalTable.Columns["species_id"].HeaderText = "Species ID";
+            dgAnimalTable.Columns["kennel_id"].HeaderText = "Kennal";
+            dgAnimalTable.Columns["species"].HeaderText = "Species ID";
             dgAnimalTable.Columns["altered"].HeaderText = "Altered";
             dgAnimalTable.Columns["animal_id"].Visible = false;
-
-            //TODO: make sure the sex column says male/female/unknown instaed of the sex_id
+            //dgAnimalTable.Columns["adopted"] =
+            //dgAnimalTable.Columns["Active"]
 
             //Add Treatment Button
             DataGridViewButtonColumn treatmentColumn = new DataGridViewButtonColumn();
@@ -164,29 +164,29 @@ namespace FrontEndAnimalShelter
 
             //Microchip LINQ
             if (txtMicrochipId.TextLength > 0)
-                selectedAnimals = selectedAnimals.Where(x => x.microchip_id.Equals(txtMicrochipId.Text)).ToList();
+                selectedAnimals = selectedAnimals.Where(x => x.micro_chip.Equals(txtMicrochipId.Text)).ToList();
             
             //Weight LINQ
             if (txtWeight.TextLength >0)
             {
                 if (cmbWeight.Text.Equals(">"))
-                    selectedAnimals = selectedAnimals.Where(x => x.weight > decimal.Parse(txtWeight.Text)).ToList();
+                    selectedAnimals = selectedAnimals.Where(x => x.weight > double.Parse(txtWeight.Text)).ToList();
                 else if (cmbWeight.Text.Equals("<"))
-                    selectedAnimals = selectedAnimals.Where(x => x.weight < decimal.Parse(txtWeight.Text)).ToList();
+                    selectedAnimals = selectedAnimals.Where(x => x.weight < double.Parse(txtWeight.Text)).ToList();
                 else if (cmbWeight.Text.Equals("="))
-                    selectedAnimals = selectedAnimals.Where(x => x.weight == decimal.Parse(txtWeight.Text)).ToList();
+                    selectedAnimals = selectedAnimals.Where(x => x.weight == double.Parse(txtWeight.Text)).ToList();
             }
             //Kennel LINQ
-            if (txtKennel.TextLength > 0)
-                selectedAnimals = selectedAnimals.Where(x => x.kennel.Equals(txtKennel.Text)).ToList();
+            //if (txtKennel.TextLength > 0)
+            //    selectedAnimals = selectedAnimals.Where(x => x.kennel_id .Equals(txtKennel.Text)).ToList();  //TODO: this needs to be rewritten to use the kennel id instead of the name
             
             //BirthdateLINQ
             if (cmbBirthdate.Text.Equals(">"))
-                selectedAnimals = selectedAnimals.Where(x => x.birthdate.Ticks > dtpBirthdate.Value.Ticks).ToList();
+                selectedAnimals = selectedAnimals.Where(x => x.birth_date.Ticks > dtpBirthdate.Value.Ticks).ToList();
             else if (cmbBirthdate.Text.Equals("<"))
-                selectedAnimals = selectedAnimals.Where(x => x.birthdate.Ticks < dtpBirthdate.Value.Ticks).ToList();
+                selectedAnimals = selectedAnimals.Where(x => x.birth_date.Ticks < dtpBirthdate.Value.Ticks).ToList();
             else if (cmbBirthdate.Text.Equals("="))
-                selectedAnimals = selectedAnimals.Where(x => x.birthdate.Ticks == dtpBirthdate.Value.Ticks).ToList();
+                selectedAnimals = selectedAnimals.Where(x => x.birth_date.Ticks == dtpBirthdate.Value.Ticks).ToList();
 
             //Intake date LINQ
             if (cmbIntake.Text.Equals(">"))
@@ -208,7 +208,8 @@ namespace FrontEndAnimalShelter
             dgAnimalTable.DataSource = selectedAnimals;  //TODO: this needs to be tested once microship_id is removed from database
 
             //Format and add the buttons
-            dgAnimalTable.Columns["sexRow"].Visible = false;
+            dgAnimalTable.Columns["kennelRow"].Visible = false;
+            dgAnimalTable.Columns["speciesRow"].Visible = false;
             dgAnimalTable.Columns["RowError"].Visible = false;
             dgAnimalTable.Columns["RowState"].Visible = false;
             dgAnimalTable.Columns["Table"].Visible = false;

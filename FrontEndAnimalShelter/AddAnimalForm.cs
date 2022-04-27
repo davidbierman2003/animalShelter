@@ -49,11 +49,11 @@ namespace FrontEndAnimalShelter
             }
 
 
-            int gender = cmbBoxGender.SelectedIndex;
+            int gender = cmbBoxGender.SelectedIndex;  //TODO: this is a string in this database, 
             int speciesID = int.Parse(cmbBoxSpecies.SelectedValue.ToString());
 
             
-            Utility.SaveAnimal(txtBxAnimalID.Text,txtBxName.Text, gender, dateTimePickerDateOfBirth.Value, txtBxMicrochipID.Text,
+            Utility.SaveAnimal(txtBxAnimalID.Text,txtBxName.Text, gender.ToString(), dateTimePickerDateOfBirth.Value, txtBxMicrochipID.Text,
                  dateTimePickerDueOutDate.Value, dateTimePickerIntakeDate.Value, txtBxNotes.Text, weight,txtBxKennel.Text, speciesID,ckbAltered.Checked);
 
             MessageBox.Show($"Animial {txtBxAnimalID.Text} has been saved.");
