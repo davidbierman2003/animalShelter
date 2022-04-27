@@ -1318,6 +1318,10 @@ namespace DataAccessLayer {
             
             private global::System.Data.DataColumn columnActive;
             
+            private static System.DateTime columndue_out_date_defaultValue = global::System.DateTime.Parse("2000-01-01T00:00:00");
+            
+            private static System.DateTime columnintake_date_defaultValue = global::System.DateTime.Parse("2000-01-01T00:00:00");
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public animalDataTable() {
@@ -1609,7 +1613,11 @@ namespace DataAccessLayer {
                 this.columndb_bridge_id.MaxLength = 20;
                 this.columnanimal_name.MaxLength = 100;
                 this.columnsex.MaxLength = 10;
+                this.columnmicro_chip.DefaultValue = ((string)("string.empty"));
                 this.columnmicro_chip.MaxLength = 20;
+                this.columndue_out_date.DefaultValue = ((System.DateTime)(animalDataTable.columndue_out_date_defaultValue));
+                this.columnintake_date.DefaultValue = ((System.DateTime)(animalDataTable.columnintake_date_defaultValue));
+                this.columnweight.DefaultValue = ((double)(0D));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6830,11 +6838,11 @@ namespace DataAccessLayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string micro_chip {
                 get {
-                    try {
-                        return ((string)(this[this.tableanimal.micro_chipColumn]));
+                    if (this.Ismicro_chipNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'micro_chip\' in table \'animal\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableanimal.micro_chipColumn]));
                     }
                 }
                 set {
