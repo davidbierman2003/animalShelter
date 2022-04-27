@@ -16,6 +16,14 @@ namespace DataAccessLayer
         /// </summary>
         ///
         #region Get Data from Database
+        public static AnimalMedical.unitDataTable GetUnit()
+        {
+            AnimalMedical.unitDataTable dtUnitTable = new AnimalMedical.unitDataTable(); // creating in memory table dtAnimalTable
+            AnimalMedicalTableAdapters.unitTableAdapter unitAdapter = new AnimalMedicalTableAdapters.unitTableAdapter();
+            unitAdapter.Fill(dtUnitTable);
+
+            return dtUnitTable;
+        }
         public static AnimalMedical.employeeDataTable GetEmployees()
         {
             AnimalMedical.employeeDataTable dtEmployeeTable = new AnimalMedical.employeeDataTable(); // creating in memory table dtAnimalTable
@@ -38,14 +46,14 @@ namespace DataAccessLayer
             AnimalMedicalTableAdapters.vaccineTableAdapter vaccineAdapter = new AnimalMedicalTableAdapters.vaccineTableAdapter();
             vaccineAdapter.Fill(dtVaccines);
             return dtVaccines;
-        }//TODO Fix this with the new tables
-        //public static AnimalMedical.medicationwithunitDataTable GetMedication()
-        //{
-        //    AnimalMedical.medicationwithunitDataTable dtMedication = new AnimalMedical.medicationwithunitDataTable();
-        //    AnimalMedicalTableAdapters.medicationwithunitTableAdapter medicalAdapter = new AnimalMedicalTableAdapters.medicationwithunitTableAdapter();
-        //    medicalAdapter.Fill(dtMedication);
-        //    return dtMedication;
-        //}
+        }
+        public static AnimalMedical.medicationDataTable GetMedication()
+        {
+            AnimalMedical.medicationDataTable dtMedication = new AnimalMedical.medicationDataTable();
+            AnimalMedicalTableAdapters.medicationTableAdapter medicalAdapter = new AnimalMedicalTableAdapters.medicationTableAdapter();
+            medicalAdapter.Fill(dtMedication);
+            return dtMedication;
+        }
 
         public static AnimalMedical.animalDataTable GetAnimals()
         {

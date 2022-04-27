@@ -32,14 +32,21 @@ namespace FrontEndAnimalShelter
         }
         private void FormatTable()
         {
-
-            //TODO Fix these colomn names to the new ones
-            //dgMedicationTable.Columns["medication_id"].Visible = false;
-            ////Rename the headers
-            //dgMedicationTable.Columns["medication_name"].HeaderText = "Medication Name";
-            //dgMedicationTable.Columns["concentration"].HeaderText = "Concentration";
-            //dgMedicationTable.Columns["dose"].HeaderText = "Dose";
-            //dgMedicationTable.Columns["unit_name"].HeaderText = "Unit Name";
+            AnimalMedical.unitDataTable dtUnitTable = Utility.GetUnit();
+            
+            dgMedicationTable.Columns["medication_id"].Visible = false;
+            dgMedicationTable.Columns["unit_id"].Visible = false;
+            //Rename the headers
+            dgMedicationTable.Columns["medication_name"].HeaderText = "Medication Name";
+            dgMedicationTable.Columns["concentration"].HeaderText = "Concentration";
+            dgMedicationTable.Columns["dose"].HeaderText = "Dose";
+            dgMedicationTable.Columns["dose"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+            //Adding unit name column
+            DataGridViewColumn unitColumn = new DataGridViewColumn();
+            unitColumn.CellTemplate = dgMedicationTable.Columns["medication_name"].CellTemplate;
+            unitColumn.HeaderText = "Unit";
+            unitColumn.Name = "unit_name";
+            dgMedicationTable.Columns.Add(unitColumn);
 
             //remove the first column with no information in it.
             dgMedicationTable.RowHeadersVisible = false;
@@ -85,9 +92,8 @@ namespace FrontEndAnimalShelter
 
         private void MoreInitializing()
         {
-            //TODO: THIS TABLE NO LONGER EXISTS, NEEDS TO USE EXISTING TABLE
-            //AnimalMedical.medicationwithunitDataTable dtMedicationTable = Utility.GetMedication();
-            //dgMedicationTable.DataSource = dtMedicationTable;
+            AnimalMedical.medicationDataTable dtMedicationTable = Utility.GetMedication();
+            dgMedicationTable.DataSource = dtMedicationTable;
             FormatTable();
 
             dgMedicationTable.CellClick += DgMedicationTable_CellClick;
