@@ -85,14 +85,13 @@ namespace FrontEndAnimalShelter
             dgAnimalTable.Columns["kennel_id"].HeaderText = "Kennal";
             dgAnimalTable.Columns["species"].HeaderText = "Species ID";
             dgAnimalTable.Columns["altered"].HeaderText = "Altered";
+            dgAnimalTable.Columns["adopted"].HeaderText = "Adopted";
             dgAnimalTable.Columns["animal_id"].Visible = false;
-            //dgAnimalTable.Columns["adopted"] =
-            //dgAnimalTable.Columns["Active"]
 
             //Add Treatment Button
             DataGridViewButtonColumn treatmentColumn = new DataGridViewButtonColumn();
-            treatmentColumn.HeaderText = "Treatment";
-            treatmentColumn.Text = "View Treatments";
+            treatmentColumn.HeaderText = "View Treatments";
+            treatmentColumn.Text = "Treatments";
             treatmentColumn.UseColumnTextForButtonValue = true;
             treatmentColumn.Name = "treatmentButton";
             dgAnimalTable.Columns.Add(treatmentColumn);

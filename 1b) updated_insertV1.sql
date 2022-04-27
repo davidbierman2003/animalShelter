@@ -1,5 +1,5 @@
 #Insert_statments
-delete from table animal;
+
 /* Inserts all data into DB*/
 USE animal_medical;
 INSERT INTO unit (`unit_name`) VALUES ('Capsule');
@@ -59,6 +59,7 @@ INSERT INTO vaccine (`vaccine_id`,`vaccine_name`,`concentration`) VALUES (5,'da2
 INSERT INTO vaccine (`vaccine_id`,`vaccine_name`,`concentration`) VALUES (6,'da2pp ',NULL);
 INSERT INTO vaccine (`vaccine_id`,`vaccine_name`,`concentration`) VALUES (7,'bordetella',NULL);
 INSERT INTO vaccine (`vaccine_id`,`vaccine_name`,`concentration`) VALUES (8,'pyrantel',NULL);
+
 INSERT INTO species (`species_id`,`species_name`) VALUES (1,'Dog');
 INSERT INTO species (`species_id`,`species_name`) VALUES (2,'Cat');
 
@@ -85,8 +86,8 @@ INSERT INTO color (`color_id`,`color_name`) VALUES (20,'Tan');
 INSERT INTO color (`color_id`,`color_name`) VALUES (21,'Tricolor');
 INSERT INTO color (`color_id`,`color_name`) VALUES (22,'White');
 INSERT INTO color (`color_id`,`color_name`) VALUES (23,'Yellow');
-INSERT INTO Breed (`Breed_ID`,`Breed_name`) VALUES (1,'Mix');
 
+INSERT INTO breed (`breed_id`,`breed_name`, `species_id`) VALUES (1,'Mix',1);
 INSERT INTO breed (`breed_id`,`breed_name`, `species_id`) VALUES (2,'Domestic Shorthair',  2);
 INSERT INTO breed (`breed_id`,`breed_name`, `species_id`) VALUES (3,'Domestic Mediumhair', 2);
 INSERT INTO breed (`breed_id`,`breed_name`, `species_id`) VALUES (4,'Domestic Longhair', 2);
@@ -137,6 +138,7 @@ INSERT INTO breed (`breed_id`,`breed_name`, `species_id`) VALUES (48,'Terrier',1
 INSERT INTO breed (`breed_id`,`breed_name`, `species_id`) VALUES (49,'Treeing Walker Hound',1 );
 INSERT INTO breed (`breed_id`,`breed_name`, `species_id`) VALUES (50,'Yorkshire Terrior',1 );
 INSERT INTO breed (`breed_id`,`breed_name`, `species_id`) VALUES (51,'Chow Chow', 1);
+INSERT INTO breed (`breed_id`,`breed_name`, `species_id`) VALUES (52,'Mix',2);
 
 INSERT INTO `kennel` (`kennel_id`,`kennel_description`) VALUES (1,'A-1');
 INSERT INTO `kennel` (`kennel_id`,`kennel_description`) VALUES (2,'A-2');

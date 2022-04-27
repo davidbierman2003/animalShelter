@@ -2498,6 +2498,7 @@ namespace DataAccessLayer {
                 this.columnbreed_id.AllowDBNull = false;
                 this.columnbreed_id.Unique = true;
                 this.columnbreed_name.MaxLength = 255;
+                this.columnspecies_id.DefaultValue = ((int)(0));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

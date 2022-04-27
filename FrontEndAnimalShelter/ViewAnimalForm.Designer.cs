@@ -87,7 +87,7 @@
             // cmbSpecies
             // 
             this.cmbSpecies.FormattingEnabled = true;
-            this.cmbSpecies.Location = new System.Drawing.Point(788, 124);
+            this.cmbSpecies.Location = new System.Drawing.Point(781, 124);
             this.cmbSpecies.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cmbSpecies.Name = "cmbSpecies";
             this.cmbSpecies.Size = new System.Drawing.Size(232, 39);
@@ -424,6 +424,10 @@
             // cmbSex
             // 
             this.cmbSex.FormattingEnabled = true;
+            this.cmbSex.Items.AddRange(new object[] {
+            "Male",
+            "Female",
+            "Unknown"});
             this.cmbSex.Location = new System.Drawing.Point(788, 198);
             this.cmbSex.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cmbSex.Name = "cmbSex";
