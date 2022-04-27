@@ -104,5 +104,10 @@ namespace FrontEndAnimalShelter
             DataGridView dg = (DataGridView)sender;
             medicationRow = dg.Rows[0];  //only one row can be selected
         }
+
+        private void dgMedicationTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

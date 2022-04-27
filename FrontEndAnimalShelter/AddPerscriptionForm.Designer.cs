@@ -51,25 +51,28 @@
             // lblAnimalid
             // 
             this.lblAnimalid.AutoSize = true;
-            this.lblAnimalid.Location = new System.Drawing.Point(32, 58);
+            this.lblAnimalid.Location = new System.Drawing.Point(18, 37);
+            this.lblAnimalid.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAnimalid.Name = "lblAnimalid";
-            this.lblAnimalid.Size = new System.Drawing.Size(137, 32);
+            this.lblAnimalid.Size = new System.Drawing.Size(78, 20);
             this.lblAnimalid.TabIndex = 0;
             this.lblAnimalid.Text = "Animal ID";
             // 
             // txtAnimalid
             // 
-            this.txtAnimalid.Location = new System.Drawing.Point(213, 52);
+            this.txtAnimalid.Location = new System.Drawing.Point(120, 34);
+            this.txtAnimalid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAnimalid.Name = "txtAnimalid";
-            this.txtAnimalid.Size = new System.Drawing.Size(722, 38);
+            this.txtAnimalid.Size = new System.Drawing.Size(408, 26);
             this.txtAnimalid.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 116);
+            this.label1.Location = new System.Drawing.Point(18, 75);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 32);
+            this.label1.Size = new System.Drawing.Size(86, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Medication";
             // 
@@ -80,121 +83,140 @@
             this.dgMedicationTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
             this.dgMedicationTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.dgMedicationTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgMedicationTable.Location = new System.Drawing.Point(38, 152);
+            this.dgMedicationTable.Location = new System.Drawing.Point(21, 98);
+            this.dgMedicationTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgMedicationTable.MultiSelect = false;
             this.dgMedicationTable.Name = "dgMedicationTable";
             this.dgMedicationTable.ReadOnly = true;
             this.dgMedicationTable.RowHeadersWidth = 102;
             this.dgMedicationTable.RowTemplate.Height = 40;
             this.dgMedicationTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgMedicationTable.Size = new System.Drawing.Size(1268, 394);
+            this.dgMedicationTable.Size = new System.Drawing.Size(713, 254);
             this.dgMedicationTable.TabIndex = 3;
             this.dgMedicationTable.TabStop = false;
+            this.dgMedicationTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgMedicationTable_CellContentClick);
             // 
             // lblDose
             // 
             this.lblDose.AutoSize = true;
-            this.lblDose.Location = new System.Drawing.Point(38, 602);
+            this.lblDose.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblDose.Location = new System.Drawing.Point(30, 388);
+            this.lblDose.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDose.Name = "lblDose";
-            this.lblDose.Size = new System.Drawing.Size(284, 32);
+            this.lblDose.Size = new System.Drawing.Size(159, 20);
             this.lblDose.TabIndex = 4;
             this.lblDose.Text = "Animal Specific Dose";
             // 
             // txtDose
             // 
-            this.txtDose.Location = new System.Drawing.Point(355, 596);
+            this.txtDose.Location = new System.Drawing.Point(200, 385);
+            this.txtDose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtDose.Name = "txtDose";
-            this.txtDose.Size = new System.Drawing.Size(350, 38);
+            this.txtDose.Size = new System.Drawing.Size(199, 26);
             this.txtDose.TabIndex = 5;
             // 
             // txtAdminMethod
             // 
-            this.txtAdminMethod.Location = new System.Drawing.Point(355, 656);
+            this.txtAdminMethod.Location = new System.Drawing.Point(200, 435);
+            this.txtAdminMethod.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAdminMethod.Name = "txtAdminMethod";
-            this.txtAdminMethod.Size = new System.Drawing.Size(350, 38);
+            this.txtAdminMethod.Size = new System.Drawing.Size(199, 26);
             this.txtAdminMethod.TabIndex = 7;
             // 
             // lblMethod
             // 
             this.lblMethod.AutoSize = true;
-            this.lblMethod.Location = new System.Drawing.Point(38, 662);
+            this.lblMethod.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblMethod.Location = new System.Drawing.Point(21, 439);
+            this.lblMethod.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMethod.Name = "lblMethod";
-            this.lblMethod.Size = new System.Drawing.Size(299, 32);
+            this.lblMethod.Size = new System.Drawing.Size(168, 20);
             this.lblMethod.TabIndex = 6;
             this.lblMethod.Text = "Administration Method";
             // 
             // lblStartDate
             // 
             this.lblStartDate.AutoSize = true;
-            this.lblStartDate.Location = new System.Drawing.Point(38, 719);
+            this.lblStartDate.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblStartDate.Location = new System.Drawing.Point(445, 385);
+            this.lblStartDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblStartDate.Name = "lblStartDate";
-            this.lblStartDate.Size = new System.Drawing.Size(142, 32);
+            this.lblStartDate.Size = new System.Drawing.Size(83, 20);
             this.lblStartDate.TabIndex = 8;
             this.lblStartDate.Text = "Start Date";
             // 
             // dateStart
             // 
             this.dateStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateStart.Location = new System.Drawing.Point(355, 719);
+            this.dateStart.Location = new System.Drawing.Point(539, 385);
+            this.dateStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateStart.Name = "dateStart";
-            this.dateStart.Size = new System.Drawing.Size(200, 38);
+            this.dateStart.Size = new System.Drawing.Size(114, 26);
             this.dateStart.TabIndex = 9;
             // 
             // dateEnd
             // 
             this.dateEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateEnd.Location = new System.Drawing.Point(355, 773);
+            this.dateEnd.Location = new System.Drawing.Point(539, 433);
+            this.dateEnd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateEnd.Name = "dateEnd";
-            this.dateEnd.Size = new System.Drawing.Size(200, 38);
+            this.dateEnd.Size = new System.Drawing.Size(114, 26);
             this.dateEnd.TabIndex = 11;
             // 
             // lblEndDate
             // 
             this.lblEndDate.AutoSize = true;
-            this.lblEndDate.Location = new System.Drawing.Point(38, 773);
+            this.lblEndDate.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblEndDate.Location = new System.Drawing.Point(451, 433);
+            this.lblEndDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEndDate.Name = "lblEndDate";
-            this.lblEndDate.Size = new System.Drawing.Size(133, 32);
+            this.lblEndDate.Size = new System.Drawing.Size(77, 20);
             this.lblEndDate.TabIndex = 10;
             this.lblEndDate.Text = "End Date";
             // 
             // lblStaff
             // 
             this.lblStaff.AutoSize = true;
-            this.lblStaff.Location = new System.Drawing.Point(38, 830);
+            this.lblStaff.Location = new System.Drawing.Point(54, 484);
+            this.lblStaff.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblStaff.Name = "lblStaff";
-            this.lblStaff.Size = new System.Drawing.Size(233, 32);
+            this.lblStaff.Size = new System.Drawing.Size(135, 20);
             this.lblStaff.TabIndex = 12;
             this.lblStaff.Text = "Assigned Staff ID";
             // 
             // txtStaff
             // 
-            this.txtStaff.Location = new System.Drawing.Point(355, 830);
+            this.txtStaff.Location = new System.Drawing.Point(200, 484);
+            this.txtStaff.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtStaff.Name = "txtStaff";
-            this.txtStaff.Size = new System.Drawing.Size(350, 38);
+            this.txtStaff.Size = new System.Drawing.Size(199, 26);
             this.txtStaff.TabIndex = 13;
             // 
             // txtNotes
             // 
-            this.txtNotes.Location = new System.Drawing.Point(183, 891);
+            this.txtNotes.Location = new System.Drawing.Point(120, 548);
+            this.txtNotes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNotes.Multiline = true;
             this.txtNotes.Name = "txtNotes";
-            this.txtNotes.Size = new System.Drawing.Size(951, 274);
+            this.txtNotes.Size = new System.Drawing.Size(533, 178);
             this.txtNotes.TabIndex = 15;
             // 
             // lblNotes
             // 
             this.lblNotes.AutoSize = true;
-            this.lblNotes.Location = new System.Drawing.Point(38, 891);
+            this.lblNotes.Location = new System.Drawing.Point(38, 548);
+            this.lblNotes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNotes.Name = "lblNotes";
-            this.lblNotes.Size = new System.Drawing.Size(89, 32);
+            this.lblNotes.Size = new System.Drawing.Size(51, 20);
             this.lblNotes.TabIndex = 14;
             this.lblNotes.Text = "Notes";
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(543, 1229);
+            this.btnSubmit.Location = new System.Drawing.Point(305, 793);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(244, 79);
+            this.btnSubmit.Size = new System.Drawing.Size(137, 51);
             this.btnSubmit.TabIndex = 16;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -202,10 +224,10 @@
             // 
             // AddPerscriptionForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1331, 1369);
+            this.ClientSize = new System.Drawing.Size(749, 677);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtNotes);
             this.Controls.Add(this.lblNotes);
@@ -223,6 +245,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtAnimalid);
             this.Controls.Add(this.lblAnimalid);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AddPerscriptionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Perscription";
