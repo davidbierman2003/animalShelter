@@ -7,7 +7,7 @@
 <DiagramLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ex:showrelationlabel="False" ViewPortX="-157" ViewPortY="-47" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:admin_method" ZOrder="38" X="2272" Y="478" Height="235" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="136" />
-    <Shape ID="DesignTable:animal" ZOrder="37" X="589" Y="410" Height="665" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="566" />
+    <Shape ID="DesignTable:animal" ZOrder="37" X="589" Y="410" Height="665" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="48" SplitterPosition="566" />
     <Shape ID="DesignTable:animal_breed" ZOrder="14" X="202" Y="508" Height="278" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="179" />
     <Shape ID="DesignTable:animal_color" ZOrder="35" X="217" Y="815" Height="278" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="179" />
     <Shape ID="DesignTable:breed" ZOrder="15" X="-147" Y="506" Height="278" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="179" />
@@ -30,23 +30,27 @@
       <RoutePoints>
         <Point>
           <X>589</X>
-          <Y>655</Y>
+          <Y>557</Y>
         </Point>
         <Point>
           <X>502</X>
-          <Y>655</Y>
+          <Y>557</Y>
         </Point>
       </RoutePoints>
     </Connector>
     <Connector ID="DesignRelation:animal_color_ibfk_1" ZOrder="34" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>589</X>
-          <Y>945</Y>
+          <X>606</X>
+          <Y>1075</Y>
+        </Point>
+        <Point>
+          <X>606</X>
+          <Y>1083</Y>
         </Point>
         <Point>
           <X>517</X>
-          <Y>945</Y>
+          <Y>1083</Y>
         </Point>
       </RoutePoints>
     </Connector>
@@ -249,12 +253,16 @@
     <Connector ID="DesignRelation:medication_administration_log_ibfk_1" ZOrder="5" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>889</X>
-          <Y>756</Y>
+          <X>864</X>
+          <Y>1075</Y>
+        </Point>
+        <Point>
+          <X>864</X>
+          <Y>1083</Y>
         </Point>
         <Point>
           <X>1045</X>
-          <Y>756</Y>
+          <Y>1083</Y>
         </Point>
       </RoutePoints>
     </Connector>

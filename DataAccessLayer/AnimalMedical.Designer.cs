@@ -1318,6 +1318,8 @@ namespace DataAccessLayer {
             
             private global::System.Data.DataColumn columnActive;
             
+            private static System.DateTime columnbirth_date_defaultValue = global::System.DateTime.Parse("2000-01-01T00:00:00");
+            
             private static System.DateTime columndue_out_date_defaultValue = global::System.DateTime.Parse("2000-01-01T00:00:00");
             
             private static System.DateTime columnintake_date_defaultValue = global::System.DateTime.Parse("2000-01-01T00:00:00");
@@ -1612,6 +1614,7 @@ namespace DataAccessLayer {
                 this.columnanimal_id.Unique = true;
                 this.columndb_bridge_id.MaxLength = 20;
                 this.columnanimal_name.MaxLength = 100;
+                this.columnbirth_date.DefaultValue = ((System.DateTime)(animalDataTable.columnbirth_date_defaultValue));
                 this.columnsex.MaxLength = 10;
                 this.columnmicro_chip.DefaultValue = ((string)("string.empty"));
                 this.columnmicro_chip.MaxLength = 20;

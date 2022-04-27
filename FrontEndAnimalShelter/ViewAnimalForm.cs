@@ -149,18 +149,43 @@ namespace FrontEndAnimalShelter
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            List<string> animalIds = new List<string>();
+
             AnimalMedical.animalDataTable dtAnimalTable = Utility.GetAnimals();
-            List<AnimalMedical.animalRow> selectedAnimals = dtAnimalTable.ToList();
+            List<AnimalMedical.animalRow> selectedAnimals= new List<AnimalMedical.animalRow>();
+
+            AnimalMedical.breedDataTable dtBreedTable = Utility.GetBreed();
+            List<AnimalMedical.breedRow> selectedBreeds = dtBreedTable.ToList();
             
-            //Animal ID LINQ
-            if (txtAnimlId.TextLength>0)
-                selectedAnimals = selectedAnimals.Where(x => x.db_bridge_id.Equals(txtAnimlId.Text)).ToList();
-            ////TODO: Species LINQ
-            //if (cmbSpecies.SelectedItem != null) 
-            //    selectedAnimals = selectedAnimals.Where(x => x.species_id.Equals(cmbSpecies.SelectedValue)).ToList();
+            //Filtering out the animals we need based on animal ID
+            if (txtAnimlId.TextLength > 0)
+            {
+                foreach (string word in txtAnimlId.Text.Split(' '))
+                {
+                    animalIds.Add(word);
+                }
+                foreach( string id in animalIds)
+                {
+                    var animal = dtAnimalTable.Where(x => x.db_bridge_id.Equals(id)).ToList();
+                    if(animal.Count>0)
+                        selectedAnimals.Add(animal[0]);
+                }
+            }
+            else
+            {
+                selectedAnimals = dtAnimalTable.ToList();
+            }
 
-            //TODO: Sex/Breed/Color searches
+            //Species LINQ
+            if (cmbSpecies.SelectedItem != null)
+                selectedAnimals = selectedAnimals.Where(x => x.species.ToString().Equals(cmbSpecies.SelectedValue.ToString())).ToList();
 
+            //Sex LINQ
+            if (cmbSex.SelectedItem != null)
+                selectedAnimals = selectedAnimals.Where(x => x.sex.ToString().Equals(cmbSex.SelectedValue.ToString())).ToList();
+
+            //TODO: Breed/Color searches
+           
             //Microchip LINQ
             if (txtMicrochipId.TextLength > 0)
                 selectedAnimals = selectedAnimals.Where(x => x.micro_chip.Equals(txtMicrochipId.Text)).ToList();
@@ -175,7 +200,7 @@ namespace FrontEndAnimalShelter
                 else if (cmbWeight.Text.Equals("="))
                     selectedAnimals = selectedAnimals.Where(x => x.weight == double.Parse(txtWeight.Text)).ToList();
             }
-            //Kennel LINQ
+            //TODO Kennel LINQ
             //if (txtKennel.TextLength > 0)
             //    selectedAnimals = selectedAnimals.Where(x => x.kennel_id .Equals(txtKennel.Text)).ToList();  //TODO: this needs to be rewritten to use the kennel id instead of the name
             
@@ -219,16 +244,6 @@ namespace FrontEndAnimalShelter
         {
             int  animalId= -1;
             DataGridView dg = (DataGridView)sender;
-
-            //DataGridViewRow rowToBeOperatedUpon = dg.Rows[e.RowIndex];
-            //currentDeptID = int.Parse(rowToBeOperatedUpon.Cells["DeptID"].Value.ToString());
-
-            ////********************* Display Department Information in the data entry area *************************
-            //if (e.ColumnIndex == -1)  //-1 index is the dummy row that selects the entire row
-            //{
-            //    DisplayAndEditDeptInfoDataEntry(rowToBeOperatedUpon);
-            //    return;
-            //}
             DataGridViewSelectedRowCollection selectedrows = dg.SelectedRows;
 
             //********************* Edit and Delete Buttons ********************************************************
@@ -243,7 +258,7 @@ namespace FrontEndAnimalShelter
                         DialogResult deleteCheck = MessageBox.Show("You have selected to delete department " + animalId + ". Countinue with delete?", "Delete Department", MessageBoxButtons.YesNo);
                         if (deleteCheck == DialogResult.Yes)
                         {
-                            //Utility.DeleteDepartment(selectedCell.RowIndex);
+                            Utility.DeleteAnimal(selectedCell.RowIndex);
                             //RefreshGridData();
                         }
                     }

@@ -1141,7 +1141,7 @@ FROM  medication_administration_log</CommandText>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="species" msprop:Generator_ColumnVarNameInTable="columnspecies" msprop:Generator_ColumnPropNameInRow="species" msprop:Generator_ColumnPropNameInTable="speciesColumn" msprop:Generator_UserColumnName="species" type="xs:int" minOccurs="0" />
-              <xs:element name="birth_date" msprop:Generator_ColumnVarNameInTable="columnbirth_date" msprop:Generator_ColumnPropNameInRow="birth_date" msprop:Generator_ColumnPropNameInTable="birth_dateColumn" msprop:Generator_UserColumnName="birth_date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="birth_date" msprop:Generator_ColumnVarNameInTable="columnbirth_date" msprop:Generator_ColumnPropNameInRow="birth_date" msprop:Generator_ColumnPropNameInTable="birth_dateColumn" msprop:Generator_UserColumnName="birth_date" type="xs:dateTime" default="2000-01-01T00:00:00-07:00" minOccurs="0" />
               <xs:element name="sex" msprop:Generator_ColumnVarNameInTable="columnsex" msprop:Generator_ColumnPropNameInRow="sex" msprop:Generator_ColumnPropNameInTable="sexColumn" msprop:Generator_UserColumnName="sex" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">

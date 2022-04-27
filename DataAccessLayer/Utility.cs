@@ -194,6 +194,16 @@ namespace DataAccessLayer
 
             empAdapter.Update(dtEmployeesTable);
         }
+        public static void DeleteAnimal(int rowindex)
+        {
+            AnimalMedical.animalDataTable dtAnimalTable = new AnimalMedical.animalDataTable();
+            AnimalMedicalTableAdapters.animalTableAdapter animalAdapter = new AnimalMedicalTableAdapters.animalTableAdapter();
+            animalAdapter.Fill(dtAnimalTable);
+
+            dtAnimalTable.Rows[rowindex].Delete();
+
+            animalAdapter.Update(dtAnimalTable);
+        }
         #endregion
         #region Edit the Database
         public static void EditEmployee(int empId, string firstname, string lastname)
