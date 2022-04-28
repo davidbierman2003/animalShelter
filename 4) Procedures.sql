@@ -21,10 +21,10 @@ BEGIN
 END$
 DELIMITER ;
 
-CALL Insert_Values("Toby", "F-05", "cat", '2020-00-00', "male", 1, '2022-04-04');
-CALL Insert_Values("Molly", "F-06", "Cat", '2019-10-05', "female", 0,Null);
-CALL Insert_Values("Kevin", "F-07", "dog", '2015-01-00', "MALE", 1,NULL);
-CALL Insert_Values("Fido", "F-08", "DOG", '2017-06-00', "Female", 1,NULL);
+CALL Insert_Values("Toby", "F-05", "cat", '2020-1-1', "male", 1, '2022-4-4');
+CALL Insert_Values("Molly", "F-06", "Cat", '2019-10-5', "female", 0,Null);
+CALL Insert_Values("Kevin", "F-07", "dog", '2015-1-1', "MALE", 1,NULL);
+CALL Insert_Values("Fido", "F-08", "DOG", '2017-6-1', "Female", 1,NULL);
 
 #Returns the last added record enabling users to confirm everything entered correctly.
 DROP PROCEDURE IF EXISTS Check_Last_Animal;
