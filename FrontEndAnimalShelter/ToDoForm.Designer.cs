@@ -31,7 +31,7 @@
             this.headerDate = new System.Windows.Forms.Label();
             this.lblVaccine = new System.Windows.Forms.Label();
             this.dgVaccineToDo = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgMedications = new System.Windows.Forms.DataGridView();
             this.lblMedication = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBoxAnimalID = new System.Windows.Forms.TextBox();
@@ -45,7 +45,7 @@
             this.dateGiven = new System.Windows.Forms.DateTimePicker();
             this.dateNextDateDue = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgVaccineToDo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgMedications)).BeginInit();
             this.SuspendLayout();
             // 
             // headerDate
@@ -80,16 +80,16 @@
             this.dgVaccineToDo.Size = new System.Drawing.Size(878, 229);
             this.dgVaccineToDo.TabIndex = 2;
             // 
-            // dataGridView1
+            // dgMedications
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(48, 601);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 102;
-            this.dataGridView1.RowTemplate.Height = 40;
-            this.dataGridView1.Size = new System.Drawing.Size(878, 229);
-            this.dataGridView1.TabIndex = 4;
+            this.dgMedications.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgMedications.Location = new System.Drawing.Point(48, 601);
+            this.dgMedications.Margin = new System.Windows.Forms.Padding(2);
+            this.dgMedications.Name = "dgMedications";
+            this.dgMedications.RowHeadersWidth = 102;
+            this.dgMedications.RowTemplate.Height = 40;
+            this.dgMedications.Size = new System.Drawing.Size(878, 229);
+            this.dgMedications.TabIndex = 4;
             // 
             // lblMedication
             // 
@@ -209,7 +209,7 @@
             this.Controls.Add(this.Vacine);
             this.Controls.Add(this.txtBoxAnimalID);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgMedications);
             this.Controls.Add(this.lblMedication);
             this.Controls.Add(this.dgVaccineToDo);
             this.Controls.Add(this.lblVaccine);
@@ -220,7 +220,7 @@
             this.Text = "ToDoForm";
             this.Load += new System.EventHandler(this.ToDoForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgVaccineToDo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgMedications)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,7 +231,7 @@
         private System.Windows.Forms.Label headerDate;
         private System.Windows.Forms.Label lblVaccine;
         private System.Windows.Forms.DataGridView dgVaccineToDo;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgMedications;
         private System.Windows.Forms.Label lblMedication;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtBoxAnimalID;

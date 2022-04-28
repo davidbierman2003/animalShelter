@@ -48,6 +48,14 @@ namespace DataAccessLayer
             return dtVaccineAdminTable;
         }
 
+        public static AnimalMedical.medication_administration_logDataTable GetMedicationAdministrationLog()
+        {
+            AnimalMedical.medication_administration_logDataTable dtMedicationAdminTable = new AnimalMedical.medication_administration_logDataTable();
+            AnimalMedicalTableAdapters.medication_administration_logTableAdapter medicationAdminAdapter = new AnimalMedicalTableAdapters.medication_administration_logTableAdapter();
+            medicationAdminAdapter.Fill(dtMedicationAdminTable);
+            return dtMedicationAdminTable;
+        }
+
         public static AnimalMedical.vaccineDataTable GetVaccine()
         {
             AnimalMedical.vaccineDataTable dtVaccines = new AnimalMedical.vaccineDataTable();

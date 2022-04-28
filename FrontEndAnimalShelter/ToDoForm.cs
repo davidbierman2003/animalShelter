@@ -16,9 +16,25 @@ namespace FrontEndAnimalShelter
         public ToDoForm()
         {
             InitializeComponent();
-       AnimalMedical.vaccine_administration_logDataTable dtVaccineAdministration = Utility.GetVaccineAdministration();
-
+            AnimalMedical.vaccine_administration_logDataTable dtVaccineAdministration = Utility.GetVaccineAdministration();
+            AnimalMedical.medication_administration_logDataTable dtMedicationAdministration = Utility.GetMedicationAdministrationLog();
             dgVaccineToDo.DataSource = dtVaccineAdministration;
+            dgMedications.DataSource = dtMedicationAdministration;
+
+            //Change the widths of the columns
+            dgMedications.Columns["med_log_id"].Width = 120;
+            dgMedications.Columns["animal_id"].Width = 120;
+            dgMedications.Columns["employee_id"].Width = 120;
+            dgMedications.Columns["datetime_given"].Width = 120;
+
+            dgMedications.Columns["med_log_id"].HeaderText = "Med Log Id";
+            dgMedications.Columns["animal_id"].HeaderText = "Animal Id";
+            dgMedications.Columns["employee_id"].HeaderText = "Employee Id";
+            dgMedications.Columns["datetime_given"].HeaderText = "Date Time Given";
+
+
+
+
 
         }
 
