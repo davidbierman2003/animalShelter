@@ -50,15 +50,29 @@ namespace FrontEndAnimalShelter
                 animaIds.Add(txtAnimalid.Text); //collect the ID entered on the screen
             }
             AnimalMedical.animalDataTable aniamlDB = Utility.GetAnimals();
-            foreach(string id in animaIds)
+           
+            int frequencyid = 0;
+            AnimalMedical.frequencyDataTable dtFrequency = Utility.GetFrequency();
+            var frequencyidResult = dtFrequency.Where(x => (x.num_days == (int)numDays.Value) && (x.num_days == (int)numTimesPerDay.Value) && (x.desc_value == txtFrequencyDesc.Text)).ToList();
+            if(frequencyidResult.Count == 0)
+            {
+                Utility.SaveFrequency((int)numDays.Value, (int)numTimesPerDay.Value, txtFrequencyDesc.Text);
+                dtFrequency = Utility.GetFrequency();
+                frequencyidResult = dtFrequency.Where(x => (x.num_days == (int)numDays.Value) && (x.num_days == (int)numTimesPerDay.Value) && (x.desc_value == txtFrequencyDesc.Text)).ToList();
+            }
+            if (frequencyidResult.Count > 0)
+            {
+                frequencyid = frequencyidResult[0].frequency_id;
+            }
+          
+            foreach (string id in animaIds)
             {
                 //Check if animal has been added to the database
                 var validId = aniamlDB.Where(x => x.db_bridge_id == id).ToList();  //does animal exist in database
                 if (validId.Count > 0) //animal does exist in the database
                 {
                     validIds += id + " ";
-                    //todo: frequency id
-                    Utility.SavePrescription(validId[0].animal_id,int.Parse(medicationRow.Cells["medication_id"].Value.ToString()),txtDose.Text,0,dateStart.Value,dateEnd.Value,txtStaff.Text,0,txtNotes.Text);
+                    Utility.SavePrescription(validId[0].animal_id, int.Parse(medicationRow.Cells["medication_id"].Value.ToString()), txtDose.Text, 0, dateStart.Value, dateEnd.Value, txtStaff.Text, frequencyid, txtNotes.Text);
                 }
                 else  //animal id is not valid (not in database)
                 {
@@ -95,7 +109,7 @@ namespace FrontEndAnimalShelter
             cmbAdminMethod.DisplayMember = dtAdminMethod.admin_method_nameColumn.ColumnName;  //value displayed is the species name
             cmbAdminMethod.SelectedItem = null;
             #endregion
-            
+
             dgMedicationTable.CellClick += DgMedicationTable_CellClick;
             dgMedicationTable.DataBindingComplete += DgMedicationTable_DataBindingComplete;
         }

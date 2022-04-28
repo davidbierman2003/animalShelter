@@ -45,8 +45,17 @@
             this.lblNotes = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.cmbAdminMethod = new System.Windows.Forms.ComboBox();
-            this.lblFrequency = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblNumOfDay = new System.Windows.Forms.Label();
+            this.lblTimesPerDay = new System.Windows.Forms.Label();
+            this.txtFrequencyDesc = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.numDays = new System.Windows.Forms.NumericUpDown();
+            this.numTimesPerDay = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgMedicationTable)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numDays)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTimesPerDay)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAnimalid
@@ -70,7 +79,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 116);
+            this.label1.Location = new System.Drawing.Point(237, 116);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 32);
@@ -84,7 +93,7 @@
             this.dgMedicationTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
             this.dgMedicationTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.dgMedicationTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgMedicationTable.Location = new System.Drawing.Point(37, 152);
+            this.dgMedicationTable.Location = new System.Drawing.Point(242, 152);
             this.dgMedicationTable.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgMedicationTable.MultiSelect = false;
             this.dgMedicationTable.Name = "dgMedicationTable";
@@ -92,7 +101,7 @@
             this.dgMedicationTable.RowHeadersWidth = 102;
             this.dgMedicationTable.RowTemplate.Height = 40;
             this.dgMedicationTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgMedicationTable.Size = new System.Drawing.Size(1268, 394);
+            this.dgMedicationTable.Size = new System.Drawing.Size(1341, 394);
             this.dgMedicationTable.TabIndex = 3;
             this.dgMedicationTable.TabStop = false;
             // 
@@ -186,17 +195,17 @@
             // 
             // txtNotes
             // 
-            this.txtNotes.Location = new System.Drawing.Point(213, 849);
+            this.txtNotes.Location = new System.Drawing.Point(350, 1000);
             this.txtNotes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtNotes.Multiline = true;
             this.txtNotes.Name = "txtNotes";
-            this.txtNotes.Size = new System.Drawing.Size(944, 274);
+            this.txtNotes.Size = new System.Drawing.Size(1121, 274);
             this.txtNotes.TabIndex = 15;
             // 
             // lblNotes
             // 
             this.lblNotes.AutoSize = true;
-            this.lblNotes.Location = new System.Drawing.Point(68, 849);
+            this.lblNotes.Location = new System.Drawing.Point(327, 952);
             this.lblNotes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNotes.Name = "lblNotes";
             this.lblNotes.Size = new System.Drawing.Size(89, 32);
@@ -205,7 +214,7 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(542, 1229);
+            this.btnSubmit.Location = new System.Drawing.Point(788, 1300);
             this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(244, 79);
@@ -222,22 +231,77 @@
             this.cmbAdminMethod.Size = new System.Drawing.Size(351, 39);
             this.cmbAdminMethod.TabIndex = 17;
             // 
-            // lblFrequency
+            // groupBox1
             // 
-            this.lblFrequency.AutoSize = true;
-            this.lblFrequency.Location = new System.Drawing.Point(784, 750);
-            this.lblFrequency.Name = "lblFrequency";
-            this.lblFrequency.Size = new System.Drawing.Size(149, 32);
-            this.lblFrequency.TabIndex = 18;
-            this.lblFrequency.Text = "Frequency";
+            this.groupBox1.Controls.Add(this.numTimesPerDay);
+            this.groupBox1.Controls.Add(this.numDays);
+            this.groupBox1.Controls.Add(this.txtFrequencyDesc);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.lblTimesPerDay);
+            this.groupBox1.Controls.Add(this.lblNumOfDay);
+            this.groupBox1.Location = new System.Drawing.Point(1234, 601);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(534, 363);
+            this.groupBox1.TabIndex = 18;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Frequency";
+            // 
+            // lblNumOfDay
+            // 
+            this.lblNumOfDay.AutoSize = true;
+            this.lblNumOfDay.Location = new System.Drawing.Point(23, 69);
+            this.lblNumOfDay.Name = "lblNumOfDay";
+            this.lblNumOfDay.Size = new System.Drawing.Size(217, 32);
+            this.lblNumOfDay.TabIndex = 0;
+            this.lblNumOfDay.Text = "Number of Days";
+            // 
+            // lblTimesPerDay
+            // 
+            this.lblTimesPerDay.AutoSize = true;
+            this.lblTimesPerDay.Location = new System.Drawing.Point(23, 136);
+            this.lblTimesPerDay.Name = "lblTimesPerDay";
+            this.lblTimesPerDay.Size = new System.Drawing.Size(197, 32);
+            this.lblTimesPerDay.TabIndex = 2;
+            this.lblTimesPerDay.Text = "Times per Day";
+            // 
+            // txtFrequencyDesc
+            // 
+            this.txtFrequencyDesc.Location = new System.Drawing.Point(187, 190);
+            this.txtFrequencyDesc.Multiline = true;
+            this.txtFrequencyDesc.Name = "txtFrequencyDesc";
+            this.txtFrequencyDesc.Size = new System.Drawing.Size(318, 154);
+            this.txtFrequencyDesc.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(23, 196);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(158, 32);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Description";
+            // 
+            // numDays
+            // 
+            this.numDays.Location = new System.Drawing.Point(267, 63);
+            this.numDays.Name = "numDays";
+            this.numDays.Size = new System.Drawing.Size(120, 38);
+            this.numDays.TabIndex = 19;
+            // 
+            // numTimesPerDay
+            // 
+            this.numTimesPerDay.Location = new System.Drawing.Point(267, 130);
+            this.numTimesPerDay.Name = "numTimesPerDay";
+            this.numTimesPerDay.Size = new System.Drawing.Size(120, 38);
+            this.numTimesPerDay.TabIndex = 20;
             // 
             // AddPerscriptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1332, 1391);
-            this.Controls.Add(this.lblFrequency);
+            this.ClientSize = new System.Drawing.Size(1821, 1391);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cmbAdminMethod);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtNotes);
@@ -260,6 +324,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Perscription";
             ((System.ComponentModel.ISupportInitialize)(this.dgMedicationTable)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numDays)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTimesPerDay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,6 +352,12 @@
         private System.Windows.Forms.Label lblNotes;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.ComboBox cmbAdminMethod;
-        private System.Windows.Forms.Label lblFrequency;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblTimesPerDay;
+        private System.Windows.Forms.Label lblNumOfDay;
+        private System.Windows.Forms.TextBox txtFrequencyDesc;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown numTimesPerDay;
+        private System.Windows.Forms.NumericUpDown numDays;
     }
 }

@@ -56,12 +56,12 @@ namespace FrontEndAnimalShelter
                         var employee = dtEmployees.Where(x => x.employee_id == currentEmpId).ToList();
                         if (employee.Count > 0) //employee is already in the database, any changes are taken as an edit to that emplyee
                         {
-                            Utility.EditEmployee(int.Parse(rowToBeOperatedUpon.Cells["employee_id"].Value.ToString()), rowToBeOperatedUpon.Cells["first_name"].Value.ToString(), rowToBeOperatedUpon.Cells["last_name"].Value.ToString());
+                            Utility.EditEmployee(int.Parse(rowToBeOperatedUpon.Cells["employee_id"].Value.ToString()), rowToBeOperatedUpon.Cells["firstname"].Value.ToString(), rowToBeOperatedUpon.Cells["lastname"].Value.ToString());
                             MessageBox.Show("Edits to employee " + currentEmpId + " have been saved to the database");
                         }
                         else  //changes made are for a new employee, a new employee is added to the database
                         {
-                            Utility.SaveEmployee(int.Parse(rowToBeOperatedUpon.Cells["employee_id"].Value.ToString()), rowToBeOperatedUpon.Cells["first_name"].Value.ToString(), rowToBeOperatedUpon.Cells["last_name"].Value.ToString());
+                            Utility.SaveEmployee(int.Parse(rowToBeOperatedUpon.Cells["employee_id"].Value.ToString()), rowToBeOperatedUpon.Cells["firstname"].Value.ToString(), rowToBeOperatedUpon.Cells["lastname"].Value.ToString());
                             MessageBox.Show($"Employee {currentEmpId} has been added to the database.");
                         }
 
@@ -77,8 +77,8 @@ namespace FrontEndAnimalShelter
         private void FormatGrid()
         {
             dgEmployees.Columns["employee_id"].HeaderText = "Employee ID";
-            dgEmployees.Columns["first_name"].HeaderText = "First Name";
-            dgEmployees.Columns["last_name"].HeaderText = "Last Name";
+            dgEmployees.Columns["firstname"].HeaderText = "First Name";
+            dgEmployees.Columns["lastname"].HeaderText = "Last Name";
 
             //Edit Button
             DataGridViewButtonColumn editColumn = new DataGridViewButtonColumn();

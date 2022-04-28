@@ -24,6 +24,14 @@ namespace DataAccessLayer
 
             return dtUnitTable;
         }
+        public static AnimalMedical.frequencyDataTable GetFrequency()
+        {
+            AnimalMedical.frequencyDataTable dtFrequencyTable = new AnimalMedical.frequencyDataTable(); // creating in memory table dtAnimalTable
+            AnimalMedicalTableAdapters.frequencyTableAdapter frequencyAdapter = new AnimalMedicalTableAdapters.frequencyTableAdapter();
+            frequencyAdapter.Fill(dtFrequencyTable);
+
+            return dtFrequencyTable;
+        }
         public static AnimalMedical.employeeDataTable GetEmployees()
         {
             AnimalMedical.employeeDataTable dtEmployeeTable = new AnimalMedical.employeeDataTable(); // creating in memory table dtAnimalTable
@@ -124,6 +132,23 @@ namespace DataAccessLayer
         //}
         #endregion
         #region Save to Database
+        public static void SaveFrequency(int days, int times, string description)
+        {
+            AnimalMedical.frequencyDataTable dtFrequencyTable = new AnimalMedical.frequencyDataTable();
+            AnimalMedicalTableAdapters.frequencyTableAdapter frequencyTableAdapter = new AnimalMedicalTableAdapters.frequencyTableAdapter();
+            frequencyTableAdapter.Fill(dtFrequencyTable);
+
+            AnimalMedical.frequencyRow newFrequency = dtFrequencyTable.NewfrequencyRow();
+
+            newFrequency.num_times = times;
+            newFrequency.num_days = days;
+            newFrequency.desc_value = description;
+
+            newFrequency.frequency_id = default;
+
+            dtFrequencyTable.AddfrequencyRow(newFrequency);
+            frequencyTableAdapter.Update(dtFrequencyTable);
+        }
         public static void SaveVaccineAdmin(int animalId, int vaccine_id, int employee_id, DateTime dateGiven, DateTime nextDueDate)
         {
             AnimalMedical.vaccine_administration_logDataTable dtVaccineAdminTable = new AnimalMedical.vaccine_administration_logDataTable();
