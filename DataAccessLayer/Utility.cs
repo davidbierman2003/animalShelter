@@ -16,6 +16,14 @@ namespace DataAccessLayer
         /// </summary>
         ///
         #region Get Data from Database
+        public static AnimalMedical.prescriptionDataTable GetPrescriptions()
+        {
+            AnimalMedical.prescriptionDataTable dtPrescriptionTable = new AnimalMedical.prescriptionDataTable(); // creating in memory table dtAnimalTable
+            AnimalMedicalTableAdapters.prescriptionTableAdapter prescriptionAdapter = new AnimalMedicalTableAdapters.prescriptionTableAdapter();
+            prescriptionAdapter.Fill(dtPrescriptionTable);
+
+            return dtPrescriptionTable;
+        }
         public static AnimalMedical.unitDataTable GetUnit()
         {
             AnimalMedical.unitDataTable dtUnitTable = new AnimalMedical.unitDataTable(); // creating in memory table dtAnimalTable
@@ -132,6 +140,7 @@ namespace DataAccessLayer
         //}
         #endregion
         #region Save to Database
+        //public st
         public static void SaveFrequency(int days, int times, string description)
         {
             AnimalMedical.frequencyDataTable dtFrequencyTable = new AnimalMedical.frequencyDataTable();
@@ -238,6 +247,24 @@ namespace DataAccessLayer
 
             dtPrescriptionTable.AddprescriptionRow(newPrescription);
             prescriptionTableAdapter.Update(dtPrescriptionTable);
+        }
+        public static void SaveAdministeredVaccine(int animalId, int vaccineId, int employee, DateTime given, DateTime due)
+        {
+            AnimalMedical.vaccine_administration_logDataTable dtAdminVaccineTable = new AnimalMedical.vaccine_administration_logDataTable();
+            AnimalMedicalTableAdapters.vaccine_administration_logTableAdapter adminVaccineTableAdapter = new AnimalMedicalTableAdapters.vaccine_administration_logTableAdapter();
+            adminVaccineTableAdapter.Fill(dtAdminVaccineTable);
+
+            AnimalMedical.vaccine_administration_logRow newAdminVaccine = dtAdminVaccineTable.Newvaccine_administration_logRow();
+
+            newAdminVaccine.animal_id = animalId;
+            newAdminVaccine.vaccine_id = vaccineId;
+            newAdminVaccine.employee_id = employee;
+            newAdminVaccine.date_given = given;
+            newAdminVaccine.next_date_due = due;
+            newAdminVaccine.vaccine_log_ID = default;
+            
+            dtAdminVaccineTable.Addvaccine_administration_logRow(newAdminVaccine);
+            adminVaccineTableAdapter.Update(dtAdminVaccineTable);
         }
         #endregion
         #region Delete from Database

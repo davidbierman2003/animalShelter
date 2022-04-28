@@ -63,6 +63,18 @@
     <Compile Include="AddPerscriptionForm.Designer.cs">
       <DependentUpon>AddPerscriptionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddVaccineForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddVaccineForm.Designer.cs">
+      <DependentUpon>AddVaccineForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminMedicationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminMedicationForm.Designer.cs">
+      <DependentUpon>AdminMedicationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MDI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +112,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddPerscriptionForm.resx">
       <DependentUpon>AddPerscriptionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddVaccineForm.resx">
+      <DependentUpon>AddVaccineForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminMedicationForm.resx">
+      <DependentUpon>AdminMedicationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDI.resx">
       <DependentUpon>MDI.cs</DependentUpon>

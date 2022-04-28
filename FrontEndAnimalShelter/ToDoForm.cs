@@ -16,7 +16,7 @@ namespace FrontEndAnimalShelter
         public ToDoForm()
         {
             InitializeComponent();
-       AnimalMedical.vaccine_administration_logDataTable dtVaccineAdministration = Utility.GetVaccineAdministration();
+            AnimalMedical.vaccine_administration_logDataTable dtVaccineAdministration = Utility.GetVaccineAdministration();
 
             dgVaccineToDo.DataSource = dtVaccineAdministration;
 

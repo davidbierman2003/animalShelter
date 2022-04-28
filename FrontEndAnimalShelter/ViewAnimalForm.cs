@@ -285,5 +285,33 @@ namespace FrontEndAnimalShelter
                 perscriptionForm.Visible = true;
             }
         }
+
+        private void btnVaccine_Click(object sender, EventArgs e)
+        {
+            if (selectedRows != null)
+            {
+                Form vaccineForm = new AddVaccineForm(selectedRows);  //animal has been selected from the grid
+                vaccineForm.Visible = true;
+            }
+            else
+            {
+                Form perscriptionForm = new AddVaccineForm();  //user will input the animal ID
+                perscriptionForm.Visible = true;
+            }
+        }
+
+        private void btnAdminMeds_Click(object sender, EventArgs e)
+        {
+            if (selectedRows != null)
+            {
+                //Form vaccineForm = new AdminMedicationForm(selectedRows);  //animal has been selected from the grid
+                //vaccineForm.Visible = true;
+            }
+            else
+            {
+                Form perscriptionForm = new AdminMedicationForm();  //user will input the animal ID
+                perscriptionForm.Visible = true;
+            }
+        }
     }
 }
