@@ -21,22 +21,29 @@ namespace FrontEndAnimalShelter
             InitializeComponent();
             MoreInitializing();
         }
-        public AdminMedicationForm(DataGridViewSelectedRowCollection selectedAnimals)
-        {
-            InitializeComponent();
-            MoreInitializing();
-            foreach (DataGridViewRow animal in selectedAnimals)
-            {
-                txtAnimalId.Text += animal.Cells["db_bridge_id"].Value.ToString() + " ";
-                animalIds.Add((int)animal.Cells["animal_id"].Value);
-            }
-        }
+        //public AdminMedicationForm(DataGridViewSelectedRowCollection selectedAnimals)
+        //{
+        //    InitializeComponent();
+        //    MoreInitializing();
+        //    foreach (DataGridViewRow animal in selectedAnimals)
+        //    {
+        //        txtAnimalId.Text += animal.Cells["db_bridge_id"].Value.ToString() + " ";
+        //        animalIds.Add((int)animal.Cells["animal_id"].Value);
+        //    }
+        //}
         public void MoreInitializing()
         {
             FormatTable();
 
             dgPerscriptions.DataBindingComplete += DgPerscriptions_DataBindingComplete;
+            txtAnimalId.Leave += TxtAnimalId_Leave;
         }
+
+        private void TxtAnimalId_Leave(object sender, EventArgs e)
+        {
+            
+        }
+
         public void FormatTable()
         {
             AnimalMedical.prescriptionDataTable dtPrescriptionTable = new AnimalMedical.prescriptionDataTable();
@@ -168,7 +175,7 @@ namespace FrontEndAnimalShelter
                 if (validId.Count > 0) //animal does exist in the database
                 {
                     validIds += id + " ";
-                    //Utility.SaveMedicationAdministration(id,medID,int.Parse(txtEmployeeId.Text), dateGiven.Value);
+                    //Utility.SaveMedicationAdministration(id,int.Parse(txtEmployeeId.Text),medID, dateGiven.Value);
                 }
                 else  //animal id is not valid (not in database)
                 {

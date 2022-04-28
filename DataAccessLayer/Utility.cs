@@ -148,7 +148,23 @@ namespace DataAccessLayer
         //}
         #endregion
         #region Save to Database
-        //public st
+        public static void SaveMedicationAdministrationLog(int animalid, int employeeid, int medsid, DateTime dategiven)
+        {
+            AnimalMedical.medication_administration_logDataTable dtMedAdminTable = new AnimalMedical.medication_administration_logDataTable();
+            AnimalMedicalTableAdapters.medication_administration_logTableAdapter medAdminTableAdapter = new AnimalMedicalTableAdapters.medication_administration_logTableAdapter();
+            medAdminTableAdapter.Fill(dtMedAdminTable);
+
+            AnimalMedical.medication_administration_logRow newMedAdminRow = dtMedAdminTable.Newmedication_administration_logRow();
+
+            newMedAdminRow.animal_id = animalid;
+            newMedAdminRow.medication_id = medsid;
+            newMedAdminRow.employee_id = employeeid;
+            newMedAdminRow.datetime_given = dategiven;
+            newMedAdminRow.med_log_id = default;
+
+            dtMedAdminTable.Addmedication_administration_logRow(newMedAdminRow);
+            medAdminTableAdapter.Update(dtMedAdminTable);
+        }
         public static void SaveFrequency(int days, int times, string description)
         {
             AnimalMedical.frequencyDataTable dtFrequencyTable = new AnimalMedical.frequencyDataTable();

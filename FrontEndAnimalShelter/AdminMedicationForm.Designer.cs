@@ -67,6 +67,7 @@
             // 
             // dgPerscriptions
             // 
+            this.dgPerscriptions.AllowUserToAddRows = false;
             this.dgPerscriptions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgPerscriptions.Location = new System.Drawing.Point(39, 156);
             this.dgPerscriptions.Name = "dgPerscriptions";
