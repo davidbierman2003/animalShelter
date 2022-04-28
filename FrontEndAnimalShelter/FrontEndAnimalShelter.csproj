@@ -143,6 +143,10 @@
       <Project>{87c808c0-7bf0-461a-8bc5-48097297a279}</Project>
       <Name>DataAccessLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SharedTables\SharedTables.csproj">
+      <Project>{6bcf1c48-cb45-4cd3-8d04-8f6d186ac241}</Project>
+      <Name>SharedTables</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

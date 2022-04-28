@@ -232,3 +232,5 @@ C:\Development\CS3550\FontEndAnimalShelter\Updated_4_25_2022b\animalShelter\Fron
 C:\Users\Francis\source\repos\CS3550\animalShelter\FrontEndAnimalShelter\obj\Debug\FrontEndAnimalShelter.AddPerscriptionForm.resources
 C:\Users\amand\Desktop\Spring 2022\CS3550\Front-End-Group\animalShelter\FrontEndAnimalShelter\obj\Debug\FrontEndAnimalShelter.AddPerscriptionForm.resources
 C:\Users\amand\Desktop\Spring 2022\CS3550\Front-End-Group\animalShelter\FrontEndAnimalShelter\obj\Debug\FrontEndAnimalShelter.ViewEmployees.resources
+C:\Users\Francis\source\repos\CS3550\animalShelter\FrontEndAnimalShelter\bin\Debug\SharedTables.dll
+C:\Users\Francis\source\repos\CS3550\animalShelter\FrontEndAnimalShelter\bin\Debug\SharedTables.pdb

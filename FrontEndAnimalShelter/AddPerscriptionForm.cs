@@ -33,20 +33,10 @@ namespace FrontEndAnimalShelter
         private void FormatTable()
         {
             AnimalMedical.unitDataTable dtUnitTable = Utility.GetUnit();
-            
-            dgMedicationTable.Columns["medication_id"].Visible = false;
-            dgMedicationTable.Columns["unit_id"].Visible = false;
-            //Rename the headers
-            dgMedicationTable.Columns["medication_name"].HeaderText = "Medication Name";
-            dgMedicationTable.Columns["concentration"].HeaderText = "Concentration";
-            dgMedicationTable.Columns["dose"].HeaderText = "Dose";
+            SharedTables.Medication medication = new SharedTables.Medication();
+           dgMedicationTable= medication.FormatMedicationTable(dgMedicationTable);
+
             dgMedicationTable.Columns["dose"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-            //Adding unit name column
-            DataGridViewColumn unitColumn = new DataGridViewColumn();
-            unitColumn.CellTemplate = dgMedicationTable.Columns["medication_name"].CellTemplate;
-            unitColumn.HeaderText = "Unit";
-            unitColumn.Name = "unit_name";
-            dgMedicationTable.Columns.Add(unitColumn);
 
             //remove the first column with no information in it.
             dgMedicationTable.RowHeadersVisible = false;
@@ -103,6 +93,9 @@ namespace FrontEndAnimalShelter
         private void DgMedicationTable_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgMedicationTable.ClearSelection();  //clears any initial row selection that was not performed by user
+
+            SharedTables.Medication medication = new SharedTables.Medication();
+            dgMedicationTable = medication.GetUnitName(dgMedicationTable);
         }
         /// <summary>
         ///When user clicks on grid cell the entire row is selected. We collect that row information here 

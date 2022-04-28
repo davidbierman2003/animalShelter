@@ -16,30 +16,27 @@ namespace FrontEndAnimalShelter
         public TreatmentForm()
         {
             InitializeComponent();
+            
+            dgMedications.DataBindingComplete += DgMedications_DataBindingComplete;
 
             //************ Medications ***********************
             //TODO: this needs to be use the new database tables, this table no longer exists
-            //AnimalMedical.medicationwithunitDataTable dtMedication = Utility.GetMedication();
-            //dgMedications.DataSource = dtMedication;
+            SharedTables.Medication medication = new SharedTables.Medication();
+            AnimalMedical.medicationDataTable dtMedication = Utility.GetMedication();
+            dgMedications.DataSource = dtMedication;
 
-            ////Hide the medication_id
-            //dgMedications.Columns["medication_id"].Visible = false;
+            dgMedications = medication.FormatMedicationTable(dgMedications); //Shared formatting
+            //Hide the medication_id
+            dgMedications.Columns["medication_id"].Visible = false;
 
-            ////Rename the headers
-            //dgMedications.Columns["medication_name"].HeaderText = "Medication Name";
-            //dgMedications.Columns["concentration"].HeaderText = "Concentration";
-            //dgMedications.Columns["dose"].HeaderText = "Dose";
-            //dgMedications.Columns["unit_name"].HeaderText = "Unit Name";
+            //remove the first column with no information in it.
+            dgMedications.RowHeadersVisible = false;
 
-
-            ////remove the first column with no information in it.
-            //dgMedications.RowHeadersVisible = false;
-            
-            ////Change the widths of the columns
-            //dgMedications.Columns["medication_name"].Width = 200;
-            //dgMedications.Columns["concentration"].Width = 150;
-            //dgMedications.Columns["dose"].Width = 350;
-            //dgMedications.Columns["unit_name"].Width = 150;
+            //Change the widths of the columns
+            dgMedications.Columns["medication_name"].Width = 200;
+            dgMedications.Columns["concentration"].Width = 150;
+            dgMedications.Columns["dose"].Width = 350;
+            dgMedications.Columns["unit_name"].Width = 150;
 
 
             // **************** Vaccines ***************************
@@ -61,6 +58,12 @@ namespace FrontEndAnimalShelter
 
 
 
+        }
+
+        private void DgMedications_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            SharedTables.Medication medication = new SharedTables.Medication();
+            dgMedications = medication.GetUnitName(dgMedications);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
