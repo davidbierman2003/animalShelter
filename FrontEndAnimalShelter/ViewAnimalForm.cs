@@ -57,7 +57,6 @@ namespace FrontEndAnimalShelter
 
             #region Events
             cmbSpecies.SelectionChangeCommitted += CmbSpecies_SelectionChangeCommitted;
-            cmbSex.SelectionChangeCommitted += CmbSex_SelectionChangeCommitted;
             dgAnimalTable.GotFocus += DgAnimalTable_GotFocus;
             #endregion
         }
@@ -125,10 +124,6 @@ namespace FrontEndAnimalShelter
             selectedRows = dg.SelectedRows;  //collect the selected rows
         }
 
-        private void CmbSex_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            AnimalMedical.breedDataTable dtBreed = Utility.GetBreed();
-        }
         /// <summary>
         /// Generates the breeds in the combobox that are related to the selected species
         /// </summary>

@@ -24,8 +24,6 @@ namespace FrontEndAnimalShelter
 
 
             #endregion
-
-
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -52,9 +50,13 @@ namespace FrontEndAnimalShelter
             int gender = cmbBoxGender.SelectedIndex;  //TODO: this is a string in this database, 
             int speciesID = int.Parse(cmbBoxSpecies.SelectedValue.ToString());
 
+            int kennelid = 0;
+            AnimalMedical.kennelDataTable kennelTable = Utility.GetKennel();
+            var findKennelName = kennelTable.Where(x => x.kennel_description == txtBxKennel.Text).Select(y => y.kennel_id).ToList();
+            if (findKennelName.Count > 0) {kennelid = findKennelName.First(); }
             
             Utility.SaveAnimal(txtBxAnimalID.Text,txtBxName.Text, gender.ToString(), dateTimePickerDateOfBirth.Value, txtBxMicrochipID.Text,
-                 dateTimePickerDueOutDate.Value, dateTimePickerIntakeDate.Value, txtBxNotes.Text, weight,txtBxKennel.Text, speciesID,ckbAltered.Checked);
+                 dateTimePickerDueOutDate.Value, dateTimePickerIntakeDate.Value, txtBxNotes.Text, weight,kennelid, speciesID,ckbAltered.Checked);
 
             MessageBox.Show($"Animial {txtBxAnimalID.Text} has been saved.");
 

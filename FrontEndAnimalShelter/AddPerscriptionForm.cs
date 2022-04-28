@@ -57,7 +57,8 @@ namespace FrontEndAnimalShelter
                 if (validId.Count > 0) //animal does exist in the database
                 {
                     validIds += id + " ";
-                    Utility.SavePrescription(validId[0].animal_id,int.Parse(medicationRow.Cells["medication_id"].Value.ToString()),txtDose.Text,0,dateStart.Value,dateEnd.Value,txtStaff.Text,txtNotes.Text);
+                    //todo: frequency id
+                    Utility.SavePrescription(validId[0].animal_id,int.Parse(medicationRow.Cells["medication_id"].Value.ToString()),txtDose.Text,0,dateStart.Value,dateEnd.Value,txtStaff.Text,0,txtNotes.Text);
                 }
                 else  //animal id is not valid (not in database)
                 {
@@ -86,10 +87,19 @@ namespace FrontEndAnimalShelter
             dgMedicationTable.DataSource = dtMedicationTable;
             FormatTable();
 
+            #region Data Binding
+            AnimalMedical.admin_methodDataTable dtAdminMethod = Utility.GetAdminMethod();
+            
+            cmbAdminMethod.DataSource = dtAdminMethod;
+            cmbAdminMethod.ValueMember = dtAdminMethod.admin_method_idColumn.ColumnName;  //value is the species ID code
+            cmbAdminMethod.DisplayMember = dtAdminMethod.admin_method_nameColumn.ColumnName;  //value displayed is the species name
+            cmbAdminMethod.SelectedItem = null;
+            #endregion
+            
             dgMedicationTable.CellClick += DgMedicationTable_CellClick;
             dgMedicationTable.DataBindingComplete += DgMedicationTable_DataBindingComplete;
         }
-
+             
         private void DgMedicationTable_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgMedicationTable.ClearSelection();  //clears any initial row selection that was not performed by user
@@ -105,11 +115,6 @@ namespace FrontEndAnimalShelter
             //Cell click selects the entire row
             DataGridView dg = (DataGridView)sender;
             medicationRow = dg.Rows[0];  //only one row can be selected
-        }
-
-        private void dgMedicationTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

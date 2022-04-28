@@ -54,10 +54,6 @@ namespace FrontEndAnimalShelter
             dgVaccines.Columns["vaccine_name"].HeaderText = "Vaccine Name";
             //change the width
             dgVaccines.Columns["vaccine_name"].Width = 850;
-
-
-
-
         }
 
         private void DgMedications_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)

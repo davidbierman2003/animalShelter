@@ -89,6 +89,30 @@ namespace DataAccessLayer
             
             return dtColorTable;
         }
+        public static AnimalMedical.admin_methodDataTable GetAdminMethod()
+        {
+            AnimalMedical.admin_methodDataTable dtAdminMethodTable = new AnimalMedical.admin_methodDataTable();
+            AnimalMedicalTableAdapters.admin_methodTableAdapter adminMethodAdapter = new AnimalMedicalTableAdapters.admin_methodTableAdapter();
+            adminMethodAdapter.Fill(dtAdminMethodTable);
+
+            return dtAdminMethodTable;
+        }
+        public static AnimalMedical.medication_admin_methodDataTable GetMedicationAdminMethod()
+        {
+            AnimalMedical.medication_admin_methodDataTable dtMedsAdminMethodTable = new AnimalMedical.medication_admin_methodDataTable();
+            AnimalMedicalTableAdapters.medication_admin_methodTableAdapter medAdminMethodAdapter = new AnimalMedicalTableAdapters.medication_admin_methodTableAdapter();
+            medAdminMethodAdapter.Fill(dtMedsAdminMethodTable);
+
+            return dtMedsAdminMethodTable;
+        }
+        public static AnimalMedical.kennelDataTable GetKennel()
+        {
+            AnimalMedical.kennelDataTable dtKennelTable = new AnimalMedical.kennelDataTable();
+            AnimalMedicalTableAdapters.kennelTableAdapter kennelAdapter = new AnimalMedicalTableAdapters.kennelTableAdapter();
+            kennelAdapter.Fill(dtKennelTable);
+
+            return dtKennelTable;
+        }
         //NOTE: CURRENT DATABASE DOES NOT HAVE A TABLE FOR GENDER
         //public static AnimalMedical.sexDataTable GetSexID()
         //{
@@ -123,7 +147,7 @@ namespace DataAccessLayer
 
         }
         public static void SaveAnimal(string animalId,string name, string sex, DateTime birthdate, string microchipId, 
-            DateTime dueOutDate, DateTime intakeDate, string notes, Decimal weight, string kennel, int speciesId, bool altered)
+            DateTime dueOutDate, DateTime intakeDate, string notes, Decimal weight, int kennel, int speciesId, bool altered)
         {
             //AnimalTable and the New Row technique to have new row inserted to the database.
 
@@ -142,7 +166,7 @@ namespace DataAccessLayer
             newAnimalRow.intake_date = intakeDate;
             //newAnimalRow.notes = Notes;
             newAnimalRow.weight = (double)weight;
-            //newAnimalRow.kennel_id = kennel; //TODO this needs to be changed so the kennel id is put here not the name
+            newAnimalRow.kennel_id = kennel;
             //newAnimalRow.species_id = SpeciesId;
             newAnimalRow.altered = altered;
 
@@ -168,7 +192,7 @@ namespace DataAccessLayer
 
             empAdapter.Update(dtEmpTable);
         }
-        public static void SavePrescription(int animalId, int medicationId, string animaldose, int method, DateTime startdate, DateTime enddate, string staff, string notes)
+        public static void SavePrescription(int animalId, int medicationId, string animaldose, int method, DateTime startdate, DateTime enddate, string staff, int frequencyid, string notes)
         {
             AnimalMedical.prescriptionDataTable dtPrescriptionTable = new AnimalMedical.prescriptionDataTable();
             AnimalMedicalTableAdapters.prescriptionTableAdapter prescriptionTableAdapter = new AnimalMedicalTableAdapters.prescriptionTableAdapter();
@@ -178,12 +202,12 @@ namespace DataAccessLayer
             newPrescription.animal_id = animalId; //Note: this is the DATABASE animal ID, not the shelter A# id
             newPrescription.medication_id = medicationId;
             newPrescription.animal_specific_dose = animaldose;
-            newPrescription.animal_specific_method_id = method;  //TODO: the id needs to be put here instead of the name
+            newPrescription.animal_specific_method_id = method;  
             newPrescription.start_date = startdate;
             newPrescription.end_date = enddate;
             newPrescription.assigned_staff = staff;
             newPrescription.notes = notes;
-            //TODO: Frequency
+            newPrescription.frequency_id = frequencyid;
 
             newPrescription.prescription_id = default; //Database auto generates this number
 
