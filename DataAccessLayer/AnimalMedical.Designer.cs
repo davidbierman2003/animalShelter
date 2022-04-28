@@ -1612,6 +1612,7 @@ namespace DataAccessLayer {
                 this.columnanimal_id.AutoIncrementStep = -1;
                 this.columnanimal_id.AllowDBNull = false;
                 this.columnanimal_id.Unique = true;
+                this.columndb_bridge_id.DefaultValue = ((string)("A"));
                 this.columndb_bridge_id.MaxLength = 20;
                 this.columnanimal_name.MaxLength = 100;
                 this.columnbirth_date.DefaultValue = ((System.DateTime)(animalDataTable.columnbirth_date_defaultValue));
@@ -6730,11 +6731,11 @@ namespace DataAccessLayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string db_bridge_id {
                 get {
-                    try {
-                        return ((string)(this[this.tableanimal.db_bridge_idColumn]));
+                    if (this.Isdb_bridge_idNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'db_bridge_id\' in table \'animal\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableanimal.db_bridge_idColumn]));
                     }
                 }
                 set {

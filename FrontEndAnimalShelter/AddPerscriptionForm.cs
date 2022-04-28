@@ -60,13 +60,9 @@ namespace FrontEndAnimalShelter
             {
                 Utility.SaveFrequency((int)numDays.Value, (int)numTimesPerDay.Value, txtFrequencyDesc.Text);
                 dtFrequency = Utility.GetFrequency();
-                frequencyidResult = dtFrequency.Where(x => (x.num_days == (int)numDays.Value) && (x.num_days == (int)numTimesPerDay.Value) && (x.desc_value == txtFrequencyDesc.Text)).ToList();
+                AnimalMedical.frequencyRow lastrow = dtFrequency.Last();
+                frequencyid = lastrow.frequency_id;
             }
-            if (frequencyidResult.Count > 0)
-            {
-                frequencyid = frequencyidResult[0].frequency_id;
-            }
-          
             foreach (int id in animaIds)
             {
                 //Check if animal has been added to the database

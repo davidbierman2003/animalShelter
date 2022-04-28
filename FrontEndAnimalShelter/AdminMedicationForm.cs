@@ -33,21 +33,47 @@ namespace FrontEndAnimalShelter
         //}
         public void MoreInitializing()
         {
-            FormatTable();
-
             dgPerscriptions.DataBindingComplete += DgPerscriptions_DataBindingComplete;
             txtAnimalId.Leave += TxtAnimalId_Leave;
         }
 
         private void TxtAnimalId_Leave(object sender, EventArgs e)
         {
-            
-        }
-
-        public void FormatTable()
-        {
+            CreateNewColomns();
             AnimalMedical.prescriptionDataTable dtPrescriptionTable = new AnimalMedical.prescriptionDataTable();
             dtPrescriptionTable = Utility.GetPrescriptions();
+
+            if (txtAnimalId.TextLength > 0)
+            {
+                AnimalMedical.animalDataTable dtAnimalTable = Utility.GetAnimals();
+                var checkId = dtAnimalTable.Where(x => x.db_bridge_id == txtAnimalId.Text).ToList();
+                if (checkId.Count > 0)
+                {
+                    AnimalMedical.prescriptionDataTable dtPrescriptions = Utility.GetPrescriptions();
+                    var animalsPerscriptions = dtPrescriptions.Where(x => x.animal_id == checkId[0].animal_id).ToList();
+                    dgPerscriptions.DataSource = animalsPerscriptions;
+                }
+            }
+            dgPerscriptions.DataSource = dtPrescriptionTable;
+
+            dgPerscriptions.Columns["animal_specific_dose"].HeaderText = "Animal Dose";
+            dgPerscriptions.Columns["assigned_staff"].HeaderText = "Assigned Staff";
+            dgPerscriptions.Columns["start_date"].HeaderText = "Start Date";
+            dgPerscriptions.Columns["end_date"].HeaderText = "End Date";
+            dgPerscriptions.Columns["notes"].HeaderText = "Notes";
+
+            dgPerscriptions.Columns["prescription_id"].Visible = false;
+            dgPerscriptions.Columns["animal_id"].Visible = false;
+            dgPerscriptions.Columns["medication_id"].Visible = false;
+            dgPerscriptions.Columns["frequency_id"].Visible = false;
+            dgPerscriptions.Columns["animal_specific_method_id"].Visible = false;
+
+            dgPerscriptions.RowHeadersVisible = false;
+            dgPerscriptions.ReadOnly = true;
+        }
+
+        public void CreateNewColomns()
+        {
 
             DataGridViewColumn animalidColumn = new DataGridViewColumn();
             animalidColumn.HeaderText = "Animal ID";
@@ -73,22 +99,6 @@ namespace FrontEndAnimalShelter
             methodColumn.CellTemplate = new DataGridViewTextBoxCell();
             dgPerscriptions.Columns.Add(methodColumn);
 
-            dgPerscriptions.DataSource = dtPrescriptionTable;
-
-            dgPerscriptions.Columns["animal_specific_dose"].HeaderText = "Animal Dose";
-            dgPerscriptions.Columns["assigned_staff"].HeaderText = "Assigned Staff";
-            dgPerscriptions.Columns["start_date"].HeaderText = "Start Date";
-            dgPerscriptions.Columns["end_date"].HeaderText = "End Date";
-            dgPerscriptions.Columns["notes"].HeaderText = "Notes";
-
-            dgPerscriptions.Columns["prescription_id"].Visible = false;
-            dgPerscriptions.Columns["animal_id"].Visible = false;
-            dgPerscriptions.Columns["medication_id"].Visible = false;
-            dgPerscriptions.Columns["frequency_id"].Visible = false;
-            dgPerscriptions.Columns["animal_specific_method_id"].Visible = false;
-
-            dgPerscriptions.RowHeadersVisible = false;
-            dgPerscriptions.ReadOnly = true;
 
         }
         private void DgPerscriptions_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -175,7 +185,7 @@ namespace FrontEndAnimalShelter
                 if (validId.Count > 0) //animal does exist in the database
                 {
                     validIds += id + " ";
-                    //Utility.SaveMedicationAdministration(id,int.Parse(txtEmployeeId.Text),medID, dateGiven.Value);
+                   // Utility.SaveMedicationAdministration(id,int.Parse(txtEmployeeId.Text),medID, dateGiven.Value);
                 }
                 else  //animal id is not valid (not in database)
                 {
@@ -196,6 +206,11 @@ namespace FrontEndAnimalShelter
                 txtAnimalId.Text = invalidIds;
                 txtAnimalId.Focus();
             }
+        }
+
+        private void dgPerscriptions_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

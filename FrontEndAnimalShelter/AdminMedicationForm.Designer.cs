@@ -75,6 +75,7 @@
             this.dgPerscriptions.RowTemplate.Height = 40;
             this.dgPerscriptions.Size = new System.Drawing.Size(2455, 410);
             this.dgPerscriptions.TabIndex = 3;
+            this.dgPerscriptions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPerscriptions_CellContentClick);
             // 
             // lblEmployeeID
             // 
