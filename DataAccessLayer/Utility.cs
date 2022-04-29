@@ -85,7 +85,17 @@ namespace DataAccessLayer
             AnimalMedical.animalDataTable dtAnimalTable = new AnimalMedical.animalDataTable();  //creating in memory table dtAnimalTable
             AnimalMedicalTableAdapters.animalTableAdapter animalAdater = new AnimalMedicalTableAdapters.animalTableAdapter(); //component used to fill the dtAnimalTable with the database Animal table data
             animalAdater.Fill(dtAnimalTable); //fill dtAnimalTable with the data stored in the databases Animal table 
-           
+
+            foreach (AnimalMedical.animalRow row in dtAnimalTable)
+            {
+                if (string.IsNullOrEmpty(row.birth_date))
+                    row.birth_date = "0001-1-1";
+                if (string.IsNullOrEmpty(row.intake_date))
+                    row.intake_date = "0001-1-1";
+                if (string.IsNullOrEmpty(row.due_out_date))
+                    row.due_out_date = "0001-1-1";
+            }
+
             return dtAnimalTable; //return entire Animal table
         }
 
@@ -205,8 +215,9 @@ namespace DataAccessLayer
 
 
         }
-        public static void SaveAnimal(string animalId,string name, string sex, DateTime birthdate, string microchipId, 
-            DateTime dueOutDate, DateTime intakeDate, string notes, Decimal weight, int kennel, int speciesId, bool altered)
+        public static void SaveAnimal(string animalId,string name, string sex, string birthdate, string microchipId, 
+            string dueOutDate, string intakeDate, string notes, Decimal weight, int kennel, int species, bool altered,
+            int color, int breed, bool adopted, bool active)
         {
             //AnimalTable and the New Row technique to have new row inserted to the database.
 
@@ -217,24 +228,55 @@ namespace DataAccessLayer
             AnimalMedical.animalRow newAnimalRow = dtAnimalTable.NewanimalRow();
 
             newAnimalRow.db_bridge_id = animalId;
+            newAnimalRow.kennel_id = kennel;
             newAnimalRow.animal_name = name;
             newAnimalRow.sex = sex;
+            newAnimalRow.species = species;
             newAnimalRow.birth_date = birthdate;
             newAnimalRow.micro_chip = microchipId;
             newAnimalRow.due_out_date = dueOutDate;
             newAnimalRow.intake_date = intakeDate;
-            //newAnimalRow.notes = Notes;
             newAnimalRow.weight = (double)weight;
-            newAnimalRow.kennel_id = kennel;
-            //newAnimalRow.species_id = SpeciesId;
             newAnimalRow.altered = altered;
+            newAnimalRow.adopted = adopted;
+            newAnimalRow.Active = active;
 
-            //Setting the database ID number -- it is auto-increment but it needs to be set here, MySQL dosen't do it
             newAnimalRow.animal_id = default;
 
             dtAnimalTable.AddanimalRow(newAnimalRow);
 
             animalAdapter.Update(dtAnimalTable);
+
+        }
+        public static void SaveBreed(int animalId, int breed)
+        {
+            AnimalMedical.animal_breedDataTable dtBreedTable = new AnimalMedical.animal_breedDataTable(); // creating in memory table dtAnimalTable
+            AnimalMedicalTableAdapters.animal_breedTableAdapter breedAdapter = new AnimalMedicalTableAdapters.animal_breedTableAdapter();
+            breedAdapter.Fill(dtBreedTable);
+
+            AnimalMedical.animal_breedRow newBreedRow = dtBreedTable.Newanimal_breedRow();
+
+            newBreedRow.animal_id = animalId;
+            newBreedRow.Breed_id = breed;
+            
+            dtBreedTable.Addanimal_breedRow(newBreedRow);
+
+            breedAdapter.Update(dtBreedTable);
+        }
+        public static void SaveColor(int animalId, int color)
+        {
+            AnimalMedical.animal_colorDataTable dtColorTable = new AnimalMedical.animal_colorDataTable(); // creating in memory table dtAnimalTable
+            AnimalMedicalTableAdapters.animal_colorTableAdapter colorAdapter = new AnimalMedicalTableAdapters.animal_colorTableAdapter();
+            colorAdapter.Fill(dtColorTable);
+
+            AnimalMedical.animal_colorRow newColorRow = dtColorTable.Newanimal_colorRow();
+
+            newColorRow.animal_ID = animalId;
+            newColorRow.color_id = color;
+
+            dtColorTable.Addanimal_colorRow(newColorRow);
+
+            colorAdapter.Update(dtColorTable);
         }
         public static void SaveEmployee(int empId, string firstname, string lastname)
         {

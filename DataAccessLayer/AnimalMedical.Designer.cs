@@ -1318,12 +1318,6 @@ namespace DataAccessLayer {
             
             private global::System.Data.DataColumn columnActive;
             
-            private static System.DateTime columnbirth_date_defaultValue = global::System.DateTime.Parse("2000-01-01T00:00:00");
-            
-            private static System.DateTime columndue_out_date_defaultValue = global::System.DateTime.Parse("2000-01-01T00:00:00");
-            
-            private static System.DateTime columnintake_date_defaultValue = global::System.DateTime.Parse("2000-01-01T00:00:00");
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public animalDataTable() {
@@ -1506,7 +1500,7 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public animalRow AddanimalRow(string db_bridge_id, kennelRow parentkennelRowByanimal_ibfk_2, string animal_name, speciesRow parentspeciesRowByanimal_ibfk_1, System.DateTime birth_date, string sex, bool altered, string micro_chip, System.DateTime due_out_date, System.DateTime intake_date, double weight, bool adopted, bool Active) {
+            public animalRow AddanimalRow(string db_bridge_id, kennelRow parentkennelRowByanimal_ibfk_2, string animal_name, speciesRow parentspeciesRowByanimal_ibfk_1, string birth_date, string sex, bool altered, string micro_chip, string due_out_date, string intake_date, double weight, bool adopted, bool Active) {
                 animalRow rowanimalRow = ((animalRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1587,7 +1581,7 @@ namespace DataAccessLayer {
                 base.Columns.Add(this.columnanimal_name);
                 this.columnspecies = new global::System.Data.DataColumn("species", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnspecies);
-                this.columnbirth_date = new global::System.Data.DataColumn("birth_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnbirth_date = new global::System.Data.DataColumn("birth_date", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnbirth_date);
                 this.columnsex = new global::System.Data.DataColumn("sex", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsex);
@@ -1595,9 +1589,9 @@ namespace DataAccessLayer {
                 base.Columns.Add(this.columnaltered);
                 this.columnmicro_chip = new global::System.Data.DataColumn("micro_chip", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmicro_chip);
-                this.columndue_out_date = new global::System.Data.DataColumn("due_out_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columndue_out_date = new global::System.Data.DataColumn("due_out_date", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndue_out_date);
-                this.columnintake_date = new global::System.Data.DataColumn("intake_date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnintake_date = new global::System.Data.DataColumn("intake_date", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnintake_date);
                 this.columnweight = new global::System.Data.DataColumn("weight", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnweight);
@@ -1615,12 +1609,12 @@ namespace DataAccessLayer {
                 this.columndb_bridge_id.DefaultValue = ((string)("A"));
                 this.columndb_bridge_id.MaxLength = 20;
                 this.columnanimal_name.MaxLength = 100;
-                this.columnbirth_date.DefaultValue = ((System.DateTime)(animalDataTable.columnbirth_date_defaultValue));
+                this.columnbirth_date.DefaultValue = ((string)("\"2000-1-1\""));
                 this.columnsex.MaxLength = 10;
                 this.columnmicro_chip.DefaultValue = ((string)("string.empty"));
                 this.columnmicro_chip.MaxLength = 20;
-                this.columndue_out_date.DefaultValue = ((System.DateTime)(animalDataTable.columndue_out_date_defaultValue));
-                this.columnintake_date.DefaultValue = ((System.DateTime)(animalDataTable.columnintake_date_defaultValue));
+                this.columndue_out_date.DefaultValue = ((string)("String.Empty"));
+                this.columnintake_date.DefaultValue = ((string)("String.Empty"));
                 this.columnweight.DefaultValue = ((double)(0D));
             }
             
@@ -6793,13 +6787,13 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime birth_date {
+            public string birth_date {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableanimal.birth_dateColumn]));
+                    if (this.Isbirth_dateNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'birth_date\' in table \'animal\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableanimal.birth_dateColumn]));
                     }
                 }
                 set {
@@ -6857,13 +6851,13 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime due_out_date {
+            public string due_out_date {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableanimal.due_out_dateColumn]));
+                    if (this.Isdue_out_dateNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'due_out_date\' in table \'animal\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableanimal.due_out_dateColumn]));
                     }
                 }
                 set {
@@ -6873,13 +6867,13 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime intake_date {
+            public string intake_date {
                 get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableanimal.intake_dateColumn]));
+                    if (this.Isintake_dateNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'intake_date\' in table \'animal\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableanimal.intake_dateColumn]));
                     }
                 }
                 set {

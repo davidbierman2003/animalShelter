@@ -151,7 +151,6 @@ namespace FrontEndAnimalShelter
 
             AnimalMedical.breedDataTable dtBreedTable = Utility.GetBreed();
             List<AnimalMedical.breedRow> selectedBreeds = dtBreedTable.ToList();
-            
             //Filtering out the animals we need based on animal ID
             if (txtAnimlId.TextLength > 0)
             {
@@ -183,7 +182,7 @@ namespace FrontEndAnimalShelter
            
             //Microchip LINQ
             if (txtMicrochipId.TextLength > 0)
-                selectedAnimals = selectedAnimals.Where(x => x.micro_chip.Equals(txtMicrochipId.Text)).ToList();
+                selectedAnimals = selectedAnimals.Where(x => x.micro_chip == txtMicrochipId.Text).ToList();
             
             //Weight LINQ
             if (txtWeight.TextLength >0)
@@ -201,27 +200,27 @@ namespace FrontEndAnimalShelter
             
             //BirthdateLINQ
             if (cmbBirthdate.Text.Equals(">"))
-                selectedAnimals = selectedAnimals.Where(x => x.birth_date.Ticks > dtpBirthdate.Value.Ticks).ToList();
+                selectedAnimals = selectedAnimals.Where(x =>DateTime.Parse(x.birth_date).Ticks > dtpBirthdate.Value.Ticks).ToList();
             else if (cmbBirthdate.Text.Equals("<"))
-                selectedAnimals = selectedAnimals.Where(x => x.birth_date.Ticks < dtpBirthdate.Value.Ticks).ToList();
+                selectedAnimals = selectedAnimals.Where(x => DateTime.Parse(x.birth_date).Ticks < dtpBirthdate.Value.Ticks).ToList();
             else if (cmbBirthdate.Text.Equals("="))
-                selectedAnimals = selectedAnimals.Where(x => x.birth_date.Ticks == dtpBirthdate.Value.Ticks).ToList();
+                selectedAnimals = selectedAnimals.Where(x => DateTime.Parse(x.birth_date).Ticks == dtpBirthdate.Value.Ticks).ToList();
 
             //Intake date LINQ
             if (cmbIntake.Text.Equals(">"))
-                selectedAnimals = selectedAnimals.Where(x => x.intake_date.Ticks > dtpIntakeDate.Value.Ticks).ToList();
+                selectedAnimals = selectedAnimals.Where(x => DateTime.Parse(x.intake_date).Ticks > dtpIntakeDate.Value.Ticks).ToList();
             else if (cmbIntake.Text.Equals("<"))
-                selectedAnimals = selectedAnimals.Where(x => x.intake_date.Ticks < dtpIntakeDate.Value.Ticks).ToList();
+                selectedAnimals = selectedAnimals.Where(x => DateTime.Parse(x.intake_date).Ticks < dtpIntakeDate.Value.Ticks).ToList();
             else if (cmbIntake.Text.Equals("="))
-                selectedAnimals = selectedAnimals.Where(x => x.intake_date.Ticks == dtpIntakeDate.Value.Ticks).ToList();
+                selectedAnimals = selectedAnimals.Where(x => DateTime.Parse(x.intake_date).Ticks == dtpIntakeDate.Value.Ticks).ToList();
 
             //Due Out Date LINQ
             if (cmbDueOut.Text.Equals(">"))
-                selectedAnimals = selectedAnimals.Where(x => x.due_out_date.Ticks > dtpDueOutDate.Value.Ticks).ToList();
+                selectedAnimals = selectedAnimals.Where(x => DateTime.Parse(x.due_out_date).Ticks > dtpDueOutDate.Value.Ticks).ToList();
             else if (cmbDueOut.Text.Equals("<"))
-                selectedAnimals = selectedAnimals.Where(x => x.due_out_date.Ticks < dtpDueOutDate.Value.Ticks).ToList();
+                selectedAnimals = selectedAnimals.Where(x => DateTime.Parse(x.due_out_date).Ticks < dtpDueOutDate.Value.Ticks).ToList();
             else if (cmbDueOut.Text.Equals("="))
-                selectedAnimals = selectedAnimals.Where(x => x.due_out_date.Ticks == dtpDueOutDate.Value.Ticks).ToList();
+                selectedAnimals = selectedAnimals.Where(x => DateTime.Parse(x.due_out_date).Ticks == dtpDueOutDate.Value.Ticks).ToList();
 
 
             dgAnimalTable.DataSource = selectedAnimals;  //TODO: this needs to be tested once microship_id is removed from database
