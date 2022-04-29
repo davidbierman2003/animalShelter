@@ -35,8 +35,8 @@ namespace FrontEndAnimalShelter
         {
             dgPerscriptions.DataBindingComplete += DgPerscriptions_DataBindingComplete;
             txtAnimalId.Leave += TxtAnimalId_Leave;
+            dgPerscriptions.CellClick += DgPerscriptions_CellClick;
         }
-
         private void TxtAnimalId_Leave(object sender, EventArgs e)
         {
             CreateNewColomns();
@@ -88,10 +88,16 @@ namespace FrontEndAnimalShelter
             dgPerscriptions.Columns.Add(medicationColumn);
 
             DataGridViewColumn frequencyColumn = new DataGridViewColumn();
-            frequencyColumn.HeaderText = "Frequency";
+            frequencyColumn.HeaderText = "Times Daily";
             frequencyColumn.Name = "frequency";
             frequencyColumn.CellTemplate = new DataGridViewTextBoxCell();
             dgPerscriptions.Columns.Add(frequencyColumn);
+            
+            DataGridViewColumn frequencyNotesColumn = new DataGridViewColumn();
+            frequencyNotesColumn.HeaderText = "Frequency Notes";
+            frequencyNotesColumn.Name = "frequency_notes";
+            frequencyNotesColumn.CellTemplate = new DataGridViewTextBoxCell();
+            dgPerscriptions.Columns.Add(frequencyNotesColumn);
 
             DataGridViewColumn methodColumn = new DataGridViewColumn();
             methodColumn.HeaderText = "Method";
@@ -136,7 +142,7 @@ namespace FrontEndAnimalShelter
                 }
             }
             //Fill Frequency colomn
-            if (dgPerscriptions.Columns.Contains("frequency"))
+            if (dgPerscriptions.Columns.Contains("frequency") && dgPerscriptions.Columns.Contains("frequency_notes"))
             {
                 AnimalMedical.frequencyDataTable dgFrequencyTable = Utility.GetFrequency();
 
@@ -144,9 +150,12 @@ namespace FrontEndAnimalShelter
                 {
                     if (row.Cells["frequency_id"].Value != null)
                     {
-                        var frequencyResults = dgFrequencyTable.Where(x => x.frequency_id == (int)row.Cells["frequency_id"].Value).Select(y => y.num_times).ToList();
+                        var frequencyResults = dgFrequencyTable.Where(x => x.frequency_id == (int)row.Cells["frequency_id"].Value).ToList();//.Select(y => y.num_times).ToList();
                         if (frequencyResults.Count > 0)
-                            row.Cells["frequency"].Value = frequencyResults.First();
+                        {
+                            row.Cells["frequency"].Value = frequencyResults[0].frequency_id;
+                            row.Cells["frequency_notes"].Value = frequencyResults[0].desc_value;
+                        }
                     }
                 }
             }
@@ -185,7 +194,8 @@ namespace FrontEndAnimalShelter
                 if (validId.Count > 0) //animal does exist in the database
                 {
                     validIds += id + " ";
-                   // Utility.SaveMedicationAdministration(id,int.Parse(txtEmployeeId.Text),medID, dateGiven.Value);
+
+                   Utility.SaveMedicationAdministrationLog(id,int.Parse(txtEmployeeId.Text),(int)medicationRow.Cells["medication_id"].Value, dateGiven.Value);
                 }
                 else  //animal id is not valid (not in database)
                 {
@@ -207,10 +217,11 @@ namespace FrontEndAnimalShelter
                 txtAnimalId.Focus();
             }
         }
-
-        private void dgPerscriptions_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DgPerscriptions_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            //Cell click selects the entire row
+            DataGridView dg = (DataGridView)sender;
+            medicationRow = dg.SelectedRows[0];  //only one row can be selected
         }
     }
 }

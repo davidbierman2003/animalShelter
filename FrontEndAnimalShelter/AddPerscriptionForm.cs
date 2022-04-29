@@ -55,7 +55,7 @@ namespace FrontEndAnimalShelter
            
             int frequencyid = 0;
             AnimalMedical.frequencyDataTable dtFrequency = Utility.GetFrequency();
-            var frequencyidResult = dtFrequency.Where(x => (x.num_days == (int)numDays.Value) && (x.num_days == (int)numTimesPerDay.Value) && (x.desc_value == txtFrequencyDesc.Text)).ToList();
+            var frequencyidResult = dtFrequency.Where(x => (x.num_days == (int)numDays.Value) && (x.num_days == (int)numTimesPerDay.Value) && (x.desc_value == txtFrequencyDesc.Text)).Select(y=> y.frequency_id).ToList();
             if(frequencyidResult.Count == 0)
             {
                 Utility.SaveFrequency((int)numDays.Value, (int)numTimesPerDay.Value, txtFrequencyDesc.Text);
@@ -63,6 +63,11 @@ namespace FrontEndAnimalShelter
                 AnimalMedical.frequencyRow lastrow = dtFrequency.Last();
                 frequencyid = lastrow.frequency_id;
             }
+            else
+            {
+                frequencyid = frequencyidResult.First();
+            }
+
             foreach (int id in animaIds)
             {
                 //Check if animal has been added to the database
@@ -70,7 +75,7 @@ namespace FrontEndAnimalShelter
                 if (validId.Count > 0) //animal does exist in the database
                 {
                     validIds += id + " ";
-                    Utility.SavePrescription(validId[0].animal_id, int.Parse(medicationRow.Cells["medication_id"].Value.ToString()), txtDose.Text, 0, dateStart.Value, dateEnd.Value, txtStaff.Text, frequencyid, txtNotes.Text);
+                    Utility.SavePrescription(validId[0].animal_id , int.Parse(medicationRow.Cells["medication_id"].Value.ToString()), txtDose.Text, (int)cmbAdminMethod.SelectedValue, dateStart.Value, dateEnd.Value, txtStaff.Text, frequencyid, txtNotes.Text);
                 }
                 else  //animal id is not valid (not in database)
                 {
@@ -126,7 +131,7 @@ namespace FrontEndAnimalShelter
         {
             //Cell click selects the entire row
             DataGridView dg = (DataGridView)sender;
-            medicationRow = dg.Rows[0];  //only one row can be selected
+            medicationRow = dg.SelectedRows[0];  //only one row can be selected
         }
     }
 }

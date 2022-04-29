@@ -165,7 +165,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblAnimalId);
             this.Name = "AddVaccineForm";
-            this.Text = "AddVaccineForm";
+            this.Text = "Vaccination Administration";
             ((System.ComponentModel.ISupportInitialize)(this.dgVaccineTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorEmpId)).EndInit();
             this.ResumeLayout(false);

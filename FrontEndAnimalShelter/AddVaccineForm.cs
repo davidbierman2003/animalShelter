@@ -13,7 +13,7 @@ namespace FrontEndAnimalShelter
 {
     public partial class AddVaccineForm : Form
     {
-        List<string> animaIds = new List<string>();
+        List<int> animaIds = new List<int>();
         DataGridViewRow vaccineRow;
         int employeeId = 0;
         public AddVaccineForm()
@@ -28,7 +28,7 @@ namespace FrontEndAnimalShelter
             foreach (DataGridViewRow animal in selectedAnimals)
             {
                 txtAnimalId.Text += animal.Cells["db_bridge_id"].Value.ToString() + " ";
-                animaIds.Add(animal.Cells["db_bridge_id"].Value.ToString());
+                animaIds.Add((int)animal.Cells["animal_id"].Value);
             }
         }
         public void MoreInitializing()
@@ -94,16 +94,18 @@ namespace FrontEndAnimalShelter
         {
             string validIds = "";
             string invalidIds = "";
-            if (animaIds.Count == 0)  //mutliple animals were not selected from the grid
-            {
-                animaIds.Add(txtAnimalId.Text); //collect the ID entered on the screen
-            }
             AnimalMedical.animalDataTable aniamlDB = Utility.GetAnimals();
 
-            foreach (string id in animaIds)
+            if (animaIds.Count == 0)  //mutliple animals were not selected from the grid
+            {
+                var animalIdResults = aniamlDB.Where(x => x.db_bridge_id == txtAnimalId.Text).Select(y => y.animal_id).ToList();
+                animaIds.Add(animalIdResults[0]); //collect the database animal id
+            }
+
+            foreach (int id in animaIds)
             {
                 //Check if animal has been added to the database
-                var validId = aniamlDB.Where(x => x.db_bridge_id == id).ToList();  //does animal exist in database
+                var validId = aniamlDB.Where(x => x.animal_id == id).ToList();  //does animal exist in database
                 if (validId.Count > 0) //animal does exist in the database
                 {
                     validIds += id + " ";

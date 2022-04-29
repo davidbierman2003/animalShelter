@@ -43,7 +43,7 @@
             // lblAnimalId
             // 
             this.lblAnimalId.AutoSize = true;
-            this.lblAnimalId.Location = new System.Drawing.Point(33, 36);
+            this.lblAnimalId.Location = new System.Drawing.Point(327, 36);
             this.lblAnimalId.Name = "lblAnimalId";
             this.lblAnimalId.Size = new System.Drawing.Size(137, 32);
             this.lblAnimalId.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             // txtAnimalId
             // 
-            this.txtAnimalId.Location = new System.Drawing.Point(206, 29);
+            this.txtAnimalId.Location = new System.Drawing.Point(500, 29);
             this.txtAnimalId.Name = "txtAnimalId";
             this.txtAnimalId.Size = new System.Drawing.Size(533, 38);
             this.txtAnimalId.TabIndex = 1;
@@ -73,14 +73,18 @@
             this.dgPerscriptions.Name = "dgPerscriptions";
             this.dgPerscriptions.RowHeadersWidth = 102;
             this.dgPerscriptions.RowTemplate.Height = 40;
-            this.dgPerscriptions.Size = new System.Drawing.Size(2455, 410);
+            this.dgPerscriptions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgPerscriptions.ShowCellErrors = false;
+            this.dgPerscriptions.ShowCellToolTips = false;
+            this.dgPerscriptions.ShowEditingIcon = false;
+            this.dgPerscriptions.ShowRowErrors = false;
+            this.dgPerscriptions.Size = new System.Drawing.Size(2682, 410);
             this.dgPerscriptions.TabIndex = 3;
-            this.dgPerscriptions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPerscriptions_CellContentClick);
             // 
             // lblEmployeeID
             // 
             this.lblEmployeeID.AutoSize = true;
-            this.lblEmployeeID.Location = new System.Drawing.Point(965, 32);
+            this.lblEmployeeID.Location = new System.Drawing.Point(1259, 32);
             this.lblEmployeeID.Name = "lblEmployeeID";
             this.lblEmployeeID.Size = new System.Drawing.Size(402, 32);
             this.lblEmployeeID.TabIndex = 4;
@@ -88,7 +92,7 @@
             // 
             // txtEmployeeId
             // 
-            this.txtEmployeeId.Location = new System.Drawing.Point(1373, 26);
+            this.txtEmployeeId.Location = new System.Drawing.Point(1667, 26);
             this.txtEmployeeId.Name = "txtEmployeeId";
             this.txtEmployeeId.Size = new System.Drawing.Size(227, 38);
             this.txtEmployeeId.TabIndex = 5;
@@ -96,7 +100,7 @@
             // lblGiven
             // 
             this.lblGiven.AutoSize = true;
-            this.lblGiven.Location = new System.Drawing.Point(1801, 35);
+            this.lblGiven.Location = new System.Drawing.Point(2095, 35);
             this.lblGiven.Name = "lblGiven";
             this.lblGiven.Size = new System.Drawing.Size(157, 32);
             this.lblGiven.TabIndex = 6;
@@ -105,14 +109,14 @@
             // dateGiven
             // 
             this.dateGiven.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateGiven.Location = new System.Drawing.Point(1972, 29);
+            this.dateGiven.Location = new System.Drawing.Point(2266, 29);
             this.dateGiven.Name = "dateGiven";
             this.dateGiven.Size = new System.Drawing.Size(200, 38);
             this.dateGiven.TabIndex = 7;
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(1199, 646);
+            this.btnSubmit.Location = new System.Drawing.Point(1284, 646);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(224, 75);
             this.btnSubmit.TabIndex = 8;
@@ -125,7 +129,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(2617, 865);
+            this.ClientSize = new System.Drawing.Size(2792, 865);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.dateGiven);
             this.Controls.Add(this.lblGiven);
@@ -137,7 +141,7 @@
             this.Controls.Add(this.lblAnimalId);
             this.Name = "AdminMedicationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AdminMedicationForm";
+            this.Text = "Medication Administration";
             ((System.ComponentModel.ISupportInitialize)(this.dgPerscriptions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
