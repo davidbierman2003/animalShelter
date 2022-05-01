@@ -31,10 +31,10 @@
             this.headerDate = new System.Windows.Forms.Label();
             this.lblVaccine = new System.Windows.Forms.Label();
             this.dgVaccineToDo = new System.Windows.Forms.DataGridView();
-            this.dgMedications = new System.Windows.Forms.DataGridView();
+            this.dgPrescriptions = new System.Windows.Forms.DataGridView();
             this.lblMedication = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgVaccineToDo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgMedications)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPrescriptions)).BeginInit();
             this.SuspendLayout();
             // 
             // headerDate
@@ -71,14 +71,14 @@
             // 
             // dgMedications
             // 
-            this.dgMedications.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgMedications.Location = new System.Drawing.Point(48, 442);
-            this.dgMedications.Margin = new System.Windows.Forms.Padding(2);
-            this.dgMedications.Name = "dgMedications";
-            this.dgMedications.RowHeadersWidth = 102;
-            this.dgMedications.RowTemplate.Height = 40;
-            this.dgMedications.Size = new System.Drawing.Size(878, 229);
-            this.dgMedications.TabIndex = 4;
+            this.dgPrescriptions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgPrescriptions.Location = new System.Drawing.Point(48, 442);
+            this.dgPrescriptions.Margin = new System.Windows.Forms.Padding(2);
+            this.dgPrescriptions.Name = "dgMedications";
+            this.dgPrescriptions.RowHeadersWidth = 102;
+            this.dgPrescriptions.RowTemplate.Height = 40;
+            this.dgPrescriptions.Size = new System.Drawing.Size(878, 229);
+            this.dgPrescriptions.TabIndex = 4;
             // 
             // lblMedication
             // 
@@ -95,7 +95,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1082, 848);
-            this.Controls.Add(this.dgMedications);
+            this.Controls.Add(this.dgPrescriptions);
             this.Controls.Add(this.lblMedication);
             this.Controls.Add(this.dgVaccineToDo);
             this.Controls.Add(this.lblVaccine);
@@ -106,7 +106,7 @@
             this.Text = "ToDoForm";
             this.Load += new System.EventHandler(this.ToDoForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgVaccineToDo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgMedications)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPrescriptions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,7 +117,7 @@
         private System.Windows.Forms.Label headerDate;
         private System.Windows.Forms.Label lblVaccine;
         private System.Windows.Forms.DataGridView dgVaccineToDo;
-        private System.Windows.Forms.DataGridView dgMedications;
+        private System.Windows.Forms.DataGridView dgPrescriptions;
         private System.Windows.Forms.Label lblMedication;
     }
 }
