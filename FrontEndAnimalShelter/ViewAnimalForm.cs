@@ -159,8 +159,15 @@ namespace FrontEndAnimalShelter
             string kennelName = string.Empty;
             foreach (DataGridViewRow row in dgAnimalTable.Rows)
             {
-                kennel_id = (int)row.Cells["kennel_id"].Value;
-                kennelName = dtKennel.FindBykennel_id(kennel_id).kennel_description;
+                if (!string.IsNullOrEmpty(row.Cells["kennel_id"].Value.ToString()))
+                {
+                    kennel_id = (int)row.Cells["kennel_id"].Value;
+                    kennelName = dtKennel.FindBykennel_id(kennel_id).kennel_description;
+                }
+                else
+                {
+                    kennel_id = 0;
+                }
                 row.Cells["kennel_name"].Value = kennelName;
             }
 
