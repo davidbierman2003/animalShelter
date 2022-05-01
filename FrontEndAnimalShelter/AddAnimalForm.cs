@@ -88,6 +88,7 @@ namespace FrontEndAnimalShelter
                  (int)cmbColor.SelectedValue, (int)cmbBreed.SelectedValue,ckbAdopted.Checked,ckbActive.Checked);
             Utility.SaveBreed(dtAnimalTable.Last().animal_id, (int)cmbBreed.SelectedValue);
             Utility.SaveColor(dtAnimalTable.Last().animal_id, (int)cmbColor.SelectedValue);
+           // Utility.SaveNotes();TODO
 
             MessageBox.Show($"Animial {txtBxAnimalID.Text} has been saved.");
 

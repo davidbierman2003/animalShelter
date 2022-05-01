@@ -46,16 +46,22 @@
             this.btnSubmit = new System.Windows.Forms.Button();
             this.cmbAdminMethod = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblNumOfDay = new System.Windows.Forms.Label();
-            this.lblTimesPerDay = new System.Windows.Forms.Label();
+            this.numTimesPerDay = new System.Windows.Forms.NumericUpDown();
+            this.numDays = new System.Windows.Forms.NumericUpDown();
             this.txtFrequencyDesc = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.numDays = new System.Windows.Forms.NumericUpDown();
-            this.numTimesPerDay = new System.Windows.Forms.NumericUpDown();
+            this.lblTimesPerDay = new System.Windows.Forms.Label();
+            this.lblNumOfDay = new System.Windows.Forms.Label();
+            this.gbAdministration = new System.Windows.Forms.GroupBox();
+            this.lblAdminEmp = new System.Windows.Forms.Label();
+            this.txtAdminStaff = new System.Windows.Forms.TextBox();
+            this.lblDateGiven = new System.Windows.Forms.Label();
+            this.dateGiven = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgMedicationTable)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numDays)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTimesPerDay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDays)).BeginInit();
+            this.gbAdministration.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblAnimalid
@@ -246,23 +252,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Frequency";
             // 
-            // lblNumOfDay
+            // numTimesPerDay
             // 
-            this.lblNumOfDay.AutoSize = true;
-            this.lblNumOfDay.Location = new System.Drawing.Point(23, 69);
-            this.lblNumOfDay.Name = "lblNumOfDay";
-            this.lblNumOfDay.Size = new System.Drawing.Size(217, 32);
-            this.lblNumOfDay.TabIndex = 0;
-            this.lblNumOfDay.Text = "Number of Days";
+            this.numTimesPerDay.Location = new System.Drawing.Point(267, 130);
+            this.numTimesPerDay.Name = "numTimesPerDay";
+            this.numTimesPerDay.Size = new System.Drawing.Size(120, 38);
+            this.numTimesPerDay.TabIndex = 20;
             // 
-            // lblTimesPerDay
+            // numDays
             // 
-            this.lblTimesPerDay.AutoSize = true;
-            this.lblTimesPerDay.Location = new System.Drawing.Point(23, 136);
-            this.lblTimesPerDay.Name = "lblTimesPerDay";
-            this.lblTimesPerDay.Size = new System.Drawing.Size(197, 32);
-            this.lblTimesPerDay.TabIndex = 2;
-            this.lblTimesPerDay.Text = "Times per Day";
+            this.numDays.Location = new System.Drawing.Point(267, 63);
+            this.numDays.Maximum = new decimal(new int[] {
+            365,
+            0,
+            0,
+            0});
+            this.numDays.Name = "numDays";
+            this.numDays.Size = new System.Drawing.Size(120, 38);
+            this.numDays.TabIndex = 19;
             // 
             // txtFrequencyDesc
             // 
@@ -281,19 +288,69 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Description";
             // 
-            // numDays
+            // lblTimesPerDay
             // 
-            this.numDays.Location = new System.Drawing.Point(267, 63);
-            this.numDays.Name = "numDays";
-            this.numDays.Size = new System.Drawing.Size(120, 38);
-            this.numDays.TabIndex = 19;
+            this.lblTimesPerDay.AutoSize = true;
+            this.lblTimesPerDay.Location = new System.Drawing.Point(23, 136);
+            this.lblTimesPerDay.Name = "lblTimesPerDay";
+            this.lblTimesPerDay.Size = new System.Drawing.Size(197, 32);
+            this.lblTimesPerDay.TabIndex = 2;
+            this.lblTimesPerDay.Text = "Times per Day";
             // 
-            // numTimesPerDay
+            // lblNumOfDay
             // 
-            this.numTimesPerDay.Location = new System.Drawing.Point(267, 130);
-            this.numTimesPerDay.Name = "numTimesPerDay";
-            this.numTimesPerDay.Size = new System.Drawing.Size(120, 38);
-            this.numTimesPerDay.TabIndex = 20;
+            this.lblNumOfDay.AutoSize = true;
+            this.lblNumOfDay.Location = new System.Drawing.Point(23, 69);
+            this.lblNumOfDay.Name = "lblNumOfDay";
+            this.lblNumOfDay.Size = new System.Drawing.Size(217, 32);
+            this.lblNumOfDay.TabIndex = 0;
+            this.lblNumOfDay.Text = "Number of Days";
+            // 
+            // gbAdministration
+            // 
+            this.gbAdministration.Controls.Add(this.dateGiven);
+            this.gbAdministration.Controls.Add(this.lblDateGiven);
+            this.gbAdministration.Controls.Add(this.txtAdminStaff);
+            this.gbAdministration.Controls.Add(this.lblAdminEmp);
+            this.gbAdministration.Location = new System.Drawing.Point(754, 750);
+            this.gbAdministration.Name = "gbAdministration";
+            this.gbAdministration.Size = new System.Drawing.Size(447, 214);
+            this.gbAdministration.TabIndex = 19;
+            this.gbAdministration.TabStop = false;
+            this.gbAdministration.Text = "Administration";
+            // 
+            // lblAdminEmp
+            // 
+            this.lblAdminEmp.AutoSize = true;
+            this.lblAdminEmp.Location = new System.Drawing.Point(6, 67);
+            this.lblAdminEmp.Name = "lblAdminEmp";
+            this.lblAdminEmp.Size = new System.Drawing.Size(196, 32);
+            this.lblAdminEmp.TabIndex = 0;
+            this.lblAdminEmp.Text = "Admin Staff ID";
+            // 
+            // txtAdminStaff
+            // 
+            this.txtAdminStaff.Location = new System.Drawing.Point(209, 60);
+            this.txtAdminStaff.Name = "txtAdminStaff";
+            this.txtAdminStaff.Size = new System.Drawing.Size(195, 38);
+            this.txtAdminStaff.TabIndex = 1;
+            // 
+            // lblDateGiven
+            // 
+            this.lblDateGiven.AutoSize = true;
+            this.lblDateGiven.Location = new System.Drawing.Point(6, 130);
+            this.lblDateGiven.Name = "lblDateGiven";
+            this.lblDateGiven.Size = new System.Drawing.Size(163, 32);
+            this.lblDateGiven.TabIndex = 2;
+            this.lblDateGiven.Text = "Admin Date";
+            // 
+            // dateGiven
+            // 
+            this.dateGiven.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateGiven.Location = new System.Drawing.Point(209, 123);
+            this.dateGiven.Name = "dateGiven";
+            this.dateGiven.Size = new System.Drawing.Size(200, 38);
+            this.dateGiven.TabIndex = 3;
             // 
             // AddPerscriptionForm
             // 
@@ -301,6 +358,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1821, 1391);
+            this.Controls.Add(this.gbAdministration);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cmbAdminMethod);
             this.Controls.Add(this.btnSubmit);
@@ -322,12 +380,14 @@
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "AddPerscriptionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Create Perscription";
+            this.Text = "Create Prescription";
             ((System.ComponentModel.ISupportInitialize)(this.dgMedicationTable)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numDays)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTimesPerDay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDays)).EndInit();
+            this.gbAdministration.ResumeLayout(false);
+            this.gbAdministration.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,5 +419,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown numTimesPerDay;
         private System.Windows.Forms.NumericUpDown numDays;
+        private System.Windows.Forms.GroupBox gbAdministration;
+        private System.Windows.Forms.DateTimePicker dateGiven;
+        private System.Windows.Forms.Label lblDateGiven;
+        private System.Windows.Forms.TextBox txtAdminStaff;
+        private System.Windows.Forms.Label lblAdminEmp;
     }
 }

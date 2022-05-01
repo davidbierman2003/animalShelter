@@ -27,7 +27,7 @@ namespace FrontEndAnimalShelter
             foreach (DataGridViewRow animal in selectedAnimals)
             {
                 txtAnimalid.Text += animal.Cells["db_bridge_id"].Value.ToString() + " ";
-                animaIds.Add((int)animal.Cells["animail_id"].Value);
+                animaIds.Add((int)animal.Cells["animal_id"].Value);
             }
         }
         private void FormatTable()
@@ -76,6 +76,11 @@ namespace FrontEndAnimalShelter
                 {
                     validIds += id + " ";
                     Utility.SavePrescription(validId[0].animal_id , int.Parse(medicationRow.Cells["medication_id"].Value.ToString()), txtDose.Text, (int)cmbAdminMethod.SelectedValue, dateStart.Value, dateEnd.Value, txtStaff.Text, frequencyid, txtNotes.Text);
+                    if (txtAdminStaff.Text.Length > 0)
+                    {
+                        //TODO validate employee number
+                        Utility.SaveMedicationAdministrationLog(validId[0].animal_id, int.Parse(txtAdminStaff.Text), int.Parse(medicationRow.Cells["medication_id"].Value.ToString()), dateGiven.Value);
+                    }
                 }
                 else  //animal id is not valid (not in database)
                 {

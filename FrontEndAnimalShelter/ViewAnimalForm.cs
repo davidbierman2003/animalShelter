@@ -17,13 +17,27 @@ namespace FrontEndAnimalShelter
         public ViewAnimalForm()
         {
             InitializeComponent();
-
+            
             dtpBirthdate.MaxDate = DateTime.Today;
             dtpBirthdate.Value = DateTime.Today;  //setting default birthdate value to today
             dtpIntakeDate.MaxDate = DateTime.Today;
             dtpIntakeDate.Value = DateTime.Today; //setting default intake date to today
 
-            #region Data Binding
+            //dgAnimalTable.AutoGenerateColumns = false;
+
+            ComponentDataBind();
+
+            DatabaseTableFormatting();
+
+            #region Events
+            cmbSpecies.SelectionChangeCommitted += CmbSpecies_SelectionChangeCommitted;
+            dgAnimalTable.GotFocus += DgAnimalTable_GotFocus;
+            dgAnimalTable.DataBindingComplete += DgAnimalTable_DataBindingComplete;
+            #endregion
+        }
+
+        private void ComponentDataBind()
+        {
             AnimalMedical.animalDataTable dtAnimalTable = Utility.GetAnimals();
             dgAnimalTable.DataSource = dtAnimalTable;
 
@@ -46,24 +60,19 @@ namespace FrontEndAnimalShelter
             lbxColor.DisplayMember = dtColors.color_nameColumn.ColumnName;
             lbxColor.SelectedItem = null;
 
+            AnimalMedical.kennelDataTable dtKennel = Utility.GetKennel();
+            cmbKennel.DataSource = dtKennel;
+            cmbKennel.ValueMember = dtKennel.kennel_idColumn.ColumnName;
+            cmbKennel.DisplayMember = dtKennel.kennel_descriptionColumn.ColumnName;
+            cmbKennel.SelectedItem = null;
             //THIS TABLE IS NOT IN THIS DATABASE
             //AnimalMedical.sexDataTable dtSex = Utility.GetSexID();
             //cmbSex.DataSource = dtSex;
             //cmbSex.ValueMember = dtSex.sex_idColumn.ColumnName;
             //cmbSex.DisplayMember = dtSex.sex_nameColumn.ColumnName;
             //cmbSex.SelectedItem = null;
-            #endregion
-            DatabaseTableFormatting();
 
-            #region Events
-            cmbSpecies.SelectionChangeCommitted += CmbSpecies_SelectionChangeCommitted;
-            dgAnimalTable.GotFocus += DgAnimalTable_GotFocus;
-            #endregion
         }
-
-
-
-
         /// <summary>
         /// Formatting the column headers and filling the list and combo boxes with data from the grid
         /// </summary>
@@ -81,11 +90,29 @@ namespace FrontEndAnimalShelter
             dgAnimalTable.Columns["due_out_date"].HeaderText = "Due Out";
             dgAnimalTable.Columns["intake_date"].HeaderText = "Intake";
             dgAnimalTable.Columns["weight"].HeaderText = "Weight";
-            dgAnimalTable.Columns["kennel_id"].HeaderText = "Kennal";
-            dgAnimalTable.Columns["species"].HeaderText = "Species ID";
             dgAnimalTable.Columns["altered"].HeaderText = "Altered";
             dgAnimalTable.Columns["adopted"].HeaderText = "Adopted";
             dgAnimalTable.Columns["animal_id"].Visible = false;
+            dgAnimalTable.Columns["kennel_id"].Visible=false;
+            dgAnimalTable.Columns["species"].Visible=false;
+
+            DataGridViewColumn kennelNameColumn = new DataGridViewColumn();
+            kennelNameColumn.HeaderText = "Kennel";
+            kennelNameColumn.Name = "kennel_name";
+            kennelNameColumn.CellTemplate = new DataGridViewTextBoxCell();
+            dgAnimalTable.Columns.Add(kennelNameColumn);
+            
+            DataGridViewColumn speciesNameColumn = new DataGridViewColumn();
+            speciesNameColumn.HeaderText = "Species";
+            speciesNameColumn.Name = "species_name";
+            speciesNameColumn.CellTemplate = new DataGridViewTextBoxCell();
+            dgAnimalTable.Columns.Add(speciesNameColumn);
+
+            DataGridViewColumn breedNameColumn = new DataGridViewColumn();
+            breedNameColumn.HeaderText = "Breed";
+            breedNameColumn.Name = "breed_name";
+            breedNameColumn.CellTemplate = new DataGridViewTextBoxCell();
+            dgAnimalTable.Columns.Add(breedNameColumn);
 
             //Add Treatment Button
             DataGridViewButtonColumn treatmentColumn = new DataGridViewButtonColumn();
@@ -95,21 +122,23 @@ namespace FrontEndAnimalShelter
             treatmentColumn.Name = "treatmentButton";
             dgAnimalTable.Columns.Add(treatmentColumn);
 
-            //Edit Button
-            DataGridViewButtonColumn editColumn = new DataGridViewButtonColumn();
-            editColumn.HeaderText = "Edit";
-            editColumn.Text = "Edit";
-            editColumn.UseColumnTextForButtonValue = true;
-            editColumn.Name = "editButton";
-            dgAnimalTable.Columns.Add(editColumn);
 
-            //Delete Button
-            DataGridViewButtonColumn deleteColumn = new DataGridViewButtonColumn();
-            deleteColumn.HeaderText = "Delete from DB";
-            deleteColumn.Text = "Delete";
-            deleteColumn.UseColumnTextForButtonValue = true;
-            deleteColumn.Name = "deleteButton";
-            dgAnimalTable.Columns.Add(deleteColumn);
+
+            ////Edit Button
+            //DataGridViewButtonColumn editColumn = new DataGridViewButtonColumn();
+            //editColumn.HeaderText = "Edit";
+            //editColumn.Text = "Edit";
+            //editColumn.UseColumnTextForButtonValue = true;
+            //editColumn.Name = "editButton";
+            //dgAnimalTable.Columns.Add(editColumn);
+
+            ////Delete Button
+            //DataGridViewButtonColumn deleteColumn = new DataGridViewButtonColumn();
+            //deleteColumn.HeaderText = "Delete from DB";
+            //deleteColumn.Text = "Delete";
+            //deleteColumn.UseColumnTextForButtonValue = true;
+            //deleteColumn.Name = "deleteButton";
+            //dgAnimalTable.Columns.Add(deleteColumn);
 
         }
         #region Events
@@ -123,6 +152,60 @@ namespace FrontEndAnimalShelter
             DataGridView dg = (DataGridView)sender;
             selectedRows = dg.SelectedRows;  //collect the selected rows
         }
+        private void DgAnimalTable_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            AnimalMedical.kennelDataTable dtKennel = Utility.GetKennel();
+            int kennel_id;
+            string kennelName = string.Empty;
+            foreach (DataGridViewRow row in dgAnimalTable.Rows)
+            {
+                kennel_id = (int)row.Cells["kennel_id"].Value;
+                kennelName = dtKennel.FindBykennel_id(kennel_id).kennel_description;
+                row.Cells["kennel_name"].Value = kennelName;
+            }
+
+            AnimalMedical.speciesDataTable dtSpeciesTable = Utility.GetSpecies();
+            int species_id;
+            string speciesName = string.Empty;
+            foreach (DataGridViewRow row in dgAnimalTable.Rows)
+            {
+                species_id = (int)row.Cells["species"].Value;
+                speciesName = dtSpeciesTable.FindByspecies_id(species_id).species_name;
+                row.Cells["species_name"].Value = speciesName;
+            }
+
+            AnimalMedical.animal_breedDataTable dtAnimalBreedTable = Utility.GetAnimalBreed();
+            AnimalMedical.breedDataTable dtBreedTable = Utility.GetBreed();
+            int animal_id;
+            string breedName = string.Empty;
+            foreach (DataGridViewRow row in dgAnimalTable.Rows)
+            {
+                animal_id = (int)row.Cells["animal_id"].Value;
+                var breedId = dtAnimalBreedTable.Where(x => x.animal_id == animal_id).Select(y => y.Breed_id).ToList();
+                if (breedId.Count > 0)
+                    breedName = dtBreedTable.FindBybreed_id(breedId[0]).breed_name;
+
+                row.Cells["breed_name"].Value = breedName;
+            }
+
+            dgAnimalTable.Columns["db_bridge_id"].DisplayIndex = 0;
+            dgAnimalTable.Columns["animal_name"].DisplayIndex = 1;
+            dgAnimalTable.Columns["species_name"].DisplayIndex = 2;
+            dgAnimalTable.Columns["breed_name"].DisplayIndex = 3;
+            dgAnimalTable.Columns["birth_date"].DisplayIndex = 4;
+            dgAnimalTable.Columns["sex"].DisplayIndex = 5;
+            dgAnimalTable.Columns["altered"].DisplayIndex = 6;
+            dgAnimalTable.Columns["micro_chip"].DisplayIndex = 7;
+            dgAnimalTable.Columns["weight"].DisplayIndex = 8;
+            dgAnimalTable.Columns["kennel_name"].DisplayIndex = 9;
+            dgAnimalTable.Columns["intake_date"].DisplayIndex = 10;
+            dgAnimalTable.Columns["due_out_date"].DisplayIndex = 11;
+            dgAnimalTable.Columns["adopted"].DisplayIndex = 12;
+            dgAnimalTable.Columns["active"].DisplayIndex = 13;
+            dgAnimalTable.Columns["treatmentButton"].DisplayIndex = 14;
+            //dgAnimalTable.Columns["editButton"].DisplayIndex = 15;
+            //dgAnimalTable.Columns["deleteButton"].DisplayIndex = 16;
+        }
 
         /// <summary>
         /// Generates the breeds in the combobox that are related to the selected species
@@ -130,7 +213,7 @@ namespace FrontEndAnimalShelter
         private void CmbSpecies_SelectionChangeCommitted(object sender, EventArgs e)
         {
             AnimalMedical.breedDataTable dtBreed = Utility.GetBreed();
-           
+           //Display the breeds associated with the selected species
             if (cmbSpecies.SelectedItem != null)
             {
                 var breedList = dtBreed.Where(x => x.species_id.ToString().Equals(cmbSpecies.SelectedValue.ToString())).ToList();
@@ -176,10 +259,9 @@ namespace FrontEndAnimalShelter
 
             //Sex LINQ
             if (cmbSex.SelectedItem != null)
-                selectedAnimals = selectedAnimals.Where(x => x.sex.ToString().Equals(cmbSex.SelectedValue.ToString())).ToList();
+                selectedAnimals = selectedAnimals.Where(x => x.sex.ToString().Equals(cmbSex.SelectedItem.ToString())).ToList();
 
-            //TODO: Breed/Color searches
-           
+
             //Microchip LINQ
             if (txtMicrochipId.TextLength > 0)
                 selectedAnimals = selectedAnimals.Where(x => x.micro_chip == txtMicrochipId.Text).ToList();
@@ -194,10 +276,10 @@ namespace FrontEndAnimalShelter
                 else if (cmbWeight.Text.Equals("="))
                     selectedAnimals = selectedAnimals.Where(x => x.weight == double.Parse(txtWeight.Text)).ToList();
             }
-            //TODO Kennel LINQ
-            //if (txtKennel.TextLength > 0)
-            //    selectedAnimals = selectedAnimals.Where(x => x.kennel_id .Equals(txtKennel.Text)).ToList();  //TODO: this needs to be rewritten to use the kennel id instead of the name
-            
+            //Kennel LINQ
+            if (cmbKennel.SelectedIndex > 0)
+                selectedAnimals = selectedAnimals.Where(x => x.kennel_id.ToString() == cmbKennel.SelectedValue.ToString()).ToList();
+
             //BirthdateLINQ
             if (cmbBirthdate.Text.Equals(">"))
                 selectedAnimals = selectedAnimals.Where(x =>DateTime.Parse(x.birth_date).Ticks > dtpBirthdate.Value.Ticks).ToList();
@@ -222,7 +304,8 @@ namespace FrontEndAnimalShelter
             else if (cmbDueOut.Text.Equals("="))
                 selectedAnimals = selectedAnimals.Where(x => DateTime.Parse(x.due_out_date).Ticks == dtpDueOutDate.Value.Ticks).ToList();
 
-
+            //TODO: Breed/Color searches
+            
             dgAnimalTable.DataSource = selectedAnimals;  //TODO: this needs to be tested once microship_id is removed from database
 
             //Format and add the buttons
@@ -238,36 +321,45 @@ namespace FrontEndAnimalShelter
         {
             int  animalId= -1;
             DataGridView dg = (DataGridView)sender;
-            DataGridViewSelectedRowCollection selectedrows = dg.SelectedRows;
 
             //********************* Edit and Delete Buttons ********************************************************
-            if (dg.SelectedCells.Count == 1)  //only one cell has been selected (do not want to edit/delete mutliple rows at same time)
+            if (dg.SelectedCells.Count == 1)  
             {
 
                 if (dg.SelectedCells[0] is DataGridViewButtonCell)
                 {
                     DataGridViewButtonCell selectedCell = (DataGridViewButtonCell)dg.SelectedCells[0];
-                    if (selectedCell.Value.Equals("Delete"))
-                    {
-                        DialogResult deleteCheck = MessageBox.Show("You have selected to delete department " + animalId + ". Countinue with delete?", "Delete Department", MessageBoxButtons.YesNo);
-                        if (deleteCheck == DialogResult.Yes)
-                        {
-                            Utility.DeleteAnimal(selectedCell.RowIndex);
-                            //RefreshGridData();
-                        }
-                    }
-                    else if (selectedCell.Value.Equals("Save Edit"))
-                    {
-                        //Utility.EditDepartment(currentDeptID, rowToBeOperatedUpon.Cells["DeptName"].Value.ToString(), rowToBeOperatedUpon.Cells["Location"].Value.ToString(),
-                            //rowToBeOperatedUpon.Cells["Address"].Value.ToString(), rowToBeOperatedUpon.Cells["ContactPersonName"].Value.ToString(), rowToBeOperatedUpon.Cells["ContactPersonPhoneNumber"].Value.ToString());
+                    int rowIndex = dg.SelectedCells[0].RowIndex;
+                    animalId = (int)dg.Rows[rowIndex].Cells["animal_id"].Value;
 
-                        //RefreshGridData();
-                        //MessageBox.Show("Edits to deparment " + currentDeptID + " have been saved to the database");
+                    if (selectedCell.Value.Equals("Treatments"))
+                    {
+                        Form viewTreatmentHistory = new TreatmentHistoryForm(dg.Rows[rowIndex]);
+                        viewTreatmentHistory.Visible = true;
                     }
+                    //else if (selectedCell.Value.Equals("Delete"))
+                    //{
+                        //DialogResult deleteCheck = MessageBox.Show($"You have selected to delete animal {dg.Rows[rowIndex].Cells["db_bridge_id"].Value.ToString()} {dg.Rows[rowIndex].Cells["animal_name"].Value.ToString()}. Countinue with delete?", "Delete Department", MessageBoxButtons.YesNo);
+                        //if (deleteCheck == DialogResult.Yes)
+                        //{
+                            //Utility.DeleteAnimal(rowIndex);
+                            //RefreshGridData();
+                        //}
+                    //}
+                    //else if (selectedCell.Value.Equals("Edit"))//(bool)dg.Rows[rowIndex].Cells["altered"].Value(bool)dg.Rows[rowIndex].Cells["adopted"].Value(bool)dg.Rows[rowIndex].Cells["active"].Value)
+                    //{
+                        //Utility.EditAnimal((int)dg.Rows[rowIndex].Cells["animal_id"].Value, "TestingEdit", "Male", "2000-1-1", "13246798", "2020-1-1", "2022-1-1", 8m, 128, 2);
+                        //Utility.EditAnimal((int)dg.Rows[rowIndex].Cells["animal_id"].Value, dg.Rows[rowIndex].Cells["animal_name"].Value.ToString(), dg.Rows[rowIndex].Cells["sex"].Value.ToString(), dg.Rows[rowIndex].Cells["birth_date"].Value.ToString(), dg.Rows[rowIndex].Cells["micro_chip"].Value.ToString(),
+                                //dg.Rows[rowIndex].Cells["due_out_date"].Value.ToString(), dg.Rows[rowIndex].Cells["intake_date"].Value.ToString(), (decimal)dg.Rows[rowIndex].Cells["weight"].Value, (int)dg.Rows[rowIndex].Cells["kennel_id"].Value, (int)dg.Rows[rowIndex].Cells["species"].Value);//, true,
+                                //false,true) ;
+                        //Utility.SaveBreed(dtAnimalTable.Last().animal_id, (int)cmbBreed.SelectedValue);
+                        //Utility.SaveColor(dtAnimalTable.Last().animal_id, (int)cmbColor.SelectedValue);
+                        //RefreshGridData();
+                        //MessageBox.Show("Edits to animal " + animalID + " have been saved to the database");
+                    //}
                 }
             }
         }
-        #endregion
         /// <summary>
         /// Allows user to assign a perscription to an animal and add it to the database
         /// </summary>
@@ -294,8 +386,8 @@ namespace FrontEndAnimalShelter
             }
             else
             {
-                Form perscriptionForm = new AddVaccineForm();  //user will input the animal ID
-                perscriptionForm.Visible = true;
+                Form vaccineForm = new AddVaccineForm();  //user will input the animal ID
+                vaccineForm.Visible = true;
             }
         }
 
@@ -303,14 +395,15 @@ namespace FrontEndAnimalShelter
         {
             if (selectedRows != null)
             {
-                //Form vaccineForm = new AdminMedicationForm(selectedRows);  //animal has been selected from the grid
-                //vaccineForm.Visible = true;
+                Form adminMedsForm = new AdminMedicationForm(selectedRows);  //animal has been selected from the grid
+                adminMedsForm.Visible = true;
             }
             else
             {
-                Form perscriptionForm = new AdminMedicationForm();  //user will input the animal ID
-                perscriptionForm.Visible = true;
+                Form adminMedsForm = new AdminMedicationForm();  //user will input the animal ID
+                adminMedsForm.Visible = true;
             }
         }
+        #endregion
     }
 }

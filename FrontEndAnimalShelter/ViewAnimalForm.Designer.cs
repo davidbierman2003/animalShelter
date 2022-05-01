@@ -48,7 +48,6 @@
             this.lblDueOut = new System.Windows.Forms.Label();
             this.dtpIntakeDate = new System.Windows.Forms.DateTimePicker();
             this.lblIntake = new System.Windows.Forms.Label();
-            this.txtKennel = new System.Windows.Forms.TextBox();
             this.lblKennel = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtMicrochipId = new System.Windows.Forms.TextBox();
@@ -61,9 +60,10 @@
             this.cmbSex = new System.Windows.Forms.ComboBox();
             this.lblSpecies = new System.Windows.Forms.Label();
             this.gpAddTreatment = new System.Windows.Forms.GroupBox();
+            this.btnAdminMeds = new System.Windows.Forms.Button();
             this.btnVaccine = new System.Windows.Forms.Button();
             this.btnPerscription = new System.Windows.Forms.Button();
-            this.btnAdminMeds = new System.Windows.Forms.Button();
+            this.cmbKennel = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgAnimalTable)).BeginInit();
             this.animalFilterBox.SuspendLayout();
             this.gpAddTreatment.SuspendLayout();
@@ -96,6 +96,7 @@
             // 
             // animalFilterBox
             // 
+            this.animalFilterBox.Controls.Add(this.cmbKennel);
             this.animalFilterBox.Controls.Add(this.additionalInfoLabel);
             this.animalFilterBox.Controls.Add(this.descriptionLabel);
             this.animalFilterBox.Controls.Add(this.personalInfoLabel);
@@ -113,7 +114,6 @@
             this.animalFilterBox.Controls.Add(this.lblDueOut);
             this.animalFilterBox.Controls.Add(this.dtpIntakeDate);
             this.animalFilterBox.Controls.Add(this.lblIntake);
-            this.animalFilterBox.Controls.Add(this.txtKennel);
             this.animalFilterBox.Controls.Add(this.lblKennel);
             this.animalFilterBox.Controls.Add(this.btnSearch);
             this.animalFilterBox.Controls.Add(this.txtMicrochipId);
@@ -318,14 +318,6 @@
             this.lblIntake.TabIndex = 14;
             this.lblIntake.Text = "Intake Date";
             // 
-            // txtKennel
-            // 
-            this.txtKennel.Location = new System.Drawing.Point(284, 279);
-            this.txtKennel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.txtKennel.Name = "txtKennel";
-            this.txtKennel.Size = new System.Drawing.Size(230, 38);
-            this.txtKennel.TabIndex = 13;
-            // 
             // lblKennel
             // 
             this.lblKennel.AutoSize = true;
@@ -458,6 +450,18 @@
             this.gpAddTreatment.TabStop = false;
             this.gpAddTreatment.Text = "Add Treatment";
             // 
+            // btnAdminMeds
+            // 
+            this.btnAdminMeds.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnAdminMeds.ForeColor = System.Drawing.Color.White;
+            this.btnAdminMeds.Location = new System.Drawing.Point(21, 235);
+            this.btnAdminMeds.Name = "btnAdminMeds";
+            this.btnAdminMeds.Size = new System.Drawing.Size(230, 100);
+            this.btnAdminMeds.TabIndex = 2;
+            this.btnAdminMeds.Text = "Existing Medication";
+            this.btnAdminMeds.UseVisualStyleBackColor = false;
+            this.btnAdminMeds.Click += new System.EventHandler(this.btnAdminMeds_Click);
+            // 
             // btnVaccine
             // 
             this.btnVaccine.BackColor = System.Drawing.Color.DarkSlateBlue;
@@ -482,17 +486,13 @@
             this.btnPerscription.UseVisualStyleBackColor = false;
             this.btnPerscription.Click += new System.EventHandler(this.btnPerscription_Click);
             // 
-            // btnAdminMeds
+            // cmbKennel
             // 
-            this.btnAdminMeds.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.btnAdminMeds.ForeColor = System.Drawing.Color.White;
-            this.btnAdminMeds.Location = new System.Drawing.Point(21, 235);
-            this.btnAdminMeds.Name = "btnAdminMeds";
-            this.btnAdminMeds.Size = new System.Drawing.Size(230, 100);
-            this.btnAdminMeds.TabIndex = 2;
-            this.btnAdminMeds.Text = "Existing Medication";
-            this.btnAdminMeds.UseVisualStyleBackColor = false;
-            this.btnAdminMeds.Click += new System.EventHandler(this.btnAdminMeds_Click);
+            this.cmbKennel.FormattingEnabled = true;
+            this.cmbKennel.Location = new System.Drawing.Point(281, 270);
+            this.cmbKennel.Name = "cmbKennel";
+            this.cmbKennel.Size = new System.Drawing.Size(232, 39);
+            this.cmbKennel.TabIndex = 35;
             // 
             // ViewAnimalForm
             // 
@@ -535,7 +535,6 @@
         private System.Windows.Forms.Label lblDueOut;
         private System.Windows.Forms.DateTimePicker dtpIntakeDate;
         private System.Windows.Forms.Label lblIntake;
-        private System.Windows.Forms.TextBox txtKennel;
         private System.Windows.Forms.Label lblKennel;
         private System.Windows.Forms.DateTimePicker dtpBirthdate;
         private System.Windows.Forms.Label lblBirthdate;
@@ -554,5 +553,6 @@
         private System.Windows.Forms.Button btnPerscription;
         private System.Windows.Forms.Button btnVaccine;
         private System.Windows.Forms.Button btnAdminMeds;
+        private System.Windows.Forms.ComboBox cmbKennel;
     }
 }

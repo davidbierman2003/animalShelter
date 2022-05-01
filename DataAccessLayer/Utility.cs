@@ -16,6 +16,22 @@ namespace DataAccessLayer
         /// </summary>
         ///
         #region Get Data from Database
+        public static AnimalMedical.animal_breedDataTable GetAnimalBreed()
+        {
+            AnimalMedical.animal_breedDataTable dtAnimalBreedTable = new AnimalMedical.animal_breedDataTable();
+            AnimalMedicalTableAdapters.animal_breedTableAdapter animalBreedAdapter = new AnimalMedicalTableAdapters.animal_breedTableAdapter();
+            animalBreedAdapter.Fill(dtAnimalBreedTable);
+
+            return dtAnimalBreedTable;
+        }
+        public static AnimalMedical.medication_administration_logDataTable GetMedicationAdministrationLog()
+        {
+            AnimalMedical.medication_administration_logDataTable dtAministeredMedications = new AnimalMedical.medication_administration_logDataTable();
+            AnimalMedicalTableAdapters.medication_administration_logTableAdapter adminMedAdapter = new AnimalMedicalTableAdapters.medication_administration_logTableAdapter();
+            adminMedAdapter.Fill(dtAministeredMedications);
+
+            return dtAministeredMedications;
+        }
         public static AnimalMedical.prescriptionDataTable GetPrescriptions()
         {
             AnimalMedical.prescriptionDataTable dtPrescriptionTable = new AnimalMedical.prescriptionDataTable(); // creating in memory table dtAnimalTable
@@ -370,6 +386,34 @@ namespace DataAccessLayer
             rowToEdit[0].lastname = lastname;
 
             empAdapter.Update(dtEmpTable);
+        }
+        public static void EditAnimal(int animalId, string name, string sex, string birthdate, string microchipId,
+            string dueOutDate, string intakeDate, Decimal weight, int kennel, int species)//, bool altered,
+            //bool adopted, bool active)
+        {
+            //AnimalTable and the New Row technique to have new row inserted to the database.
+
+            AnimalMedical.animalDataTable dtAnimalTable = new AnimalMedical.animalDataTable(); // creating in memory table dtAnimalTable
+            AnimalMedicalTableAdapters.animalTableAdapter animalAdapter = new AnimalMedicalTableAdapters.animalTableAdapter();
+            animalAdapter.Fill(dtAnimalTable);
+
+            var rowToEdit = dtAnimalTable.Where(x => x.animal_id == animalId).ToList();
+
+            rowToEdit[0].db_bridge_id = "A" + animalId;
+            rowToEdit[0].kennel_id = kennel;
+            rowToEdit[0].animal_name = name;
+            rowToEdit[0].sex = sex;
+            rowToEdit[0].species = species;
+            rowToEdit[0].birth_date = birthdate;
+            rowToEdit[0].micro_chip = microchipId;
+            rowToEdit[0].due_out_date = dueOutDate;
+            rowToEdit[0].intake_date = intakeDate;
+            rowToEdit[0].weight = (double)weight;
+           // rowToEdit[0].altered = altered;
+            //rowToEdit[0].adopted = adopted;
+            //rowToEdit[0].Active = active;
+            System.Diagnostics.Debug.WriteLine(rowToEdit[0]);
+            animalAdapter.Update(dtAnimalTable);
         }
         #endregion
     }

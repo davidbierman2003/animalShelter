@@ -1610,7 +1610,9 @@ namespace DataAccessLayer {
                 this.columndb_bridge_id.MaxLength = 20;
                 this.columnanimal_name.MaxLength = 100;
                 this.columnbirth_date.DefaultValue = ((string)("\"2000-1-1\""));
+                this.columnsex.DefaultValue = ((string)("Unknown"));
                 this.columnsex.MaxLength = 10;
+                this.columnaltered.DefaultValue = ((bool)(false));
                 this.columnmicro_chip.DefaultValue = ((string)("string.empty"));
                 this.columnmicro_chip.MaxLength = 20;
                 this.columndue_out_date.DefaultValue = ((string)("String.Empty"));
@@ -6790,7 +6792,7 @@ namespace DataAccessLayer {
             public string birth_date {
                 get {
                     if (this.Isbirth_dateNull()) {
-                        return null;
+                        return string.Empty;
                     }
                     else {
                         return ((string)(this[this.tableanimal.birth_dateColumn]));
@@ -6805,11 +6807,11 @@ namespace DataAccessLayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string sex {
                 get {
-                    try {
-                        return ((string)(this[this.tableanimal.sexColumn]));
+                    if (this.IssexNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'sex\' in table \'animal\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableanimal.sexColumn]));
                     }
                 }
                 set {

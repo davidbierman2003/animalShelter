@@ -21,16 +21,18 @@ namespace FrontEndAnimalShelter
             InitializeComponent();
             MoreInitializing();
         }
-        //public AdminMedicationForm(DataGridViewSelectedRowCollection selectedAnimals)
-        //{
-        //    InitializeComponent();
-        //    MoreInitializing();
-        //    foreach (DataGridViewRow animal in selectedAnimals)
-        //    {
-        //        txtAnimalId.Text += animal.Cells["db_bridge_id"].Value.ToString() + " ";
-        //        animalIds.Add((int)animal.Cells["animal_id"].Value);
-        //    }
-        //}
+        public AdminMedicationForm(DataGridViewSelectedRowCollection selectedAnimals)
+        {
+            InitializeComponent();
+            MoreInitializing();
+            //foreach (DataGridViewRow animal in selectedAnimals)
+            //{
+            //    txtAnimalId.Text += animal.Cells["db_bridge_id"].Value.ToString() + " ";
+            //    animalIds.Add((int)animal.Cells["animal_id"].Value);
+            //}
+            txtAnimalId.Text = selectedAnimals[0].Cells["db_bridge_id"].Value.ToString();
+            animalIds.Add((int)selectedAnimals[0].Cells["animal_id"].Value);
+        }
         public void MoreInitializing()
         {
             dgPerscriptions.DataBindingComplete += DgPerscriptions_DataBindingComplete;
