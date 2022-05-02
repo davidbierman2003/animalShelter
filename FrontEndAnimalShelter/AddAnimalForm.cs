@@ -83,11 +83,26 @@ namespace FrontEndAnimalShelter
             //AnimalMedical.kennelDataTable kennelTable = Utility.GetKennel();
             //var findKennelName = kennelTable.Where(x => x.kennel_description == txtBxKennel.Text).Select(y => y.kennel_id).ToList();
             //if (findKennelName.Count > 0) {kennelid = findKennelName.First(); }
+            int kennelId = 0;
+            if (!string.IsNullOrEmpty(cmbKennel.SelectedValue.ToString()))
+            {
+                kennelId = (int)cmbKennel.SelectedValue;
+            }
+            int colorId = 0;
+            if (!string.IsNullOrEmpty(cmbColor.SelectedValue.ToString()))
+            {
+                colorId = (int)cmbColor.SelectedValue;
+            }
+            int breedId = 0;
+            if (!string.IsNullOrEmpty(cmbBreed.SelectedValue.ToString()))
+            {
+                breedId = (int)cmbBreed.SelectedValue;
+            }
             Utility.SaveAnimal(txtBxAnimalID.Text,txtBxName.Text, gender.ToString(), birthdate, txtBxMicrochipID.Text,
-                 dueOutDate,intakeDate, txtBxNotes.Text, weight,(int)cmbKennel.SelectedValue, speciesID,ckbAltered.Checked,
-                 (int)cmbColor.SelectedValue, (int)cmbBreed.SelectedValue,ckbAdopted.Checked,ckbActive.Checked);
-            Utility.SaveBreed(dtAnimalTable.Last().animal_id, (int)cmbBreed.SelectedValue);
-            Utility.SaveColor(dtAnimalTable.Last().animal_id, (int)cmbColor.SelectedValue);
+                 dueOutDate,intakeDate, txtBxNotes.Text, weight,kennelId, speciesID,ckbAltered.Checked,
+                 colorId,breedId,ckbAdopted.Checked,ckbActive.Checked);
+            Utility.SaveBreed(dtAnimalTable.Last().animal_id, breedId);
+            Utility.SaveColor(dtAnimalTable.Last().animal_id, colorId);
            // Utility.SaveNotes();TODO
 
             MessageBox.Show($"Animial {txtBxAnimalID.Text} has been saved.");

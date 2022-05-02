@@ -75,7 +75,12 @@ namespace FrontEndAnimalShelter
                 if (validId.Count > 0) //animal does exist in the database
                 {
                     validIds += id + " ";
-                    Utility.SavePrescription(validId[0].animal_id , int.Parse(medicationRow.Cells["medication_id"].Value.ToString()), txtDose.Text, (int)cmbAdminMethod.SelectedValue, dateStart.Value, dateEnd.Value, txtStaff.Text, frequencyid, txtNotes.Text);
+                    int adminMethodId = 0;
+                    if (!string.IsNullOrEmpty(cmbAdminMethod.SelectedValue.ToString())){
+                        adminMethodId = (int)cmbAdminMethod.SelectedValue;
+                    }
+
+                    Utility.SavePrescription(validId[0].animal_id , int.Parse(medicationRow.Cells["medication_id"].Value.ToString()), txtDose.Text, adminMethodId, dateStart.Value, dateEnd.Value, txtStaff.Text, frequencyid, txtNotes.Text);
                     if (txtAdminStaff.Text.Length > 0)
                     {
                         //TODO validate employee number

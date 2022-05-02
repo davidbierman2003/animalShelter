@@ -155,7 +155,7 @@ namespace FrontEndAnimalShelter
         private void DgAnimalTable_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             AnimalMedical.kennelDataTable dtKennel = Utility.GetKennel();
-            int kennel_id;
+            int kennel_id = 0;
             string kennelName = string.Empty;
             foreach (DataGridViewRow row in dgAnimalTable.Rows)
             {
@@ -164,34 +164,34 @@ namespace FrontEndAnimalShelter
                     kennel_id = (int)row.Cells["kennel_id"].Value;
                     kennelName = dtKennel.FindBykennel_id(kennel_id).kennel_description;
                 }
-                else
-                {
-                    kennel_id = 0;
-                }
                 row.Cells["kennel_name"].Value = kennelName;
             }
 
             AnimalMedical.speciesDataTable dtSpeciesTable = Utility.GetSpecies();
-            int species_id;
+            int species_id = 0;
             string speciesName = string.Empty;
             foreach (DataGridViewRow row in dgAnimalTable.Rows)
             {
-                species_id = (int)row.Cells["species"].Value;
-                speciesName = dtSpeciesTable.FindByspecies_id(species_id).species_name;
+                if (!string.IsNullOrEmpty(row.Cells["species"].Value.ToString())){
+                    species_id = (int)row.Cells["species"].Value;
+                    speciesName = dtSpeciesTable.FindByspecies_id(species_id).species_name;
+                }
                 row.Cells["species_name"].Value = speciesName;
             }
 
             AnimalMedical.animal_breedDataTable dtAnimalBreedTable = Utility.GetAnimalBreed();
             AnimalMedical.breedDataTable dtBreedTable = Utility.GetBreed();
-            int animal_id;
+            int animal_id=0;
             string breedName = string.Empty;
             foreach (DataGridViewRow row in dgAnimalTable.Rows)
             {
-                animal_id = (int)row.Cells["animal_id"].Value;
-                var breedId = dtAnimalBreedTable.Where(x => x.animal_id == animal_id).Select(y => y.Breed_id).ToList();
-                if (breedId.Count > 0)
-                    breedName = dtBreedTable.FindBybreed_id(breedId[0]).breed_name;
-
+                if (!string.IsNullOrEmpty(row.Cells["animal_id"].Value.ToString()))
+                {
+                    animal_id = (int)row.Cells["animal_id"].Value;
+                    var breedId = dtAnimalBreedTable.Where(x => x.animal_id == animal_id).Select(y => y.Breed_id).ToList();
+                    if (breedId.Count > 0)
+                        breedName = dtBreedTable.FindBybreed_id(breedId[0]).breed_name;
+                }
                 row.Cells["breed_name"].Value = breedName;
             }
 
