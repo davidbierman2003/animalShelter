@@ -69,7 +69,7 @@ namespace FrontEndAnimalShelter
             //if the user selects an animal id that has already been taken the program will end. 
             if(findAnimalId.Count > 0)
             {
-                MessageBox.Show("The anamial id " + txtBxAnimalID.Text + " has already been taken.\nChoose a different animal id!");
+                MessageBox.Show("The animal id " + txtBxAnimalID.Text + " has already been taken.\nChoose a different animal id!");
                 return;
             }
 
@@ -105,7 +105,7 @@ namespace FrontEndAnimalShelter
             Utility.SaveColor(dtAnimalTable.Last().animal_id, colorId);
            // Utility.SaveNotes();TODO
 
-            MessageBox.Show($"Animial {txtBxAnimalID.Text} has been saved.");
+            MessageBox.Show($"Animal {txtBxAnimalID.Text} has been saved.");
 
             Reset();
         }
