@@ -346,7 +346,8 @@ namespace FrontEndAnimalShelter
                     }
                     //else if (selectedCell.Value.Equals("Delete"))
                     //{
-                        //DialogResult deleteCheck = MessageBox.Show($"You have selected to delete animal {dg.Rows[rowIndex].Cells["db_bridge_id"].Value.ToString()} {dg.Rows[rowIndex].Cells["animal_name"].Value.ToString()}. Countinue with delete?", "Delete Department", MessageBoxButtons.YesNo);
+                        //DialogResult deleteCheck = MessageBox.Show($"You have selected to delete animal {dg.Rows[rowIndex].Cells["db_bridge_id"].Value.ToString()} {dg.Rows[rowIndex].Cells["animal_name"].Value.ToString()}. Countinue with delete?", "Delete Department", MessageBoxButtons.
+                        //No);
                         //if (deleteCheck == DialogResult.Yes)
                         //{
                             //Utility.DeleteAnimal(rowIndex);
